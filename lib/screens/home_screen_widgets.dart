@@ -767,11 +767,6 @@ class _HomeScreenWidgetPart1 extends State<HomeScreenWidgetPart1> {
     _disconnectToCore(resetUI: false);
   }
 
-  Future<void> _onStateHidden() async {
-    _stopStateCheckTimer();
-    _disconnectToCore(resetUI: false);
-  }
-
   Future<void> _onCurrentChanged(String id) async {
     if (id.isEmpty) {
       await VPNService.stop();
