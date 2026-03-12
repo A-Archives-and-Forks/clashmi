@@ -246,8 +246,8 @@
         "profileEditReloadAfterProfileUpdate": "프로필 업데이트 후 다시 로드",
         "profileImport": "프로필 파일 가져오기",
         "profileAddUrlOrContent": "프로필 링크 추가",
-        "profileUrlOrContent": "프로필 링크/내용",
-        "profileUrlOrContentHit": "프로필 링크/내용 [필수] (Clash, V2ray, Stash, Karing, Sing-box, Shadowsocks, Sub Profile 링크 지원)",
+        "profileUrlOrContent": "Clash 설정 링크",
+        "profileUrlOrContentHit": "Clash 설정 링크 [필수]",
         "profileUrlOrContentCannotEmpty": "프로필 링크는 비워둘 수 없습니다"
     },
     "permission": {

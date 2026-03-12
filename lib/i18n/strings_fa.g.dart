@@ -357,8 +357,8 @@ class _TranslationsMetaFa implements TranslationsMetaEn {
 	@override String get profileEditReloadAfterProfileUpdate => 'بارگذاری مجدد پس‌از به‌روزرسانی پروفایل';
 	@override String get profileImport => 'وارد‌کردن فایل پروفایل';
 	@override String get profileAddUrlOrContent => 'افزودن لینک پروفایل';
-	@override String get profileUrlOrContent => 'لینک/محتوای پروفایل';
-	@override String get profileUrlOrContentHit => 'لینک/محتوای پروفایل [الزامی] (پشتیبانی از کلش، V2ray(پشتیبانی به‌صورت دسته‌ای)، لینک‌های پروفایل فرعی)، استش، کارینگ، سینگ‌باکس، شدوساکس، لینک‌های پروفایل فرعی)';
+	@override String get profileUrlOrContent => 'پیوند پیکربندی Clash';
+	@override String get profileUrlOrContentHit => 'پیوند پیکربندی Clash [الزامی]';
 	@override String get profileUrlOrContentCannotEmpty => 'لینک پروفایل نمی‌تواند خالی باشد';
 }
 
@@ -706,8 +706,8 @@ extension on TranslationsFa {
 			'meta.profileEditReloadAfterProfileUpdate' => 'بارگذاری مجدد پس‌از به‌روزرسانی پروفایل',
 			'meta.profileImport' => 'وارد‌کردن فایل پروفایل',
 			'meta.profileAddUrlOrContent' => 'افزودن لینک پروفایل',
-			'meta.profileUrlOrContent' => 'لینک/محتوای پروفایل',
-			'meta.profileUrlOrContentHit' => 'لینک/محتوای پروفایل [الزامی] (پشتیبانی از کلش، V2ray(پشتیبانی به‌صورت دسته‌ای)، لینک‌های پروفایل فرعی)، استش، کارینگ، سینگ‌باکس، شدوساکس، لینک‌های پروفایل فرعی)',
+			'meta.profileUrlOrContent' => 'پیوند پیکربندی Clash',
+			'meta.profileUrlOrContentHit' => 'پیوند پیکربندی Clash [الزامی]',
 			'meta.profileUrlOrContentCannotEmpty' => 'لینک پروفایل نمی‌تواند خالی باشد',
 			'permission.camera' => 'دوربین',
 			'permission.screen' => 'ضبط صفحه',

@@ -246,8 +246,8 @@
         "profileEditReloadAfterProfileUpdate": "プロファイル更新後にリロード",
         "profileImport": "プロファイルファイルをインポート",
         "profileAddUrlOrContent": "プロファイルリンクを追加",
-        "profileUrlOrContent": "プロファイルリンク/内容",
-        "profileUrlOrContentHit": "プロファイルリンク/内容 [必須] (Clash, V2ray, Stash, Karing, Sing-box, Shadowsocks, Sub Profileリンクをサポート)",
+        "profileUrlOrContent": "Clash設定リンク",
+        "profileUrlOrContentHit": "Clash設定リンク [必須]",
         "profileUrlOrContentCannotEmpty": "プロファイルリンクを空にすることはできません"
     },
     "permission": {

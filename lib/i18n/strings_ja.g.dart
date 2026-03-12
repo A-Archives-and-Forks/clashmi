@@ -357,8 +357,8 @@ class _TranslationsMetaJa implements TranslationsMetaEn {
 	@override String get profileEditReloadAfterProfileUpdate => 'プロファイル更新後にリロード';
 	@override String get profileImport => 'プロファイルファイルをインポート';
 	@override String get profileAddUrlOrContent => 'プロファイルリンクを追加';
-	@override String get profileUrlOrContent => 'プロファイルリンク/内容';
-	@override String get profileUrlOrContentHit => 'プロファイルリンク/内容 [必須] (Clash, V2ray, Stash, Karing, Sing-box, Shadowsocks, Sub Profileリンクをサポート)';
+	@override String get profileUrlOrContent => 'Clash設定リンク';
+	@override String get profileUrlOrContentHit => 'Clash設定リンク [必須]';
 	@override String get profileUrlOrContentCannotEmpty => 'プロファイルリンクを空にすることはできません';
 }
 
@@ -706,8 +706,8 @@ extension on TranslationsJa {
 			'meta.profileEditReloadAfterProfileUpdate' => 'プロファイル更新後にリロード',
 			'meta.profileImport' => 'プロファイルファイルをインポート',
 			'meta.profileAddUrlOrContent' => 'プロファイルリンクを追加',
-			'meta.profileUrlOrContent' => 'プロファイルリンク/内容',
-			'meta.profileUrlOrContentHit' => 'プロファイルリンク/内容 [必須] (Clash, V2ray, Stash, Karing, Sing-box, Shadowsocks, Sub Profileリンクをサポート)',
+			'meta.profileUrlOrContent' => 'Clash設定リンク',
+			'meta.profileUrlOrContentHit' => 'Clash設定リンク [必須]',
 			'meta.profileUrlOrContentCannotEmpty' => 'プロファイルリンクを空にすることはできません',
 			'permission.camera' => 'カメラ',
 			'permission.screen' => '画面録画',

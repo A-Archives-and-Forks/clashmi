@@ -357,8 +357,8 @@ class _TranslationsMetaRu implements TranslationsMetaEn {
 	@override String get profileEditReloadAfterProfileUpdate => 'Перезагрузить после обновления профиля';
 	@override String get profileImport => 'Импорт файла конфигурации';
 	@override String get profileAddUrlOrContent => 'Добавление подписки';
-	@override String get profileUrlOrContent => 'Ссылка на подписку/содержание';
-	@override String get profileUrlOrContentHit => 'Ссылка на подписку/содержание [обязательно] (Поддерживаются Clash, V2ray(c пакетом поддержки), Stash, Karing, Sing-box, Shadowsocks, Sub; Ссылка на конфигурацию).';
+	@override String get profileUrlOrContent => 'Ссылка на конфигурацию Clash';
+	@override String get profileUrlOrContentHit => 'Ссылка на конфигурацию Clash [обязательно]';
 	@override String get profileUrlOrContentCannotEmpty => 'Ссылка на подписку не может быть пустой';
 }
 
@@ -706,8 +706,8 @@ extension on TranslationsRu {
 			'meta.profileEditReloadAfterProfileUpdate' => 'Перезагрузить после обновления профиля',
 			'meta.profileImport' => 'Импорт файла конфигурации',
 			'meta.profileAddUrlOrContent' => 'Добавление подписки',
-			'meta.profileUrlOrContent' => 'Ссылка на подписку/содержание',
-			'meta.profileUrlOrContentHit' => 'Ссылка на подписку/содержание [обязательно] (Поддерживаются Clash, V2ray(c пакетом поддержки), Stash, Karing, Sing-box, Shadowsocks, Sub; Ссылка на конфигурацию).',
+			'meta.profileUrlOrContent' => 'Ссылка на конфигурацию Clash',
+			'meta.profileUrlOrContentHit' => 'Ссылка на конфигурацию Clash [обязательно]',
 			'meta.profileUrlOrContentCannotEmpty' => 'Ссылка на подписку не может быть пустой',
 			'permission.camera' => 'Камера',
 			'permission.screen' => 'Запись экрана',

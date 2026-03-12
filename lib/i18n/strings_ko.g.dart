@@ -357,8 +357,8 @@ class _TranslationsMetaKo implements TranslationsMetaEn {
 	@override String get profileEditReloadAfterProfileUpdate => '프로필 업데이트 후 다시 로드';
 	@override String get profileImport => '프로필 파일 가져오기';
 	@override String get profileAddUrlOrContent => '프로필 링크 추가';
-	@override String get profileUrlOrContent => '프로필 링크/내용';
-	@override String get profileUrlOrContentHit => '프로필 링크/내용 [필수] (Clash, V2ray, Stash, Karing, Sing-box, Shadowsocks, Sub Profile 링크 지원)';
+	@override String get profileUrlOrContent => 'Clash 설정 링크';
+	@override String get profileUrlOrContentHit => 'Clash 설정 링크 [필수]';
 	@override String get profileUrlOrContentCannotEmpty => '프로필 링크는 비워둘 수 없습니다';
 }
 
@@ -706,8 +706,8 @@ extension on TranslationsKo {
 			'meta.profileEditReloadAfterProfileUpdate' => '프로필 업데이트 후 다시 로드',
 			'meta.profileImport' => '프로필 파일 가져오기',
 			'meta.profileAddUrlOrContent' => '프로필 링크 추가',
-			'meta.profileUrlOrContent' => '프로필 링크/내용',
-			'meta.profileUrlOrContentHit' => '프로필 링크/내용 [필수] (Clash, V2ray, Stash, Karing, Sing-box, Shadowsocks, Sub Profile 링크 지원)',
+			'meta.profileUrlOrContent' => 'Clash 설정 링크',
+			'meta.profileUrlOrContentHit' => 'Clash 설정 링크 [필수]',
 			'meta.profileUrlOrContentCannotEmpty' => '프로필 링크는 비워둘 수 없습니다',
 			'permission.camera' => '카메라',
 			'permission.screen' => '화면 녹화',

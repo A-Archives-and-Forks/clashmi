@@ -357,8 +357,8 @@ class _TranslationsMetaZhTw implements TranslationsMetaEn {
 	@override String get profileEditReloadAfterProfileUpdate => '設定更新後重新載入';
 	@override String get profileImport => '匯入設定檔';
 	@override String get profileAddUrlOrContent => '添加設定連結';
-	@override String get profileUrlOrContent => '設定連結/內容';
-	@override String get profileUrlOrContentHit => 'Clash設定連結/內容[必填]';
+	@override String get profileUrlOrContent => 'Clash設定連結';
+	@override String get profileUrlOrContentHit => 'Clash設定連結[必填]';
 	@override String get profileUrlOrContentCannotEmpty => '設定連結不能為空';
 }
 
@@ -706,8 +706,8 @@ extension on TranslationsZhTw {
 			'meta.profileEditReloadAfterProfileUpdate' => '設定更新後重新載入',
 			'meta.profileImport' => '匯入設定檔',
 			'meta.profileAddUrlOrContent' => '添加設定連結',
-			'meta.profileUrlOrContent' => '設定連結/內容',
-			'meta.profileUrlOrContentHit' => 'Clash設定連結/內容[必填]',
+			'meta.profileUrlOrContent' => 'Clash設定連結',
+			'meta.profileUrlOrContentHit' => 'Clash設定連結[必填]',
 			'meta.profileUrlOrContentCannotEmpty' => '設定連結不能為空',
 			'permission.camera' => '攝像頭',
 			'permission.screen' => '屏幕錄製',

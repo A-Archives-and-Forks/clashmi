@@ -357,8 +357,8 @@ class _TranslationsMetaAr implements TranslationsMetaEn {
 	@override String get profileEditReloadAfterProfileUpdate => 'إعادة التحميل بعد تحديث الملف الشخصي';
 	@override String get profileImport => 'استيراد ملف الملف الشخصي';
 	@override String get profileAddUrlOrContent => 'إضافة رابط ملف التعريف';
-	@override String get profileUrlOrContent => 'رابط/محتوى الملف الشخصي';
-	@override String get profileUrlOrContentHit => 'ارتباط ملف التعريف/المحتوى [مطلوب] (دعم الدعم ، V2Ray (مدعوم الدفعة) ، خبأ ، clashmi ، sing-box ، shadowsocks ، روابط الملف الشخصي الفرعي)';
+	@override String get profileUrlOrContent => 'رابط إعداد Clash';
+	@override String get profileUrlOrContentHit => 'رابط إعداد Clash [مطلوب]';
 	@override String get profileUrlOrContentCannotEmpty => 'لا يمكن أن يكون رابط الملف الشخصي فارغًا';
 }
 
@@ -706,8 +706,8 @@ extension on TranslationsAr {
 			'meta.profileEditReloadAfterProfileUpdate' => 'إعادة التحميل بعد تحديث الملف الشخصي',
 			'meta.profileImport' => 'استيراد ملف الملف الشخصي',
 			'meta.profileAddUrlOrContent' => 'إضافة رابط ملف التعريف',
-			'meta.profileUrlOrContent' => 'رابط/محتوى الملف الشخصي',
-			'meta.profileUrlOrContentHit' => 'ارتباط ملف التعريف/المحتوى [مطلوب] (دعم الدعم ، V2Ray (مدعوم الدفعة) ، خبأ ، clashmi ، sing-box ، shadowsocks ، روابط الملف الشخصي الفرعي)',
+			'meta.profileUrlOrContent' => 'رابط إعداد Clash',
+			'meta.profileUrlOrContentHit' => 'رابط إعداد Clash [مطلوب]',
 			'meta.profileUrlOrContentCannotEmpty' => 'لا يمكن أن يكون رابط الملف الشخصي فارغًا',
 			'permission.camera' => 'الكاميرا',
 			'permission.screen' => 'تسجيل الشاشة',

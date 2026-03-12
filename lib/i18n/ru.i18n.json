@@ -246,8 +246,8 @@
         "profileEditReloadAfterProfileUpdate": "Перезагрузить после обновления профиля",
         "profileImport": "Импорт файла конфигурации",
         "profileAddUrlOrContent": "Добавление подписки",
-        "profileUrlOrContent": "Ссылка на подписку/содержание",
-        "profileUrlOrContentHit": "Ссылка на подписку/содержание [обязательно] (Поддерживаются Clash, V2ray(c пакетом поддержки), Stash, Karing, Sing-box, Shadowsocks, Sub; Ссылка на конфигурацию).",
+        "profileUrlOrContent": "Ссылка на конфигурацию Clash",
+        "profileUrlOrContentHit": "Ссылка на конфигурацию Clash [обязательно]",
         "profileUrlOrContentCannotEmpty": "Ссылка на подписку не может быть пустой"
     },
     "permission": {

@@ -246,8 +246,8 @@
         "profileEditReloadAfterProfileUpdate": "بارگذاری مجدد پس‌از به‌روزرسانی پروفایل",
         "profileImport": "وارد‌کردن فایل پروفایل",
         "profileAddUrlOrContent": "افزودن لینک پروفایل",
-        "profileUrlOrContent": "لینک/محتوای پروفایل",
-        "profileUrlOrContentHit": "لینک/محتوای پروفایل [الزامی] (پشتیبانی از کلش، V2ray(پشتیبانی به‌صورت دسته‌ای)، لینک‌های پروفایل فرعی)، استش، کارینگ، سینگ‌باکس، شدوساکس، لینک‌های پروفایل فرعی)",
+        "profileUrlOrContent": "پیوند پیکربندی Clash",
+        "profileUrlOrContentHit": "پیوند پیکربندی Clash [الزامی]",
         "profileUrlOrContentCannotEmpty": "لینک پروفایل نمی‌تواند خالی باشد"
     },
     "permission": {

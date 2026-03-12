@@ -246,8 +246,8 @@
         "profileEditReloadAfterProfileUpdate": "配置更新后重新加载",
         "profileImport": "导入配置文件",
         "profileAddUrlOrContent": "添加配置链接",
-        "profileUrlOrContent": "配置链接/内容",
-        "profileUrlOrContentHit": "Clash配置链接/内容[必填]",
+        "profileUrlOrContent": "Clash配置链接",
+        "profileUrlOrContentHit": "Clash配置链接[必填]",
         "profileUrlOrContentCannotEmpty": "配置链接不能为空"
     },
     "permission": {

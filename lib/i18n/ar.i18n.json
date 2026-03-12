@@ -246,8 +246,8 @@
         "profileEditReloadAfterProfileUpdate": "إعادة التحميل بعد تحديث الملف الشخصي",
         "profileImport": "استيراد ملف الملف الشخصي",
         "profileAddUrlOrContent": "إضافة رابط ملف التعريف",
-        "profileUrlOrContent": "رابط/محتوى الملف الشخصي",
-        "profileUrlOrContentHit": "ارتباط ملف التعريف/المحتوى [مطلوب] (دعم الدعم ، V2Ray (مدعوم الدفعة) ، خبأ ، clashmi ، sing-box ، shadowsocks ، روابط الملف الشخصي الفرعي)",
+        "profileUrlOrContent": "رابط إعداد Clash",
+        "profileUrlOrContentHit": "رابط إعداد Clash [مطلوب]",
         "profileUrlOrContentCannotEmpty": "لا يمكن أن يكون رابط الملف الشخصي فارغًا"
     },
     "permission": {

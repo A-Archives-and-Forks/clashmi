@@ -828,11 +828,11 @@ class TranslationsMetaEn {
 	/// en: 'Add Profile Link'
 	String get profileAddUrlOrContent => 'Add Profile Link';
 
-	/// en: 'Profile Link/Content'
-	String get profileUrlOrContent => 'Profile Link/Content';
+	/// en: 'Clash Profile Link'
+	String get profileUrlOrContent => 'Clash Profile Link';
 
-	/// en: 'Profile Link/Content [Required] (Support Clash,V2ray(batch supported),Stash,Karing,Sing-box,Shadowsocks,Sub Profile links)'
-	String get profileUrlOrContentHit => 'Profile Link/Content [Required] (Support Clash,V2ray(batch supported),Stash,Karing,Sing-box,Shadowsocks,Sub Profile links)';
+	/// en: 'Clash Profile Link [Required]'
+	String get profileUrlOrContentHit => 'Clash Profile Link [Required]';
 
 	/// en: 'Profile Link can not be empty'
 	String get profileUrlOrContentCannotEmpty => 'Profile Link can not be empty';
@@ -1264,8 +1264,8 @@ extension on Translations {
 			'meta.profileEditReloadAfterProfileUpdate' => 'Reload after Profile update',
 			'meta.profileImport' => 'Import Profile File',
 			'meta.profileAddUrlOrContent' => 'Add Profile Link',
-			'meta.profileUrlOrContent' => 'Profile Link/Content',
-			'meta.profileUrlOrContentHit' => 'Profile Link/Content [Required] (Support Clash,V2ray(batch supported),Stash,Karing,Sing-box,Shadowsocks,Sub Profile links)',
+			'meta.profileUrlOrContent' => 'Clash Profile Link',
+			'meta.profileUrlOrContentHit' => 'Clash Profile Link [Required]',
 			'meta.profileUrlOrContentCannotEmpty' => 'Profile Link can not be empty',
 			'permission.camera' => 'Camera',
 			'permission.screen' => 'Screen Recording',

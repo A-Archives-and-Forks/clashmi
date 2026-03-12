@@ -246,8 +246,8 @@
         "profileEditReloadAfterProfileUpdate": "Reload after Profile update",
         "profileImport": "Import Profile File",
         "profileAddUrlOrContent": "Add Profile Link",
-        "profileUrlOrContent": "Profile Link/Content",
-        "profileUrlOrContentHit": "Profile Link/Content [Required] (Support Clash,V2ray(batch supported),Stash,Karing,Sing-box,Shadowsocks,Sub Profile links)",
+        "profileUrlOrContent": "Clash Profile Link",
+        "profileUrlOrContentHit": "Clash Profile Link [Required]",
         "profileUrlOrContentCannotEmpty": "Profile Link can not be empty"
     },
     "permission": {
