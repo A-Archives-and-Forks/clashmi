@@ -48,6 +48,10 @@ abstract final class AppUtils {
     return "";
   }
 
+  static String getcontrolKind() {
+    return "com.nebula.clashmi.clashmiWidget.ControlCenterToggle";
+  }
+
   static String getICloudContainerId() {
     return "iCloud.com.nebula.clashmi";
   }

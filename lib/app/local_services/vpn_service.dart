@@ -228,6 +228,7 @@ class VPNService {
       configFilePath: configFilePath,
       systemExtension: _systemExtension,
       bundleIdentifier: bundleIdentifier,
+      controlKind: AppUtils.getcontrolKind(),
       uiServerAddress: uiServerAddress,
       uiLocalizedDescription: uiLocalizedDescription,
       excludePorts: excludePorts,
