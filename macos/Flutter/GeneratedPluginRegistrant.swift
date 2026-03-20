@@ -11,7 +11,7 @@ import device_info_plus
 import file_picker
 import file_selector_macos
 import flutter_inappwebview_macos
-import flutter_secure_storage_macos
+import flutter_secure_storage_darwin
 import hotkey_manager_macos
 import icloud_storage
 import libclash_vpn_service
@@ -34,7 +34,7 @@ func RegisterGeneratedPlugins(registry: FlutterPluginRegistry) {
   FilePickerPlugin.register(with: registry.registrar(forPlugin: "FilePickerPlugin"))
   FileSelectorPlugin.register(with: registry.registrar(forPlugin: "FileSelectorPlugin"))
   InAppWebViewFlutterPlugin.register(with: registry.registrar(forPlugin: "InAppWebViewFlutterPlugin"))
-  FlutterSecureStoragePlugin.register(with: registry.registrar(forPlugin: "FlutterSecureStoragePlugin"))
+  FlutterSecureStorageDarwinPlugin.register(with: registry.registrar(forPlugin: "FlutterSecureStorageDarwinPlugin"))
   HotkeyManagerMacosPlugin.register(with: registry.registrar(forPlugin: "HotkeyManagerMacosPlugin"))
   IcloudStoragePlugin.register(with: registry.registrar(forPlugin: "IcloudStoragePlugin"))
   VpnServicePlugin.register(with: registry.registrar(forPlugin: "VpnServicePlugin"))
