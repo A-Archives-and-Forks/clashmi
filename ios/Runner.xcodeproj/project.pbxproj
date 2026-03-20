@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,6 +20,7 @@
 		CE85581F2AF49C5E0024DA42 /* Libclash.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE65C5332AF1F21D005C5724 /* Libclash.xcframework */; };
 		CE8558212AF49F430024DA42 /* LibVpnCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE0DC2E2AF49B5F00C4E874 /* LibVpnCore.framework */; };
 		CE8558262AF4A0450024DA42 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CE65C53B2AF1FF75005C5724 /* libresolv.tbd */; };
+		CEC89A402F6D1CEE00D87BE9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC89A3F2F6D1CEE00D87BE9 /* SceneDelegate.swift */; };
 		CED44C8B29F7AE560051B3B6 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE7505E29EE95B8003FAECA /* NetworkExtension.framework */; };
 		CED44C8E29F7AE560051B3B6 /* PacketTunnelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED44C8D29F7AE560051B3B6 /* PacketTunnelProvider.swift */; };
 		CED44C9329F7AE560051B3B6 /* clashmiService.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = CED44C8A29F7AE560051B3B6 /* clashmiService.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -132,6 +133,7 @@
 		CE65C5332AF1F21D005C5724 /* Libclash.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Libclash.xcframework; path = ../bind/apple/Libclash.xcframework; sourceTree = "<group>"; };
 		CE65C53B2AF1FF75005C5724 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		CE8558272AF4A2410024DA42 /* Libclash.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Libclash.xcframework; path = ../bind/apple/Libclash.xcframework; sourceTree = "<group>"; };
+		CEC89A3F2F6D1CEE00D87BE9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		CED44C8A29F7AE560051B3B6 /* clashmiService.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = clashmiService.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED44C8D29F7AE560051B3B6 /* PacketTunnelProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacketTunnelProvider.swift; sourceTree = "<group>"; };
 		CED44C8F29F7AE560051B3B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -146,7 +148,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		CE20CEBE2F1DBB3100FF3ECC /* Exceptions for "clashmiWidget" folder in "clashmiWidgetExtension" target */ = {
+		CE20CEBE2F1DBB3100FF3ECC /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -156,18 +158,7 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		CE20CEAA2F1DBB2E00FF3ECC /* clashmiWidget */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				CE20CEBE2F1DBB3100FF3ECC /* Exceptions for "clashmiWidget" folder in "clashmiWidgetExtension" target */,
-			);
-			explicitFileTypes = {
-			};
-			explicitFolders = (
-			);
-			path = clashmiWidget;
-			sourceTree = "<group>";
-		};
+		CE20CEAA2F1DBB2E00FF3ECC /* clashmiWidget */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (CE20CEBE2F1DBB3100FF3ECC /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = clashmiWidget; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -274,6 +265,7 @@
 		97C146F01CF9000F007C117D /* Runner */ = {
 			isa = PBXGroup;
 			children = (
+				CEC89A3F2F6D1CEE00D87BE9 /* SceneDelegate.swift */,
 				CE4B133229ED20B8006E81E6 /* Runner.entitlements */,
 				97C146FA1CF9000F007C117D /* Main.storyboard */,
 				97C146FD1CF9000F007C117D /* Assets.xcassets */,
@@ -514,9 +506,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Runner/Pods-Runner-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Runner/Pods-Runner-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -569,6 +565,7 @@
 			files = (
 				74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */,
 				1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */,
+				CEC89A402F6D1CEE00D87BE9 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
