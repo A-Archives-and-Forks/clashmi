@@ -27,7 +27,7 @@ abstract final class AppUtils {
   }
 
   static String getBuildinVersion() {
-    return "1.0.20.600";
+    return "1.0.20.601";
   }
 
   static String getId() {
@@ -48,7 +48,7 @@ abstract final class AppUtils {
     return "";
   }
 
-  static String getcontrolKind() {
+  static String getControlKind() {
     return "com.nebula.clashmi.clashmiWidget.ControlCenterToggle";
   }
 
@@ -57,6 +57,6 @@ abstract final class AppUtils {
   }
 
   static String getCoreVersion() {
-    return "1.19.20";
+    return "1.19.21";
   }
 }
