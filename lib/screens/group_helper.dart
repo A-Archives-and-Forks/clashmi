@@ -1275,6 +1275,7 @@ class GroupHelper {
             final profile = ProfileManager.getCurrent();
             final currentPatch = ProfilePatchManager.getCurrent();
             final result = await ClashSettingManager.getPatchContent(
+              currentPatch.id,
               currentPatch.id.isEmpty ||
                   currentPatch.id == kProfilePatchBuildinOverwrite,
               profile != null && profile.overwriteRules

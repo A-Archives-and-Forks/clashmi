@@ -410,6 +410,8 @@ class RawExtensionTun {
 class RawExtension {
   @JsonKey(name: 'geo-rule-set')
   RawExtensionGeoRuleset Ruleset;
+  @JsonKey(name: 'profile-store-selected-prefix')
+  String? ProfileStoreSelectedPrefix;
   @JsonKey(name: 'tun')
   RawExtensionTun Tun;
   @JsonKey(name: 'pprof-addr')

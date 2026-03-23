@@ -88,11 +88,13 @@ RawExtension _$RawExtensionFromJson(Map<String, dynamic> json) => RawExtension(
       json['pprof-addr'] as String?,
       json['proxy-group-replace'] as String?,
       json['runtime-profile-save-path'] as String?,
-    );
+    )..ProfileStoreSelectedPrefix =
+        json['profile-store-selected-prefix'] as String?;
 
 Map<String, dynamic> _$RawExtensionToJson(RawExtension instance) =>
     <String, dynamic>{
       'geo-rule-set': instance.Ruleset.toJson(),
+      'profile-store-selected-prefix': instance.ProfileStoreSelectedPrefix,
       'tun': instance.Tun.toJson(),
       'pprof-addr': instance.PprofAddr,
       'proxy-group-replace': instance.ProxyGroupReplace,

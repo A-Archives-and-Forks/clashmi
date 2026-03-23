@@ -388,6 +388,7 @@ class ClashSettingManager {
   }
 
   static Future<ReturnResult<String>> getPatchContent(
+    String profileId,
     bool overwrite,
     Map<String, String>? overwriteRule,
     Map<String, ProfileSettingProxyGroup>? overwriteProxyGroups,
@@ -417,6 +418,7 @@ class ClashSettingManager {
     _setting.Rules = null;
     _setting.RuleProviders = null;
     _setting.ProxyGroups = null;
+    _setting.Extension?.ProfileStoreSelectedPrefix = profileId;
 
     if (overwriteRule != null && overwriteRule.isNotEmpty) {
       _setting.OverWriteRuleProviders = true;
@@ -504,11 +506,13 @@ class ClashSettingManager {
   }
 
   static Future<ReturnResultError?> saveCorePatchFinal(
+    String profileId,
     bool overwrite,
     Map<String, String>? overwriteRule,
     Map<String, ProfileSettingProxyGroup>? overwriteProxyGroups,
   ) async {
     final result = await getPatchContent(
+      profileId,
       overwrite,
       overwriteRule,
       overwriteProxyGroups,
