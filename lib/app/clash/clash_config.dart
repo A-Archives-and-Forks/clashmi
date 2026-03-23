@@ -179,7 +179,8 @@ enum ClashDnsCacheAlgorithm {
 
 enum ClashFakeIPFilterMode {
   blacklist(name: "blacklist"),
-  whitelist(name: "whitelist");
+  whitelist(name: "whitelist"),
+  rule(name: "rule");
 
   const ClashFakeIPFilterMode({required this.name});
   final String name;
@@ -188,6 +189,7 @@ enum ClashFakeIPFilterMode {
     return [
       ClashFakeIPFilterMode.blacklist.name,
       ClashFakeIPFilterMode.whitelist.name,
+      ClashFakeIPFilterMode.rule.name,
     ];
   }
 }
