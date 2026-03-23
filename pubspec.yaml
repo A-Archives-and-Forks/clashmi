@@ -111,7 +111,9 @@ flutter:
     - assets/txts/
     - assets/fonts/
     - assets/images/
-    - assets/datas/
+    - path: assets/datas/geoip.zip
+    - path: assets/datas/geosite.zip
+      platforms: [windows, linux, macos, android]
 
   fonts:
     - family: Emoji # from hiddify

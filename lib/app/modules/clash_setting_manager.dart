@@ -36,7 +36,10 @@ class ClashSettingManager {
 
   static Future<void> initGeo() async {
     final homePath = await PathUtils.profileDir();
-    const fileNameList = ["geosite.zip", "geoip.zip", "ASN.mmdb"];
+    final fileNameList = Platform.isIOS
+        ? ["geosite.zip", "geoip.zip"]
+        : ["geosite.zip", "geoip.zip", "ASN.mmdb"];
+
     try {
       for (final fileName in fileNameList) {
         final filePath = File(path.join(homePath, fileName));
