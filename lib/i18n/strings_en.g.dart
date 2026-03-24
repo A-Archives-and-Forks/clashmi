@@ -240,6 +240,9 @@ class TranslationsMetaEn {
 	/// en: 'Info'
 	String get tips => 'Info';
 
+	/// en: 'Select All'
+	String get selectAll => 'Select All';
+
 	/// en: 'Copy'
 	String get copy => 'Copy';
 
@@ -1071,6 +1074,7 @@ extension on Translations {
 			'meta.editRemark' => 'Edit Remark',
 			'meta.more' => 'More',
 			'meta.tips' => 'Info',
+			'meta.selectAll' => 'Select All',
 			'meta.copy' => 'Copy',
 			'meta.paste' => 'Paste',
 			'meta.cut' => 'Cut',

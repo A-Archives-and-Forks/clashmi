@@ -161,6 +161,7 @@ class _TranslationsMetaFa implements TranslationsMetaEn {
 	@override String get editRemark => 'یادداشت های اصلاحی';
 	@override String get more => 'بیشتر';
 	@override String get tips => 'اطلاعات';
+	@override String get selectAll => 'انتخاب همه';
 	@override String get copy => 'کپی';
 	@override String get paste => 'چسباندن';
 	@override String get cut => 'برش';
@@ -511,6 +512,7 @@ extension on TranslationsFa {
 			'meta.editRemark' => 'یادداشت های اصلاحی',
 			'meta.more' => 'بیشتر',
 			'meta.tips' => 'اطلاعات',
+			'meta.selectAll' => 'انتخاب همه',
 			'meta.copy' => 'کپی',
 			'meta.paste' => 'چسباندن',
 			'meta.cut' => 'برش',

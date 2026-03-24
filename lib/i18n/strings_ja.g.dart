@@ -161,6 +161,7 @@ class _TranslationsMetaJa implements TranslationsMetaEn {
 	@override String get editRemark => '備考を編集';
 	@override String get more => '詳細';
 	@override String get tips => '情報';
+	@override String get selectAll => 'すべて選択';
 	@override String get copy => 'コピー';
 	@override String get paste => '貼り付け';
 	@override String get cut => '切り取り';
@@ -511,6 +512,7 @@ extension on TranslationsJa {
 			'meta.editRemark' => '備考を編集',
 			'meta.more' => '詳細',
 			'meta.tips' => '情報',
+			'meta.selectAll' => 'すべて選択',
 			'meta.copy' => 'コピー',
 			'meta.paste' => '貼り付け',
 			'meta.cut' => '切り取り',

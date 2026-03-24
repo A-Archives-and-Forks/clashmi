@@ -227,6 +227,13 @@ class ContextMenuControllerImpl implements SelectionToolbarController {
     final tcontext = Translations.of(context);
     var widgets = [
       ListTile(
+        title: Text(tcontext.meta.selectAll),
+        onTap: () async {
+          controller.selectAll();
+          Navigator.of(context).pop();
+        },
+      ),
+      ListTile(
         title: Text(tcontext.meta.copy),
         onTap: () async {
           controller.copy();

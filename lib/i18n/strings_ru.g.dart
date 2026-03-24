@@ -161,6 +161,7 @@ class _TranslationsMetaRu implements TranslationsMetaEn {
 	@override String get editRemark => 'Заметки об изменениях';
 	@override String get more => 'Больше';
 	@override String get tips => 'Инфо';
+	@override String get selectAll => 'Выбрать все';
 	@override String get copy => 'Скопировать';
 	@override String get paste => 'Вставить';
 	@override String get cut => 'Вырезать';
@@ -511,6 +512,7 @@ extension on TranslationsRu {
 			'meta.editRemark' => 'Заметки об изменениях',
 			'meta.more' => 'Больше',
 			'meta.tips' => 'Инфо',
+			'meta.selectAll' => 'Выбрать все',
 			'meta.copy' => 'Скопировать',
 			'meta.paste' => 'Вставить',
 			'meta.cut' => 'Вырезать',

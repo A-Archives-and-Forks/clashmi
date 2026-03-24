@@ -161,6 +161,7 @@ class _TranslationsMetaZhTw implements TranslationsMetaEn {
 	@override String get editRemark => '修改備註';
 	@override String get more => '更多';
 	@override String get tips => '提示';
+	@override String get selectAll => '全選';
 	@override String get copy => '複製';
 	@override String get paste => '貼上';
 	@override String get cut => '剪切';
@@ -511,6 +512,7 @@ extension on TranslationsZhTw {
 			'meta.editRemark' => '修改備註',
 			'meta.more' => '更多',
 			'meta.tips' => '提示',
+			'meta.selectAll' => '全選',
 			'meta.copy' => '複製',
 			'meta.paste' => '貼上',
 			'meta.cut' => '剪切',

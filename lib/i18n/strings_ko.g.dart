@@ -161,6 +161,7 @@ class _TranslationsMetaKo implements TranslationsMetaEn {
 	@override String get editRemark => '메모 편집';
 	@override String get more => '더 보기';
 	@override String get tips => '정보';
+	@override String get selectAll => '전체 선택';
 	@override String get copy => '복사';
 	@override String get paste => '반죽';
 	@override String get cut => '자르다';
@@ -511,6 +512,7 @@ extension on TranslationsKo {
 			'meta.editRemark' => '메모 편집',
 			'meta.more' => '더 보기',
 			'meta.tips' => '정보',
+			'meta.selectAll' => '전체 선택',
 			'meta.copy' => '복사',
 			'meta.paste' => '반죽',
 			'meta.cut' => '자르다',
