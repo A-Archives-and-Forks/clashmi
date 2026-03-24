@@ -354,6 +354,9 @@ class TranslationsMetaEn {
 	/// en: 'Minimum: 5m'
 	String get updateInterval5mTips => 'Minimum: 5m';
 
+	/// en: 'Prefer provider settings'
+	String get updateIntervalPreferByProfile => 'Prefer provider settings';
+
 	/// en: 'None'
 	String get none => 'None';
 
@@ -1106,6 +1109,7 @@ extension on Translations {
 			'meta.updateInterval' => 'Update interval',
 			'meta.updateFailed' => ({required Object p}) => 'Update failed:${p}',
 			'meta.updateInterval5mTips' => 'Minimum: 5m',
+			'meta.updateIntervalPreferByProfile' => 'Prefer provider settings',
 			'meta.none' => 'None',
 			'meta.reset' => 'Reset',
 			'meta.authentication' => 'Authentication',

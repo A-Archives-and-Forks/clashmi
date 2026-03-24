@@ -116,53 +116,55 @@ class _ProfilesSettingsEditScreenState
                   child: Card(
                     child: Padding(
                       padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
-                      child: Padding(
-                        padding: const EdgeInsets.fromLTRB(18, 10, 18, 10),
-                        child: Column(
-                          children: [
-                            TextFieldEx(
-                              controller: _textControllerRemark,
-                              textInputAction: _profile.isRemote()
-                                  ? TextInputAction.next
-                                  : TextInputAction.done,
-                              decoration: InputDecoration(
-                                labelText: tcontext.meta.remark,
-                                hintText: tcontext.meta.remark,
+                      child: SingleChildScrollView(
+                        child: Padding(
+                          padding: const EdgeInsets.fromLTRB(18, 10, 18, 10),
+                          child: Column(
+                            children: [
+                              TextFieldEx(
+                                controller: _textControllerRemark,
+                                textInputAction: _profile.isRemote()
+                                    ? TextInputAction.next
+                                    : TextInputAction.done,
+                                decoration: InputDecoration(
+                                  labelText: tcontext.meta.remark,
+                                  hintText: tcontext.meta.remark,
+                                ),
                               ),
-                            ),
-                            _profile.isRemote()
-                                ? const SizedBox(height: 20)
-                                : const SizedBox.shrink(),
-                            _profile.isRemote()
-                                ? TextFieldEx(
-                                    maxLines: 4,
-                                    controller: _textControllerUrl,
-                                    decoration: InputDecoration(
-                                      labelText: tcontext.meta.url,
-                                      hintText: tcontext.meta.url,
-                                    ),
-                                  )
-                                : const SizedBox.shrink(),
-                            const SizedBox(height: 20),
-                            FutureBuilder(
-                              future: getGroupOptions(),
-                              builder:
-                                  (
-                                    BuildContext context,
-                                    AsyncSnapshot<List<GroupItem>> snapshot,
-                                  ) {
-                                    List<GroupItem> data = snapshot.hasData
-                                        ? snapshot.data!
-                                        : [];
-                                    return Column(
-                                      children: GroupItemCreator.createGroups(
-                                        context,
-                                        data,
+                              _profile.isRemote()
+                                  ? const SizedBox(height: 20)
+                                  : const SizedBox.shrink(),
+                              _profile.isRemote()
+                                  ? TextFieldEx(
+                                      maxLines: 5,
+                                      controller: _textControllerUrl,
+                                      decoration: InputDecoration(
+                                        labelText: tcontext.meta.url,
+                                        hintText: tcontext.meta.url,
                                       ),
-                                    );
-                                  },
-                            ),
-                          ],
+                                    )
+                                  : const SizedBox.shrink(),
+                              const SizedBox(height: 20),
+                              FutureBuilder(
+                                future: getGroupOptions(),
+                                builder:
+                                    (
+                                      BuildContext context,
+                                      AsyncSnapshot<List<GroupItem>> snapshot,
+                                    ) {
+                                      List<GroupItem> data = snapshot.hasData
+                                          ? snapshot.data!
+                                          : [];
+                                      return Column(
+                                        children: GroupItemCreator.createGroups(
+                                          context,
+                                          data,
+                                        ),
+                                      );
+                                    },
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -285,6 +287,20 @@ class _ProfilesSettingsEditScreenState
         ),
       ),
       if (_profile.isRemote()) ...[
+        GroupItemOptions(
+          switchOptions: GroupItemSwitchOptions(
+            name:
+                "${tcontext.meta.updateInterval}:${tcontext.meta.updateIntervalPreferByProfile}",
+            tips: _profile.updateIntervalByProfile != null
+                ? "${_profile.updateIntervalByProfile!.inHours.toString()}h"
+                : null,
+            switchValue: _profile.updateIntervalPreferByProfile,
+            onSwitch: (bool value) async {
+              _profile.updateIntervalPreferByProfile = value;
+              setState(() {});
+            },
+          ),
+        ),
         GroupItemOptions(
           timerIntervalPickerOptions: GroupItemTimerIntervalPickerOptions(
             name: tcontext.meta.updateInterval,

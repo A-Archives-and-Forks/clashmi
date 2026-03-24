@@ -87,6 +87,7 @@
         "update": "تجديد",
         "updateInterval": "الفاصل الزمني للتحديث",
         "updateInterval5mTips": "الحد الأدنى: 5 م",
+        "updateIntervalPreferByProfile": "إعطاء الأولوية لإعدادات المزود",
         "updateFailed": "فشل التحديث:$p",
         "none": "لا أحد",
         "reset": "إعادة ضبط",

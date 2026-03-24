@@ -198,6 +198,7 @@ class _TranslationsMetaRu implements TranslationsMetaEn {
 	@override String get update => 'Обновить';
 	@override String get updateInterval => 'Интервал обновления';
 	@override String get updateInterval5mTips => 'Минимум: 5 м';
+	@override String get updateIntervalPreferByProfile => 'Приоритет настроек провайдера';
 	@override String updateFailed({required Object p}) => 'Не удалось обновить:${p}';
 	@override String get none => 'Ничего не делать';
 	@override String get reset => 'Перезагрузить';
@@ -547,6 +548,7 @@ extension on TranslationsRu {
 			'meta.update' => 'Обновить',
 			'meta.updateInterval' => 'Интервал обновления',
 			'meta.updateInterval5mTips' => 'Минимум: 5 м',
+			'meta.updateIntervalPreferByProfile' => 'Приоритет настроек провайдера',
 			'meta.updateFailed' => ({required Object p}) => 'Не удалось обновить:${p}',
 			'meta.none' => 'Ничего не делать',
 			'meta.reset' => 'Перезагрузить',

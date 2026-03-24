@@ -45,7 +45,7 @@ class _AddProfileByUrlScreenState
   final _textControllerLink = TextEditingController();
   final _textControllerRemark = TextEditingController();
   Duration? _updateInterval = const Duration(hours: 24);
-  Duration? _updateIntervalByProfile; //todo profile-update-interval
+  bool _updateIntervalPreferByProfile = true;
   String _userAgent = "";
   bool _xhwid = false;
   String _decryptPassword = "";
@@ -93,6 +93,7 @@ class _AddProfileByUrlScreenState
       xhwid: _xhwid,
       decryptPassword: _decryptPassword,
       updateInterval: _updateInterval,
+      updateIntervalPreferByProfile: _updateIntervalPreferByProfile,
     );
 
     if (!mounted) {
@@ -201,43 +202,37 @@ class _AddProfileByUrlScreenState
                                 18,
                                 10,
                               ),
-                              child: SingleChildScrollView(
-                                child: TextFieldEx(
-                                  textInputAction: TextInputAction.next,
-                                  maxLines: 5,
-                                  controller: _textControllerLink,
-                                  decoration: InputDecoration(
-                                    labelText:
-                                        tcontext.meta.profileUrlOrContent,
-                                    hintText:
-                                        tcontext.meta.profileUrlOrContentHit,
-                                  ),
-                                  onChanged: (text) {},
-                                  onEditingComplete: () async {
-                                    String url = _textControllerLink.text
-                                        .trim();
-                                    if (url.isNotEmpty ||
-                                        null != Uri.tryParse(url)) {
-                                      final userAgent =
-                                          SettingManager.getConfig()
-                                              .userAgent();
-                                      final result =
-                                          await HttpUtils.httpGetTitle(
-                                            url,
-                                            userAgent,
-                                          );
-                                      if (result.error == null) {
-                                        if (_textControllerRemark.text
-                                            .trim()
-                                            .isEmpty) {
-                                          _textControllerRemark.text =
-                                              result.data!;
-                                          setState(() {});
-                                        }
+                              child: TextFieldEx(
+                                textInputAction: TextInputAction.next,
+                                maxLines: 5,
+                                controller: _textControllerLink,
+                                decoration: InputDecoration(
+                                  labelText: tcontext.meta.profileUrlOrContent,
+                                  hintText:
+                                      tcontext.meta.profileUrlOrContentHit,
+                                ),
+                                onChanged: (text) {},
+                                onEditingComplete: () async {
+                                  String url = _textControllerLink.text.trim();
+                                  if (url.isNotEmpty ||
+                                      null != Uri.tryParse(url)) {
+                                    final userAgent = SettingManager.getConfig()
+                                        .userAgent();
+                                    final result = await HttpUtils.httpGetTitle(
+                                      url,
+                                      userAgent,
+                                    );
+                                    if (result.error == null) {
+                                      if (_textControllerRemark.text
+                                          .trim()
+                                          .isEmpty) {
+                                        _textControllerRemark.text =
+                                            result.data!;
+                                        setState(() {});
                                       }
                                     }
-                                  },
-                                ),
+                                  }
+                                },
                               ),
                             ),
                             Padding(
@@ -364,6 +359,17 @@ class _AddProfileByUrlScreenState
           tupleStrings: overwrite,
           onPicker: (String? selected) async {
             _patch = selected ?? "";
+            setState(() {});
+          },
+        ),
+      ),
+      GroupItemOptions(
+        switchOptions: GroupItemSwitchOptions(
+          name:
+              "${tcontext.meta.updateInterval}:${tcontext.meta.updateIntervalPreferByProfile}",
+          switchValue: _updateIntervalPreferByProfile,
+          onSwitch: (bool value) async {
+            _updateIntervalPreferByProfile = value;
             setState(() {});
           },
         ),

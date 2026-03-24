@@ -199,6 +199,7 @@ class _TranslationsMetaKo implements TranslationsMetaEn {
 	@override String get updateInterval => '업데이트 간격';
 	@override String updateFailed({required Object p}) => '업데이트 실패: ${p}';
 	@override String get updateInterval5mTips => '최소: 5분';
+	@override String get updateIntervalPreferByProfile => '공급자 설정 우선';
 	@override String get none => '없음';
 	@override String get reset => '초기화';
 	@override String get authentication => '인증';
@@ -548,6 +549,7 @@ extension on TranslationsKo {
 			'meta.updateInterval' => '업데이트 간격',
 			'meta.updateFailed' => ({required Object p}) => '업데이트 실패: ${p}',
 			'meta.updateInterval5mTips' => '최소: 5분',
+			'meta.updateIntervalPreferByProfile' => '공급자 설정 우선',
 			'meta.none' => '없음',
 			'meta.reset' => '초기화',
 			'meta.authentication' => '인증',

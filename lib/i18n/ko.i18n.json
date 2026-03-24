@@ -88,6 +88,7 @@
         "updateInterval": "업데이트 간격",
         "updateFailed": "업데이트 실패: $p",
         "updateInterval5mTips": "최소: 5분",
+        "updateIntervalPreferByProfile": "공급자 설정 우선",
         "none": "없음",
         "reset": "초기화",
         "authentication": "인증",

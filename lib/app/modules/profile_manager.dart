@@ -47,6 +47,7 @@ class ProfileSetting {
     this.remark = "",
     this.updateInterval,
     this.updateIntervalByProfile,
+    this.updateIntervalPreferByProfile = false,
     this.update,
     this.url = "",
     this.xhwid = false,
@@ -59,6 +60,7 @@ class ProfileSetting {
   String patch = "";
   Duration? updateInterval;
   Duration? updateIntervalByProfile;
+  bool updateIntervalPreferByProfile = false;
   DateTime? update;
   String url;
   String userAgent;
@@ -81,6 +83,7 @@ class ProfileSetting {
     'patch': patch,
     'update_interval': updateInterval?.inSeconds,
     'update_interval_by_profile': updateIntervalByProfile?.inSeconds,
+    'update_interval_prefer_by_profile': updateIntervalPreferByProfile,
     'update': update.toString(),
     'url': url,
     'user_agent': userAgent,
@@ -119,6 +122,8 @@ class ProfileSetting {
       }
       updateIntervalByProfile = Duration(seconds: updateIntervalByProfileTime);
     }
+    updateIntervalPreferByProfile =
+        map['update_interval_prefer_by_profile'] ?? false;
     final updateTime = map['update'];
     if (updateTime is String) {
       update = DateTime.tryParse(updateTime);
@@ -239,6 +244,8 @@ class ProfileSetting {
     ps.remark = remark;
     ps.patch = patch;
     ps.updateInterval = updateInterval;
+    ps.updateIntervalByProfile = updateIntervalByProfile;
+    ps.updateIntervalPreferByProfile = updateIntervalPreferByProfile;
     ps.update = update;
     ps.url = url;
     ps.userAgent = userAgent;
@@ -557,6 +564,7 @@ class ProfileManager {
     bool xhwid = false,
     String decryptPassword = "",
     Duration? updateInterval,
+    bool updateIntervalPreferByProfile = false,
   }) async {
     final uri = Uri.tryParse(url);
     if (uri == null) {
@@ -626,6 +634,7 @@ class ProfileManager {
       remark: remark,
       updateInterval: updateInterval ?? const Duration(days: 1),
       updateIntervalByProfile: updateIntervalByProfile,
+      updateIntervalPreferByProfile: updateIntervalPreferByProfile,
       update: DateTime.now(),
       url: url,
       userAgent: userAgent,
@@ -698,8 +707,21 @@ class ProfileManager {
       null,
       timeout: const Duration(seconds: 30),
     );
+
     profile.update = DateTime.now();
     if (result.error == null) {
+      final profileUpdateInterval = result.data!.value(
+        "profile-update-interval",
+      );
+      if (profileUpdateInterval != null) {
+        var pui = int.tryParse(profileUpdateInterval);
+        if (pui != null) {
+          if (pui < 1) {
+            pui = 1;
+          }
+          profile.updateIntervalByProfile = Duration(hours: pui);
+        }
+      }
       final err1 = await decryptProfile(
         result.data,
         savePathTmp,
@@ -772,12 +794,23 @@ class ProfileManager {
   static Future<void> updateByTicker() async {
     DateTime now = DateTime.now();
     for (var profile in _config.profiles) {
-      if (!profile.isRemote() || profile.updateInterval == null) {
+      if (!profile.isRemote()) {
         continue;
       }
+      Duration? updateInterval = profile.updateInterval;
+      if (profile.updateIntervalPreferByProfile) {
+        updateInterval =
+            profile.updateIntervalByProfile ?? profile.updateInterval;
+      } else {
+        updateInterval = profile.updateInterval;
+      }
+      if (updateInterval == null) {
+        continue;
+      }
+
       if (profile.update == null ||
           now.difference(profile.update!).inSeconds >=
-              profile.updateInterval!.inSeconds) {
+              updateInterval.inSeconds) {
         update(profile.id);
       }
     }

@@ -198,6 +198,7 @@ class _TranslationsMetaZhTw implements TranslationsMetaEn {
 	@override String get update => '更新';
 	@override String get updateInterval => '更新時間間隔';
 	@override String get updateInterval5mTips => '最小:5m';
+	@override String get updateIntervalPreferByProfile => '優先使用服務商(機場)設定';
 	@override String updateFailed({required Object p}) => '更新失敗:${p}';
 	@override String get none => '無';
 	@override String get reset => '重置';
@@ -547,6 +548,7 @@ extension on TranslationsZhTw {
 			'meta.update' => '更新',
 			'meta.updateInterval' => '更新時間間隔',
 			'meta.updateInterval5mTips' => '最小:5m',
+			'meta.updateIntervalPreferByProfile' => '優先使用服務商(機場)設定',
 			'meta.updateFailed' => ({required Object p}) => '更新失敗:${p}',
 			'meta.none' => '無',
 			'meta.reset' => '重置',

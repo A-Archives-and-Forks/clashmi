@@ -87,6 +87,7 @@
         "update": "تجدید",
         "updateInterval": "فاصله‌ی به‌روزرسانی",
         "updateInterval5mTips": "حداقل: 5 متر",
+        "updateIntervalPreferByProfile": "اولویت با تنظیمات ارائه‌دهنده",
         "updateFailed": "به‌روزرسانی ناموفق بود:$p",
         "none": "هیچ‌کدام",
         "reset": "ریست",

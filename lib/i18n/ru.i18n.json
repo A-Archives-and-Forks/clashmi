@@ -87,6 +87,7 @@
         "update": "Обновить",
         "updateInterval": "Интервал обновления",
         "updateInterval5mTips": "Минимум: 5 м",
+        "updateIntervalPreferByProfile": "Приоритет настроек провайдера",
         "updateFailed": "Не удалось обновить:$p",
         "none": "Ничего не делать",
         "reset": "Перезагрузить",

@@ -199,6 +199,7 @@ class _TranslationsMetaJa implements TranslationsMetaEn {
 	@override String get updateInterval => '更新間隔';
 	@override String updateFailed({required Object p}) => '更新に失敗しました: ${p}';
 	@override String get updateInterval5mTips => '最小: 5分';
+	@override String get updateIntervalPreferByProfile => 'プロバイダーの設定を優先';
 	@override String get none => 'なし';
 	@override String get reset => 'リセット';
 	@override String get authentication => '認証';
@@ -548,6 +549,7 @@ extension on TranslationsJa {
 			'meta.updateInterval' => '更新間隔',
 			'meta.updateFailed' => ({required Object p}) => '更新に失敗しました: ${p}',
 			'meta.updateInterval5mTips' => '最小: 5分',
+			'meta.updateIntervalPreferByProfile' => 'プロバイダーの設定を優先',
 			'meta.none' => 'なし',
 			'meta.reset' => 'リセット',
 			'meta.authentication' => '認証',

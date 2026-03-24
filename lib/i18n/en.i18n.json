@@ -88,6 +88,7 @@
         "updateInterval": "Update interval",
         "updateFailed": "Update failed:$p",
         "updateInterval5mTips": "Minimum: 5m",
+        "updateIntervalPreferByProfile": "Prefer provider settings",
         "none": "None",
         "reset": "Reset",
         "authentication": "Authentication",

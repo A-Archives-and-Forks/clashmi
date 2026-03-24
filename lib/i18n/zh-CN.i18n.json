@@ -87,6 +87,7 @@
         "update": "更新",
         "updateInterval": "更新时间间隔",
         "updateInterval5mTips": "最小:5m",
+        "updateIntervalPreferByProfile": "优先使用服务商(机场)设置",
         "updateFailed": "更新失败:$p",
         "none": "无",
         "reset": "重置",

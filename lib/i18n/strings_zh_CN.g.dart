@@ -198,6 +198,7 @@ class _TranslationsMetaZhCn implements TranslationsMetaEn {
 	@override String get update => '更新';
 	@override String get updateInterval => '更新时间间隔';
 	@override String get updateInterval5mTips => '最小:5m';
+	@override String get updateIntervalPreferByProfile => '优先使用服务商(机场)设置';
 	@override String updateFailed({required Object p}) => '更新失败:${p}';
 	@override String get none => '无';
 	@override String get reset => '重置';
@@ -547,6 +548,7 @@ extension on TranslationsZhCn {
 			'meta.update' => '更新',
 			'meta.updateInterval' => '更新时间间隔',
 			'meta.updateInterval5mTips' => '最小:5m',
+			'meta.updateIntervalPreferByProfile' => '优先使用服务商(机场)设置',
 			'meta.updateFailed' => ({required Object p}) => '更新失败:${p}',
 			'meta.none' => '无',
 			'meta.reset' => '重置',

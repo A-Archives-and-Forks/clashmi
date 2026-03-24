@@ -198,6 +198,7 @@ class _TranslationsMetaFa implements TranslationsMetaEn {
 	@override String get update => 'تجدید';
 	@override String get updateInterval => 'فاصله‌ی به‌روزرسانی';
 	@override String get updateInterval5mTips => 'حداقل: 5 متر';
+	@override String get updateIntervalPreferByProfile => 'اولویت با تنظیمات ارائه‌دهنده';
 	@override String updateFailed({required Object p}) => 'به‌روزرسانی ناموفق بود:${p}';
 	@override String get none => 'هیچ‌کدام';
 	@override String get reset => 'ریست';
@@ -547,6 +548,7 @@ extension on TranslationsFa {
 			'meta.update' => 'تجدید',
 			'meta.updateInterval' => 'فاصله‌ی به‌روزرسانی',
 			'meta.updateInterval5mTips' => 'حداقل: 5 متر',
+			'meta.updateIntervalPreferByProfile' => 'اولویت با تنظیمات ارائه‌دهنده',
 			'meta.updateFailed' => ({required Object p}) => 'به‌روزرسانی ناموفق بود:${p}',
 			'meta.none' => 'هیچ‌کدام',
 			'meta.reset' => 'ریست',

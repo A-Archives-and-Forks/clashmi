@@ -198,6 +198,7 @@ class _TranslationsMetaAr implements TranslationsMetaEn {
 	@override String get update => 'تجديد';
 	@override String get updateInterval => 'الفاصل الزمني للتحديث';
 	@override String get updateInterval5mTips => 'الحد الأدنى: 5 م';
+	@override String get updateIntervalPreferByProfile => 'إعطاء الأولوية لإعدادات المزود';
 	@override String updateFailed({required Object p}) => 'فشل التحديث:${p}';
 	@override String get none => 'لا أحد';
 	@override String get reset => 'إعادة ضبط';
@@ -547,6 +548,7 @@ extension on TranslationsAr {
 			'meta.update' => 'تجديد',
 			'meta.updateInterval' => 'الفاصل الزمني للتحديث',
 			'meta.updateInterval5mTips' => 'الحد الأدنى: 5 م',
+			'meta.updateIntervalPreferByProfile' => 'إعطاء الأولوية لإعدادات المزود',
 			'meta.updateFailed' => ({required Object p}) => 'فشل التحديث:${p}',
 			'meta.none' => 'لا أحد',
 			'meta.reset' => 'إعادة ضبط',

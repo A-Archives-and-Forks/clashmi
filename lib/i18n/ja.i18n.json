@@ -88,6 +88,7 @@
         "updateInterval": "更新間隔",
         "updateFailed": "更新に失敗しました: $p",
         "updateInterval5mTips": "最小: 5分",
+        "updateIntervalPreferByProfile": "プロバイダーの設定を優先",
         "none": "なし",
         "reset": "リセット",
         "authentication": "認証",
