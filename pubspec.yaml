@@ -113,6 +113,8 @@ flutter:
     - assets/images/
     - path: assets/datas/geoip.zip
     - path: assets/datas/geosite.zip
+      platforms: [windows, linux, macos, android, ios]
+    - path: assets/datas/ASN.mmdb
       platforms: [windows, linux, macos, android]
 
   fonts:
