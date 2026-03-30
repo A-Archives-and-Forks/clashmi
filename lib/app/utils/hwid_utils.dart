@@ -22,12 +22,12 @@ class HwidUtils {
     } else if (Platform.isMacOS) {
       final info = await plugin.macOsInfo;
       headers['x-device-os'] = "macOS";
-      headers['x-ver-os'] = info.osRelease;
+      headers['x-ver-os'] = "${info.majorVersion}.${info.minorVersion}";
       headers['x-device-model'] = info.model;
     } else if (Platform.isWindows) {
       final info = await plugin.windowsInfo;
       headers['x-device-os'] = "Windows";
-      headers['x-ver-os'] = info.displayVersion;
+      headers['x-ver-os'] = "${info.majorVersion}.${info.minorVersion}";
       headers['x-device-model'] = info.productName;
     } else if (Platform.isLinux) {
       final info = await plugin.linuxInfo;
