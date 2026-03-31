@@ -39,6 +39,19 @@ import 'package:libclash_vpn_service/state.dart';
 import 'package:libclash_vpn_service/vpn_service.dart';
 import 'package:quick_actions/quick_actions.dart';
 
+class ProxyHttpOverrides extends HttpOverrides {
+  ProxyHttpOverrides(this.proxyPort);
+
+  final int proxyPort;
+
+  @override
+  HttpClient createHttpClient(SecurityContext? context) {
+    final client = super.createHttpClient(context);
+    client.findProxy = (Uri uri) => "PROXY 127.0.0.1:$proxyPort";
+    return client;
+  }
+}
+
 class HomeScreenWidgetPart1 extends StatefulWidget {
   const HomeScreenWidgetPart1({super.key});
 
@@ -731,10 +744,17 @@ class _HomeScreenWidgetPart1 extends State<HomeScreenWidgetPart1> {
     }
     _state = state;
     if (state == FlutterVpnServiceState.disconnected) {
+      HttpOverrides.global = null;
       _disconnectToCore();
       Biz.vpnStateChanged(false);
     } else if (state == FlutterVpnServiceState.connecting) {
     } else if (state == FlutterVpnServiceState.connected) {
+      if (ClashSettingManager.getConfig().MixedPort != null &&
+          HttpOverrides.current == null) {
+        HttpOverrides.global = ProxyHttpOverrides(
+          ClashSettingManager.getConfig().MixedPort!,
+        );
+      }
       if (!AppLifecycleStateNofity.isPaused()) {
         _connectToCore();
       }

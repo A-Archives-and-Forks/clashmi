@@ -4,6 +4,7 @@ import 'package:clashmi/app/modules/setting_manager.dart';
 import 'package:clashmi/screens/dialog_utils.dart';
 import 'package:clashmi/screens/theme_define.dart';
 import 'package:clashmi/screens/widgets/sheet.dart';
+import 'package:fast_cached_network_image/fast_cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class ProxyScreenProxiesNodeWidgetController {
@@ -86,7 +87,27 @@ class _ProxyScreenProxiesNodeWidget
 
       widgets.add(
         ListTile(
-          title: Text(node.name),
+          title: node.icon.isNotEmpty
+              ? Row(
+                  children: [
+                    FastCachedImage(
+                      url: node.icon,
+                      width: 16,
+                      height: 16,
+                      cacheWidth: 16,
+                      cacheHeight: 16,
+                      loadingBuilder: (context, loadingProgress) {
+                        return SizedBox.shrink();
+                      },
+                      errorBuilder: (context, error, stackTrace) {
+                        return SizedBox.shrink();
+                      },
+                    ),
+                    SizedBox(width: 5),
+                    Text(node.name),
+                  ],
+                )
+              : Text(node.name),
           subtitle: !_nodesTesting.contains(node.name)
               ? (node.delay == null
                     ? Text(node.type)
@@ -192,7 +213,29 @@ class _ProxyScreenProxiesNodeWidget
 
       widgets.add(
         ListTile(
-          title: Text("${i + 1} ${node.name}"),
+          title: node.icon.isNotEmpty
+              ? Row(
+                  children: [
+                    Text("${i + 1}"),
+                    SizedBox(width: 5),
+                    FastCachedImage(
+                      url: node.icon,
+                      width: 16,
+                      height: 16,
+                      cacheWidth: 16,
+                      cacheHeight: 16,
+                      loadingBuilder: (context, loadingProgress) {
+                        return SizedBox.shrink();
+                      },
+                      errorBuilder: (context, error, stackTrace) {
+                        return SizedBox.shrink();
+                      },
+                    ),
+                    SizedBox(width: 5),
+                    Text(node.name),
+                  ],
+                )
+              : Text("${i + 1} ${node.name}"),
           subtitle: subtitle.isEmpty
               ? Text(node.type)
               : Row(

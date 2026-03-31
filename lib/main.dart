@@ -26,6 +26,7 @@ import 'package:clashmi/screens/theme_data_dark.dart';
 import 'package:clashmi/screens/themes.dart';
 import 'package:clashmi/app/utils/vpn_action_handler.dart';
 import 'package:clashmi/screens/widgets/routes.dart';
+import 'package:fast_cached_network_image/fast_cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -174,6 +175,11 @@ Future<void> run(List<String> args) async {
     startFailedReasonDesc = err.toString();
     String cmdline = args.toString();
     Log.w("main.run exception: ${err.toString()}, $cmdline");
+  }
+  try {
+    await FastCachedImageConfig.init(subDir: AppUtils.getName());
+  } catch (err, stacktrace) {
+    Log.w("FastCachedImageConfig.init() exception: ${err.toString()}");
   }
   if (Platform.isAndroid) {
     SystemUiOverlayStyle systemUiOverlayStyle = const SystemUiOverlayStyle(
