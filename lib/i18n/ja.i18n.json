@@ -129,6 +129,7 @@
         "allowLanAccess": "LANデバイスアクセス",
         "mixedPort": "混合プロキシポート",
         "logLevel": "ログレベル",
+        "findProcessMode": "プロセスマッチングモード",
         "tcpkeepAliveInterval": "TCPキープアライブ間隔",
         "delayTestUrl": "遅延テストURL",
         "delayTestTimeout": "遅延テストタイムアウト(ms)",

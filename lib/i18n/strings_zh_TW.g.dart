@@ -240,6 +240,7 @@ class _TranslationsMetaZhTw implements TranslationsMetaEn {
 	@override String get allowLanAccess => '局域網設備接入';
 	@override String get mixedPort => '混合代理端口';
 	@override String get logLevel => '日誌等級';
+	@override String get findProcessMode => '進程匹配模式';
 	@override String get tcpkeepAliveInterval => 'TCP保活時間間隔';
 	@override String get delayTestUrl => '延遲測試URL';
 	@override String get delayTestTimeout => '延遲測試超時(ms)';
@@ -591,6 +592,7 @@ extension on TranslationsZhTw {
 			'meta.allowLanAccess' => '局域網設備接入',
 			'meta.mixedPort' => '混合代理端口',
 			'meta.logLevel' => '日誌等級',
+			'meta.findProcessMode' => '進程匹配模式',
 			'meta.tcpkeepAliveInterval' => 'TCP保活時間間隔',
 			'meta.delayTestUrl' => '延遲測試URL',
 			'meta.delayTestTimeout' => '延遲測試超時(ms)',

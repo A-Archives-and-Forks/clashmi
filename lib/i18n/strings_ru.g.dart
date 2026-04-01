@@ -240,6 +240,7 @@ class _TranslationsMetaRu implements TranslationsMetaEn {
 	@override String get allowLanAccess => 'Доступ к локальной сети устройства';
 	@override String get mixedPort => 'Порт mixed-прокси';
 	@override String get logLevel => 'Уровень журнала';
+	@override String get findProcessMode => 'Режим поиска процесса';
 	@override String get tcpkeepAliveInterval => 'Интервал проверки активности TCP';
 	@override String get delayTestUrl => 'URL-адрес теста задержки';
 	@override String get delayTestTimeout => 'Время ожидания теста задержки (мс)';
@@ -591,6 +592,7 @@ extension on TranslationsRu {
 			'meta.allowLanAccess' => 'Доступ к локальной сети устройства',
 			'meta.mixedPort' => 'Порт mixed-прокси',
 			'meta.logLevel' => 'Уровень журнала',
+			'meta.findProcessMode' => 'Режим поиска процесса',
 			'meta.tcpkeepAliveInterval' => 'Интервал проверки активности TCP',
 			'meta.delayTestUrl' => 'URL-адрес теста задержки',
 			'meta.delayTestTimeout' => 'Время ожидания теста задержки (мс)',

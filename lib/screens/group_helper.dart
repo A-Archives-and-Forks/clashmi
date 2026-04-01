@@ -933,6 +933,7 @@ class GroupHelper {
       var setting = ClashSettingManager.getConfig();
       var extensions = setting.Extension!;
       final logLevels = ClashLogLevel.toList();
+      final findProcessModes = ClashFindProcessMode.toList();
 
       final globalFingerprintsTuple = ClashGlobalClientFingerprint.toTupleList(
         context,
@@ -1068,6 +1069,21 @@ class GroupHelper {
       ];
 
       List<GroupItemOptions> options2 = [
+        if (!Platform.isIOS) ...[
+          GroupItemOptions(
+            stringPickerOptions: GroupItemStringPickerOptions(
+              name: tcontext.meta.findProcessMode,
+              tips: "find-process-mode",
+              selected: findProcessModes.contains(setting.FindProcessMode)
+                  ? setting.FindProcessMode
+                  : findProcessModes.first,
+              strings: findProcessModes,
+              onPicker: (String? selected) async {
+                setting.FindProcessMode = selected;
+              },
+            ),
+          ),
+        ],
         GroupItemOptions(
           stringPickerOptions: GroupItemStringPickerOptions(
             name: "IPv6",

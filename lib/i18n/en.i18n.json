@@ -129,6 +129,7 @@
         "allowLanAccess": "LAN device access",
         "mixedPort": "Mixed Proxy Port",
         "logLevel": "Log Level",
+        "findProcessMode": "Find Process Mode",
         "tcpkeepAliveInterval": "TCP Keep-alive Interval",
         "delayTestUrl": "Delay Test URL",
         "delayTestTimeout": "Delay Test Timeout(ms)",

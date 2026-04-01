@@ -240,6 +240,7 @@ class _TranslationsMetaJa implements TranslationsMetaEn {
 	@override String get allowLanAccess => 'LANデバイスアクセス';
 	@override String get mixedPort => '混合プロキシポート';
 	@override String get logLevel => 'ログレベル';
+	@override String get findProcessMode => 'プロセスマッチングモード';
 	@override String get tcpkeepAliveInterval => 'TCPキープアライブ間隔';
 	@override String get delayTestUrl => '遅延テストURL';
 	@override String get delayTestTimeout => '遅延テストタイムアウト(ms)';
@@ -591,6 +592,7 @@ extension on TranslationsJa {
 			'meta.allowLanAccess' => 'LANデバイスアクセス',
 			'meta.mixedPort' => '混合プロキシポート',
 			'meta.logLevel' => 'ログレベル',
+			'meta.findProcessMode' => 'プロセスマッチングモード',
 			'meta.tcpkeepAliveInterval' => 'TCPキープアライブ間隔',
 			'meta.delayTestUrl' => '遅延テストURL',
 			'meta.delayTestTimeout' => '遅延テストタイムアウト(ms)',

@@ -129,6 +129,7 @@
         "allowLanAccess": "局域网设备接入",
         "mixedPort": "混合代理端口",
         "logLevel": "日志等级",
+        "findProcessMode": "进程匹配模式",
         "tcpkeepAliveInterval": "TCP保活时间间隔",
         "delayTestUrl": "延迟测试URL",
         "delayTestTimeout": "延迟测试超时(ms)",

@@ -349,6 +349,9 @@ class ClashSettingManager {
       DisableKeepAlive: false,
       KeepAliveIdle: 30,
       KeepAliveInterval: 30,
+      FindProcessMode: Platform.isIOS
+          ? ClashFindProcessMode.off.name
+          : ClashFindProcessMode.always.name,
     );
   }
 
@@ -419,6 +422,9 @@ class ClashSettingManager {
     _setting.RuleProviders = null;
     _setting.ProxyGroups = null;
     _setting.Extension?.ProfileStoreSelectedPrefix = profileId;
+    if (Platform.isIOS) {
+      _setting.FindProcessMode = ClashFindProcessMode.off.name;
+    }
 
     if (overwriteRule != null && overwriteRule.isNotEmpty) {
       _setting.OverWriteRuleProviders = true;
@@ -592,9 +598,6 @@ class ClashSettingManager {
     _setting.Tun?.AutoRoute = !Platform.isAndroid;
     _setting.Tun?.AutoDetectInterface = Platform.isWindows || Platform.isLinux;
     _setting.Profile = RawProfile.by(StoreSelected: true, StoreFakeIP: true);
-    _setting.FindProcessMode = Platform.isIOS
-        ? ClashFindProcessMode.off.name
-        : ClashFindProcessMode.always.name;
     _setting.Extension?.RuntimeProfileSavePath =
         await PathUtils.serviceCoreRuntimeProfileFilePath();
   }

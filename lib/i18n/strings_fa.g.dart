@@ -240,6 +240,7 @@ class _TranslationsMetaFa implements TranslationsMetaEn {
 	@override String get allowLanAccess => 'دسترسی به دستگاه LAN';
 	@override String get mixedPort => 'پورت پروکسی هیبریدی';
 	@override String get logLevel => 'سطح ورود به سیستم';
+	@override String get findProcessMode => 'حالت تطابق فرآیند';
 	@override String get tcpkeepAliveInterval => 'فاصله حفظ زنده TCP';
 	@override String get delayTestUrl => 'URL تست تأخیر';
 	@override String get delayTestTimeout => 'مهلت زمانی تست تاخیری (میلی‌ثانیه)';
@@ -591,6 +592,7 @@ extension on TranslationsFa {
 			'meta.allowLanAccess' => 'دسترسی به دستگاه LAN',
 			'meta.mixedPort' => 'پورت پروکسی هیبریدی',
 			'meta.logLevel' => 'سطح ورود به سیستم',
+			'meta.findProcessMode' => 'حالت تطابق فرآیند',
 			'meta.tcpkeepAliveInterval' => 'فاصله حفظ زنده TCP',
 			'meta.delayTestUrl' => 'URL تست تأخیر',
 			'meta.delayTestTimeout' => 'مهلت زمانی تست تاخیری (میلی‌ثانیه)',

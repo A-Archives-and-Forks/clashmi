@@ -129,6 +129,7 @@
         "allowLanAccess": "Доступ к локальной сети устройства",
         "mixedPort": "Порт mixed-прокси",
         "logLevel": "Уровень журнала",
+        "findProcessMode": "Режим поиска процесса",
         "tcpkeepAliveInterval": "Интервал проверки активности TCP",
         "delayTestUrl": "URL-адрес теста задержки",
         "delayTestTimeout": "Время ожидания теста задержки (мс)",

@@ -129,6 +129,7 @@
         "allowLanAccess": "LAN 장치 액세스",
         "mixedPort": "혼합 프록시 포트",
         "logLevel": "로그 레벨",
+        "findProcessMode": "프로세스 매칭 모드",
         "tcpkeepAliveInterval": "TCP Keep-alive 간격",
         "delayTestUrl": "지연 테스트 URL",
         "delayTestTimeout": "지연 테스트 시간 초과(ms)",

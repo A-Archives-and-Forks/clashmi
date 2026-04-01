@@ -240,6 +240,7 @@ class _TranslationsMetaKo implements TranslationsMetaEn {
 	@override String get allowLanAccess => 'LAN 장치 액세스';
 	@override String get mixedPort => '혼합 프록시 포트';
 	@override String get logLevel => '로그 레벨';
+	@override String get findProcessMode => '프로세스 매칭 모드';
 	@override String get tcpkeepAliveInterval => 'TCP Keep-alive 간격';
 	@override String get delayTestUrl => '지연 테스트 URL';
 	@override String get delayTestTimeout => '지연 테스트 시간 초과(ms)';
@@ -591,6 +592,7 @@ extension on TranslationsKo {
 			'meta.allowLanAccess' => 'LAN 장치 액세스',
 			'meta.mixedPort' => '혼합 프록시 포트',
 			'meta.logLevel' => '로그 레벨',
+			'meta.findProcessMode' => '프로세스 매칭 모드',
 			'meta.tcpkeepAliveInterval' => 'TCP Keep-alive 간격',
 			'meta.delayTestUrl' => '지연 테스트 URL',
 			'meta.delayTestTimeout' => '지연 테스트 시간 초과(ms)',

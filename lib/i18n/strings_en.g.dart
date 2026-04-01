@@ -477,6 +477,9 @@ class TranslationsMetaEn {
 	/// en: 'Log Level'
 	String get logLevel => 'Log Level';
 
+	/// en: 'Find Process Mode'
+	String get findProcessMode => 'Find Process Mode';
+
 	/// en: 'TCP Keep-alive Interval'
 	String get tcpkeepAliveInterval => 'TCP Keep-alive Interval';
 
@@ -1153,6 +1156,7 @@ extension on Translations {
 			'meta.allowLanAccess' => 'LAN device access',
 			'meta.mixedPort' => 'Mixed Proxy Port',
 			'meta.logLevel' => 'Log Level',
+			'meta.findProcessMode' => 'Find Process Mode',
 			'meta.tcpkeepAliveInterval' => 'TCP Keep-alive Interval',
 			'meta.delayTestUrl' => 'Delay Test URL',
 			'meta.delayTestTimeout' => 'Delay Test Timeout(ms)',

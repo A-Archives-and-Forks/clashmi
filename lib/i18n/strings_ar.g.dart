@@ -240,6 +240,7 @@ class _TranslationsMetaAr implements TranslationsMetaEn {
 	@override String get allowLanAccess => 'الوصول إلى جهاز LAN';
 	@override String get mixedPort => 'منفذ الوكيل الهجين';
 	@override String get logLevel => 'مستوى السجل';
+	@override String get findProcessMode => 'وضع مطابقة العملية';
 	@override String get tcpkeepAliveInterval => 'فترة الحفاظ على اتصال TCP';
 	@override String get delayTestUrl => 'عنوان URL لاختبار زمن الوصول';
 	@override String get delayTestTimeout => 'تأخير مهلة الاختبار (مللي ثانية)';
@@ -591,6 +592,7 @@ extension on TranslationsAr {
 			'meta.allowLanAccess' => 'الوصول إلى جهاز LAN',
 			'meta.mixedPort' => 'منفذ الوكيل الهجين',
 			'meta.logLevel' => 'مستوى السجل',
+			'meta.findProcessMode' => 'وضع مطابقة العملية',
 			'meta.tcpkeepAliveInterval' => 'فترة الحفاظ على اتصال TCP',
 			'meta.delayTestUrl' => 'عنوان URL لاختبار زمن الوصول',
 			'meta.delayTestTimeout' => 'تأخير مهلة الاختبار (مللي ثانية)',
