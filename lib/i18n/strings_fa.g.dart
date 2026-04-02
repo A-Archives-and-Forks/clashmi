@@ -135,6 +135,7 @@ class _TranslationsNetCheckScreenFa implements TranslationsNetCheckScreenEn {
 	@override String get directHttpSection => '2. HTTP (از طریق TUN، ابتدا TUN را فعال کنید)';
 	@override String proxyHttpSection({required Object p}) => '3. HTTP (از طریق پروکسی، پورت: ${p})';
 	@override String get tunNotEnabled => 'TUN فعال نیست';
+	@override String get routeTableSection => '4. جدول مسیریابی';
 }
 
 // Path: VersionUpdateScreen
@@ -526,6 +527,7 @@ extension on TranslationsFa {
 			'NetCheckScreen.directHttpSection' => '2. HTTP (از طریق TUN، ابتدا TUN را فعال کنید)',
 			'NetCheckScreen.proxyHttpSection' => ({required Object p}) => '3. HTTP (از طریق پروکسی، پورت: ${p})',
 			'NetCheckScreen.tunNotEnabled' => 'TUN فعال نیست',
+			'NetCheckScreen.routeTableSection' => '4. جدول مسیریابی',
 			'VersionUpdateScreen.versionReady' => ({required Object p}) => 'نسخه جدید [${p}] آماده است',
 			'VersionUpdateScreen.update' => 'راه‌اندازی مجدد برای به‌روزرسانی',
 			'VersionUpdateScreen.cancel' => 'الان‌ نه',

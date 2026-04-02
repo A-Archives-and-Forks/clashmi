@@ -2,10 +2,12 @@ import 'dart:io';
 
 import 'package:clashmi/app/clash/clash_http_api.dart';
 import 'package:clashmi/app/modules/clash_setting_manager.dart';
+import 'package:clashmi/app/utils/system_utils.dart';
 import 'package:clashmi/i18n/strings.g.dart';
 import 'package:clashmi/screens/theme_config.dart';
 import 'package:clashmi/screens/widgets/framework.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class NetCheckScreen extends LasyRenderingStatefulWidget {
   static RouteSettings routSettings() {
@@ -27,6 +29,7 @@ class _NetCheckScreenState extends LasyRenderingState<NetCheckScreen> {
   String _dnsResult = '';
   String _directHttpResult = '';
   String _proxyHttpResult = '';
+  String _routeTableResult = '';
 
   @override
   void dispose() {
@@ -51,6 +54,7 @@ class _NetCheckScreenState extends LasyRenderingState<NetCheckScreen> {
       _dnsResult = tcontext.NetCheckScreen.checking;
       _directHttpResult = tcontext.NetCheckScreen.checking;
       _proxyHttpResult = tcontext.NetCheckScreen.checking;
+      _routeTableResult = tcontext.NetCheckScreen.checking;
     });
 
     final dnsResult = await _checkDns(domain, tcontext);
@@ -97,8 +101,19 @@ class _NetCheckScreenState extends LasyRenderingState<NetCheckScreen> {
       return;
     }
     setState(() {
-      _checking = false;
       _proxyHttpResult = proxyResult;
+    });
+    if (!Platform.isIOS) {
+      final routeTableResult = await SystemUtils.getRouteTable();
+      if (!mounted) {
+        return;
+      }
+      setState(() {
+        _routeTableResult = routeTableResult;
+      });
+    }
+    setState(() {
+      _checking = false;
     });
   }
 
@@ -218,7 +233,35 @@ class _NetCheckScreenState extends LasyRenderingState<NetCheckScreen> {
                       ),
                     ),
                   ),
-                  const SizedBox(width: 50, height: 30),
+                  _checking || _proxyHttpResult.isEmpty
+                      ? const SizedBox(width: 50, height: 30)
+                      : InkWell(
+                          onTap: () async {
+                            try {
+                              await Clipboard.setData(
+                                ClipboardData(
+                                  text: [
+                                    '1. DNS:',
+                                    _dnsResult,
+                                    '2. HTTP Via TUN:',
+                                    _directHttpResult,
+                                    '3. HTTP Via Proxy:',
+                                    _proxyHttpResult,
+                                    if (!Platform.isIOS) ...[
+                                      '4. Route Table:',
+                                      _routeTableResult,
+                                    ],
+                                  ].join('\n\n'),
+                                ),
+                              );
+                            } catch (e) {}
+                          },
+                          child: SizedBox(
+                            width: 50,
+                            height: 30,
+                            child: Icon(Icons.copy, size: 26),
+                          ),
+                        ),
                 ],
               ),
               const SizedBox(height: 10),
@@ -271,6 +314,13 @@ class _NetCheckScreenState extends LasyRenderingState<NetCheckScreen> {
                               ),
                               _proxyHttpResult,
                             ),
+                            if (!Platform.isIOS) ...[
+                              const SizedBox(height: 12),
+                              _buildSection(
+                                tcontext.NetCheckScreen.routeTableSection,
+                                _routeTableResult,
+                              ),
+                            ],
                           ],
                         ),
                       ),

@@ -135,6 +135,7 @@ class _TranslationsNetCheckScreenRu implements TranslationsNetCheckScreenEn {
 	@override String get directHttpSection => '2. HTTP (через TUN, сначала включите TUN)';
 	@override String proxyHttpSection({required Object p}) => '3. HTTP (через прокси, порт: ${p})';
 	@override String get tunNotEnabled => 'TUN не включён';
+	@override String get routeTableSection => '4. Таблица маршрутов';
 }
 
 // Path: VersionUpdateScreen
@@ -526,6 +527,7 @@ extension on TranslationsRu {
 			'NetCheckScreen.directHttpSection' => '2. HTTP (через TUN, сначала включите TUN)',
 			'NetCheckScreen.proxyHttpSection' => ({required Object p}) => '3. HTTP (через прокси, порт: ${p})',
 			'NetCheckScreen.tunNotEnabled' => 'TUN не включён',
+			'NetCheckScreen.routeTableSection' => '4. Таблица маршрутов',
 			'VersionUpdateScreen.versionReady' => ({required Object p}) => 'Новая версия [${p}] доступна',
 			'VersionUpdateScreen.update' => 'Перезапустить',
 			'VersionUpdateScreen.cancel' => 'Не сейчас',

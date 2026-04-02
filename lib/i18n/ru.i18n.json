@@ -33,7 +33,8 @@
         "dnsSection": "1. DNS-запрос",
         "directHttpSection": "2. HTTP (через TUN, сначала включите TUN)",
         "proxyHttpSection": "3. HTTP (через прокси, порт: $p)",
-        "tunNotEnabled": "TUN не включён"
+        "tunNotEnabled": "TUN не включён",
+        "routeTableSection": "4. Таблица маршрутов"
     },
     "VersionUpdateScreen": {
         "versionReady": "Новая версия [$p] доступна",

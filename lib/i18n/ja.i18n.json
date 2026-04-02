@@ -33,7 +33,8 @@
         "dnsSection": "1. DNS照会",
         "directHttpSection": "2. HTTP (TUN経由、先にTUNを有効にしてください)",
         "proxyHttpSection": "3. HTTP (プロキシ経由、ポート: $p)",
-        "tunNotEnabled": "TUN が有効になっていません"
+        "tunNotEnabled": "TUN が有効になっていません",
+        "routeTableSection": "4. ルートテーブル"
     },
     "VersionUpdateScreen": {
         "versionReady": "新しいバージョン [$p] の準備ができました",

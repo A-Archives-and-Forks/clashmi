@@ -135,6 +135,7 @@ class _TranslationsNetCheckScreenZhTw implements TranslationsNetCheckScreenEn {
 	@override String get directHttpSection => '2. HTTP (經由TUN,請先啟用TUN)';
 	@override String proxyHttpSection({required Object p}) => '3. HTTP (經由代理,連接埠:${p})';
 	@override String get tunNotEnabled => 'TUN 未啟用';
+	@override String get routeTableSection => '4. 路由表';
 }
 
 // Path: VersionUpdateScreen
@@ -526,6 +527,7 @@ extension on TranslationsZhTw {
 			'NetCheckScreen.directHttpSection' => '2. HTTP (經由TUN,請先啟用TUN)',
 			'NetCheckScreen.proxyHttpSection' => ({required Object p}) => '3. HTTP (經由代理,連接埠:${p})',
 			'NetCheckScreen.tunNotEnabled' => 'TUN 未啟用',
+			'NetCheckScreen.routeTableSection' => '4. 路由表',
 			'VersionUpdateScreen.versionReady' => ({required Object p}) => '新版本[${p}]已就緒',
 			'VersionUpdateScreen.update' => '重啟更新',
 			'VersionUpdateScreen.cancel' => '暫不更新',
