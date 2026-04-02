@@ -2,7 +2,7 @@ name: clashmi
 description: clashmi
 
 publish_to: none 
-version: 1.0.20+603
+version: 1.0.20+604
 environment:
   sdk: ">=3.9.0 <4.0.0"
   flutter: ">=3.35.0"
@@ -86,7 +86,7 @@ dependencies:
     #path: ../window_manager/packages/
     git:
       url: https://github.com/KaringX/window_manager.git
-      ref: bf21977eaa4e6035b1d81e249f91525a74f86ffd
+      ref: bf21977eaa4e6035b1d81e249f91525a74f86ffd 
       path: packages/window_manager
   libclash_vpn_service:
     path: ../libclash-vpn-service/
