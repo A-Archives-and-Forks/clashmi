@@ -212,6 +212,9 @@ class TranslationsNetCheckScreenEn {
 
 	/// en: '3. HTTP (via Proxy, port: $p)'
 	String proxyHttpSection({required Object p}) => '3. HTTP (via Proxy, port: ${p})';
+
+	/// en: 'TUN is not enabled'
+	String get tunNotEnabled => 'TUN is not enabled';
 }
 
 // Path: main
@@ -1115,6 +1118,7 @@ extension on Translations {
 			'NetCheckScreen.dnsSection' => '1. DNS Query',
 			'NetCheckScreen.directHttpSection' => '2. HTTP (via TUN, enable TUN first)',
 			'NetCheckScreen.proxyHttpSection' => ({required Object p}) => '3. HTTP (via Proxy, port: ${p})',
+			'NetCheckScreen.tunNotEnabled' => 'TUN is not enabled',
 			'main.tray.menuOpen' => 'Open',
 			'main.tray.menuExit' => 'Exit',
 			'meta.enable' => 'Enable',

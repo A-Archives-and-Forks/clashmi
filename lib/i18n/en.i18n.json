@@ -37,7 +37,8 @@
         "checkButton": "Check",
         "dnsSection": "1. DNS Query",
         "directHttpSection": "2. HTTP (via TUN, enable TUN first)",
-        "proxyHttpSection": "3. HTTP (via Proxy, port: $p)"
+        "proxyHttpSection": "3. HTTP (via Proxy, port: $p)",
+        "tunNotEnabled": "TUN is not enabled"
     },
     "main": {
         "tray": {

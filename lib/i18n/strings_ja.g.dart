@@ -134,6 +134,7 @@ class _TranslationsNetCheckScreenJa implements TranslationsNetCheckScreenEn {
 	@override String get dnsSection => '1. DNS照会';
 	@override String get directHttpSection => '2. HTTP (TUN経由、先にTUNを有効にしてください)';
 	@override String proxyHttpSection({required Object p}) => '3. HTTP (プロキシ経由、ポート: ${p})';
+	@override String get tunNotEnabled => 'TUN が有効になっていません';
 }
 
 // Path: VersionUpdateScreen
@@ -524,6 +525,7 @@ extension on TranslationsJa {
 			'NetCheckScreen.dnsSection' => '1. DNS照会',
 			'NetCheckScreen.directHttpSection' => '2. HTTP (TUN経由、先にTUNを有効にしてください)',
 			'NetCheckScreen.proxyHttpSection' => ({required Object p}) => '3. HTTP (プロキシ経由、ポート: ${p})',
+			'NetCheckScreen.tunNotEnabled' => 'TUN が有効になっていません',
 			'VersionUpdateScreen.versionReady' => ({required Object p}) => '新しいバージョン [${p}] の準備ができました',
 			'VersionUpdateScreen.update' => '再起動して更新',
 			'VersionUpdateScreen.cancel' => '今はしない',

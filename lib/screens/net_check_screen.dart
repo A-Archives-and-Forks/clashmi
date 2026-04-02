@@ -1,4 +1,3 @@
-import 'dart:convert' show jsonDecode;
 import 'dart:io';
 
 import 'package:clashmi/app/clash/clash_http_api.dart';
@@ -7,7 +6,6 @@ import 'package:clashmi/i18n/strings.g.dart';
 import 'package:clashmi/screens/theme_config.dart';
 import 'package:clashmi/screens/widgets/framework.dart';
 import 'package:flutter/material.dart';
-import 'package:libclash_vpn_service/vpn_service.dart';
 
 class NetCheckScreen extends LasyRenderingStatefulWidget {
   static RouteSettings routSettings() {
@@ -62,7 +60,19 @@ class _NetCheckScreenState extends LasyRenderingState<NetCheckScreen> {
     setState(() {
       _dnsResult = dnsResult;
     });
-    final directResult = await _checkHttpDirect(domain, tcontext);
+    String directResult = "";
+    final result = await ClashHttpApi.getConfigs();
+    if (result.error != null) {
+      directResult = result.error!.message;
+    } else {
+      final configs = result.data!;
+      if (configs.tun.enable) {
+        directResult = await _checkHttpDirect(domain, tcontext);
+      } else {
+        directResult = tcontext.NetCheckScreen.tunNotEnabled;
+      }
+    }
+
     /*String connections = await FlutterVpnService.clashiApiConnections(true);
     print(connections + "\n");
     try {

@@ -9,12 +9,34 @@ import 'package:clashmi/app/utils/http_utils.dart';
 
 import '../utils/did.dart';
 
+class ClashConfigsTun {
+  bool enable = false;
+  String device = "";
+  String stack = "";
+  //"dns-hijack": null,
+  bool auto_route = false;
+  bool auto_detect_interface = false;
+  int file_descriptor = 0;
+  void fromJson(Map<String, dynamic>? map) {
+    if (map == null) {
+      return;
+    }
+    enable = map["enable"] ?? false;
+    device = map["device"] ?? "";
+    stack = map["stack"] ?? "";
+    auto_route = map["auto-route"] ?? false;
+    auto_detect_interface = map["auto-detect-interface"] ?? false;
+    file_descriptor = map["file-descriptor"] ?? 0;
+  }
+}
+
 class ClashConfigs {
   int port = 0;
   int socks_port = 0;
   int redir_port = 0;
   int tproxy_port = 0;
   int mixed_port = 0;
+  ClashConfigsTun tun = ClashConfigsTun();
   /*
  "tun": {
         "enable": false,
@@ -66,16 +88,7 @@ class ClashConfigs {
       redir_port = map["redir-port"] ?? 0;
       tproxy_port = map["tproxy-port"] ?? 0;
       mixed_port = map["mixed-port"] ?? 0;
-      /*"tun": {
-        "enable": false,
-        "device": "",
-        "stack": "gVisor",
-        "dns-hijack": null,
-        "auto-route": false,
-        "auto-detect-interface": false,
-        "file-descriptor": 0
-    },*/
-
+      tun.fromJson(map["tun"]);
       allow = map["allow-lan"] ?? false;
       bind_address = map["bind-address"] ?? "";
       inbound_tfo = map["inbound-tfo"] ?? false;

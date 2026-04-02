@@ -32,7 +32,8 @@
         "checkButton": "診断",
         "dnsSection": "1. DNS照会",
         "directHttpSection": "2. HTTP (TUN経由、先にTUNを有効にしてください)",
-        "proxyHttpSection": "3. HTTP (プロキシ経由、ポート: $p)"
+        "proxyHttpSection": "3. HTTP (プロキシ経由、ポート: $p)",
+        "tunNotEnabled": "TUN が有効になっていません"
     },
     "VersionUpdateScreen": {
         "versionReady": "新しいバージョン [$p] の準備ができました",

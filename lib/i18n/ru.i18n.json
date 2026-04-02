@@ -32,7 +32,8 @@
         "checkButton": "Проверить",
         "dnsSection": "1. DNS-запрос",
         "directHttpSection": "2. HTTP (через TUN, сначала включите TUN)",
-        "proxyHttpSection": "3. HTTP (через прокси, порт: $p)"
+        "proxyHttpSection": "3. HTTP (через прокси, порт: $p)",
+        "tunNotEnabled": "TUN не включён"
     },
     "VersionUpdateScreen": {
         "versionReady": "Новая версия [$p] доступна",

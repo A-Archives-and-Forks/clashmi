@@ -134,6 +134,7 @@ class _TranslationsNetCheckScreenAr implements TranslationsNetCheckScreenEn {
 	@override String get dnsSection => '1. استعلام DNS';
 	@override String get directHttpSection => '2. HTTP (عبر TUN، يرجى تفعيل TUN أولاً)';
 	@override String proxyHttpSection({required Object p}) => '3. HTTP (عبر الوكيل، المنفذ: ${p})';
+	@override String get tunNotEnabled => 'TUN غير مفعّل';
 }
 
 // Path: VersionUpdateScreen
@@ -524,6 +525,7 @@ extension on TranslationsAr {
 			'NetCheckScreen.dnsSection' => '1. استعلام DNS',
 			'NetCheckScreen.directHttpSection' => '2. HTTP (عبر TUN، يرجى تفعيل TUN أولاً)',
 			'NetCheckScreen.proxyHttpSection' => ({required Object p}) => '3. HTTP (عبر الوكيل، المنفذ: ${p})',
+			'NetCheckScreen.tunNotEnabled' => 'TUN غير مفعّل',
 			'VersionUpdateScreen.versionReady' => ({required Object p}) => 'الإصدار الجديد [${p}] جاهز',
 			'VersionUpdateScreen.update' => 'أعد التشغيل للتحديث',
 			'VersionUpdateScreen.cancel' => 'ليس الآن',

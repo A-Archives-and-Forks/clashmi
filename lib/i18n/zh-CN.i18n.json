@@ -32,7 +32,8 @@
         "checkButton": "检测",
         "dnsSection": "1. DNS查询",
         "directHttpSection": "2. HTTP (经由TUN,请先开启TUN)",
-        "proxyHttpSection": "3. HTTP (经由代理,端口:$p)"
+        "proxyHttpSection": "3. HTTP (经由代理,端口:$p)",
+        "tunNotEnabled": "TUN 未开启"
     },
     "VersionUpdateScreen": {
         "versionReady": "新版本[$p]已就绪",

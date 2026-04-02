@@ -32,7 +32,8 @@
         "checkButton": "فحص",
         "dnsSection": "1. استعلام DNS",
         "directHttpSection": "2. HTTP (عبر TUN، يرجى تفعيل TUN أولاً)",
-        "proxyHttpSection": "3. HTTP (عبر الوكيل، المنفذ: $p)"
+        "proxyHttpSection": "3. HTTP (عبر الوكيل، المنفذ: $p)",
+        "tunNotEnabled": "TUN غير مفعّل"
     },
     "VersionUpdateScreen": {
         "versionReady": "الإصدار الجديد [$p] جاهز",
