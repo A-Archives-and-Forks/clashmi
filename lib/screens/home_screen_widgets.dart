@@ -20,6 +20,7 @@ import 'package:clashmi/app/utils/move_to_background_utils.dart';
 import 'package:clashmi/app/utils/network_utils.dart';
 import 'package:clashmi/app/utils/path_utils.dart';
 import 'package:clashmi/app/utils/platform_utils.dart';
+import 'package:clashmi/app/utils/vpn_action_handler.dart';
 import 'package:clashmi/i18n/strings.g.dart';
 import 'package:clashmi/screens/about_screen.dart';
 import 'package:clashmi/screens/dialog_utils.dart';
@@ -31,14 +32,13 @@ import 'package:clashmi/screens/proxy_board_screen.dart';
 import 'package:clashmi/screens/richtext_viewer.screen.dart';
 import 'package:clashmi/screens/theme_config.dart';
 import 'package:clashmi/screens/theme_define.dart';
-import 'package:clashmi/app/utils/vpn_action_handler.dart';
 import 'package:clashmi/screens/webview_helper.dart';
 import 'package:clashmi/screens/widgets/segmented_elevated_button.dart';
 import 'package:flutter/material.dart';
-import 'package:tuple/tuple.dart';
 import 'package:libclash_vpn_service/state.dart';
 import 'package:libclash_vpn_service/vpn_service.dart';
 import 'package:quick_actions/quick_actions.dart';
+import 'package:tuple/tuple.dart';
 
 class ProxyHttpOverrides extends HttpOverrides {
   ProxyHttpOverrides(this.proxyPort);
@@ -761,17 +761,12 @@ class _HomeScreenWidgetPart1 extends State<HomeScreenWidgetPart1> {
     }
     _state = state;
     if (state == FlutterVpnServiceState.disconnected) {
-      HttpOverrides.global = null;
       _disconnectToCore();
       Biz.vpnStateChanged(false);
     } else if (state == FlutterVpnServiceState.connecting) {
     } else if (state == FlutterVpnServiceState.connected) {
       if (ClashSettingManager.getConfig().MixedPort != null &&
-          HttpOverrides.current == null) {
-        HttpOverrides.global = ProxyHttpOverrides(
-          ClashSettingManager.getConfig().MixedPort!,
-        );
-      }
+          HttpOverrides.current == null) {}
       if (!AppLifecycleStateNofity.isPaused()) {
         _connectToCore();
       }

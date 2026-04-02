@@ -132,12 +132,7 @@ class _NetCheckScreenState extends LasyRenderingState<NetCheckScreen> {
   }
 
   Future<String> _checkHttpDirect(String domain, Translations tcontext) async {
-    return _checkHttp(
-      domain,
-      tcontext,
-      proxyPort: null,
-      closeDelay: const Duration(seconds: 5),
-    );
+    return _checkHttp(domain, tcontext, proxyPort: null);
   }
 
   Future<String> _checkHttpWithMixPort(
@@ -152,7 +147,6 @@ class _NetCheckScreenState extends LasyRenderingState<NetCheckScreen> {
     String domain,
     Translations tcontext, {
     int? proxyPort,
-    Duration? closeDelay,
   }) async {
     HttpClient? client;
     try {
@@ -184,13 +178,7 @@ class _NetCheckScreenState extends LasyRenderingState<NetCheckScreen> {
     } catch (err) {
       return err.toString();
     } finally {
-      if (closeDelay != null && closeDelay > Duration.zero) {
-        Future.delayed(closeDelay, () {
-          client?.close(force: true);
-        });
-      } else {
-        client?.close(force: true);
-      }
+      client?.close(force: true);
     }
   }
 
