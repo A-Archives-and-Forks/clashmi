@@ -41,6 +41,7 @@ class TranslationsFa with BaseTranslations<AppLocale, Translations> implements T
 	@override late final _TranslationsLaunchFailedScreenFa LaunchFailedScreen = _TranslationsLaunchFailedScreenFa._(_root);
 	@override late final _TranslationsPerAppAndroidScreenFa PerAppAndroidScreen = _TranslationsPerAppAndroidScreenFa._(_root);
 	@override late final _TranslationsUserAgreementScreenFa UserAgreementScreen = _TranslationsUserAgreementScreenFa._(_root);
+	@override late final _TranslationsNetCheckScreenFa NetCheckScreen = _TranslationsNetCheckScreenFa._(_root);
 	@override late final _TranslationsVersionUpdateScreenFa VersionUpdateScreen = _TranslationsVersionUpdateScreenFa._(_root);
 	@override late final _TranslationsMainFa main = _TranslationsMainFa._(_root);
 	@override late final _TranslationsMetaFa meta = _TranslationsMetaFa._(_root);
@@ -113,6 +114,26 @@ class _TranslationsUserAgreementScreenFa implements TranslationsUserAgreementScr
 	// Translations
 	@override String get privacyFirst => 'حریم‌خصوصی شما اولویت دارد';
 	@override String get agreeAndContinue => 'پذیرفتن و ادامه';
+}
+
+// Path: NetCheckScreen
+class _TranslationsNetCheckScreenFa implements TranslationsNetCheckScreenEn {
+	_TranslationsNetCheckScreenFa._(this._root);
+
+	final TranslationsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get enterDomain => 'لطفاً نام دامنه را وارد کنید';
+	@override String get checking => 'در حال بررسی...';
+	@override String aQueryFailed({required Object p}) => 'خطا در پرس‌وجوی A: ${p}';
+	@override String aaaaQueryFailed({required Object p}) => 'خطا در پرس‌وجوی AAAA: ${p}';
+	@override String get success => 'موفق';
+	@override String get failed => 'ناموفق';
+	@override String get domainLabel => 'دامنه';
+	@override String get checkButton => 'بررسی';
+	@override String get dnsSection => '1. پرس‌وجوی DNS';
+	@override String get directHttpSection => '2. HTTP (از طریق TUN، ابتدا TUN را فعال کنید)';
+	@override String proxyHttpSection({required Object p}) => '3. HTTP (از طریق پروکسی، پورت: ${p})';
 }
 
 // Path: VersionUpdateScreen
@@ -190,6 +211,7 @@ class _TranslationsMetaFa implements TranslationsMetaEn {
 	@override String get timeoutDuration => 'مدت زمان وقفه';
 	@override String get latency => 'تاخیر';
 	@override String get latencyTest => 'بررسی تاخیر';
+	@override String get networkCheck => 'بررسی شبکه';
 	@override String get language => 'زبان';
 	@override String get next => 'بعدی';
 	@override String get done => 'انجام‌شد';
@@ -491,6 +513,17 @@ extension on TranslationsFa {
 			'PerAppAndroidScreen.whiteListModeTip' => 'وقتی فعال باشد: فقط برنامه‌هایی که انتخاب شده‌اند پروکسی می‌شوند؛ وقتی فعال نباشد: فقط برنامه‌هایی که انتخاب نشده‌اند پروکسی می‌شوند',
 			'UserAgreementScreen.privacyFirst' => 'حریم‌خصوصی شما اولویت دارد',
 			'UserAgreementScreen.agreeAndContinue' => 'پذیرفتن و ادامه',
+			'NetCheckScreen.enterDomain' => 'لطفاً نام دامنه را وارد کنید',
+			'NetCheckScreen.checking' => 'در حال بررسی...',
+			'NetCheckScreen.aQueryFailed' => ({required Object p}) => 'خطا در پرس‌وجوی A: ${p}',
+			'NetCheckScreen.aaaaQueryFailed' => ({required Object p}) => 'خطا در پرس‌وجوی AAAA: ${p}',
+			'NetCheckScreen.success' => 'موفق',
+			'NetCheckScreen.failed' => 'ناموفق',
+			'NetCheckScreen.domainLabel' => 'دامنه',
+			'NetCheckScreen.checkButton' => 'بررسی',
+			'NetCheckScreen.dnsSection' => '1. پرس‌وجوی DNS',
+			'NetCheckScreen.directHttpSection' => '2. HTTP (از طریق TUN، ابتدا TUN را فعال کنید)',
+			'NetCheckScreen.proxyHttpSection' => ({required Object p}) => '3. HTTP (از طریق پروکسی، پورت: ${p})',
 			'VersionUpdateScreen.versionReady' => ({required Object p}) => 'نسخه جدید [${p}] آماده است',
 			'VersionUpdateScreen.update' => 'راه‌اندازی مجدد برای به‌روزرسانی',
 			'VersionUpdateScreen.cancel' => 'الان‌ نه',
@@ -542,6 +575,7 @@ extension on TranslationsFa {
 			'meta.timeoutDuration' => 'مدت زمان وقفه',
 			'meta.latency' => 'تاخیر',
 			'meta.latencyTest' => 'بررسی تاخیر',
+			'meta.networkCheck' => 'بررسی شبکه',
 			'meta.language' => 'زبان',
 			'meta.next' => 'بعدی',
 			'meta.done' => 'انجام‌شد',

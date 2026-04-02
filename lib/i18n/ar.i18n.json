@@ -21,6 +21,19 @@
         "privacyFirst": "خصوصيتك تأتي أولا",
         "agreeAndContinue": "قبول ومتابعة"
     },
+    "NetCheckScreen": {
+        "enterDomain": "أدخل اسم النطاق",
+        "checking": "جارٍ الفحص...",
+        "aQueryFailed": "فشل استعلام A: $p",
+        "aaaaQueryFailed": "فشل استعلام AAAA: $p",
+        "success": "نجاح",
+        "failed": "فشل",
+        "domainLabel": "النطاق",
+        "checkButton": "فحص",
+        "dnsSection": "1. استعلام DNS",
+        "directHttpSection": "2. HTTP (عبر TUN، يرجى تفعيل TUN أولاً)",
+        "proxyHttpSection": "3. HTTP (عبر الوكيل، المنفذ: $p)"
+    },
     "VersionUpdateScreen": {
         "versionReady": "الإصدار الجديد [$p] جاهز",
         "update": "أعد التشغيل للتحديث",
@@ -79,6 +92,7 @@
         "timeoutDuration": "مدة مهلة الانتظار",
         "latency": "تأخير",
         "latencyTest": "كشف التأخير",
+        "networkCheck": "فحص الشبكة",
         "language": "لغة",
         "next": "التالي",
         "done": "منتهي",

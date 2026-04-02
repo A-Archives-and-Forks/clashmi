@@ -21,6 +21,19 @@
         "privacyFirst": "개인 정보 보호 우선",
         "agreeAndContinue": "동의 및 계속"
     },
+    "NetCheckScreen": {
+        "enterDomain": "도메인 이름을 입력하세요",
+        "checking": "점검 중...",
+        "aQueryFailed": "A 쿼리 실패: $p",
+        "aaaaQueryFailed": "AAAA 쿼리 실패: $p",
+        "success": "성공",
+        "failed": "실패",
+        "domainLabel": "도메인",
+        "checkButton": "점검",
+        "dnsSection": "1. DNS 조회",
+        "directHttpSection": "2. HTTP (TUN 경유, TUN 먼저 활성화 필요)",
+        "proxyHttpSection": "3. HTTP (프록시 경유, 포트: $p)"
+    },
     "VersionUpdateScreen": {
         "versionReady": "새 버전 [$p]이 준비되었습니다",
         "update": "업데이트를 위해 재시작",
@@ -79,6 +92,7 @@
         "timeoutDuration": "시간 초과 기간",
         "latency": "지연 시간",
         "latencyTest": "지연 시간 확인",
+        "networkCheck": "네트워크 점검",
         "language": "언어",
         "next": "다음",
         "done": "완료",

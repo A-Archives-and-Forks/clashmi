@@ -41,6 +41,7 @@ class TranslationsZhTw with BaseTranslations<AppLocale, Translations> implements
 	@override late final _TranslationsLaunchFailedScreenZhTw LaunchFailedScreen = _TranslationsLaunchFailedScreenZhTw._(_root);
 	@override late final _TranslationsPerAppAndroidScreenZhTw PerAppAndroidScreen = _TranslationsPerAppAndroidScreenZhTw._(_root);
 	@override late final _TranslationsUserAgreementScreenZhTw UserAgreementScreen = _TranslationsUserAgreementScreenZhTw._(_root);
+	@override late final _TranslationsNetCheckScreenZhTw NetCheckScreen = _TranslationsNetCheckScreenZhTw._(_root);
 	@override late final _TranslationsVersionUpdateScreenZhTw VersionUpdateScreen = _TranslationsVersionUpdateScreenZhTw._(_root);
 	@override late final _TranslationsMainZhTw main = _TranslationsMainZhTw._(_root);
 	@override late final _TranslationsMetaZhTw meta = _TranslationsMetaZhTw._(_root);
@@ -113,6 +114,26 @@ class _TranslationsUserAgreementScreenZhTw implements TranslationsUserAgreementS
 	// Translations
 	@override String get privacyFirst => '您的隱私很重要';
 	@override String get agreeAndContinue => '接受並繼續';
+}
+
+// Path: NetCheckScreen
+class _TranslationsNetCheckScreenZhTw implements TranslationsNetCheckScreenEn {
+	_TranslationsNetCheckScreenZhTw._(this._root);
+
+	final TranslationsZhTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get enterDomain => '請輸入網域名稱';
+	@override String get checking => '檢測中...';
+	@override String aQueryFailed({required Object p}) => 'A 查詢失敗: ${p}';
+	@override String aaaaQueryFailed({required Object p}) => 'AAAA 查詢失敗: ${p}';
+	@override String get success => '成功';
+	@override String get failed => '失敗';
+	@override String get domainLabel => '網域名稱';
+	@override String get checkButton => '檢測';
+	@override String get dnsSection => '1. DNS查詢';
+	@override String get directHttpSection => '2. HTTP (經由TUN,請先啟用TUN)';
+	@override String proxyHttpSection({required Object p}) => '3. HTTP (經由代理,連接埠:${p})';
 }
 
 // Path: VersionUpdateScreen
@@ -190,6 +211,7 @@ class _TranslationsMetaZhTw implements TranslationsMetaEn {
 	@override String get timeoutDuration => '超時時長';
 	@override String get latency => '延遲';
 	@override String get latencyTest => '延遲檢測';
+	@override String get networkCheck => '網路檢測';
 	@override String get language => '語言';
 	@override String get next => '下一步';
 	@override String get done => '完成';
@@ -491,6 +513,17 @@ extension on TranslationsZhTw {
 			'PerAppAndroidScreen.whiteListModeTip' => '啟用後:僅代理已勾選的App;未啟用:僅代理未勾選的App',
 			'UserAgreementScreen.privacyFirst' => '您的隱私很重要',
 			'UserAgreementScreen.agreeAndContinue' => '接受並繼續',
+			'NetCheckScreen.enterDomain' => '請輸入網域名稱',
+			'NetCheckScreen.checking' => '檢測中...',
+			'NetCheckScreen.aQueryFailed' => ({required Object p}) => 'A 查詢失敗: ${p}',
+			'NetCheckScreen.aaaaQueryFailed' => ({required Object p}) => 'AAAA 查詢失敗: ${p}',
+			'NetCheckScreen.success' => '成功',
+			'NetCheckScreen.failed' => '失敗',
+			'NetCheckScreen.domainLabel' => '網域名稱',
+			'NetCheckScreen.checkButton' => '檢測',
+			'NetCheckScreen.dnsSection' => '1. DNS查詢',
+			'NetCheckScreen.directHttpSection' => '2. HTTP (經由TUN,請先啟用TUN)',
+			'NetCheckScreen.proxyHttpSection' => ({required Object p}) => '3. HTTP (經由代理,連接埠:${p})',
 			'VersionUpdateScreen.versionReady' => ({required Object p}) => '新版本[${p}]已就緒',
 			'VersionUpdateScreen.update' => '重啟更新',
 			'VersionUpdateScreen.cancel' => '暫不更新',
@@ -542,6 +575,7 @@ extension on TranslationsZhTw {
 			'meta.timeoutDuration' => '超時時長',
 			'meta.latency' => '延遲',
 			'meta.latencyTest' => '延遲檢測',
+			'meta.networkCheck' => '網路檢測',
 			'meta.language' => '語言',
 			'meta.next' => '下一步',
 			'meta.done' => '完成',

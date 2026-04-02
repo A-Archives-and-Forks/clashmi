@@ -45,6 +45,7 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	late final TranslationsPerAppAndroidScreenEn PerAppAndroidScreen = TranslationsPerAppAndroidScreenEn._(_root);
 	late final TranslationsUserAgreementScreenEn UserAgreementScreen = TranslationsUserAgreementScreenEn._(_root);
 	late final TranslationsVersionUpdateScreenEn VersionUpdateScreen = TranslationsVersionUpdateScreenEn._(_root);
+	late final TranslationsNetCheckScreenEn NetCheckScreen = TranslationsNetCheckScreenEn._(_root);
 	late final TranslationsMainEn main = TranslationsMainEn._(_root);
 	late final TranslationsMetaEn meta = TranslationsMetaEn._(_root);
 	late final TranslationsPermissionEn permission = TranslationsPermissionEn._(_root);
@@ -169,6 +170,48 @@ class TranslationsVersionUpdateScreenEn {
 
 	/// en: 'Not Now'
 	String get cancel => 'Not Now';
+}
+
+// Path: NetCheckScreen
+class TranslationsNetCheckScreenEn {
+	TranslationsNetCheckScreenEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'Please enter a domain'
+	String get enterDomain => 'Please enter a domain';
+
+	/// en: 'Checking...'
+	String get checking => 'Checking...';
+
+	/// en: 'A query failed: $p'
+	String aQueryFailed({required Object p}) => 'A query failed: ${p}';
+
+	/// en: 'AAAA query failed: $p'
+	String aaaaQueryFailed({required Object p}) => 'AAAA query failed: ${p}';
+
+	/// en: 'Success'
+	String get success => 'Success';
+
+	/// en: 'Failed'
+	String get failed => 'Failed';
+
+	/// en: 'Domain'
+	String get domainLabel => 'Domain';
+
+	/// en: 'Check'
+	String get checkButton => 'Check';
+
+	/// en: '1. DNS Query'
+	String get dnsSection => '1. DNS Query';
+
+	/// en: '2. HTTP (via TUN, enable TUN first)'
+	String get directHttpSection => '2. HTTP (via TUN, enable TUN first)';
+
+	/// en: '3. HTTP (via Proxy, port: $p)'
+	String proxyHttpSection({required Object p}) => '3. HTTP (via Proxy, port: ${p})';
 }
 
 // Path: main
@@ -326,6 +369,9 @@ class TranslationsMetaEn {
 
 	/// en: 'Latency Checks'
 	String get latencyTest => 'Latency Checks';
+
+	/// en: 'Network Check'
+	String get networkCheck => 'Network Check';
 
 	/// en: 'Language'
 	String get language => 'Language';
@@ -1058,6 +1104,17 @@ extension on Translations {
 			'VersionUpdateScreen.versionReady' => ({required Object p}) => 'The new version[${p}] is ready',
 			'VersionUpdateScreen.update' => 'Restart To Update',
 			'VersionUpdateScreen.cancel' => 'Not Now',
+			'NetCheckScreen.enterDomain' => 'Please enter a domain',
+			'NetCheckScreen.checking' => 'Checking...',
+			'NetCheckScreen.aQueryFailed' => ({required Object p}) => 'A query failed: ${p}',
+			'NetCheckScreen.aaaaQueryFailed' => ({required Object p}) => 'AAAA query failed: ${p}',
+			'NetCheckScreen.success' => 'Success',
+			'NetCheckScreen.failed' => 'Failed',
+			'NetCheckScreen.domainLabel' => 'Domain',
+			'NetCheckScreen.checkButton' => 'Check',
+			'NetCheckScreen.dnsSection' => '1. DNS Query',
+			'NetCheckScreen.directHttpSection' => '2. HTTP (via TUN, enable TUN first)',
+			'NetCheckScreen.proxyHttpSection' => ({required Object p}) => '3. HTTP (via Proxy, port: ${p})',
 			'main.tray.menuOpen' => 'Open',
 			'main.tray.menuExit' => 'Exit',
 			'meta.enable' => 'Enable',
@@ -1106,6 +1163,7 @@ extension on Translations {
 			'meta.timeoutDuration' => 'Timeout Duration',
 			'meta.latency' => 'Latency',
 			'meta.latencyTest' => 'Latency Checks',
+			'meta.networkCheck' => 'Network Check',
 			'meta.language' => 'Language',
 			'meta.next' => 'Next',
 			'meta.done' => 'Done',

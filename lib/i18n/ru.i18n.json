@@ -21,6 +21,19 @@
         "privacyFirst": "Ваша конфиденциальность превыше всего",
         "agreeAndContinue": "Принять и продолжить"
     },
+    "NetCheckScreen": {
+        "enterDomain": "Введите доменное имя",
+        "checking": "Проверка...",
+        "aQueryFailed": "Ошибка запроса A: $p",
+        "aaaaQueryFailed": "Ошибка запроса AAAA: $p",
+        "success": "Успех",
+        "failed": "Ошибка",
+        "domainLabel": "Домен",
+        "checkButton": "Проверить",
+        "dnsSection": "1. DNS-запрос",
+        "directHttpSection": "2. HTTP (через TUN, сначала включите TUN)",
+        "proxyHttpSection": "3. HTTP (через прокси, порт: $p)"
+    },
     "VersionUpdateScreen": {
         "versionReady": "Новая версия [$p] доступна",
         "update": "Перезапустить",
@@ -79,6 +92,7 @@
         "timeoutDuration": "Длительность тайм-аута",
         "latency": "Задерживать",
         "latencyTest": "Обнаружение задержки",
+        "networkCheck": "Проверка сети",
         "language": "Язык",
         "next": "Дальше",
         "done": "Готово",

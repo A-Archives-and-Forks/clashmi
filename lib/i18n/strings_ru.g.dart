@@ -41,6 +41,7 @@ class TranslationsRu with BaseTranslations<AppLocale, Translations> implements T
 	@override late final _TranslationsLaunchFailedScreenRu LaunchFailedScreen = _TranslationsLaunchFailedScreenRu._(_root);
 	@override late final _TranslationsPerAppAndroidScreenRu PerAppAndroidScreen = _TranslationsPerAppAndroidScreenRu._(_root);
 	@override late final _TranslationsUserAgreementScreenRu UserAgreementScreen = _TranslationsUserAgreementScreenRu._(_root);
+	@override late final _TranslationsNetCheckScreenRu NetCheckScreen = _TranslationsNetCheckScreenRu._(_root);
 	@override late final _TranslationsVersionUpdateScreenRu VersionUpdateScreen = _TranslationsVersionUpdateScreenRu._(_root);
 	@override late final _TranslationsMainRu main = _TranslationsMainRu._(_root);
 	@override late final _TranslationsMetaRu meta = _TranslationsMetaRu._(_root);
@@ -113,6 +114,26 @@ class _TranslationsUserAgreementScreenRu implements TranslationsUserAgreementScr
 	// Translations
 	@override String get privacyFirst => 'Ваша конфиденциальность превыше всего';
 	@override String get agreeAndContinue => 'Принять и продолжить';
+}
+
+// Path: NetCheckScreen
+class _TranslationsNetCheckScreenRu implements TranslationsNetCheckScreenEn {
+	_TranslationsNetCheckScreenRu._(this._root);
+
+	final TranslationsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get enterDomain => 'Введите доменное имя';
+	@override String get checking => 'Проверка...';
+	@override String aQueryFailed({required Object p}) => 'Ошибка запроса A: ${p}';
+	@override String aaaaQueryFailed({required Object p}) => 'Ошибка запроса AAAA: ${p}';
+	@override String get success => 'Успех';
+	@override String get failed => 'Ошибка';
+	@override String get domainLabel => 'Домен';
+	@override String get checkButton => 'Проверить';
+	@override String get dnsSection => '1. DNS-запрос';
+	@override String get directHttpSection => '2. HTTP (через TUN, сначала включите TUN)';
+	@override String proxyHttpSection({required Object p}) => '3. HTTP (через прокси, порт: ${p})';
 }
 
 // Path: VersionUpdateScreen
@@ -190,6 +211,7 @@ class _TranslationsMetaRu implements TranslationsMetaEn {
 	@override String get timeoutDuration => 'Длительность тайм-аута';
 	@override String get latency => 'Задерживать';
 	@override String get latencyTest => 'Обнаружение задержки';
+	@override String get networkCheck => 'Проверка сети';
 	@override String get language => 'Язык';
 	@override String get next => 'Дальше';
 	@override String get done => 'Готово';
@@ -491,6 +513,17 @@ extension on TranslationsRu {
 			'PerAppAndroidScreen.whiteListModeTip' => 'Если включено: перенаправляются через прокси-сервер только те приложения, которые были отмечены. Если выключено: перенаправляются через прокси-сервер только те приложения, которые не были отмечены.',
 			'UserAgreementScreen.privacyFirst' => 'Ваша конфиденциальность превыше всего',
 			'UserAgreementScreen.agreeAndContinue' => 'Принять и продолжить',
+			'NetCheckScreen.enterDomain' => 'Введите доменное имя',
+			'NetCheckScreen.checking' => 'Проверка...',
+			'NetCheckScreen.aQueryFailed' => ({required Object p}) => 'Ошибка запроса A: ${p}',
+			'NetCheckScreen.aaaaQueryFailed' => ({required Object p}) => 'Ошибка запроса AAAA: ${p}',
+			'NetCheckScreen.success' => 'Успех',
+			'NetCheckScreen.failed' => 'Ошибка',
+			'NetCheckScreen.domainLabel' => 'Домен',
+			'NetCheckScreen.checkButton' => 'Проверить',
+			'NetCheckScreen.dnsSection' => '1. DNS-запрос',
+			'NetCheckScreen.directHttpSection' => '2. HTTP (через TUN, сначала включите TUN)',
+			'NetCheckScreen.proxyHttpSection' => ({required Object p}) => '3. HTTP (через прокси, порт: ${p})',
 			'VersionUpdateScreen.versionReady' => ({required Object p}) => 'Новая версия [${p}] доступна',
 			'VersionUpdateScreen.update' => 'Перезапустить',
 			'VersionUpdateScreen.cancel' => 'Не сейчас',
@@ -542,6 +575,7 @@ extension on TranslationsRu {
 			'meta.timeoutDuration' => 'Длительность тайм-аута',
 			'meta.latency' => 'Задерживать',
 			'meta.latencyTest' => 'Обнаружение задержки',
+			'meta.networkCheck' => 'Проверка сети',
 			'meta.language' => 'Язык',
 			'meta.next' => 'Дальше',
 			'meta.done' => 'Готово',

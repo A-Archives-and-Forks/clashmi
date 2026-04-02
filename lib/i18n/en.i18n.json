@@ -26,6 +26,19 @@
         "update": "Restart To Update",
         "cancel": "Not Now"
     },
+    "NetCheckScreen": {
+        "enterDomain": "Please enter a domain",
+        "checking": "Checking...",
+        "aQueryFailed": "A query failed: $p",
+        "aaaaQueryFailed": "AAAA query failed: $p",
+        "success": "Success",
+        "failed": "Failed",
+        "domainLabel": "Domain",
+        "checkButton": "Check",
+        "dnsSection": "1. DNS Query",
+        "directHttpSection": "2. HTTP (via TUN, enable TUN first)",
+        "proxyHttpSection": "3. HTTP (via Proxy, port: $p)"
+    },
     "main": {
         "tray": {
             "menuOpen": "Open",
@@ -79,6 +92,7 @@
         "timeoutDuration": "Timeout Duration",
         "latency": "Latency",
         "latencyTest": "Latency Checks",
+        "networkCheck": "Network Check",
         "language": "Language",
         "next": "Next",
         "done": "Done",

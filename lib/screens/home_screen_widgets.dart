@@ -25,6 +25,7 @@ import 'package:clashmi/screens/about_screen.dart';
 import 'package:clashmi/screens/dialog_utils.dart';
 import 'package:clashmi/screens/file_view_screen.dart';
 import 'package:clashmi/screens/group_helper.dart';
+import 'package:clashmi/screens/net_check_screen.dart';
 import 'package:clashmi/screens/profiles_board_screen.dart';
 import 'package:clashmi/screens/proxy_board_screen.dart';
 import 'package:clashmi/screens/richtext_viewer.screen.dart';
@@ -539,6 +540,22 @@ class _HomeScreenWidgetPart1 extends State<HomeScreenWidgetPart1> {
           },
         ),
       );
+      widgets.add(
+        ListTile(
+          title: Text(tcontext.meta.networkCheck),
+          trailing: Icon(Icons.keyboard_arrow_right, size: 20),
+          minVerticalPadding: 22,
+          onTap: () async {
+            await Navigator.push(
+              context,
+              MaterialPageRoute(
+                settings: NetCheckScreen.routSettings(),
+                builder: (context) => const NetCheckScreen(),
+              ),
+            );
+          },
+        ),
+      );
     }
     return Card(
       child: Padding(
@@ -851,7 +868,7 @@ class _HomeScreenWidgetPart1 extends State<HomeScreenWidgetPart1> {
       try {
         var obj = jsonDecode(connections);
         ClashConnections body = ClashConnections();
-        body.fromJson(obj);
+        body.fromJson(obj, false);
         //_memory.value =
         //    ClashHttpApi.convertTrafficToStringDouble(body.memory);
         _trafficTotal.value =

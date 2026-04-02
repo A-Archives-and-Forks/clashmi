@@ -41,6 +41,7 @@ class TranslationsJa with BaseTranslations<AppLocale, Translations> implements T
 	@override late final _TranslationsLaunchFailedScreenJa LaunchFailedScreen = _TranslationsLaunchFailedScreenJa._(_root);
 	@override late final _TranslationsPerAppAndroidScreenJa PerAppAndroidScreen = _TranslationsPerAppAndroidScreenJa._(_root);
 	@override late final _TranslationsUserAgreementScreenJa UserAgreementScreen = _TranslationsUserAgreementScreenJa._(_root);
+	@override late final _TranslationsNetCheckScreenJa NetCheckScreen = _TranslationsNetCheckScreenJa._(_root);
 	@override late final _TranslationsVersionUpdateScreenJa VersionUpdateScreen = _TranslationsVersionUpdateScreenJa._(_root);
 	@override late final _TranslationsMainJa main = _TranslationsMainJa._(_root);
 	@override late final _TranslationsMetaJa meta = _TranslationsMetaJa._(_root);
@@ -113,6 +114,26 @@ class _TranslationsUserAgreementScreenJa implements TranslationsUserAgreementScr
 	// Translations
 	@override String get privacyFirst => 'プライバシーを第一に';
 	@override String get agreeAndContinue => '同意して続行';
+}
+
+// Path: NetCheckScreen
+class _TranslationsNetCheckScreenJa implements TranslationsNetCheckScreenEn {
+	_TranslationsNetCheckScreenJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get enterDomain => 'ドメイン名を入力してください';
+	@override String get checking => '確認中...';
+	@override String aQueryFailed({required Object p}) => 'Aレコード照会失敗: ${p}';
+	@override String aaaaQueryFailed({required Object p}) => 'AAAAレコード照会失敗: ${p}';
+	@override String get success => '成功';
+	@override String get failed => '失敗';
+	@override String get domainLabel => 'ドメイン';
+	@override String get checkButton => '診断';
+	@override String get dnsSection => '1. DNS照会';
+	@override String get directHttpSection => '2. HTTP (TUN経由、先にTUNを有効にしてください)';
+	@override String proxyHttpSection({required Object p}) => '3. HTTP (プロキシ経由、ポート: ${p})';
 }
 
 // Path: VersionUpdateScreen
@@ -190,6 +211,7 @@ class _TranslationsMetaJa implements TranslationsMetaEn {
 	@override String get timeoutDuration => 'タイムアウト時間';
 	@override String get latency => '遅延';
 	@override String get latencyTest => '遅延チェック';
+	@override String get networkCheck => 'ネットワーク診断';
 	@override String get language => '言語';
 	@override String get next => '次へ';
 	@override String get done => '完了';
@@ -491,6 +513,17 @@ extension on TranslationsJa {
 			'PerAppAndroidScreen.whiteListModeTip' => '有効な場合：チェックされたアプリのみがプロキシされます。無効な場合：チェックされていないアプリのみがプロキシされます',
 			'UserAgreementScreen.privacyFirst' => 'プライバシーを第一に',
 			'UserAgreementScreen.agreeAndContinue' => '同意して続行',
+			'NetCheckScreen.enterDomain' => 'ドメイン名を入力してください',
+			'NetCheckScreen.checking' => '確認中...',
+			'NetCheckScreen.aQueryFailed' => ({required Object p}) => 'Aレコード照会失敗: ${p}',
+			'NetCheckScreen.aaaaQueryFailed' => ({required Object p}) => 'AAAAレコード照会失敗: ${p}',
+			'NetCheckScreen.success' => '成功',
+			'NetCheckScreen.failed' => '失敗',
+			'NetCheckScreen.domainLabel' => 'ドメイン',
+			'NetCheckScreen.checkButton' => '診断',
+			'NetCheckScreen.dnsSection' => '1. DNS照会',
+			'NetCheckScreen.directHttpSection' => '2. HTTP (TUN経由、先にTUNを有効にしてください)',
+			'NetCheckScreen.proxyHttpSection' => ({required Object p}) => '3. HTTP (プロキシ経由、ポート: ${p})',
 			'VersionUpdateScreen.versionReady' => ({required Object p}) => '新しいバージョン [${p}] の準備ができました',
 			'VersionUpdateScreen.update' => '再起動して更新',
 			'VersionUpdateScreen.cancel' => '今はしない',
@@ -542,6 +575,7 @@ extension on TranslationsJa {
 			'meta.timeoutDuration' => 'タイムアウト時間',
 			'meta.latency' => '遅延',
 			'meta.latencyTest' => '遅延チェック',
+			'meta.networkCheck' => 'ネットワーク診断',
 			'meta.language' => '言語',
 			'meta.next' => '次へ',
 			'meta.done' => '完了',

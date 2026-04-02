@@ -124,16 +124,46 @@ class ClashTraffic {
   }
 }
 
+class ClashConnectionsTrack {
+  String start = "";
+  List<String> chains = [];
+  List<String> providerChains = [];
+  String rule = "";
+  String rulePayload = "";
+
+  void fromJson(Map<String, dynamic>? map) {
+    if (map == null) {
+      return;
+    }
+
+    start = map['start'] ?? "";
+    chains = List.from(map['chains'] ?? []);
+    providerChains = List.from(map['providerChains'] ?? []);
+    rule = map['rule'] ?? "";
+    rulePayload = map['rulePayload'] ?? "";
+  }
+
+  Map<String, dynamic> toJson() => {
+    'start': start,
+    'chains': chains,
+    'providerChains': providerChains,
+    'rule': rule,
+    'rulePayload': rulePayload,
+  };
+}
+
 class ClashConnections {
   num uploadTotal = 0;
   num downloadTotal = 0;
   num memory = 0;
+  List<ClashConnectionsTrack> connections = [];
   Map<String, dynamic> toJson() => {
     'uploadTotal': uploadTotal,
     'downloadTotal': downloadTotal,
     'memory': memory,
+    'connections': connections.map((c) => c.toJson()).toList(),
   };
-  void fromJson(Map<String, dynamic>? map) {
+  void fromJson(Map<String, dynamic>? map, bool withConnectionsList) {
     if (map == null) {
       return;
     }
@@ -141,6 +171,14 @@ class ClashConnections {
     uploadTotal = map['uploadTotal'] ?? 0;
     downloadTotal = map['downloadTotal'] ?? 0;
     memory = map['memory'] ?? 0;
+    if (withConnectionsList) {
+      var connectionsList = map['connections'];
+      if (connectionsList is List) {
+        connections = connectionsList
+            .map((item) => ClashConnectionsTrack()..fromJson(item))
+            .toList();
+      }
+    }
   }
 }
 
@@ -459,6 +497,43 @@ class ClashHttpApi {
     );
 
     return result.error;
+  }
+
+  static Future<ReturnResult<List<String>>> dnsQuery(
+    String domain, {
+    String queryType = "A",
+  }) async {
+    String secret = await getSecret();
+    Map<String, String> headers = getHeaders(secret);
+    var result = await HttpUtils.httpGetRequest(
+      "$host:${getControlPort?.call()}/dns/query?name=$domain&type=$queryType",
+      null,
+      headers,
+      const Duration(seconds: timeoutSeconds),
+      null,
+      null,
+    );
+    if (result.error != null) {
+      return ReturnResult(error: result.error);
+    }
+    try {
+      var decodedResponse = jsonDecode(result.data!);
+      final answer = decodedResponse["Answer"];
+      List<String> ips = [];
+      if (answer is List) {
+        for (var item in answer) {
+          String data = item["data"] ?? "";
+          if (data.isNotEmpty) {
+            ips.add(data);
+          }
+        }
+        return ReturnResult(data: ips);
+      }
+
+      return ReturnResult(data: ips);
+    } catch (err) {
+      return ReturnResult(error: ReturnResultError(err.toString()));
+    }
   }
 
   static Future<ReturnResultError?> setConfigsMode(String mode) async {

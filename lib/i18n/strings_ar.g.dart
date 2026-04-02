@@ -41,6 +41,7 @@ class TranslationsAr with BaseTranslations<AppLocale, Translations> implements T
 	@override late final _TranslationsLaunchFailedScreenAr LaunchFailedScreen = _TranslationsLaunchFailedScreenAr._(_root);
 	@override late final _TranslationsPerAppAndroidScreenAr PerAppAndroidScreen = _TranslationsPerAppAndroidScreenAr._(_root);
 	@override late final _TranslationsUserAgreementScreenAr UserAgreementScreen = _TranslationsUserAgreementScreenAr._(_root);
+	@override late final _TranslationsNetCheckScreenAr NetCheckScreen = _TranslationsNetCheckScreenAr._(_root);
 	@override late final _TranslationsVersionUpdateScreenAr VersionUpdateScreen = _TranslationsVersionUpdateScreenAr._(_root);
 	@override late final _TranslationsMainAr main = _TranslationsMainAr._(_root);
 	@override late final _TranslationsMetaAr meta = _TranslationsMetaAr._(_root);
@@ -113,6 +114,26 @@ class _TranslationsUserAgreementScreenAr implements TranslationsUserAgreementScr
 	// Translations
 	@override String get privacyFirst => 'خصوصيتك تأتي أولا';
 	@override String get agreeAndContinue => 'قبول ومتابعة';
+}
+
+// Path: NetCheckScreen
+class _TranslationsNetCheckScreenAr implements TranslationsNetCheckScreenEn {
+	_TranslationsNetCheckScreenAr._(this._root);
+
+	final TranslationsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get enterDomain => 'أدخل اسم النطاق';
+	@override String get checking => 'جارٍ الفحص...';
+	@override String aQueryFailed({required Object p}) => 'فشل استعلام A: ${p}';
+	@override String aaaaQueryFailed({required Object p}) => 'فشل استعلام AAAA: ${p}';
+	@override String get success => 'نجاح';
+	@override String get failed => 'فشل';
+	@override String get domainLabel => 'النطاق';
+	@override String get checkButton => 'فحص';
+	@override String get dnsSection => '1. استعلام DNS';
+	@override String get directHttpSection => '2. HTTP (عبر TUN، يرجى تفعيل TUN أولاً)';
+	@override String proxyHttpSection({required Object p}) => '3. HTTP (عبر الوكيل، المنفذ: ${p})';
 }
 
 // Path: VersionUpdateScreen
@@ -190,6 +211,7 @@ class _TranslationsMetaAr implements TranslationsMetaEn {
 	@override String get timeoutDuration => 'مدة مهلة الانتظار';
 	@override String get latency => 'تأخير';
 	@override String get latencyTest => 'كشف التأخير';
+	@override String get networkCheck => 'فحص الشبكة';
 	@override String get language => 'لغة';
 	@override String get next => 'التالي';
 	@override String get done => 'منتهي';
@@ -491,6 +513,17 @@ extension on TranslationsAr {
 			'PerAppAndroidScreen.whiteListModeTip' => 'عند التمكين: فقط التطبيقات التي تم فحصها هي وكلاء ؛عندما لا يتم تمكينها: فقط التطبيقات التي لم يتم فحصها هي وكلاء',
 			'UserAgreementScreen.privacyFirst' => 'خصوصيتك تأتي أولا',
 			'UserAgreementScreen.agreeAndContinue' => 'قبول ومتابعة',
+			'NetCheckScreen.enterDomain' => 'أدخل اسم النطاق',
+			'NetCheckScreen.checking' => 'جارٍ الفحص...',
+			'NetCheckScreen.aQueryFailed' => ({required Object p}) => 'فشل استعلام A: ${p}',
+			'NetCheckScreen.aaaaQueryFailed' => ({required Object p}) => 'فشل استعلام AAAA: ${p}',
+			'NetCheckScreen.success' => 'نجاح',
+			'NetCheckScreen.failed' => 'فشل',
+			'NetCheckScreen.domainLabel' => 'النطاق',
+			'NetCheckScreen.checkButton' => 'فحص',
+			'NetCheckScreen.dnsSection' => '1. استعلام DNS',
+			'NetCheckScreen.directHttpSection' => '2. HTTP (عبر TUN، يرجى تفعيل TUN أولاً)',
+			'NetCheckScreen.proxyHttpSection' => ({required Object p}) => '3. HTTP (عبر الوكيل، المنفذ: ${p})',
 			'VersionUpdateScreen.versionReady' => ({required Object p}) => 'الإصدار الجديد [${p}] جاهز',
 			'VersionUpdateScreen.update' => 'أعد التشغيل للتحديث',
 			'VersionUpdateScreen.cancel' => 'ليس الآن',
@@ -542,6 +575,7 @@ extension on TranslationsAr {
 			'meta.timeoutDuration' => 'مدة مهلة الانتظار',
 			'meta.latency' => 'تأخير',
 			'meta.latencyTest' => 'كشف التأخير',
+			'meta.networkCheck' => 'فحص الشبكة',
 			'meta.language' => 'لغة',
 			'meta.next' => 'التالي',
 			'meta.done' => 'منتهي',

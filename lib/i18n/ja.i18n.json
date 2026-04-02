@@ -21,6 +21,19 @@
         "privacyFirst": "プライバシーを第一に",
         "agreeAndContinue": "同意して続行"
     },
+    "NetCheckScreen": {
+        "enterDomain": "ドメイン名を入力してください",
+        "checking": "確認中...",
+        "aQueryFailed": "Aレコード照会失敗: $p",
+        "aaaaQueryFailed": "AAAAレコード照会失敗: $p",
+        "success": "成功",
+        "failed": "失敗",
+        "domainLabel": "ドメイン",
+        "checkButton": "診断",
+        "dnsSection": "1. DNS照会",
+        "directHttpSection": "2. HTTP (TUN経由、先にTUNを有効にしてください)",
+        "proxyHttpSection": "3. HTTP (プロキシ経由、ポート: $p)"
+    },
     "VersionUpdateScreen": {
         "versionReady": "新しいバージョン [$p] の準備ができました",
         "update": "再起動して更新",
@@ -79,6 +92,7 @@
         "timeoutDuration": "タイムアウト時間",
         "latency": "遅延",
         "latencyTest": "遅延チェック",
+        "networkCheck": "ネットワーク診断",
         "language": "言語",
         "next": "次へ",
         "done": "完了",

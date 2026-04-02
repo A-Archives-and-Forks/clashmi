@@ -41,6 +41,7 @@ class TranslationsKo with BaseTranslations<AppLocale, Translations> implements T
 	@override late final _TranslationsLaunchFailedScreenKo LaunchFailedScreen = _TranslationsLaunchFailedScreenKo._(_root);
 	@override late final _TranslationsPerAppAndroidScreenKo PerAppAndroidScreen = _TranslationsPerAppAndroidScreenKo._(_root);
 	@override late final _TranslationsUserAgreementScreenKo UserAgreementScreen = _TranslationsUserAgreementScreenKo._(_root);
+	@override late final _TranslationsNetCheckScreenKo NetCheckScreen = _TranslationsNetCheckScreenKo._(_root);
 	@override late final _TranslationsVersionUpdateScreenKo VersionUpdateScreen = _TranslationsVersionUpdateScreenKo._(_root);
 	@override late final _TranslationsMainKo main = _TranslationsMainKo._(_root);
 	@override late final _TranslationsMetaKo meta = _TranslationsMetaKo._(_root);
@@ -113,6 +114,26 @@ class _TranslationsUserAgreementScreenKo implements TranslationsUserAgreementScr
 	// Translations
 	@override String get privacyFirst => '개인 정보 보호 우선';
 	@override String get agreeAndContinue => '동의 및 계속';
+}
+
+// Path: NetCheckScreen
+class _TranslationsNetCheckScreenKo implements TranslationsNetCheckScreenEn {
+	_TranslationsNetCheckScreenKo._(this._root);
+
+	final TranslationsKo _root; // ignore: unused_field
+
+	// Translations
+	@override String get enterDomain => '도메인 이름을 입력하세요';
+	@override String get checking => '점검 중...';
+	@override String aQueryFailed({required Object p}) => 'A 쿼리 실패: ${p}';
+	@override String aaaaQueryFailed({required Object p}) => 'AAAA 쿼리 실패: ${p}';
+	@override String get success => '성공';
+	@override String get failed => '실패';
+	@override String get domainLabel => '도메인';
+	@override String get checkButton => '점검';
+	@override String get dnsSection => '1. DNS 조회';
+	@override String get directHttpSection => '2. HTTP (TUN 경유, TUN 먼저 활성화 필요)';
+	@override String proxyHttpSection({required Object p}) => '3. HTTP (프록시 경유, 포트: ${p})';
 }
 
 // Path: VersionUpdateScreen
@@ -190,6 +211,7 @@ class _TranslationsMetaKo implements TranslationsMetaEn {
 	@override String get timeoutDuration => '시간 초과 기간';
 	@override String get latency => '지연 시간';
 	@override String get latencyTest => '지연 시간 확인';
+	@override String get networkCheck => '네트워크 점검';
 	@override String get language => '언어';
 	@override String get next => '다음';
 	@override String get done => '완료';
@@ -491,6 +513,17 @@ extension on TranslationsKo {
 			'PerAppAndroidScreen.whiteListModeTip' => '활성화 시: 체크된 앱만 프록시됩니다. 비활성화 시: 체크되지 않은 앱만 프록시됩니다',
 			'UserAgreementScreen.privacyFirst' => '개인 정보 보호 우선',
 			'UserAgreementScreen.agreeAndContinue' => '동의 및 계속',
+			'NetCheckScreen.enterDomain' => '도메인 이름을 입력하세요',
+			'NetCheckScreen.checking' => '점검 중...',
+			'NetCheckScreen.aQueryFailed' => ({required Object p}) => 'A 쿼리 실패: ${p}',
+			'NetCheckScreen.aaaaQueryFailed' => ({required Object p}) => 'AAAA 쿼리 실패: ${p}',
+			'NetCheckScreen.success' => '성공',
+			'NetCheckScreen.failed' => '실패',
+			'NetCheckScreen.domainLabel' => '도메인',
+			'NetCheckScreen.checkButton' => '점검',
+			'NetCheckScreen.dnsSection' => '1. DNS 조회',
+			'NetCheckScreen.directHttpSection' => '2. HTTP (TUN 경유, TUN 먼저 활성화 필요)',
+			'NetCheckScreen.proxyHttpSection' => ({required Object p}) => '3. HTTP (프록시 경유, 포트: ${p})',
 			'VersionUpdateScreen.versionReady' => ({required Object p}) => '새 버전 [${p}]이 준비되었습니다',
 			'VersionUpdateScreen.update' => '업데이트를 위해 재시작',
 			'VersionUpdateScreen.cancel' => '나중에',
@@ -542,6 +575,7 @@ extension on TranslationsKo {
 			'meta.timeoutDuration' => '시간 초과 기간',
 			'meta.latency' => '지연 시간',
 			'meta.latencyTest' => '지연 시간 확인',
+			'meta.networkCheck' => '네트워크 점검',
 			'meta.language' => '언어',
 			'meta.next' => '다음',
 			'meta.done' => '완료',
