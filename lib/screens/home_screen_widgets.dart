@@ -453,7 +453,7 @@ class _HomeScreenWidgetPart1 extends State<HomeScreenWidgetPart1> {
                         child: Text(
                           tcontext.meta.board,
                           textAlign: TextAlign.center,
-                          maxLines: 3,
+                          maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),
@@ -477,7 +477,7 @@ class _HomeScreenWidgetPart1 extends State<HomeScreenWidgetPart1> {
                         child: Text(
                           tcontext.meta.runtimeProfile,
                           textAlign: TextAlign.center,
-                          maxLines: 3,
+                          maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),
@@ -501,7 +501,7 @@ class _HomeScreenWidgetPart1 extends State<HomeScreenWidgetPart1> {
                         child: Text(
                           tcontext.meta.networkCheck,
                           textAlign: TextAlign.center,
-                          maxLines: 3,
+                          maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),
