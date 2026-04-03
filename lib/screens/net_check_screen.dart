@@ -241,6 +241,7 @@ class _NetCheckScreenState extends LasyRenderingState<NetCheckScreen> {
                               await Clipboard.setData(
                                 ClipboardData(
                                   text: [
+                                    "OS: ${Platform.operatingSystem}",
                                     '1. DNS:',
                                     _dnsResult,
                                     '2. HTTP Via TUN:',
