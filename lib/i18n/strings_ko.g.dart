@@ -63,6 +63,7 @@ class TranslationsKo with BaseTranslations<AppLocale, Translations> implements T
 		'ar': 'عربي',
 		'ru': 'Русский',
 		'fa': 'فارسی',
+		'es': 'Español',
 	};
 }
 
@@ -803,6 +804,7 @@ extension on TranslationsKo {
 			'locales.ar' => 'عربي',
 			'locales.ru' => 'Русский',
 			'locales.fa' => 'فارسی',
+			'locales.es' => 'Español',
 			_ => null,
 		};
 	}

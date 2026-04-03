@@ -73,6 +73,7 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 		'ar': 'عربي',
 		'ru': 'Русский',
 		'fa': 'فارسی',
+		'es': 'Español',
 	};
 }
 
@@ -1395,6 +1396,7 @@ extension on Translations {
 			'locales.ar' => 'عربي',
 			'locales.ru' => 'Русский',
 			'locales.fa' => 'فارسی',
+			'locales.es' => 'Español',
 			_ => null,
 		};
 	}

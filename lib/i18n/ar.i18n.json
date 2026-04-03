@@ -122,8 +122,8 @@
         "urlInvalid": "URL غير صالح",
         "urlCannotEmpty": "لا يمكن أن يكون الرابط فارغًا",
         "urlTooLong": "عنوان URL طويل جدًا (>8182)",
-        "copyUrl": "Copy Link",
-        "openUrl": "Open Link",
+        "copyUrl": "نسخ الرابط",
+        "openUrl": "فتح الرابط",
         "shareUrl": "شارك الرابط",
         "coreSettingTips": "ملاحظة: بعد تعديل التكوين، تحتاج إلى إعادة الاتصال حتى يسري مفعوله",
         "overwrite": "تجاوز",
@@ -211,7 +211,7 @@
         "boardOnline": "استخدام اللوحة عبر الإنترنت",
         "boardOnlineUrl": "عنوان URL للوحة عبر الإنترنت",
         "boardLocalPort": "منفذ اللوحة المحلية",
-        "disableFontScaler": "Disable Font scaling(Restart takes effect)",
+        "disableFontScaler": "تعطيل تحجيم الخط(يسري مفعوله بعد إعادة التشغيل)",
         "autoOrientation": "Rotate with the screen",
         "restartTakesEffect": "Restart takes effect",
         "reconnectTakesEffect": "سيتم تطبيقه بعد إعادة الاتصال.",
@@ -331,6 +331,7 @@
         "ko": "한국어",
         "ar": "عربي",
         "ru": "Русский",
-        "fa": "فارسی"
+        "fa": "فارسی",
+        "es": "Español"
     }
 }

@@ -63,6 +63,7 @@ class TranslationsZhTw with BaseTranslations<AppLocale, Translations> implements
 		'ar': 'عربي',
 		'ru': 'Русский',
 		'fa': 'فارسی',
+		'es': 'Español',
 	};
 }
 
@@ -457,7 +458,7 @@ class _TranslationsDnsZhTw implements TranslationsDnsEn {
 	@override String get directNameServer => '${_root.meta.direct} ${_root.dns.nameServer}';
 	@override String get fallbackNameServer => '${_root.dns.fallback} ${_root.dns.nameServer}';
 	@override String get fallbackGeoIp => '${_root.dns.fallback} GeoIp';
-	@override String get fallbackGeoIpCode => '${_root.dns.fallback} GeoIpCode';
+	@override String get fallbackGeoIpCode => '${_root.dns.fallback} GeoIp 代碼';
 }
 
 // Path: sniffer
@@ -787,7 +788,7 @@ extension on TranslationsZhTw {
 			'dns.directNameServer' => '${_root.meta.direct} ${_root.dns.nameServer}',
 			'dns.fallbackNameServer' => '${_root.dns.fallback} ${_root.dns.nameServer}',
 			'dns.fallbackGeoIp' => '${_root.dns.fallback} GeoIp',
-			'dns.fallbackGeoIpCode' => '${_root.dns.fallback} GeoIpCode',
+			'dns.fallbackGeoIpCode' => '${_root.dns.fallback} GeoIp 代碼',
 			'sniffer.overrideDest' => '覆蓋',
 			'profilePatchMode.currentSelected' => '當前選擇',
 			'profilePatchMode.overwrite' => '內置-覆寫',
@@ -803,6 +804,7 @@ extension on TranslationsZhTw {
 			'locales.ar' => 'عربي',
 			'locales.ru' => 'Русский',
 			'locales.fa' => 'فارسی',
+			'locales.es' => 'Español',
 			_ => null,
 		};
 	}

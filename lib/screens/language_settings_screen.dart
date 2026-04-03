@@ -38,6 +38,7 @@ class _LanguageSettingsScreenState
   void initState() {
     _langData.addAll([
       AppLocale.en,
+      AppLocale.es,
       AppLocale.zhCn,
       AppLocale.zhTw,
       AppLocale.ru,
