@@ -139,7 +139,7 @@
         "proxyNodeList": "代理節點列表",
         "proxyNodeFailure": "下列代理節點已失效,已自動移除:$p",
         "externalController": "外部控制",
-        "secret": "Secret",
+        "secret": "金鑰",
         "tcpConcurrent": "TCP併發握手",
         "globalClientFingerprint": "TLS全局指紋",
         "allowLanAccess": "局域網設備接入",
@@ -212,7 +212,7 @@
         "boardOnlineUrl": "在線面板URL",
         "boardLocalPort": "本地面板端口",
         "disableFontScaler": "禁用字體縮放",
-        "autoOrientation": "跟隨屏幕旋轉",
+        "autoOrientation": "跟隨螢幕旋轉",
         "restartTakesEffect": "重啟生效",
         "reconnectTakesEffect": "重新連接後生效",
         "runtimeProfile": "運行時配置",
@@ -310,7 +310,7 @@
         "directNameServer": "@:{meta.direct} @:{dns.nameServer}",
         "fallbackNameServer": "@:{dns.fallback} @:{dns.nameServer}",
         "fallbackGeoIp": "@:{dns.fallback} GeoIp",
-        "fallbackGeoIpCode": "@:{dns.fallback} GeoIpCode"
+        "fallbackGeoIpCode": "@:{dns.fallback} GeoIp 代碼"
     },
     "sniffer": {
         "overrideDest": "覆蓋"
@@ -331,6 +331,7 @@
         "ko": "한국어",
         "ar": "عربي",
         "ru": "Русский",
-        "fa": "فارسی"
+        "fa": "فارسی",
+        "es": "Español"
     }
 }

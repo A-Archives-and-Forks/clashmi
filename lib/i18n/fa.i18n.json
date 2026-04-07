@@ -303,7 +303,7 @@
         "enhancedMode": "حالت پیشرفته",
         "fakeIPFilterMode": "حالت فیلتر @:{dns.fakeIp}",
         "fakeIPFilter": "فیلتر @:{dns.fakeIp}",
-        "respectRules": "Соблюдайте правила.",
+        "respectRules": "رعایت قوانین",
         "nameServer": "سرور DNS",
         "defaultNameServer": "@:{meta.byDefault} @:{dns.nameServer}",
         "proxyNameServer": "@:{meta.proxy} @:{dns.nameServer}",
@@ -331,6 +331,7 @@
         "ko": "한국어",
         "ar": "عربي",
         "ru": "Русский",
-        "fa": "فارسی"
+        "fa": "فارسی",
+        "es": "Español"
     }
 }

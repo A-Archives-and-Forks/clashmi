@@ -63,6 +63,7 @@ class TranslationsAr with BaseTranslations<AppLocale, Translations> implements T
 		'ar': 'عربي',
 		'ru': 'Русский',
 		'fa': 'فارسی',
+		'es': 'Español',
 	};
 }
 
@@ -241,7 +242,7 @@ class _TranslationsMetaAr implements TranslationsMetaEn {
 	@override String get urlInvalid => 'URL غير صالح';
 	@override String get urlCannotEmpty => 'لا يمكن أن يكون الرابط فارغًا';
 	@override String get urlTooLong => 'عنوان URL طويل جدًا (>8182)';
-	@override String get copyUrl => 'Copy Link';
+	@override String get copyUrl => 'نسخ الرابط';
 	@override String get openUrl => 'Open Link';
 	@override String get shareUrl => 'شارك الرابط';
 	@override String get coreSettingTips => 'ملاحظة: بعد تعديل التكوين، تحتاج إلى إعادة الاتصال حتى يسري مفعوله';
@@ -607,7 +608,7 @@ extension on TranslationsAr {
 			'meta.urlInvalid' => 'URL غير صالح',
 			'meta.urlCannotEmpty' => 'لا يمكن أن يكون الرابط فارغًا',
 			'meta.urlTooLong' => 'عنوان URL طويل جدًا (>8182)',
-			'meta.copyUrl' => 'Copy Link',
+			'meta.copyUrl' => 'نسخ الرابط',
 			'meta.openUrl' => 'Open Link',
 			'meta.shareUrl' => 'شارك الرابط',
 			'meta.coreSettingTips' => 'ملاحظة: بعد تعديل التكوين، تحتاج إلى إعادة الاتصال حتى يسري مفعوله',
@@ -803,6 +804,7 @@ extension on TranslationsAr {
 			'locales.ar' => 'عربي',
 			'locales.ru' => 'Русский',
 			'locales.fa' => 'فارسی',
+			'locales.es' => 'Español',
 			_ => null,
 		};
 	}

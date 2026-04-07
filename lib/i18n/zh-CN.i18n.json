@@ -310,7 +310,7 @@
         "directNameServer": "@:{meta.direct} @:{dns.nameServer}",
         "fallbackNameServer": "@:{dns.fallback} @:{dns.nameServer}",
         "fallbackGeoIp": "@:{dns.fallback} GeoIp",
-        "fallbackGeoIpCode": "@:{dns.fallback} GeoIpCode"
+        "fallbackGeoIpCode": "@:{dns.fallback} GeoIp 代码"
     },
     "sniffer": {
         "overrideDest": "覆盖"
@@ -331,6 +331,7 @@
         "ko": "한국어",
         "ar": "عربي",
         "ru": "Русский",
-        "fa": "فارسی"
+        "fa": "فارسی",
+        "es": "Español"
     }
 }
