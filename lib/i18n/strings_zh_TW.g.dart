@@ -259,7 +259,7 @@ class _TranslationsMetaZhTw implements TranslationsMetaEn {
 	@override String get proxyNodeList => '代理節點列表';
 	@override String proxyNodeFailure({required Object p}) => '下列代理節點已失效,已自動移除:${p}';
 	@override String get externalController => '外部控制';
-	@override String get secret => 'Secret';
+	@override String get secret => '金鑰';
 	@override String get tcpConcurrent => 'TCP併發握手';
 	@override String get globalClientFingerprint => 'TLS全局指紋';
 	@override String get allowLanAccess => '局域網設備接入';
@@ -332,7 +332,7 @@ class _TranslationsMetaZhTw implements TranslationsMetaEn {
 	@override String get boardOnlineUrl => '在線面板URL';
 	@override String get boardLocalPort => '本地面板端口';
 	@override String get disableFontScaler => '禁用字體縮放';
-	@override String get autoOrientation => '跟隨屏幕旋轉';
+	@override String get autoOrientation => '跟隨螢幕旋轉';
 	@override String get restartTakesEffect => '重啟生效';
 	@override String get reconnectTakesEffect => '重新連接後生效';
 	@override String get runtimeProfile => '運行時配置';
@@ -625,7 +625,7 @@ extension on TranslationsZhTw {
 			'meta.proxyNodeList' => '代理節點列表',
 			'meta.proxyNodeFailure' => ({required Object p}) => '下列代理節點已失效,已自動移除:${p}',
 			'meta.externalController' => '外部控制',
-			'meta.secret' => 'Secret',
+			'meta.secret' => '金鑰',
 			'meta.tcpConcurrent' => 'TCP併發握手',
 			'meta.globalClientFingerprint' => 'TLS全局指紋',
 			'meta.allowLanAccess' => '局域網設備接入',
@@ -698,7 +698,7 @@ extension on TranslationsZhTw {
 			'meta.boardOnlineUrl' => '在線面板URL',
 			'meta.boardLocalPort' => '本地面板端口',
 			'meta.disableFontScaler' => '禁用字體縮放',
-			'meta.autoOrientation' => '跟隨屏幕旋轉',
+			'meta.autoOrientation' => '跟隨螢幕旋轉',
 			'meta.restartTakesEffect' => '重啟生效',
 			'meta.reconnectTakesEffect' => '重新連接後生效',
 			'meta.runtimeProfile' => '運行時配置',

@@ -243,7 +243,7 @@ class _TranslationsMetaAr implements TranslationsMetaEn {
 	@override String get urlCannotEmpty => 'لا يمكن أن يكون الرابط فارغًا';
 	@override String get urlTooLong => 'عنوان URL طويل جدًا (>8182)';
 	@override String get copyUrl => 'نسخ الرابط';
-	@override String get openUrl => 'Open Link';
+	@override String get openUrl => 'فتح الرابط';
 	@override String get shareUrl => 'شارك الرابط';
 	@override String get coreSettingTips => 'ملاحظة: بعد تعديل التكوين، تحتاج إلى إعادة الاتصال حتى يسري مفعوله';
 	@override String get overwrite => 'تجاوز';
@@ -331,7 +331,7 @@ class _TranslationsMetaAr implements TranslationsMetaEn {
 	@override String get boardOnline => 'استخدام اللوحة عبر الإنترنت';
 	@override String get boardOnlineUrl => 'عنوان URL للوحة عبر الإنترنت';
 	@override String get boardLocalPort => 'منفذ اللوحة المحلية';
-	@override String get disableFontScaler => 'Disable Font scaling(Restart takes effect)';
+	@override String get disableFontScaler => 'تعطيل تحجيم الخط(يسري مفعوله بعد إعادة التشغيل)';
 	@override String get autoOrientation => 'Rotate with the screen';
 	@override String get restartTakesEffect => 'Restart takes effect';
 	@override String get reconnectTakesEffect => 'سيتم تطبيقه بعد إعادة الاتصال.';
@@ -609,7 +609,7 @@ extension on TranslationsAr {
 			'meta.urlCannotEmpty' => 'لا يمكن أن يكون الرابط فارغًا',
 			'meta.urlTooLong' => 'عنوان URL طويل جدًا (>8182)',
 			'meta.copyUrl' => 'نسخ الرابط',
-			'meta.openUrl' => 'Open Link',
+			'meta.openUrl' => 'فتح الرابط',
 			'meta.shareUrl' => 'شارك الرابط',
 			'meta.coreSettingTips' => 'ملاحظة: بعد تعديل التكوين، تحتاج إلى إعادة الاتصال حتى يسري مفعوله',
 			'meta.overwrite' => 'تجاوز',
@@ -697,7 +697,7 @@ extension on TranslationsAr {
 			'meta.boardOnline' => 'استخدام اللوحة عبر الإنترنت',
 			'meta.boardOnlineUrl' => 'عنوان URL للوحة عبر الإنترنت',
 			'meta.boardLocalPort' => 'منفذ اللوحة المحلية',
-			'meta.disableFontScaler' => 'Disable Font scaling(Restart takes effect)',
+			'meta.disableFontScaler' => 'تعطيل تحجيم الخط(يسري مفعوله بعد إعادة التشغيل)',
 			'meta.autoOrientation' => 'Rotate with the screen',
 			'meta.restartTakesEffect' => 'Restart takes effect',
 			'meta.reconnectTakesEffect' => 'سيتم تطبيقه بعد إعادة الاتصال.',
