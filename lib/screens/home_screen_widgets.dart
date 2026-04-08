@@ -722,8 +722,6 @@ class _HomeScreenWidgetPart1 extends State<HomeScreenWidgetPart1> {
       Biz.vpnStateChanged(false);
     } else if (state == FlutterVpnServiceState.connecting) {
     } else if (state == FlutterVpnServiceState.connected) {
-      if (ClashSettingManager.getConfig().MixedPort != null &&
-          HttpOverrides.current == null) {}
       if (!AppLifecycleStateNofity.isPaused()) {
         _connectToCore();
       }

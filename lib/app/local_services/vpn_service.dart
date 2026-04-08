@@ -181,9 +181,7 @@ class VPNService {
     );
 
     var excludePorts = [controlPort];
-    if (setting.MixedPort != null) {
-      excludePorts.add(setting.MixedPort!);
-    }
+    excludePorts.add(ClashSettingManager.getMixedPort());
 
     String name = AppUtils.getName();
     String vpnName = name;
