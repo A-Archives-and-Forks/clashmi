@@ -80,6 +80,8 @@ class _PerAppAndroidScreenState
     _searchedData.clear();
     final settings = SettingManager.getConfig();
     var perapp = ClashSettingManager.getConfig().Extension!.Tun.perApp;
+    _loading = true;
+    setState(() {});
     final packages = await PackageManagerAndroid.getInstalledPackages(
       onValid: (PackageInfo info) {
         if (info.packageName == AppUtils.getId()) {
