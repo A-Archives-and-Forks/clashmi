@@ -28,6 +28,7 @@
         "aaaaQueryFailed": "خطا در پرس‌وجوی AAAA: $p",
         "success": "موفق",
         "failed": "ناموفق",
+        "suspectedPollution": "مشکوک به مسمومیت DNS",
         "domainLabel": "دامنه",
         "checkButton": "بررسی",
         "dnsSection": "1. پرس‌وجوی DNS",

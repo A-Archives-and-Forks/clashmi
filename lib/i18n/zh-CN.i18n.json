@@ -28,6 +28,7 @@
         "aaaaQueryFailed": "AAAA 查询失败: $p",
         "success": "成功",
         "failed": "失败",
+        "suspectedPollution": "疑似被污染",
         "domainLabel": "域名",
         "checkButton": "检测",
         "dnsSection": "1. DNS查询",

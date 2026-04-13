@@ -28,6 +28,7 @@
         "aaaaQueryFailed": "AAAA 쿼리 실패: $p",
         "success": "성공",
         "failed": "실패",
+        "suspectedPollution": "DNS 오염 의심",
         "domainLabel": "도메인",
         "checkButton": "점검",
         "dnsSection": "1. DNS 조회",

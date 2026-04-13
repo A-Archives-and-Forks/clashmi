@@ -28,6 +28,7 @@
         "aaaaQueryFailed": "فشل استعلام AAAA: $p",
         "success": "نجاح",
         "failed": "فشل",
+        "suspectedPollution": "يُشتبه في تسميم DNS",
         "domainLabel": "النطاق",
         "checkButton": "فحص",
         "dnsSection": "1. استعلام DNS",

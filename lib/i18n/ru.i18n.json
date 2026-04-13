@@ -28,6 +28,7 @@
         "aaaaQueryFailed": "Ошибка запроса AAAA: $p",
         "success": "Успех",
         "failed": "Ошибка",
+        "suspectedPollution": "Подозрение на DNS-отравление",
         "domainLabel": "Домен",
         "checkButton": "Проверить",
         "dnsSection": "1. DNS-запрос",

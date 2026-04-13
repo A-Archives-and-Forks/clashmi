@@ -130,6 +130,7 @@ class _TranslationsNetCheckScreenZhCn implements TranslationsNetCheckScreenEn {
 	@override String aaaaQueryFailed({required Object p}) => 'AAAA 查询失败: ${p}';
 	@override String get success => '成功';
 	@override String get failed => '失败';
+	@override String get suspectedPollution => '疑似被污染';
 	@override String get domainLabel => '域名';
 	@override String get checkButton => '检测';
 	@override String get dnsSection => '1. DNS查询';
@@ -522,6 +523,7 @@ extension on TranslationsZhCn {
 			'NetCheckScreen.aaaaQueryFailed' => ({required Object p}) => 'AAAA 查询失败: ${p}',
 			'NetCheckScreen.success' => '成功',
 			'NetCheckScreen.failed' => '失败',
+			'NetCheckScreen.suspectedPollution' => '疑似被污染',
 			'NetCheckScreen.domainLabel' => '域名',
 			'NetCheckScreen.checkButton' => '检测',
 			'NetCheckScreen.dnsSection' => '1. DNS查询',

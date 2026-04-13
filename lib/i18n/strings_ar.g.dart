@@ -130,6 +130,7 @@ class _TranslationsNetCheckScreenAr implements TranslationsNetCheckScreenEn {
 	@override String aaaaQueryFailed({required Object p}) => 'فشل استعلام AAAA: ${p}';
 	@override String get success => 'نجاح';
 	@override String get failed => 'فشل';
+	@override String get suspectedPollution => 'يُشتبه في تسميم DNS';
 	@override String get domainLabel => 'النطاق';
 	@override String get checkButton => 'فحص';
 	@override String get dnsSection => '1. استعلام DNS';
@@ -522,6 +523,7 @@ extension on TranslationsAr {
 			'NetCheckScreen.aaaaQueryFailed' => ({required Object p}) => 'فشل استعلام AAAA: ${p}',
 			'NetCheckScreen.success' => 'نجاح',
 			'NetCheckScreen.failed' => 'فشل',
+			'NetCheckScreen.suspectedPollution' => 'يُشتبه في تسميم DNS',
 			'NetCheckScreen.domainLabel' => 'النطاق',
 			'NetCheckScreen.checkButton' => 'فحص',
 			'NetCheckScreen.dnsSection' => '1. استعلام DNS',

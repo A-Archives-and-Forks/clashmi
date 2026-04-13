@@ -130,6 +130,7 @@ class _TranslationsNetCheckScreenRu implements TranslationsNetCheckScreenEn {
 	@override String aaaaQueryFailed({required Object p}) => 'Ошибка запроса AAAA: ${p}';
 	@override String get success => 'Успех';
 	@override String get failed => 'Ошибка';
+	@override String get suspectedPollution => 'Подозрение на DNS-отравление';
 	@override String get domainLabel => 'Домен';
 	@override String get checkButton => 'Проверить';
 	@override String get dnsSection => '1. DNS-запрос';
@@ -522,6 +523,7 @@ extension on TranslationsRu {
 			'NetCheckScreen.aaaaQueryFailed' => ({required Object p}) => 'Ошибка запроса AAAA: ${p}',
 			'NetCheckScreen.success' => 'Успех',
 			'NetCheckScreen.failed' => 'Ошибка',
+			'NetCheckScreen.suspectedPollution' => 'Подозрение на DNS-отравление',
 			'NetCheckScreen.domainLabel' => 'Домен',
 			'NetCheckScreen.checkButton' => 'Проверить',
 			'NetCheckScreen.dnsSection' => '1. DNS-запрос',

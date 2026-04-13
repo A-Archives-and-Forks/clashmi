@@ -199,6 +199,9 @@ class TranslationsNetCheckScreenEn {
 	/// en: 'Failed'
 	String get failed => 'Failed';
 
+	/// en: 'Suspected DNS poisoning'
+	String get suspectedPollution => 'Suspected DNS poisoning';
+
 	/// en: 'Domain'
 	String get domainLabel => 'Domain';
 
@@ -1117,6 +1120,7 @@ extension on Translations {
 			'NetCheckScreen.aaaaQueryFailed' => ({required Object p}) => 'AAAA query failed: ${p}',
 			'NetCheckScreen.success' => 'Success',
 			'NetCheckScreen.failed' => 'Failed',
+			'NetCheckScreen.suspectedPollution' => 'Suspected DNS poisoning',
 			'NetCheckScreen.domainLabel' => 'Domain',
 			'NetCheckScreen.checkButton' => 'Check',
 			'NetCheckScreen.dnsSection' => '1. DNS Query',

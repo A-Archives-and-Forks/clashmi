@@ -33,6 +33,7 @@
         "aaaaQueryFailed": "AAAA query failed: $p",
         "success": "Success",
         "failed": "Failed",
+        "suspectedPollution": "Suspected DNS poisoning",
         "domainLabel": "Domain",
         "checkButton": "Check",
         "dnsSection": "1. DNS Query",

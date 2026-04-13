@@ -130,6 +130,7 @@ class _TranslationsNetCheckScreenJa implements TranslationsNetCheckScreenEn {
 	@override String aaaaQueryFailed({required Object p}) => 'AAAAレコード照会失敗: ${p}';
 	@override String get success => '成功';
 	@override String get failed => '失敗';
+	@override String get suspectedPollution => 'DNS汚染の疑い';
 	@override String get domainLabel => 'ドメイン';
 	@override String get checkButton => '診断';
 	@override String get dnsSection => '1. DNS照会';
@@ -522,6 +523,7 @@ extension on TranslationsJa {
 			'NetCheckScreen.aaaaQueryFailed' => ({required Object p}) => 'AAAAレコード照会失敗: ${p}',
 			'NetCheckScreen.success' => '成功',
 			'NetCheckScreen.failed' => '失敗',
+			'NetCheckScreen.suspectedPollution' => 'DNS汚染の疑い',
 			'NetCheckScreen.domainLabel' => 'ドメイン',
 			'NetCheckScreen.checkButton' => '診断',
 			'NetCheckScreen.dnsSection' => '1. DNS照会',

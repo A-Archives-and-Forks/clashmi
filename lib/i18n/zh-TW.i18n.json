@@ -28,6 +28,7 @@
         "aaaaQueryFailed": "AAAA 查詢失敗: $p",
         "success": "成功",
         "failed": "失敗",
+        "suspectedPollution": "疑似被污染",
         "domainLabel": "網域名稱",
         "checkButton": "檢測",
         "dnsSection": "1. DNS查詢",

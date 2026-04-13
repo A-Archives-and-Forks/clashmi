@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:clashmi/app/clash/clash_http_api.dart';
 import 'package:clashmi/app/modules/clash_setting_manager.dart';
+import 'package:clashmi/app/utils/network_utils.dart';
 import 'package:clashmi/app/utils/system_utils.dart';
 import 'package:clashmi/i18n/strings.g.dart';
 import 'package:clashmi/screens/theme_config.dart';
@@ -125,7 +126,17 @@ class _NetCheckScreenState extends LasyRenderingState<NetCheckScreen> {
 
     if (aResult.error == null) {
       final aList = aResult.data ?? [];
-      lines.add(aList.isEmpty ? 'A: <empty>' : 'A: ${aList.join(', ')}');
+      if (aList.isEmpty) {
+        lines.add('A: <empty>');
+      } else {
+        for (var i in aList) {
+          if (NetworkUtils.isPublicIp(i)) {
+            lines.add('A: $i');
+          } else {
+            lines.add('A: $i [${tcontext.NetCheckScreen.suspectedPollution}]');
+          }
+        }
+      }
     } else {
       lines.add(
         tcontext.NetCheckScreen.aQueryFailed(p: aResult.error!.message),
@@ -134,9 +145,19 @@ class _NetCheckScreenState extends LasyRenderingState<NetCheckScreen> {
 
     if (aaaaResult.error == null) {
       final aaaaList = aaaaResult.data ?? [];
-      lines.add(
-        aaaaList.isEmpty ? 'AAAA: <empty>' : 'AAAA: ${aaaaList.join(', ')}',
-      );
+      if (aaaaList.isEmpty) {
+        lines.add('AAAA: <empty>');
+      } else {
+        for (var i in aaaaList) {
+          if (NetworkUtils.isPublicIp(i)) {
+            lines.add('AAAA: $i');
+          } else {
+            lines.add(
+              'AAAA: $i [${tcontext.NetCheckScreen.suspectedPollution}]',
+            );
+          }
+        }
+      }
     } else {
       lines.add(
         tcontext.NetCheckScreen.aaaaQueryFailed(p: aaaaResult.error!.message),

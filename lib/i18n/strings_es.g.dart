@@ -142,6 +142,7 @@ class _TranslationsNetCheckScreenEs implements TranslationsNetCheckScreenEn {
 	@override String aaaaQueryFailed({required Object p}) => 'Fallo en la consulta AAAA: ${p}';
 	@override String get success => 'Éxito';
 	@override String get failed => 'Fallo';
+	@override String get suspectedPollution => 'Sospecha de envenenamiento DNS';
 	@override String get domainLabel => 'Dominio';
 	@override String get checkButton => 'Comprobar';
 	@override String get dnsSection => '1. Consulta DNS';
@@ -525,6 +526,7 @@ extension on TranslationsEs {
 			'NetCheckScreen.aaaaQueryFailed' => ({required Object p}) => 'Fallo en la consulta AAAA: ${p}',
 			'NetCheckScreen.success' => 'Éxito',
 			'NetCheckScreen.failed' => 'Fallo',
+			'NetCheckScreen.suspectedPollution' => 'Sospecha de envenenamiento DNS',
 			'NetCheckScreen.domainLabel' => 'Dominio',
 			'NetCheckScreen.checkButton' => 'Comprobar',
 			'NetCheckScreen.dnsSection' => '1. Consulta DNS',

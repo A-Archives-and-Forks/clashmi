@@ -130,6 +130,7 @@ class _TranslationsNetCheckScreenKo implements TranslationsNetCheckScreenEn {
 	@override String aaaaQueryFailed({required Object p}) => 'AAAA 쿼리 실패: ${p}';
 	@override String get success => '성공';
 	@override String get failed => '실패';
+	@override String get suspectedPollution => 'DNS 오염 의심';
 	@override String get domainLabel => '도메인';
 	@override String get checkButton => '점검';
 	@override String get dnsSection => '1. DNS 조회';
@@ -522,6 +523,7 @@ extension on TranslationsKo {
 			'NetCheckScreen.aaaaQueryFailed' => ({required Object p}) => 'AAAA 쿼리 실패: ${p}',
 			'NetCheckScreen.success' => '성공',
 			'NetCheckScreen.failed' => '실패',
+			'NetCheckScreen.suspectedPollution' => 'DNS 오염 의심',
 			'NetCheckScreen.domainLabel' => '도메인',
 			'NetCheckScreen.checkButton' => '점검',
 			'NetCheckScreen.dnsSection' => '1. DNS 조회',

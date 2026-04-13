@@ -130,6 +130,7 @@ class _TranslationsNetCheckScreenFa implements TranslationsNetCheckScreenEn {
 	@override String aaaaQueryFailed({required Object p}) => 'خطا در پرس‌وجوی AAAA: ${p}';
 	@override String get success => 'موفق';
 	@override String get failed => 'ناموفق';
+	@override String get suspectedPollution => 'مشکوک به مسمومیت DNS';
 	@override String get domainLabel => 'دامنه';
 	@override String get checkButton => 'بررسی';
 	@override String get dnsSection => '1. پرس‌وجوی DNS';
@@ -522,6 +523,7 @@ extension on TranslationsFa {
 			'NetCheckScreen.aaaaQueryFailed' => ({required Object p}) => 'خطا در پرس‌وجوی AAAA: ${p}',
 			'NetCheckScreen.success' => 'موفق',
 			'NetCheckScreen.failed' => 'ناموفق',
+			'NetCheckScreen.suspectedPollution' => 'مشکوک به مسمومیت DNS',
 			'NetCheckScreen.domainLabel' => 'دامنه',
 			'NetCheckScreen.checkButton' => 'بررسی',
 			'NetCheckScreen.dnsSection' => '1. پرس‌وجوی DNS',

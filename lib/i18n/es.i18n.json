@@ -33,6 +33,7 @@
         "aaaaQueryFailed": "Fallo en la consulta AAAA: $p",
         "success": "Éxito",
         "failed": "Fallo",
+        "suspectedPollution": "Sospecha de envenenamiento DNS",
         "domainLabel": "Dominio",
         "checkButton": "Comprobar",
         "dnsSection": "1. Consulta DNS",

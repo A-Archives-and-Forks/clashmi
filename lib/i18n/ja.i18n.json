@@ -28,6 +28,7 @@
         "aaaaQueryFailed": "AAAAレコード照会失敗: $p",
         "success": "成功",
         "failed": "失敗",
+        "suspectedPollution": "DNS汚染の疑い",
         "domainLabel": "ドメイン",
         "checkButton": "診断",
         "dnsSection": "1. DNS照会",
