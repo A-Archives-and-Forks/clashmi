@@ -241,6 +241,7 @@ class _NetCheckScreenState extends LasyRenderingState<NetCheckScreen> {
                               await Clipboard.setData(
                                 ClipboardData(
                                   text: [
+                                    "Domain: ${_domainController.text.trim()}",
                                     "OS: ${Platform.operatingSystem}",
                                     '1. DNS:',
                                     _dnsResult,
