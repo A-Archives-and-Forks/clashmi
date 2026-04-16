@@ -400,9 +400,19 @@ class RawExtensionTun {
   RawExtensionTunHttpProxy httpProxy;
   @JsonKey(name: 'per_app')
   RawExtensionTunPerApp perApp;
+  @JsonKey(name: 'auto_route_use_sub_ranges_by_default')
+  bool? autoRouteUseSubRangesByDefault;
 
-  RawExtensionTun.by({required this.httpProxy, required this.perApp});
-  RawExtensionTun(this.httpProxy, this.perApp);
+  RawExtensionTun.by({
+    required this.httpProxy,
+    required this.perApp,
+    this.autoRouteUseSubRangesByDefault,
+  });
+  RawExtensionTun(
+    this.httpProxy,
+    this.perApp,
+    this.autoRouteUseSubRangesByDefault,
+  );
   factory RawExtensionTun.fromJson(Map<String, dynamic> json) =>
       _$RawExtensionTunFromJson(json);
   Map<String, dynamic> toJson() => _$RawExtensionTunToJson(this);

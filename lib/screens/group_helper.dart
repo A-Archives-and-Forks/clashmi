@@ -1488,6 +1488,20 @@ class GroupHelper {
                   },
           ),
         ),
+        if (Platform.isIOS || Platform.isMacOS) ...[
+          GroupItemOptions(
+            switchOptions: GroupItemSwitchOptions(
+              name: tcontext.tun.tunDefaultRoute,
+              switchValue:
+                  extensions.Tun.autoRouteUseSubRangesByDefault != true,
+              onSwitch: tun.OverWrite != true || tun.Enable != true
+                  ? null
+                  : (bool value) async {
+                      extensions.Tun.autoRouteUseSubRangesByDefault = !value;
+                    },
+            ),
+          ),
+        ],
         if (PlatformUtils.isPC()) ...[
           GroupItemOptions(
             switchOptions: GroupItemSwitchOptions(

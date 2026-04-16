@@ -380,6 +380,7 @@ class _TranslationsMetaAr implements TranslationsMetaEn {
 	@override String fileTypeInvalid({required Object p}) => 'نوع الملف غير صالح:${p}';
 	@override String get uwpExemption => 'إعفاء عزل شبكة UWP';
 	@override String get getProfile => 'احصل على التكوين';
+	@override String get buyProfile => 'شراء ملف تعريف';
 	@override String get addProfile => 'إضافة ملف تعريف';
 	@override String get myProfiles => 'مظهر';
 	@override String get profileEdit => 'تحرير الملف الشخصي';
@@ -430,6 +431,7 @@ class _TranslationsTunAr implements TranslationsTunEn {
 	@override String get inet6Address => 'نطاق عناوين IPv6';
 	@override String get dnsHijack => 'اختطاف DNS';
 	@override String get strictRoute => 'التوجيه الصارم';
+	@override String get tunDefaultRoute => 'المسار الافتراضي';
 	@override String get icmpForward => 'توجيه رسائل ICMP';
 	@override String get allowBypass => 'السماح للتطبيقات بتجاوز VPN';
 	@override String get appendHttpProxy => 'إلحاق وكيل HTTP إلى VPN';
@@ -747,6 +749,7 @@ extension on TranslationsAr {
 			'meta.fileTypeInvalid' => ({required Object p}) => 'نوع الملف غير صالح:${p}',
 			'meta.uwpExemption' => 'إعفاء عزل شبكة UWP',
 			'meta.getProfile' => 'احصل على التكوين',
+			'meta.buyProfile' => 'شراء ملف تعريف',
 			'meta.addProfile' => 'إضافة ملف تعريف',
 			'meta.myProfiles' => 'مظهر',
 			'meta.profileEdit' => 'تحرير الملف الشخصي',
@@ -770,6 +773,7 @@ extension on TranslationsAr {
 			'tun.inet6Address' => 'نطاق عناوين IPv6',
 			'tun.dnsHijack' => 'اختطاف DNS',
 			'tun.strictRoute' => 'التوجيه الصارم',
+			'tun.tunDefaultRoute' => 'المسار الافتراضي',
 			'tun.icmpForward' => 'توجيه رسائل ICMP',
 			'tun.allowBypass' => 'السماح للتطبيقات بتجاوز VPN',
 			'tun.appendHttpProxy' => 'إلحاق وكيل HTTP إلى VPN',

@@ -380,6 +380,7 @@ class _TranslationsMetaFa implements TranslationsMetaEn {
 	@override String fileTypeInvalid({required Object p}) => 'نوع فایل نامعتبر:${p}';
 	@override String get uwpExemption => 'معافیت جداسازی شبکه UWP';
 	@override String get getProfile => 'پیکربندی را دریافت کنید';
+	@override String get buyProfile => 'خرید پروفایل';
 	@override String get addProfile => 'افزودن پروفایل';
 	@override String get myProfiles => 'پروفایل‌ها';
 	@override String get profileEdit => 'ویرایش پروفایل';
@@ -430,6 +431,7 @@ class _TranslationsTunFa implements TranslationsTunEn {
 	@override String get inet6Address => 'محدوده آدرس IPv6';
 	@override String get dnsHijack => 'ربودن DNS';
 	@override String get strictRoute => 'مسیریابی دقیق';
+	@override String get tunDefaultRoute => 'مسیر پیش‌فرض';
 	@override String get icmpForward => 'ارسال ICMP';
 	@override String get allowBypass => 'به برنامه‌ها اجازه دهید VPN را دور بزنند';
 	@override String get appendHttpProxy => 'پیوست دادن پروکسی HTTP به وی‌پی‌ان';
@@ -747,6 +749,7 @@ extension on TranslationsFa {
 			'meta.fileTypeInvalid' => ({required Object p}) => 'نوع فایل نامعتبر:${p}',
 			'meta.uwpExemption' => 'معافیت جداسازی شبکه UWP',
 			'meta.getProfile' => 'پیکربندی را دریافت کنید',
+			'meta.buyProfile' => 'خرید پروفایل',
 			'meta.addProfile' => 'افزودن پروفایل',
 			'meta.myProfiles' => 'پروفایل‌ها',
 			'meta.profileEdit' => 'ویرایش پروفایل',
@@ -770,6 +773,7 @@ extension on TranslationsFa {
 			'tun.inet6Address' => 'محدوده آدرس IPv6',
 			'tun.dnsHijack' => 'ربودن DNS',
 			'tun.strictRoute' => 'مسیریابی دقیق',
+			'tun.tunDefaultRoute' => 'مسیر پیش‌فرض',
 			'tun.icmpForward' => 'ارسال ICMP',
 			'tun.allowBypass' => 'به برنامه‌ها اجازه دهید VPN را دور بزنند',
 			'tun.appendHttpProxy' => 'پیوست دادن پروکسی HTTP به وی‌پی‌ان',

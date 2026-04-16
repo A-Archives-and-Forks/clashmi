@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:after_layout/after_layout.dart';
 import 'package:clashmi/app/modules/profile_manager.dart';
@@ -172,7 +173,12 @@ class _ProfilesBoardScreenState extends LasyRenderingState<ProfilesBoardScreen>
     final tcontext = Translations.of(context);
     var widgets = [
       ListTile(
-        title: Text(tcontext.meta.getProfile),
+        leading: const Icon(Icons.shopping_cart_outlined),
+        title: Text(
+          Platform.isIOS
+              ? tcontext.meta.getProfile
+              : "${tcontext.meta.getProfile} / ${tcontext.meta.buyProfile}",
+        ),
         onTap: () async {
           Navigator.of(context).pop();
           var remoteConfig = RemoteConfigManager.getConfig();
@@ -193,6 +199,7 @@ class _ProfilesBoardScreenState extends LasyRenderingState<ProfilesBoardScreen>
         },
       ),
       ListTile(
+        leading: const Icon(Icons.add_link_outlined),
         title: Text(tcontext.meta.profileAddUrlOrContent),
         onTap: () async {
           Navigator.of(context).pop();
@@ -206,6 +213,7 @@ class _ProfilesBoardScreenState extends LasyRenderingState<ProfilesBoardScreen>
         },
       ),
       ListTile(
+        leading: const Icon(Icons.content_paste_outlined),
         title: Text(tcontext.meta.importFromClipboard),
         onTap: () async {
           Navigator.of(context).pop();
@@ -241,6 +249,7 @@ class _ProfilesBoardScreenState extends LasyRenderingState<ProfilesBoardScreen>
         },
       ),
       ListTile(
+        leading: const Icon(Icons.qr_code_scanner),
         title: Text(tcontext.meta.qrcodeScan),
         onTap: () async {
           Navigator.of(context).pop();
@@ -268,6 +277,7 @@ class _ProfilesBoardScreenState extends LasyRenderingState<ProfilesBoardScreen>
         },
       ),
       ListTile(
+        leading: const Icon(Icons.file_open_outlined),
         title: Text(tcontext.meta.profileImport),
         onTap: () async {
           Navigator.of(context).pop();

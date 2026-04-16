@@ -875,6 +875,9 @@ class TranslationsMetaEn {
 	/// en: 'Get Profile'
 	String get getProfile => 'Get Profile';
 
+	/// en: 'Buy Profile'
+	String get buyProfile => 'Buy Profile';
+
 	/// en: 'Add Profile'
 	String get addProfile => 'Add Profile';
 
@@ -970,6 +973,9 @@ class TranslationsTunEn {
 
 	/// en: 'Strict Route'
 	String get strictRoute => 'Strict Route';
+
+	/// en: 'Default Route'
+	String get tunDefaultRoute => 'Default Route';
 
 	/// en: 'ICMP Forwarding'
 	String get icmpForward => 'ICMP Forwarding';
@@ -1341,6 +1347,7 @@ extension on Translations {
 			'meta.fileTypeInvalid' => ({required Object p}) => 'Invalid file type:${p}',
 			'meta.uwpExemption' => 'UWP Network Isolation Exemptions',
 			'meta.getProfile' => 'Get Profile',
+			'meta.buyProfile' => 'Buy Profile',
 			'meta.addProfile' => 'Add Profile',
 			'meta.myProfiles' => 'My Profiles',
 			'meta.profileEdit' => 'Profile Edit',
@@ -1364,6 +1371,7 @@ extension on Translations {
 			'tun.inet6Address' => 'IPv6 Gateway Address',
 			'tun.dnsHijack' => 'DNS Hijack',
 			'tun.strictRoute' => 'Strict Route',
+			'tun.tunDefaultRoute' => 'Default Route',
 			'tun.icmpForward' => 'ICMP Forwarding',
 			'tun.allowBypass' => 'Allow Apps to Bypass VPN',
 			'tun.appendHttpProxy' => 'Append HTTP Proxy to VPN',

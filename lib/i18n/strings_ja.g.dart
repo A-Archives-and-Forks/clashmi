@@ -380,6 +380,7 @@ class _TranslationsMetaJa implements TranslationsMetaEn {
 	@override String fileTypeInvalid({required Object p}) => '無効なファイルタイプ: ${p}';
 	@override String get uwpExemption => 'UWPネットワーク分離免除';
 	@override String get getProfile => 'プロファイルを取得';
+	@override String get buyProfile => 'プロファイルを購入';
 	@override String get addProfile => 'プロファイルを追加';
 	@override String get myProfiles => 'マイプロファイル';
 	@override String get profileEdit => 'プロファイルを編集';
@@ -430,6 +431,7 @@ class _TranslationsTunJa implements TranslationsTunEn {
 	@override String get inet6Address => 'IPv6アドレス範囲';
 	@override String get dnsHijack => 'DNSハイジャック';
 	@override String get strictRoute => '厳格なルート';
+	@override String get tunDefaultRoute => 'デフォルトルート';
 	@override String get icmpForward => 'ICMP転送';
 	@override String get allowBypass => 'アプリがVPNをバイパスすることを許可する';
 	@override String get appendHttpProxy => 'VPNにHTTPプロキシを追加する';
@@ -747,6 +749,7 @@ extension on TranslationsJa {
 			'meta.fileTypeInvalid' => ({required Object p}) => '無効なファイルタイプ: ${p}',
 			'meta.uwpExemption' => 'UWPネットワーク分離免除',
 			'meta.getProfile' => 'プロファイルを取得',
+			'meta.buyProfile' => 'プロファイルを購入',
 			'meta.addProfile' => 'プロファイルを追加',
 			'meta.myProfiles' => 'マイプロファイル',
 			'meta.profileEdit' => 'プロファイルを編集',
@@ -770,6 +773,7 @@ extension on TranslationsJa {
 			'tun.inet6Address' => 'IPv6アドレス範囲',
 			'tun.dnsHijack' => 'DNSハイジャック',
 			'tun.strictRoute' => '厳格なルート',
+			'tun.tunDefaultRoute' => 'デフォルトルート',
 			'tun.icmpForward' => 'ICMP転送',
 			'tun.allowBypass' => 'アプリがVPNをバイパスすることを許可する',
 			'tun.appendHttpProxy' => 'VPNにHTTPプロキシを追加する',

@@ -380,6 +380,7 @@ class _TranslationsMetaEs implements TranslationsMetaEn {
 	@override String fileTypeInvalid({required Object p}) => 'Tipo de archivo no válido: ${p}';
 	@override String get uwpExemption => 'Exenciones de Aislamiento de Red UWP';
 	@override String get getProfile => 'Obtener Perfil';
+	@override String get buyProfile => 'Comprar Perfil';
 	@override String get addProfile => 'Añadir Perfil';
 	@override String get myProfiles => 'Mis Perfiles';
 	@override String get profileEdit => 'Editar Perfil';
@@ -430,6 +431,7 @@ class _TranslationsTunEs implements TranslationsTunEn {
 	@override String get inet6Address => 'Dirección de Puerta de Enlace IPv6';
 	@override String get dnsHijack => 'Secuestro de DNS';
 	@override String get strictRoute => 'Ruta Estricta';
+	@override String get tunDefaultRoute => 'Ruta predeterminada';
 	@override String get icmpForward => 'Reenvío ICMP';
 	@override String get allowBypass => 'Permitir aplicaciones para omitir VPN';
 	@override String get appendHttpProxy => 'Anexar Proxy HTTP a VPN';
@@ -747,6 +749,7 @@ extension on TranslationsEs {
 			'meta.fileTypeInvalid' => ({required Object p}) => 'Tipo de archivo no válido: ${p}',
 			'meta.uwpExemption' => 'Exenciones de Aislamiento de Red UWP',
 			'meta.getProfile' => 'Obtener Perfil',
+			'meta.buyProfile' => 'Comprar Perfil',
 			'meta.addProfile' => 'Añadir Perfil',
 			'meta.myProfiles' => 'Mis Perfiles',
 			'meta.profileEdit' => 'Editar Perfil',
@@ -770,6 +773,7 @@ extension on TranslationsEs {
 			'tun.inet6Address' => 'Dirección de Puerta de Enlace IPv6',
 			'tun.dnsHijack' => 'Secuestro de DNS',
 			'tun.strictRoute' => 'Ruta Estricta',
+			'tun.tunDefaultRoute' => 'Ruta predeterminada',
 			'tun.icmpForward' => 'Reenvío ICMP',
 			'tun.allowBypass' => 'Permitir aplicaciones para omitir VPN',
 			'tun.appendHttpProxy' => 'Anexar Proxy HTTP a VPN',

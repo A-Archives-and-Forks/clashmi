@@ -380,6 +380,7 @@ class _TranslationsMetaKo implements TranslationsMetaEn {
 	@override String fileTypeInvalid({required Object p}) => '유효하지 않은 파일 형식: ${p}';
 	@override String get uwpExemption => 'UWP 네트워크 격리 면제';
 	@override String get getProfile => '프로필 가져오기';
+	@override String get buyProfile => '프로필 구매';
 	@override String get addProfile => '프로필 추가';
 	@override String get myProfiles => '내 프로필';
 	@override String get profileEdit => '프로필 편집';
@@ -430,6 +431,7 @@ class _TranslationsTunKo implements TranslationsTunEn {
 	@override String get inet6Address => 'IPv6 주소 범위';
 	@override String get dnsHijack => 'DNS 하이제킹';
 	@override String get strictRoute => '엄격한 경로';
+	@override String get tunDefaultRoute => '기본 경로';
 	@override String get icmpForward => 'ICMP 전달';
 	@override String get allowBypass => '앱이 VPN을 우회하도록 허용';
 	@override String get appendHttpProxy => 'VPN에 HTTP 프록시 추가';
@@ -747,6 +749,7 @@ extension on TranslationsKo {
 			'meta.fileTypeInvalid' => ({required Object p}) => '유효하지 않은 파일 형식: ${p}',
 			'meta.uwpExemption' => 'UWP 네트워크 격리 면제',
 			'meta.getProfile' => '프로필 가져오기',
+			'meta.buyProfile' => '프로필 구매',
 			'meta.addProfile' => '프로필 추가',
 			'meta.myProfiles' => '내 프로필',
 			'meta.profileEdit' => '프로필 편집',
@@ -770,6 +773,7 @@ extension on TranslationsKo {
 			'tun.inet6Address' => 'IPv6 주소 범위',
 			'tun.dnsHijack' => 'DNS 하이제킹',
 			'tun.strictRoute' => '엄격한 경로',
+			'tun.tunDefaultRoute' => '기본 경로',
 			'tun.icmpForward' => 'ICMP 전달',
 			'tun.allowBypass' => '앱이 VPN을 우회하도록 허용',
 			'tun.appendHttpProxy' => 'VPN에 HTTP 프록시 추가',

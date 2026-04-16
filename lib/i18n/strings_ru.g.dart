@@ -313,7 +313,7 @@ class _TranslationsMetaRu implements TranslationsMetaEn {
 	@override String get screenshot => 'Скриншот';
 	@override String get backupAndSync => 'Резервное копирование и синхронизация';
 	@override String get importSuccess => 'Импорт выполнен успешно';
-	@override String get rewriteConfirm => 'Этот файл перезапишет существующую локальную конфигурацию. Продолжить?';
+	@override String get rewriteConfirm => 'Этот файл перезапишет существующую локальную профиль. Продолжить?';
 	@override String get importAndExport => 'Импорт и экспорт';
 	@override String get import => 'Импорт';
 	@override String get importFromUrl => 'Импорт из URL';
@@ -379,15 +379,16 @@ class _TranslationsMetaRu implements TranslationsMetaEn {
 	@override String fileNotExist({required Object p}) => 'Файла не существует:${p}';
 	@override String fileTypeInvalid({required Object p}) => 'Неверный тип файла:${p}';
 	@override String get uwpExemption => 'Исключение из изоляции сети UWP';
-	@override String get getProfile => 'Получить конфигурацию';
+	@override String get getProfile => 'Получить профиль';
+	@override String get buyProfile => 'Купить профиль';
 	@override String get addProfile => 'Добавить профиль';
 	@override String get myProfiles => 'Профили';
 	@override String get profileEdit => 'Редактирование профилей';
 	@override String get profileEditReloadAfterProfileUpdate => 'Перезагрузить после обновления профиля';
 	@override String get profileImport => 'Импорт файла конфигурации';
 	@override String get profileAddUrlOrContent => 'Добавление подписки';
-	@override String get profileUrlOrContent => 'Ссылка на конфигурацию Clash';
-	@override String get profileUrlOrContentHit => 'Ссылка на конфигурацию Clash [обязательно]';
+	@override String get profileUrlOrContent => 'Ссылка на профиль Clash';
+	@override String get profileUrlOrContentHit => 'Ссылка на профиль Clash [обязательно]';
 	@override String get profileUrlOrContentCannotEmpty => 'Ссылка на подписку не может быть пустой';
 }
 
@@ -430,6 +431,7 @@ class _TranslationsTunRu implements TranslationsTunEn {
 	@override String get inet6Address => 'Диапазон IPv6-адресов';
 	@override String get dnsHijack => 'Перехват DNS';
 	@override String get strictRoute => 'Строгая маршрутизация';
+	@override String get tunDefaultRoute => 'Маршрут по умолчанию';
 	@override String get icmpForward => 'Пересылка ICMP';
 	@override String get allowBypass => 'Разрешить приложениям обходить VPN';
 	@override String get appendHttpProxy => 'Подключите HTTP-прокси к VPN';
@@ -680,7 +682,7 @@ extension on TranslationsRu {
 			'meta.screenshot' => 'Скриншот',
 			'meta.backupAndSync' => 'Резервное копирование и синхронизация',
 			'meta.importSuccess' => 'Импорт выполнен успешно',
-			'meta.rewriteConfirm' => 'Этот файл перезапишет существующую локальную конфигурацию. Продолжить?',
+			'meta.rewriteConfirm' => 'Этот файл перезапишет существующую локальную профиль. Продолжить?',
 			'meta.importAndExport' => 'Импорт и экспорт',
 			'meta.import' => 'Импорт',
 			'meta.importFromUrl' => 'Импорт из URL',
@@ -746,15 +748,16 @@ extension on TranslationsRu {
 			'meta.fileNotExist' => ({required Object p}) => 'Файла не существует:${p}',
 			'meta.fileTypeInvalid' => ({required Object p}) => 'Неверный тип файла:${p}',
 			'meta.uwpExemption' => 'Исключение из изоляции сети UWP',
-			'meta.getProfile' => 'Получить конфигурацию',
+			'meta.getProfile' => 'Получить профиль',
+			'meta.buyProfile' => 'Купить профиль',
 			'meta.addProfile' => 'Добавить профиль',
 			'meta.myProfiles' => 'Профили',
 			'meta.profileEdit' => 'Редактирование профилей',
 			'meta.profileEditReloadAfterProfileUpdate' => 'Перезагрузить после обновления профиля',
 			'meta.profileImport' => 'Импорт файла конфигурации',
 			'meta.profileAddUrlOrContent' => 'Добавление подписки',
-			'meta.profileUrlOrContent' => 'Ссылка на конфигурацию Clash',
-			'meta.profileUrlOrContentHit' => 'Ссылка на конфигурацию Clash [обязательно]',
+			'meta.profileUrlOrContent' => 'Ссылка на профиль Clash',
+			'meta.profileUrlOrContentHit' => 'Ссылка на профиль Clash [обязательно]',
 			'meta.profileUrlOrContentCannotEmpty' => 'Ссылка на подписку не может быть пустой',
 			'permission.camera' => 'Камера',
 			'permission.screen' => 'Запись экрана',
@@ -770,6 +773,7 @@ extension on TranslationsRu {
 			'tun.inet6Address' => 'Диапазон IPv6-адресов',
 			'tun.dnsHijack' => 'Перехват DNS',
 			'tun.strictRoute' => 'Строгая маршрутизация',
+			'tun.tunDefaultRoute' => 'Маршрут по умолчанию',
 			'tun.icmpForward' => 'Пересылка ICMP',
 			'tun.allowBypass' => 'Разрешить приложениям обходить VPN',
 			'tun.appendHttpProxy' => 'Подключите HTTP-прокси к VPN',

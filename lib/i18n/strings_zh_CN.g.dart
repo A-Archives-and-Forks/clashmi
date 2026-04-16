@@ -380,6 +380,7 @@ class _TranslationsMetaZhCn implements TranslationsMetaEn {
 	@override String fileTypeInvalid({required Object p}) => '无效的文件类型:${p}';
 	@override String get uwpExemption => 'UWP网络隔离豁免';
 	@override String get getProfile => '获取配置';
+	@override String get buyProfile => '购买配置';
 	@override String get addProfile => '添加配置';
 	@override String get myProfiles => '我的配置';
 	@override String get profileEdit => '编辑配置';
@@ -430,6 +431,7 @@ class _TranslationsTunZhCn implements TranslationsTunEn {
 	@override String get inet6Address => 'IPv6地址段';
 	@override String get dnsHijack => 'DNS劫持';
 	@override String get strictRoute => '严格路由';
+	@override String get tunDefaultRoute => '默认路由';
 	@override String get icmpForward => 'ICMP 转发';
 	@override String get allowBypass => '允许应用绕过VPN';
 	@override String get appendHttpProxy => '附加HTTP代理到VPN';
@@ -747,6 +749,7 @@ extension on TranslationsZhCn {
 			'meta.fileTypeInvalid' => ({required Object p}) => '无效的文件类型:${p}',
 			'meta.uwpExemption' => 'UWP网络隔离豁免',
 			'meta.getProfile' => '获取配置',
+			'meta.buyProfile' => '购买配置',
 			'meta.addProfile' => '添加配置',
 			'meta.myProfiles' => '我的配置',
 			'meta.profileEdit' => '编辑配置',
@@ -770,6 +773,7 @@ extension on TranslationsZhCn {
 			'tun.inet6Address' => 'IPv6地址段',
 			'tun.dnsHijack' => 'DNS劫持',
 			'tun.strictRoute' => '严格路由',
+			'tun.tunDefaultRoute' => '默认路由',
 			'tun.icmpForward' => 'ICMP 转发',
 			'tun.allowBypass' => '允许应用绕过VPN',
 			'tun.appendHttpProxy' => '附加HTTP代理到VPN',
