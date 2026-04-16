@@ -208,7 +208,7 @@ class NetworkUtils {
   }
 
   static Future<List<NetInterfacesInfo>> getInterfaces({
-    InternetAddressType? addressType,
+    InternetAddressType? addressType = InternetAddressType.IPv4,
     bool filter = true,
   }) async {
     List<NetInterfacesInfo> interfaces = [];
