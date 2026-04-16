@@ -94,8 +94,8 @@ class _ProxyScreenProxiesNodeWidget
                       url: node.icon,
                       width: 16,
                       height: 16,
-                      cacheWidth: 16,
-                      cacheHeight: 16,
+                      cacheWidth: 64,
+                      cacheHeight: 64,
                       loadingBuilder: (context, loadingProgress) {
                         return SizedBox.shrink();
                       },
