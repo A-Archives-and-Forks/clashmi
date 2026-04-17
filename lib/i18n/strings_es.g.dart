@@ -374,6 +374,7 @@ class _TranslationsMetaEs implements TranslationsMetaEn {
 	@override String get hideSystemApp => 'Ocultar Aplicaciones del Sistema';
 	@override String get hideAppIcon => 'Ocultar Iconos de App';
 	@override String get openDir => 'Abrir Directorio de Archivos';
+	@override String get type => 'Tipo';
 	@override String get fileChoose => 'Seleccionar Archivo';
 	@override String get filePathCannotEmpty => 'La ruta del archivo no puede estar vacía';
 	@override String fileNotExist({required Object p}) => 'El archivo no existe: ${p}';
@@ -743,6 +744,7 @@ extension on TranslationsEs {
 			'meta.hideSystemApp' => 'Ocultar Aplicaciones del Sistema',
 			'meta.hideAppIcon' => 'Ocultar Iconos de App',
 			'meta.openDir' => 'Abrir Directorio de Archivos',
+			'meta.type' => 'Tipo',
 			'meta.fileChoose' => 'Seleccionar Archivo',
 			'meta.filePathCannotEmpty' => 'La ruta del archivo no puede estar vacía',
 			'meta.fileNotExist' => ({required Object p}) => 'El archivo no existe: ${p}',

@@ -254,6 +254,7 @@
         "hideSystemApp": "システムアプリを隠す",
         "hideAppIcon": "アプリアイコンを隠す",
         "openDir": "ファイルディレクトリを開く",
+        "type": "タイプ",
         "fileChoose": "ファイルを選択",
         "filePathCannotEmpty": "ファイルパスを空にすることはできません",
         "fileNotExist": "ファイルが存在しません: $p",

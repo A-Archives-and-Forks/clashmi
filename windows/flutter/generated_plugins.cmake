@@ -5,6 +5,7 @@
 list(APPEND FLUTTER_PLUGIN_LIST
   file_selector_windows
   flutter_inappwebview_windows
+  flutter_js
   flutter_secure_storage_windows
   hotkey_manager_windows
   libclash_vpn_service

@@ -14,11 +14,27 @@ import 'package:clashmi/app/utils/path_utils.dart';
 import 'package:clashmi/i18n/strings.g.dart';
 import 'package:flutter/widgets.dart';
 import 'package:path/path.dart' as path;
+import 'package:flutter_js/flutter_js.dart';
+import 'package:clashmi/app/utils/emoji_utils.dart';
+import 'package:yaml/yaml.dart';
+import 'package:yaml_writer/yaml_writer.dart';
 
 const int kRemarkMaxLength = 32;
 const String kProfilePatchBuildinOverwrite = "profile_patch_buildin_overwrite";
 const String kProfilePatchBuildinNoOverwrite =
     "profile_patch_buildin_no_overwrite";
+
+enum ProfilePatchFileType {
+  yaml(name: "yaml"),
+  js(name: "js");
+
+  const ProfilePatchFileType({required this.name});
+  final String name;
+
+  static List<String> getTypes() {
+    return [yaml.name, js.name];
+  }
+}
 
 class ProfilePatchSetting {
   ProfilePatchSetting({
@@ -27,12 +43,14 @@ class ProfilePatchSetting {
     this.updateInterval,
     this.update,
     this.url = "",
+    this.type = ProfilePatchFileType.yaml,
   });
   String id = "";
   String remark = "";
   Duration? updateInterval;
   DateTime? update;
   String url;
+  ProfilePatchFileType type = ProfilePatchFileType.yaml;
 
   Map<String, dynamic> toJson() => {
     'id': id,
@@ -40,6 +58,7 @@ class ProfilePatchSetting {
     'update_interval': updateInterval?.inSeconds,
     'update': update.toString(),
     'url': url,
+    'type': type.name,
   };
   void fromJson(Map<String, dynamic>? map) {
     if (map == null) {
@@ -60,6 +79,10 @@ class ProfilePatchSetting {
       update = DateTime.tryParse(updateTime);
     }
     url = map['url'] ?? '';
+    type = ProfilePatchFileType.values.firstWhere(
+      (e) => e.name == map['type'],
+      orElse: () => ProfilePatchFileType.yaml,
+    );
   }
 
   String getType() {
@@ -102,6 +125,7 @@ class ProfilePatchSetting {
       updateInterval: updateInterval,
       update: update,
       url: url,
+      type: type,
     );
   }
 }
@@ -223,7 +247,7 @@ class ProfilePatchManager {
 
     var files = FileUtils.recursionFile(
       dir,
-      extensionFilter: {".yaml", ".yml"},
+      extensionFilter: {".yaml", ".yml", ".js"},
     );
     for (var file in files) {
       existProfiles.add(path.basename(file));
@@ -240,7 +264,13 @@ class ProfilePatchManager {
       });
       if (index < 0) {
         _config.profiles.add(
-          ProfilePatchSetting(id: existValue, remark: existValue),
+          ProfilePatchSetting(
+            id: existValue,
+            remark: existValue,
+            type: path.extension(existValue) == ".js"
+                ? ProfilePatchFileType.js
+                : ProfilePatchFileType.yaml,
+          ),
         );
       }
     }
@@ -259,29 +289,44 @@ class ProfilePatchManager {
   }
 
   static ProfilePatchSetting getBuildinOverwrite() {
-    return ProfilePatchSetting(id: kProfilePatchBuildinOverwrite);
+    return ProfilePatchSetting(
+      id: kProfilePatchBuildinOverwrite,
+      type: ProfilePatchFileType.yaml,
+    );
   }
 
   static ProfilePatchSetting getBuildinNoOverwrite() {
-    return ProfilePatchSetting(id: kProfilePatchBuildinNoOverwrite);
+    return ProfilePatchSetting(
+      id: kProfilePatchBuildinNoOverwrite,
+      type: ProfilePatchFileType.yaml,
+    );
   }
 
   static ProfilePatchSetting getCurrent() {
     if (_config._currentId.isEmpty ||
         _config._currentId == kProfilePatchBuildinOverwrite) {
-      return ProfilePatchSetting(id: kProfilePatchBuildinOverwrite, remark: "");
+      return ProfilePatchSetting(
+        id: kProfilePatchBuildinOverwrite,
+        remark: "",
+        type: ProfilePatchFileType.yaml,
+      );
     }
     if (_config._currentId == kProfilePatchBuildinNoOverwrite) {
       return ProfilePatchSetting(
         id: kProfilePatchBuildinNoOverwrite,
         remark: "",
+        type: ProfilePatchFileType.yaml,
       );
     }
     int index = _config.profiles.indexWhere((value) {
       return value.id == _config._currentId;
     });
     if (index < 0) {
-      return ProfilePatchSetting(id: kProfilePatchBuildinOverwrite, remark: "");
+      return ProfilePatchSetting(
+        id: kProfilePatchBuildinOverwrite,
+        remark: "",
+        type: ProfilePatchFileType.yaml,
+      );
     }
     return _config.profiles[index];
   }
@@ -327,14 +372,19 @@ class ProfilePatchManager {
     return _config.profiles;
   }
 
-  static ProfilePatchSetting? getProfilePatch(String id) {
+  static ProfilePatchSetting getProfilePatch(String id) {
     if (id == kProfilePatchBuildinOverwrite) {
-      return ProfilePatchSetting(id: kProfilePatchBuildinOverwrite, remark: "");
+      return ProfilePatchSetting(
+        id: kProfilePatchBuildinOverwrite,
+        remark: "",
+        type: ProfilePatchFileType.yaml,
+      );
     }
     if (id == kProfilePatchBuildinNoOverwrite) {
       return ProfilePatchSetting(
         id: kProfilePatchBuildinNoOverwrite,
         remark: "",
+        type: ProfilePatchFileType.yaml,
       );
     }
 
@@ -371,8 +421,11 @@ class ProfilePatchManager {
   static Future<ReturnResultError?> addLocal(
     String filePath, {
     String remark = "",
+    ProfilePatchFileType type = ProfilePatchFileType.yaml,
   }) async {
-    final id = "${filePath.hashCode}.yaml";
+    final id = type == ProfilePatchFileType.yaml
+        ? "${filePath.hashCode}.yaml"
+        : "${filePath.hashCode}.js";
     final savePath = path.join(await PathUtils.profilePatchsDir(), id);
     final file = File(filePath);
     if (!await file.exists()) {
@@ -384,9 +437,15 @@ class ProfilePatchManager {
         return value.id == id;
       });
       if (index < 0) {
-        _config.profiles.add(ProfilePatchSetting(id: id, remark: remark));
+        _config.profiles.add(
+          ProfilePatchSetting(id: id, remark: remark, type: type),
+        );
       } else {
-        _config.profiles[index] = ProfilePatchSetting(id: id, remark: remark);
+        _config.profiles[index] = ProfilePatchSetting(
+          id: id,
+          remark: remark,
+          type: type,
+        );
       }
 
       for (var event in onEventAdd) {
@@ -420,12 +479,15 @@ class ProfilePatchManager {
   static Future<ReturnResult<String>> addRemote(
     String url, {
     String remark = "",
+    ProfilePatchFileType type = ProfilePatchFileType.yaml,
   }) async {
     final uri = Uri.tryParse(url);
     if (uri == null) {
       return ReturnResult(error: ReturnResultError("invalid url"));
     }
-    final id = "${url.hashCode}.yaml";
+    final id = type == ProfilePatchFileType.yaml
+        ? "${url.hashCode}.yaml"
+        : "${url.hashCode}.js";
     final savePath = path.join(await PathUtils.profilePatchsDir(), id);
     final userAgent = SettingManager.getConfig().userAgent();
     final result = await DownloadUtils.downloadWithPort(
@@ -439,12 +501,14 @@ class ProfilePatchManager {
     if (result.error != null) {
       return ReturnResult(error: result.error);
     }
-    final err = await validFileContentFormat(savePath);
-    if (err != null) {
-      FileUtils.deletePath(savePath);
-      return ReturnResult(error: err);
+    if (type == ProfilePatchFileType.yaml) {
+      final err = await validFileContentFormat(savePath);
+      if (err != null) {
+        FileUtils.deletePath(savePath);
+        return ReturnResult(error: err);
+      }
+      await FileUtils.append(savePath, "\n$urlComment$url\n");
     }
-    await FileUtils.append(savePath, "\n$urlComment$url\n");
 
     if (remark.isEmpty) {
       final result = await HttpUtils.httpGetTitle(url, userAgent);
@@ -464,6 +528,7 @@ class ProfilePatchManager {
       updateInterval: const Duration(days: 1),
       update: DateTime.now(),
       url: url,
+      type: type,
     );
 
     if (index < 0) {
@@ -528,18 +593,21 @@ class ProfilePatchManager {
     );
     profile.update = DateTime.now();
     if (result.error == null) {
-      final err = await validFileContentFormat(savePathTmp);
-      if (err != null) {
-        updating.remove(id);
-        await FileUtils.deletePath(savePathTmp);
+      if (profile.type == ProfilePatchFileType.yaml) {
+        final err = await validFileContentFormat(savePathTmp);
+        if (err != null) {
+          updating.remove(id);
+          await FileUtils.deletePath(savePathTmp);
 
-        Future.delayed(const Duration(milliseconds: 10), () async {
-          for (var event in onEventUpdate) {
-            event(id, true);
-          }
-        });
-        return err;
+          Future.delayed(const Duration(milliseconds: 10), () async {
+            for (var event in onEventUpdate) {
+              event(id, true);
+            }
+          });
+          return err;
+        }
       }
+
       String renameError = "";
       for (var i = 0; i < 3; ++i) {
         try {
@@ -564,8 +632,9 @@ class ProfilePatchManager {
           "Rename file from [$savePathTmp] to [$savePath] failed: $renameError",
         );
       }
-
-      await FileUtils.append(savePath, "\n$urlComment${profile.url}\n");
+      if (profile.type == ProfilePatchFileType.yaml) {
+        await FileUtils.append(savePath, "\n$urlComment${profile.url}\n");
+      }
       if (profile.remark.isEmpty) {
         final result = await HttpUtils.httpGetTitle(profile.url, userAgent);
         if (result.data == null || result.data!.length > 32) {
@@ -656,6 +725,80 @@ class ProfilePatchManager {
 
     final filePath = path.join(await PathUtils.profilePatchsDir(), id);
     return filePath;
+  }
+
+  static Future<String> getProfilePatchScriptPath(
+    String corePath,
+    String id,
+  ) async {
+    if (id.isEmpty) {
+      id = _config._currentId;
+    }
+    if (id == kProfilePatchBuildinOverwrite ||
+        id == kProfilePatchBuildinNoOverwrite) {
+      return corePath;
+    }
+    int index = _config.profiles.indexWhere((value) {
+      return value.id == id;
+    });
+    if (index < 0) {
+      return corePath;
+    }
+    final patch = _config.profiles[index];
+
+    final fileCore = File(corePath);
+    if (!await fileCore.exists()) {
+      return corePath;
+    }
+
+    final fileScriptPath = path.join(await PathUtils.profilePatchsDir(), id);
+    final fileScript = File(fileScriptPath);
+    if (!await fileScript.exists()) {
+      Log.w("evaluate ${patch.remark} filecontent($fileScriptPath) not exists");
+      return corePath;
+    }
+    String fileCoreContent = await fileCore.readAsString();
+    final fileScriptContent = await fileScript.readAsString();
+    if (fileCoreContent.isEmpty) {
+      Log.w("evaluate ${patch.remark} filecontent($corePath) is empty");
+      return corePath;
+    }
+    if (fileScriptContent.isEmpty) {
+      Log.w("evaluate ${patch.remark} filecontent($fileScriptPath) is empty");
+      return corePath;
+    }
+    JavascriptRuntime flutterJs = getJavascriptRuntime();
+    try {
+      fileCoreContent = EmojiUtils.unemojify(fileCoreContent);
+      var doc = loadYaml(fileCoreContent);
+      if (doc == null) {
+        Log.w("evaluate ${patch.remark} loadYaml from $corePath failed");
+        return corePath;
+      }
+
+      final fileCoreContentArg = json.encode(doc);
+      final res = await flutterJs.evaluateAsync('''
+      $fileScriptContent
+      main($fileCoreContentArg)
+    ''');
+      if (res.isError) {
+        throw res.stringResult;
+      }
+      if (res.rawResult == null) {
+        Log.w("evaluate ${patch.remark} rawResult is null");
+        return corePath;
+      }
+
+      String value = res.rawResult is String
+          ? res.rawResult
+          : YamlWriter(allowUnquotedStrings: true).write(res.rawResult);
+
+      String newCorePath = await PathUtils.serviceCorePatchPath();
+      await File(newCorePath).writeAsString(value);
+      return newCorePath;
+    } catch (e) {
+      throw 'evaluate ${patch.remark} exception: ${e.toString()}';
+    }
   }
 
   static void reorder(int oldIndex, int newIndex) {

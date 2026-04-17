@@ -374,6 +374,7 @@ class _TranslationsMetaKo implements TranslationsMetaEn {
 	@override String get hideSystemApp => '시스템 앱 숨기기';
 	@override String get hideAppIcon => '앱 아이콘 숨기기';
 	@override String get openDir => '파일 디렉토리 열기';
+	@override String get type => '유형';
 	@override String get fileChoose => '파일 선택';
 	@override String get filePathCannotEmpty => '파일 경로는 비워둘 수 없습니다';
 	@override String fileNotExist({required Object p}) => '파일이 존재하지 않습니다: ${p}';
@@ -743,6 +744,7 @@ extension on TranslationsKo {
 			'meta.hideSystemApp' => '시스템 앱 숨기기',
 			'meta.hideAppIcon' => '앱 아이콘 숨기기',
 			'meta.openDir' => '파일 디렉토리 열기',
+			'meta.type' => '유형',
 			'meta.fileChoose' => '파일 선택',
 			'meta.filePathCannotEmpty' => '파일 경로는 비워둘 수 없습니다',
 			'meta.fileNotExist' => ({required Object p}) => '파일이 존재하지 않습니다: ${p}',

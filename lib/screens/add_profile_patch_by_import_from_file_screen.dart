@@ -5,6 +5,8 @@ import 'dart:io';
 import 'package:clashmi/app/modules/profile_patch_manager.dart';
 import 'package:clashmi/i18n/strings.g.dart';
 import 'package:clashmi/screens/dialog_utils.dart';
+import 'package:clashmi/screens/group_item_creator.dart';
+import 'package:clashmi/screens/group_item_options.dart';
 import 'package:clashmi/screens/theme_config.dart';
 import 'package:clashmi/screens/widgets/framework.dart';
 import 'package:clashmi/screens/widgets/text_field.dart';
@@ -30,6 +32,7 @@ class _AddProfilePatchByImportFromFileScreenState
   String _filePath = "";
 
   final _textControllerRemark = TextEditingController();
+  ProfilePatchFileType _type = ProfilePatchFileType.yaml;
   bool _loading = false;
 
   @override
@@ -47,7 +50,11 @@ class _AddProfilePatchByImportFromFileScreenState
     final tcontext = Translations.of(context);
     String text = _textControllerRemark.text.trim();
 
-    final error = await ProfilePatchManager.addLocal(_filePath, remark: text);
+    final error = await ProfilePatchManager.addLocal(
+      _filePath,
+      remark: text,
+      type: _type,
+    );
 
     if (!mounted) {
       return;
@@ -174,6 +181,25 @@ class _AddProfilePatchByImportFromFileScreenState
                               ),
                             ),
                           ),
+
+                          FutureBuilder(
+                            future: getGroupOptions(),
+                            builder:
+                                (
+                                  BuildContext context,
+                                  AsyncSnapshot<List<GroupItem>> snapshot,
+                                ) {
+                                  List<GroupItem> data = snapshot.hasData
+                                      ? snapshot.data!
+                                      : [];
+                                  return Column(
+                                    children: GroupItemCreator.createGroups(
+                                      context,
+                                      data,
+                                    ),
+                                  );
+                                },
+                          ),
                         ],
                       ),
                     ),
@@ -190,9 +216,11 @@ class _AddProfilePatchByImportFromFileScreenState
   Future<void> onPressChooseFile() async {
     final tcontext = Translations.of(context);
     List<String> extensions = [];
-    List<String> extensionsAll = ['yaml', 'yml'];
+    List<String> extensionsAll = _type == ProfilePatchFileType.yaml
+        ? ['yaml', 'yml']
+        : ['js'];
 
-    extensions = ['yaml', 'yml'];
+    extensions = _type == ProfilePatchFileType.yaml ? ['yaml', 'yml'] : ['js'];
 
     try {
       FilePickerResult? fresult = await FilePicker.platform.pickFiles(
@@ -231,5 +259,30 @@ class _AddProfilePatchByImportFromFileScreenState
         withVersion: true,
       );
     }
+  }
+
+  Future<List<GroupItem>> getGroupOptions() async {
+    final tcontext = Translations.of(context);
+    List<GroupItem> groupOptions = [];
+    List<GroupItemOptions> options = [
+      GroupItemOptions(
+        stringPickerOptions: GroupItemStringPickerOptions(
+          name: tcontext.meta.type,
+          selected: _type.name,
+          strings: ProfilePatchFileType.getTypes(),
+          onPicker: (String? selected) async {
+            _type = ProfilePatchFileType.values.firstWhere(
+              (e) => e.name == selected,
+              orElse: () => ProfilePatchFileType.yaml,
+            );
+            setState(() {});
+          },
+        ),
+      ),
+    ];
+
+    groupOptions.add(GroupItem(options: options));
+
+    return groupOptions;
   }
 }

@@ -254,6 +254,7 @@
         "hideSystemApp": "برنامه های سیستم را مخفی کنید",
         "hideAppIcon": "پنهان کردن نماد برنامه",
         "openDir": "بازکردن دایرکتوری فایل",
+        "type": "نوع",
         "fileChoose": "انتخاب فایل",
         "filePathCannotEmpty": "مسیر فایل نمی‌تواند خالی باشد",
         "fileNotExist": "فایل وجود ندارد:$p",

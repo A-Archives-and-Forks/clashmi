@@ -26,20 +26,19 @@ class _ProfilesPatchSettingsEditScreenState
   final _textControllerRemark = TextEditingController();
   final _textControllerUrl = TextEditingController();
   Duration? _updateInterval = const Duration(hours: 24);
+  ProfilePatchFileType _type = ProfilePatchFileType.yaml;
 
   @override
   void initState() {
     var profile = ProfilePatchManager.getProfilePatch(widget.profileid);
-    if (profile != null) {
-      _textControllerRemark.value = _textControllerRemark.value.copyWith(
-        text: profile.remark,
-      );
-      _textControllerUrl.value = _textControllerUrl.value.copyWith(
-        text: profile.url,
-      );
-
-      _updateInterval = profile.updateInterval;
-    }
+    _textControllerRemark.value = _textControllerRemark.value.copyWith(
+      text: profile.remark,
+    );
+    _textControllerUrl.value = _textControllerUrl.value.copyWith(
+      text: profile.url,
+    );
+    _updateInterval = profile.updateInterval;
+    _type = profile.type;
     super.initState();
   }
 
@@ -109,8 +108,7 @@ class _ProfilesPatchSettingsEditScreenState
                           children: [
                             TextFieldEx(
                               controller: _textControllerRemark,
-                              textInputAction:
-                                  profile != null && profile.isRemote()
+                              textInputAction: profile.isRemote()
                                   ? TextInputAction.next
                                   : TextInputAction.done,
                               decoration: InputDecoration(
@@ -118,10 +116,10 @@ class _ProfilesPatchSettingsEditScreenState
                                 hintText: tcontext.meta.remark,
                               ),
                             ),
-                            profile != null && profile.isRemote()
+                            profile.isRemote()
                                 ? const SizedBox(height: 20)
                                 : const SizedBox.shrink(),
-                            profile != null && profile.isRemote()
+                            profile.isRemote()
                                 ? TextFieldEx(
                                     maxLines: 4,
                                     controller: _textControllerUrl,
@@ -166,10 +164,6 @@ class _ProfilesPatchSettingsEditScreenState
 
   void onTapSave() {
     var profile = ProfilePatchManager.getProfilePatch(widget.profileid);
-    if (profile == null) {
-      Navigator.pop(context);
-      return;
-    }
 
     String remarkText = _textControllerRemark.text.trim();
     String urlText = _textControllerUrl.text.trim();
@@ -188,6 +182,7 @@ class _ProfilesPatchSettingsEditScreenState
     profile.remark = remarkText;
     profile.url = urlText;
     profile.updateInterval = _updateInterval;
+    profile.type = _type;
     Navigator.pop(context);
   }
 
@@ -206,9 +201,7 @@ class _ProfilesPatchSettingsEditScreenState
 
   Future<List<GroupItem>> getGroupOptions() async {
     var profile = ProfilePatchManager.getProfilePatch(widget.profileid);
-    if (profile == null) {
-      return [];
-    }
+
     final tcontext = Translations.of(context);
 
     List<GroupItem> groupOptions = [];
@@ -240,7 +233,27 @@ class _ProfilesPatchSettingsEditScreenState
         ),
       ],
     ];
+
+    List<GroupItemOptions> options1 = [
+      GroupItemOptions(
+        stringPickerOptions: GroupItemStringPickerOptions(
+          name: tcontext.meta.type,
+          selected: _type.name,
+          strings: ProfilePatchFileType.getTypes(),
+          onPicker: (String? selected) async {
+            _type = ProfilePatchFileType.values.firstWhere(
+              (e) => e.name == selected,
+              orElse: () => ProfilePatchFileType.yaml,
+            );
+            setState(() {});
+          },
+        ),
+      ),
+    ];
+
     groupOptions.add(GroupItem(options: options));
+    groupOptions.add(GroupItem(options: options1));
+
     return groupOptions;
   }
 }

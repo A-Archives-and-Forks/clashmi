@@ -275,40 +275,40 @@ class _ProfilesPatchBoardScreenWidget
           );
         },
       ),
-      setting.isRemote()
-          ? ListTile(
-              title: Text(tcontext.meta.update),
-              onTap: () async {
-                Navigator.of(context).pop();
-                ReturnResultError? err = await ProfilePatchManager.update(
-                  setting.id,
-                );
-                if (err != null) {
-                  if (!mounted) {
-                    return;
-                  }
-                  DialogUtils.showAlertDialog(
-                    context,
-                    err.message,
-                    showCopy: true,
-                    showFAQ: true,
-                    withVersion: true,
-                  );
-                }
-              },
-            )
-          : const SizedBox.shrink(),
-      setting.isRemote()
-          ? ListTile(
-              title: Text(tcontext.meta.copyUrl),
-              onTap: () async {
-                Navigator.of(context).pop();
-                try {
-                  Clipboard.setData(ClipboardData(text: setting.url));
-                } catch (e) {}
-              },
-            )
-          : const SizedBox.shrink(),
+      if (setting.isRemote()) ...[
+        ListTile(
+          title: Text(tcontext.meta.update),
+          onTap: () async {
+            Navigator.of(context).pop();
+            ReturnResultError? err = await ProfilePatchManager.update(
+              setting.id,
+            );
+            if (err != null) {
+              if (!mounted) {
+                return;
+              }
+              DialogUtils.showAlertDialog(
+                context,
+                err.message,
+                showCopy: true,
+                showFAQ: true,
+                withVersion: true,
+              );
+            }
+          },
+        ),
+      ],
+      if (setting.isRemote()) ...[
+        ListTile(
+          title: Text(tcontext.meta.copyUrl),
+          onTap: () async {
+            Navigator.of(context).pop();
+            try {
+              Clipboard.setData(ClipboardData(text: setting.url));
+            } catch (e) {}
+          },
+        ),
+      ],
       ListTile(
         title: Text(tcontext.meta.profileEdit),
         onTap: () async {

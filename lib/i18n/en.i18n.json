@@ -254,6 +254,7 @@
         "hideSystemApp": "Hide System Apps",
         "hideAppIcon": "Hide App Icons",
         "openDir": "Open File Directory",
+        "type": "Type",
         "fileChoose": "Select File",
         "filePathCannotEmpty": "The file path can not be empty",
         "fileNotExist": "File does not exist:$p",

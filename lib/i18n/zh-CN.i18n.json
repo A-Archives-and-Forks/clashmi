@@ -254,6 +254,7 @@
         "hideSystemApp": "隐藏系统应用",
         "hideAppIcon": "隐藏应用图标",
         "openDir": "打开文件目录",
+        "type": "类型",
         "fileChoose": "选择文件",
         "filePathCannotEmpty": "文件路径不能为空",
         "fileNotExist": "文件不存在:$p",

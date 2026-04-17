@@ -154,24 +154,18 @@ class VPNService {
   }
 
   static Future<bool> _prepareConfig(ProfileSetting profile) async {
-    final currentPatch = ProfilePatchManager.getCurrent();
+    final corePath = path.join(await PathUtils.profilesDir(), profile.id);
+    final patch = ProfilePatchManager.getProfilePatch(profile.patch);
     final setting = ClashSettingManager.getConfig();
     final appSetting = SettingManager.getConfig();
     final controlPort = ClashSettingManager.getControlPort();
 
-    bool overwrite = true;
-    if (profile.patch.isEmpty ||
-        !ProfilePatchManager.existProfilePatch(profile.patch)) {
-      overwrite =
-          currentPatch.id.isEmpty ||
-          currentPatch.id == kProfilePatchBuildinOverwrite;
-    } else {
-      overwrite = profile.patch == kProfilePatchBuildinOverwrite;
-    }
+    bool overwriteFinal =
+        patch.id.isEmpty || patch.id == kProfilePatchBuildinOverwrite;
 
     await ClashSettingManager.saveCorePatchFinal(
       profile.id,
-      overwrite,
+      overwriteFinal,
       profile.overwriteRules
           ? (profile.overwriteProxyGroups
                 ? profile.rulesForProxyGroups
@@ -193,10 +187,17 @@ class VPNService {
     config.base_dir = await PathUtils.profileDir();
     config.work_dir = PathUtils.appAssetsDir();
     config.cache_dir = await PathUtils.cacheDir();
-    config.core_path = path.join(await PathUtils.profilesDir(), profile.id);
-    config.core_path_patch = await ProfilePatchManager.getProfilePatchPath(
-      profile.patch,
-    );
+    if (patch.type == ProfilePatchFileType.yaml) {
+      config.core_path = corePath;
+      config.core_path_patch = await ProfilePatchManager.getProfilePatchPath(
+        profile.patch,
+      );
+    } else {
+      config.core_path = await ProfilePatchManager.getProfilePatchScriptPath(
+        corePath,
+        profile.patch,
+      );
+    }
     config.core_path_patch_final = await PathUtils.serviceCorePatchFinalPath();
     config.log_path = await PathUtils.serviceLogFilePath();
     config.err_path = await PathUtils.serviceStdErrorFilePath();
@@ -206,10 +207,10 @@ class VPNService {
     config.secret = await ClashHttpApi.getSecret();
     config.install_refer = installReferrer;
     config.prepare =
-        (overwrite &&
+        (overwriteFinal &&
             setting.Tun?.OverWrite == true &&
             setting.Tun?.Enable == true) ||
-        !overwrite;
+        !overwriteFinal;
     config.wake_lock = appSetting.wakeLock;
     config.auto_connect_at_boot = appSetting.autoConnectAtBoot;
     var bundleIdentifier = AppUtils.getBundleId(_systemExtension);
@@ -297,13 +298,15 @@ class VPNService {
     if (!started) {
       return null;
     }
-    bool reinstall = await _prepareConfig(profile);
-    if (reinstall) {
-      await uninstall();
+    try {
+      bool reinstall = await _prepareConfig(profile);
+      if (reinstall) {
+        await uninstall();
+      }
+    } catch (err, stacktrace) {
+      return ReturnResultError(err.toString());
     }
-
     var setting = SettingManager.getConfig();
-
     if (Platform.isWindows) {
       final controlPort = ClashSettingManager.getControlPort();
       final mixedPort = ClashSettingManager.getMixedPort();
@@ -355,9 +358,13 @@ class VPNService {
     if (prepareResult != null) {
       return prepareResult;
     }
-    bool reinstall = await _prepareConfig(profile);
-    if (reinstall) {
-      await uninstall();
+    try {
+      bool reinstall = await _prepareConfig(profile);
+      if (reinstall) {
+        await uninstall();
+      }
+    } catch (err, stacktrace) {
+      return ReturnResultError(err.toString());
     }
     var setting = SettingManager.getConfig();
     if (Platform.isWindows) {

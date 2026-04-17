@@ -374,6 +374,7 @@ class _TranslationsMetaZhCn implements TranslationsMetaEn {
 	@override String get hideSystemApp => '隐藏系统应用';
 	@override String get hideAppIcon => '隐藏应用图标';
 	@override String get openDir => '打开文件目录';
+	@override String get type => '类型';
 	@override String get fileChoose => '选择文件';
 	@override String get filePathCannotEmpty => '文件路径不能为空';
 	@override String fileNotExist({required Object p}) => '文件不存在:${p}';
@@ -743,6 +744,7 @@ extension on TranslationsZhCn {
 			'meta.hideSystemApp' => '隐藏系统应用',
 			'meta.hideAppIcon' => '隐藏应用图标',
 			'meta.openDir' => '打开文件目录',
+			'meta.type' => '类型',
 			'meta.fileChoose' => '选择文件',
 			'meta.filePathCannotEmpty' => '文件路径不能为空',
 			'meta.fileNotExist' => ({required Object p}) => '文件不存在:${p}',

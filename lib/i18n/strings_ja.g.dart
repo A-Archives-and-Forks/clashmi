@@ -374,6 +374,7 @@ class _TranslationsMetaJa implements TranslationsMetaEn {
 	@override String get hideSystemApp => 'システムアプリを隠す';
 	@override String get hideAppIcon => 'アプリアイコンを隠す';
 	@override String get openDir => 'ファイルディレクトリを開く';
+	@override String get type => 'タイプ';
 	@override String get fileChoose => 'ファイルを選択';
 	@override String get filePathCannotEmpty => 'ファイルパスを空にすることはできません';
 	@override String fileNotExist({required Object p}) => 'ファイルが存在しません: ${p}';
@@ -743,6 +744,7 @@ extension on TranslationsJa {
 			'meta.hideSystemApp' => 'システムアプリを隠す',
 			'meta.hideAppIcon' => 'アプリアイコンを隠す',
 			'meta.openDir' => 'ファイルディレクトリを開く',
+			'meta.type' => 'タイプ',
 			'meta.fileChoose' => 'ファイルを選択',
 			'meta.filePathCannotEmpty' => 'ファイルパスを空にすることはできません',
 			'meta.fileNotExist' => ({required Object p}) => 'ファイルが存在しません: ${p}',

@@ -374,6 +374,7 @@ class _TranslationsMetaAr implements TranslationsMetaEn {
 	@override String get hideSystemApp => 'إخفاء تطبيقات النظام';
 	@override String get hideAppIcon => 'إخفاء أيقونة التطبيق';
 	@override String get openDir => 'فتح دليل الملف';
+	@override String get type => 'النوع';
 	@override String get fileChoose => 'حدد الملف';
 	@override String get filePathCannotEmpty => 'لا يمكن أن يكون مسار الملف فارغًا';
 	@override String fileNotExist({required Object p}) => 'الملف غير موجود: ${p}';
@@ -743,6 +744,7 @@ extension on TranslationsAr {
 			'meta.hideSystemApp' => 'إخفاء تطبيقات النظام',
 			'meta.hideAppIcon' => 'إخفاء أيقونة التطبيق',
 			'meta.openDir' => 'فتح دليل الملف',
+			'meta.type' => 'النوع',
 			'meta.fileChoose' => 'حدد الملف',
 			'meta.filePathCannotEmpty' => 'لا يمكن أن يكون مسار الملف فارغًا',
 			'meta.fileNotExist' => ({required Object p}) => 'الملف غير موجود: ${p}',

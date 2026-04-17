@@ -254,6 +254,7 @@
         "hideSystemApp": "시스템 앱 숨기기",
         "hideAppIcon": "앱 아이콘 숨기기",
         "openDir": "파일 디렉토리 열기",
+        "type": "유형",
         "fileChoose": "파일 선택",
         "filePathCannotEmpty": "파일 경로는 비워둘 수 없습니다",
         "fileNotExist": "파일이 존재하지 않습니다: $p",

@@ -38,7 +38,7 @@ class ProfilesBoardItem extends StatelessWidget {
     final settings = SettingManager.getConfig();
     final patch = ProfilePatchManager.getProfilePatch(setting.patch);
     String patchRemark = "";
-    if (setting.patch.isEmpty || patch == null || patch.id.isEmpty) {
+    if (setting.patch.isEmpty || patch.id.isEmpty) {
       final currentPatch = ProfilePatchManager.getCurrent();
       patchRemark =
           "${tcontext.profilePatchMode.currentSelected} [${currentPatch.getShowName(context)}]";

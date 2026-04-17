@@ -240,7 +240,7 @@ class _ProfilesSettingsEditScreenState
     ];
     final items = ProfilePatchManager.getProfilePatchs();
     for (var item in items) {
-      overwrite.add(Tuple2(item.id, item.id));
+      overwrite.add(Tuple2(item.id, item.remark));
     }
     List<GroupItem> groupOptions = [];
     List<GroupItemOptions> options = [

@@ -374,6 +374,7 @@ class _TranslationsMetaRu implements TranslationsMetaEn {
 	@override String get hideSystemApp => 'Скрыть системные приложения';
 	@override String get hideAppIcon => 'Скрыть значок приложения';
 	@override String get openDir => 'Открыть каталог файлов';
+	@override String get type => 'Тип';
 	@override String get fileChoose => 'Выбрать файл';
 	@override String get filePathCannotEmpty => 'Путь к файлу не может быть пустым';
 	@override String fileNotExist({required Object p}) => 'Файла не существует:${p}';
@@ -743,6 +744,7 @@ extension on TranslationsRu {
 			'meta.hideSystemApp' => 'Скрыть системные приложения',
 			'meta.hideAppIcon' => 'Скрыть значок приложения',
 			'meta.openDir' => 'Открыть каталог файлов',
+			'meta.type' => 'Тип',
 			'meta.fileChoose' => 'Выбрать файл',
 			'meta.filePathCannotEmpty' => 'Путь к файлу не может быть пустым',
 			'meta.fileNotExist' => ({required Object p}) => 'Файла не существует:${p}',

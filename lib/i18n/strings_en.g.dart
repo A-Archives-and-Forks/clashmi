@@ -857,6 +857,9 @@ class TranslationsMetaEn {
 	/// en: 'Open File Directory'
 	String get openDir => 'Open File Directory';
 
+	/// en: 'Type'
+	String get type => 'Type';
+
 	/// en: 'Select File'
 	String get fileChoose => 'Select File';
 
@@ -1341,6 +1344,7 @@ extension on Translations {
 			'meta.hideSystemApp' => 'Hide System Apps',
 			'meta.hideAppIcon' => 'Hide App Icons',
 			'meta.openDir' => 'Open File Directory',
+			'meta.type' => 'Type',
 			'meta.fileChoose' => 'Select File',
 			'meta.filePathCannotEmpty' => 'The file path can not be empty',
 			'meta.fileNotExist' => ({required Object p}) => 'File does not exist:${p}',

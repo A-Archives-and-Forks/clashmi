@@ -374,6 +374,7 @@ class _TranslationsMetaFa implements TranslationsMetaEn {
 	@override String get hideSystemApp => 'برنامه های سیستم را مخفی کنید';
 	@override String get hideAppIcon => 'پنهان کردن نماد برنامه';
 	@override String get openDir => 'بازکردن دایرکتوری فایل';
+	@override String get type => 'نوع';
 	@override String get fileChoose => 'انتخاب فایل';
 	@override String get filePathCannotEmpty => 'مسیر فایل نمی‌تواند خالی باشد';
 	@override String fileNotExist({required Object p}) => 'فایل وجود ندارد:${p}';
@@ -743,6 +744,7 @@ extension on TranslationsFa {
 			'meta.hideSystemApp' => 'برنامه های سیستم را مخفی کنید',
 			'meta.hideAppIcon' => 'پنهان کردن نماد برنامه',
 			'meta.openDir' => 'بازکردن دایرکتوری فایل',
+			'meta.type' => 'نوع',
 			'meta.fileChoose' => 'انتخاب فایل',
 			'meta.filePathCannotEmpty' => 'مسیر فایل نمی‌تواند خالی باشد',
 			'meta.fileNotExist' => ({required Object p}) => 'فایل وجود ندارد:${p}',

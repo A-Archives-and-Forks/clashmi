@@ -254,6 +254,7 @@
         "hideSystemApp": "إخفاء تطبيقات النظام",
         "hideAppIcon": "إخفاء أيقونة التطبيق",
         "openDir": "فتح دليل الملف",
+        "type": "النوع",
         "fileChoose": "حدد الملف",
         "filePathCannotEmpty": "لا يمكن أن يكون مسار الملف فارغًا",
         "fileNotExist": "الملف غير موجود: $p",

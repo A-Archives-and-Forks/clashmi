@@ -8,6 +8,8 @@ import 'package:clashmi/app/modules/setting_manager.dart';
 import 'package:clashmi/app/utils/http_utils.dart';
 import 'package:clashmi/i18n/strings.g.dart';
 import 'package:clashmi/screens/dialog_utils.dart';
+import 'package:clashmi/screens/group_item_creator.dart';
+import 'package:clashmi/screens/group_item_options.dart';
 import 'package:clashmi/screens/theme_config.dart';
 import 'package:clashmi/screens/widgets/framework.dart';
 import 'package:clashmi/screens/widgets/text_field.dart';
@@ -39,6 +41,7 @@ class _AddProfilePatchByUrlScreenState
     with AfterLayoutMixin {
   final _textControllerLink = TextEditingController();
   final _textControllerRemark = TextEditingController();
+  ProfilePatchFileType _type = ProfilePatchFileType.yaml;
   bool _loading = false;
 
   @override
@@ -67,7 +70,11 @@ class _AddProfilePatchByUrlScreenState
     _loading = true;
     setState(() {});
 
-    final result = await ProfilePatchManager.addRemote(url, remark: remark);
+    final result = await ProfilePatchManager.addRemote(
+      url,
+      remark: remark,
+      type: _type,
+    );
 
     if (!mounted) {
       return;
@@ -236,6 +243,25 @@ class _AddProfilePatchByUrlScreenState
                                 },
                               ),
                             ),
+                            const SizedBox(height: 10),
+                            FutureBuilder(
+                              future: getGroupOptions(),
+                              builder:
+                                  (
+                                    BuildContext context,
+                                    AsyncSnapshot<List<GroupItem>> snapshot,
+                                  ) {
+                                    List<GroupItem> data = snapshot.hasData
+                                        ? snapshot.data!
+                                        : [];
+                                    return Column(
+                                      children: GroupItemCreator.createGroups(
+                                        context,
+                                        data,
+                                      ),
+                                    );
+                                  },
+                            ),
                             const SizedBox(height: 200),
                           ],
                         ),
@@ -249,5 +275,30 @@ class _AddProfilePatchByUrlScreenState
         ),
       ),
     );
+  }
+
+  Future<List<GroupItem>> getGroupOptions() async {
+    final tcontext = Translations.of(context);
+    List<GroupItem> groupOptions = [];
+    List<GroupItemOptions> options = [
+      GroupItemOptions(
+        stringPickerOptions: GroupItemStringPickerOptions(
+          name: tcontext.meta.type,
+          selected: _type.name,
+          strings: ProfilePatchFileType.getTypes(),
+          onPicker: (String? selected) async {
+            _type = ProfilePatchFileType.values.firstWhere(
+              (e) => e.name == selected,
+              orElse: () => ProfilePatchFileType.yaml,
+            );
+            setState(() {});
+          },
+        ),
+      ),
+    ];
+
+    groupOptions.add(GroupItem(options: options));
+
+    return groupOptions;
   }
 }

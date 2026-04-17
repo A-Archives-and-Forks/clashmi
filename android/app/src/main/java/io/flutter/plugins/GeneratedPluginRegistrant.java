@@ -51,6 +51,11 @@ public final class GeneratedPluginRegistrant {
       Log.e(TAG, "Error registering plugin flutter_install_referrer, com.allwinsolutions.flutter_install_referrer.InstallReferrerPlugin", e);
     }
     try {
+      flutterEngine.getPlugins().add(new io.abner.flutter_js.FlutterJsPlugin());
+    } catch (Exception e) {
+      Log.e(TAG, "Error registering plugin flutter_js, io.abner.flutter_js.FlutterJsPlugin", e);
+    }
+    try {
       flutterEngine.getPlugins().add(new io.flutter.plugins.flutter_plugin_android_lifecycle.FlutterAndroidLifecyclePlugin());
     } catch (Exception e) {
       Log.e(TAG, "Error registering plugin flutter_plugin_android_lifecycle, io.flutter.plugins.flutter_plugin_android_lifecycle.FlutterAndroidLifecyclePlugin", e);

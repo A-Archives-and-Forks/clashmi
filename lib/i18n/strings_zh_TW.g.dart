@@ -374,6 +374,7 @@ class _TranslationsMetaZhTw implements TranslationsMetaEn {
 	@override String get hideSystemApp => '隱藏系統應用';
 	@override String get hideAppIcon => '隱藏應用圖標';
 	@override String get openDir => '打開文件目錄';
+	@override String get type => '類型';
 	@override String get fileChoose => '選擇文件';
 	@override String get filePathCannotEmpty => '文件路徑不能為空';
 	@override String fileNotExist({required Object p}) => '文件不存在:${p}';
@@ -743,6 +744,7 @@ extension on TranslationsZhTw {
 			'meta.hideSystemApp' => '隱藏系統應用',
 			'meta.hideAppIcon' => '隱藏應用圖標',
 			'meta.openDir' => '打開文件目錄',
+			'meta.type' => '類型',
 			'meta.fileChoose' => '選擇文件',
 			'meta.filePathCannotEmpty' => '文件路徑不能為空',
 			'meta.fileNotExist' => ({required Object p}) => '文件不存在:${p}',
