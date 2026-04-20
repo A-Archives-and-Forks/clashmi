@@ -632,7 +632,7 @@ class ProfileManager {
     final profile = ProfileSetting(
       id: id,
       remark: remark,
-      updateInterval: updateInterval ?? const Duration(days: 1),
+      updateInterval: updateInterval,
       updateIntervalByProfile: updateIntervalByProfile,
       updateIntervalPreferByProfile: updateIntervalPreferByProfile,
       update: DateTime.now(),
