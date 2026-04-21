@@ -233,7 +233,7 @@ class MyAppState extends State<MyApp>
   }
 
   @override
-  void dispose() async {
+  void dispose() {
     AppLifecycleStateNofity.uninit();
     WidgetsBinding.instance.removeObserver(this);
     if (PlatformUtils.isPC()) {
@@ -474,12 +474,12 @@ class MyAppState extends State<MyApp>
       if (!Platform.isLinux) {
         await trayManager.setToolTip(AppUtils.getName());
       } else {
-        _setTrayMenu(grey);
+        await _setTrayMenu(grey);
       }
     });
   }
 
-  void _setTrayMenu(bool grey) async {
+  Future<void> _setTrayMenu(bool grey) async {
     if (!PlatformUtils.isPC()) {
       return;
     }
@@ -532,7 +532,7 @@ class MyAppState extends State<MyApp>
 
   @override
   void onTrayIconRightMouseDown() async {
-    _setTrayMenu(_trayGrey);
+    await _setTrayMenu(_trayGrey);
   }
 
   @override

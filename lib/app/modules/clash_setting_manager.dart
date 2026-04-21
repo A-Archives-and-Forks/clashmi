@@ -561,6 +561,8 @@ class ClashSettingManager {
       setting = RawConfig.fromJson(config);
     } catch (err, stacktrace) {
       Log.w("ClashSettingManager.load exception ${err.toString()} ");
+      _setting = defaultConfig();
+      await save();
       return;
     }
     _setting = setting;
