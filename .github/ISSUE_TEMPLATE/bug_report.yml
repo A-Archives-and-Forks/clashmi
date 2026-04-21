@@ -9,16 +9,20 @@ body:
         ## 在提交问题之前，请确认以下事项：
         1. issue标题简洁明了,标题格式参考:[BUG][Windows] 点击连接后闪退
         2. 请确保[现有的问题]中没有人提交过相似issue,否则请在已有的issue下讨论
-        3. 请务必按照模板规范详细描述问题,否则issue将会被直接关闭
-        4. 反馈前,请先阅读[常见问题](https://clashmi.app/guide/faq)
+        3. 请务必按照模板规范详细描述问题
+        4. 反馈前,请先阅读[常见问题](https://clashmi.app/guide/faq),大部分问题这里能找到答案
+        5. 对于无法连接等的问题,请运行 '网络检测' 后,将结果复制粘贴到issue中
+        6. 请严格按照上述要求与流程,否则issue将被直接关闭
   - type: markdown
     attributes:
       value: |
         ## Before submitting an issue, please confirm the following:
         1. The issue title should be concise and clear. Refer to the format: [BUG][Windows] (Clicking the link causes the app to crash).
         2. Please ensure that no one has submitted a similar issue in the [Existing Issues] section. Otherwise, please discuss it in an existing issue.
-        3. Please describe the issue in detail according to the template specifications. Otherwise, the issue will be closed directly.
+        3. Please describe the issue in detail according to the template specifications
         4. Before providing feedback, please read the [Frequently Asked Questions].
+        5. For issues such as connection problems, please run 'Network Check' and copy the results into the issue.
+        6. Please strictly follow the above requirements and processes, otherwise the issue will be closed directly.
   - type: dropdown
     attributes:
       label: 操作系统/Operating System
