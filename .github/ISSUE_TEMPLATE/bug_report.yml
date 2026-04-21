@@ -64,4 +64,10 @@ body:
       description: |-
         About - Developer Options - View File - service_core.log
       render: shell
+  - type: textarea
+    attributes:
+      label: 网络检测结果/Network Check Results
+      description: |-
+          开启连接,在App中运行'网络检测'后,将结果复制粘贴到这里/After running 'Network Check' in the app, copy and paste the results here
+      render: shell
 
