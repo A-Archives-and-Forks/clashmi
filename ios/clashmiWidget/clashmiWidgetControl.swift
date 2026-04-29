@@ -73,19 +73,9 @@ struct StartVPNServiceIntent: SetValueIntent {
             let controlKind = await clashmiWidgetControl.controlKind
             if value {
                 VpnServiceHandler.shared.start(timeoutInSeconds: 30) { err in
-#if os(iOS)
-                    if #available(iOS 18.0, *) {
-                        ControlCenter.shared.reloadControls(ofKind: controlKind)
-                    }
-#endif
                 }
             } else {
                 VpnServiceHandler.shared.stop { err in
-#if os(iOS)
-                    if #available(iOS 18.0, *) {
-                        ControlCenter.shared.reloadControls(ofKind: controlKind)
-                    }
-#endif
                 }
             }
         }
