@@ -105,6 +105,11 @@ class _HomeScreenWidgetPart1 extends State<HomeScreenWidgetPart1> {
 
   @override
   void dispose() {
+    VPNService.onEventStateChanged.remove(_onStateChanged);
+    AppLifecycleStateNofity.onStateResumed(hashCode, null);
+    AppLifecycleStateNofity.onStatePaused(hashCode, null);
+    ProfileManager.onEventCurrentChanged.remove(_onCurrentChanged);
+    ProfileManager.onEventUpdate.remove(_onUpdate);
     _focusNodeConnect.dispose();
     super.dispose();
   }
