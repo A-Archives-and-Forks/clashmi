@@ -201,6 +201,7 @@
         "send": "يرسل",
         "receive": "تولي",
         "sendConfirm": "تأكيد الإرسال؟",
+        "continueConnectConfirm": "هل تريد متابعة الاتصال؟",
         "termOfUse": "شرط الخدمة",
         "privacyPolicy": "سياسة الخصوصية",
         "log": "سجل",

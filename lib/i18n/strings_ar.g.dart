@@ -321,6 +321,7 @@ class _TranslationsMetaAr implements TranslationsMetaEn {
 	@override String get send => 'يرسل';
 	@override String get receive => 'تولي';
 	@override String get sendConfirm => 'تأكيد الإرسال؟';
+	@override String get continueConnectConfirm => 'هل تريد متابعة الاتصال؟';
 	@override String get termOfUse => 'شرط الخدمة';
 	@override String get privacyPolicy => 'سياسة الخصوصية';
 	@override String get log => 'سجل';
@@ -691,6 +692,7 @@ extension on TranslationsAr {
 			'meta.send' => 'يرسل',
 			'meta.receive' => 'تولي',
 			'meta.sendConfirm' => 'تأكيد الإرسال؟',
+			'meta.continueConnectConfirm' => 'هل تريد متابعة الاتصال؟',
 			'meta.termOfUse' => 'شرط الخدمة',
 			'meta.privacyPolicy' => 'سياسة الخصوصية',
 			'meta.log' => 'سجل',

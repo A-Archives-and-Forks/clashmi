@@ -321,6 +321,7 @@ class _TranslationsMetaZhTw implements TranslationsMetaEn {
 	@override String get send => '發送';
 	@override String get receive => '接收';
 	@override String get sendConfirm => '確認發送?';
+	@override String get continueConnectConfirm => '是否繼續連接?';
 	@override String get termOfUse => '使用條款';
 	@override String get privacyPolicy => '隱私政策';
 	@override String get log => '日誌';
@@ -691,6 +692,7 @@ extension on TranslationsZhTw {
 			'meta.send' => '發送',
 			'meta.receive' => '接收',
 			'meta.sendConfirm' => '確認發送?',
+			'meta.continueConnectConfirm' => '是否繼續連接?',
 			'meta.termOfUse' => '使用條款',
 			'meta.privacyPolicy' => '隱私政策',
 			'meta.log' => '日誌',

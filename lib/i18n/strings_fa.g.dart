@@ -321,6 +321,7 @@ class _TranslationsMetaFa implements TranslationsMetaEn {
 	@override String get send => 'ارسال کنید';
 	@override String get receive => 'تصاحب';
 	@override String get sendConfirm => 'ارسال را تایید کرد؟';
+	@override String get continueConnectConfirm => 'آیا اتصال ادامه یابد؟';
 	@override String get termOfUse => 'شرایط استفاده';
 	@override String get privacyPolicy => 'سیاست حریم خصوصی';
 	@override String get log => 'ورود به سیستم';
@@ -691,6 +692,7 @@ extension on TranslationsFa {
 			'meta.send' => 'ارسال کنید',
 			'meta.receive' => 'تصاحب',
 			'meta.sendConfirm' => 'ارسال را تایید کرد؟',
+			'meta.continueConnectConfirm' => 'آیا اتصال ادامه یابد؟',
 			'meta.termOfUse' => 'شرایط استفاده',
 			'meta.privacyPolicy' => 'سیاست حریم خصوصی',
 			'meta.log' => 'ورود به سیستم',

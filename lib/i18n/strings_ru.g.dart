@@ -321,6 +321,7 @@ class _TranslationsMetaRu implements TranslationsMetaEn {
 	@override String get send => 'Передать';
 	@override String get receive => 'Принять';
 	@override String get sendConfirm => 'Подтверждаете передачу?';
+	@override String get continueConnectConfirm => 'Продолжить подключение?';
 	@override String get termOfUse => 'Условия использования';
 	@override String get privacyPolicy => 'Политика конфиденциальности';
 	@override String get log => 'Журнал';
@@ -691,6 +692,7 @@ extension on TranslationsRu {
 			'meta.send' => 'Передать',
 			'meta.receive' => 'Принять',
 			'meta.sendConfirm' => 'Подтверждаете передачу?',
+			'meta.continueConnectConfirm' => 'Продолжить подключение?',
 			'meta.termOfUse' => 'Условия использования',
 			'meta.privacyPolicy' => 'Политика конфиденциальности',
 			'meta.log' => 'Журнал',

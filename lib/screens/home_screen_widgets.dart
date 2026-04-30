@@ -633,13 +633,17 @@ class _HomeScreenWidgetPart1 extends State<HomeScreenWidgetPart1> {
           if (!mounted) {
             return false;
           }
-          DialogUtils.showAlertDialog(
+          bool? ok = await DialogUtils.showConfirmDialog(
             context,
-            result.message,
-            withVersion: true,
+            "${result.message}\n\n${t.meta.continueConnectConfirm}",
           );
+          if (!mounted) {
+            return false;
+          }
           setState(() {});
-          return false;
+          if (ok != true) {
+            return false;
+          }
         }
       }
     }

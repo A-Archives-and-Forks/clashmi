@@ -201,6 +201,7 @@
         "send": "Enviar",
         "receive": "Recibir",
         "sendConfirm": "¿Confirmar envío?",
+        "continueConnectConfirm": "¿Continuar conectando?",
         "termOfUse": "Términos de Servicio",
         "privacyPolicy": "Privacidad y Política",
         "log": "Registro",

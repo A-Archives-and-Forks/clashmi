@@ -201,6 +201,7 @@
         "send": "发送",
         "receive": "接收",
         "sendConfirm": "确认发送?",
+        "continueConnectConfirm": "是否继续连接?",
         "termOfUse": "使用条款",
         "privacyPolicy": "隐私政策",
         "log": "日志",

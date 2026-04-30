@@ -321,6 +321,7 @@ class _TranslationsMetaKo implements TranslationsMetaEn {
 	@override String get send => '보내기';
 	@override String get receive => '받기';
 	@override String get sendConfirm => '보내기를 확인하시겠습니까?';
+	@override String get continueConnectConfirm => '계속 연결하시겠습니까?';
 	@override String get termOfUse => '서비스 약관';
 	@override String get privacyPolicy => '개인정보 보호정책';
 	@override String get log => '로그';
@@ -691,6 +692,7 @@ extension on TranslationsKo {
 			'meta.send' => '보내기',
 			'meta.receive' => '받기',
 			'meta.sendConfirm' => '보내기를 확인하시겠습니까?',
+			'meta.continueConnectConfirm' => '계속 연결하시겠습니까?',
 			'meta.termOfUse' => '서비스 약관',
 			'meta.privacyPolicy' => '개인정보 보호정책',
 			'meta.log' => '로그',

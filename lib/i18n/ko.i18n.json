@@ -201,6 +201,7 @@
         "send": "보내기",
         "receive": "받기",
         "sendConfirm": "보내기를 확인하시겠습니까?",
+        "continueConnectConfirm": "계속 연결하시겠습니까?",
         "termOfUse": "서비스 약관",
         "privacyPolicy": "개인정보 보호정책",
         "log": "로그",

@@ -321,6 +321,7 @@ class _TranslationsMetaZhCn implements TranslationsMetaEn {
 	@override String get send => '发送';
 	@override String get receive => '接收';
 	@override String get sendConfirm => '确认发送?';
+	@override String get continueConnectConfirm => '是否继续连接?';
 	@override String get termOfUse => '使用条款';
 	@override String get privacyPolicy => '隐私政策';
 	@override String get log => '日志';
@@ -691,6 +692,7 @@ extension on TranslationsZhCn {
 			'meta.send' => '发送',
 			'meta.receive' => '接收',
 			'meta.sendConfirm' => '确认发送?',
+			'meta.continueConnectConfirm' => '是否继续连接?',
 			'meta.termOfUse' => '使用条款',
 			'meta.privacyPolicy' => '隐私政策',
 			'meta.log' => '日志',

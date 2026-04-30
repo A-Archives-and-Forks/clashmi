@@ -201,6 +201,7 @@
         "send": "發送",
         "receive": "接收",
         "sendConfirm": "確認發送?",
+        "continueConnectConfirm": "是否繼續連接?",
         "termOfUse": "使用條款",
         "privacyPolicy": "隱私政策",
         "log": "日誌",

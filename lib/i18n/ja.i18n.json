@@ -201,6 +201,7 @@
         "send": "送信",
         "receive": "受信",
         "sendConfirm": "送信を確認しますか？",
+        "continueConnectConfirm": "接続を続行しますか？",
         "termOfUse": "利用規約",
         "privacyPolicy": "プライバシーポリシー",
         "log": "ログ",

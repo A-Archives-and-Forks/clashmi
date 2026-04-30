@@ -321,6 +321,7 @@ class _TranslationsMetaJa implements TranslationsMetaEn {
 	@override String get send => '送信';
 	@override String get receive => '受信';
 	@override String get sendConfirm => '送信を確認しますか？';
+	@override String get continueConnectConfirm => '接続を続行しますか？';
 	@override String get termOfUse => '利用規約';
 	@override String get privacyPolicy => 'プライバシーポリシー';
 	@override String get log => 'ログ';
@@ -691,6 +692,7 @@ extension on TranslationsJa {
 			'meta.send' => '送信',
 			'meta.receive' => '受信',
 			'meta.sendConfirm' => '送信を確認しますか？',
+			'meta.continueConnectConfirm' => '接続を続行しますか？',
 			'meta.termOfUse' => '利用規約',
 			'meta.privacyPolicy' => 'プライバシーポリシー',
 			'meta.log' => 'ログ',

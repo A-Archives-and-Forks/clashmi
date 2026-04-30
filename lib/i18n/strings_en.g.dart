@@ -698,6 +698,9 @@ class TranslationsMetaEn {
 	/// en: 'Confirm to send?'
 	String get sendConfirm => 'Confirm to send?';
 
+	/// en: 'Continue to connect?'
+	String get continueConnectConfirm => 'Continue to connect?';
+
 	/// en: 'Terms of Service'
 	String get termOfUse => 'Terms of Service';
 
@@ -1291,6 +1294,7 @@ extension on Translations {
 			'meta.send' => 'Send',
 			'meta.receive' => 'Receive',
 			'meta.sendConfirm' => 'Confirm to send?',
+			'meta.continueConnectConfirm' => 'Continue to connect?',
 			'meta.termOfUse' => 'Terms of Service',
 			'meta.privacyPolicy' => 'Privacy & Policy',
 			'meta.log' => 'Log',

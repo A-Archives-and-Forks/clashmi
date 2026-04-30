@@ -201,6 +201,7 @@
         "send": "Send",
         "receive": "Receive",
         "sendConfirm": "Confirm to send?",
+        "continueConnectConfirm": "Continue to connect?",
         "termOfUse": "Terms of Service",
         "privacyPolicy": "Privacy & Policy",
         "log": "Log",

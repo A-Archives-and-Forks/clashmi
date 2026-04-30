@@ -321,6 +321,7 @@ class _TranslationsMetaEs implements TranslationsMetaEn {
 	@override String get send => 'Enviar';
 	@override String get receive => 'Recibir';
 	@override String get sendConfirm => '¿Confirmar envío?';
+	@override String get continueConnectConfirm => '¿Continuar conectando?';
 	@override String get termOfUse => 'Términos de Servicio';
 	@override String get privacyPolicy => 'Privacidad y Política';
 	@override String get log => 'Registro';
@@ -691,6 +692,7 @@ extension on TranslationsEs {
 			'meta.send' => 'Enviar',
 			'meta.receive' => 'Recibir',
 			'meta.sendConfirm' => '¿Confirmar envío?',
+			'meta.continueConnectConfirm' => '¿Continuar conectando?',
 			'meta.termOfUse' => 'Términos de Servicio',
 			'meta.privacyPolicy' => 'Privacidad y Política',
 			'meta.log' => 'Registro',
