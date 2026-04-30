@@ -46,8 +46,7 @@ struct clashmiWidgetControl: ControlWidget {
 extension clashmiWidgetControl {
     struct Provider: ControlValueProvider {
          var previewValue: Bool {
-            let runing = isRunning()
-            return runing
+            false
         }
 
         func currentValue() async throws -> Bool {
@@ -70,7 +69,6 @@ struct StartVPNServiceIntent: SetValueIntent {
 
     func perform() async throws -> some IntentResult {
         if await FileManager.default.fileExists(atPath: clashmiWidgetControl.configFile.path()) {
-            let controlKind = await clashmiWidgetControl.controlKind
             if value {
                 VpnServiceHandler.shared.start(timeoutInSeconds: 30) { err in
                 }
