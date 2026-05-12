@@ -345,45 +345,42 @@ class _HomeScreenWidgetPart1 extends State<HomeScreenWidgetPart1> {
         subtitle: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            currentProfile != null
-                ? Align(
-                    alignment: AlignmentDirectional.centerStart,
-                    child: Text(
-                      currentProfileName,
-                      style: TextStyle(color: ThemeDefine.kColorBlue),
-                    ),
-                  )
-                : SizedBox.shrink(),
-            tranffic.isNotEmpty
-                ? Align(
-                    alignment: AlignmentDirectional.centerStart,
-                    child: Text(
-                      tranffic,
-                      style: TextStyle(
-                        color: ThemeDefine.kColorBlue,
-                        fontSize: 10,
-                      ),
-                    ),
-                  )
-                : SizedBox.shrink(),
-            tranfficExpire != null
-                ? Align(
-                    alignment: AlignmentDirectional.centerStart,
-                    child: Text(
-                      tranfficExpire.item2,
-                      style: TextStyle(
-                        color: tranfficExpire.item1
-                            ? Colors.red
-                            : ThemeDefine.kColorBlue,
-                        fontSize: 10,
-                      ),
-                    ),
-                  )
-                : SizedBox.shrink(),
+            if (currentProfile != null) ...[
+              Align(
+                alignment: AlignmentDirectional.centerStart,
+                child: Text(
+                  currentProfileName,
+                  style: TextStyle(color: ThemeDefine.kColorBlue, fontSize: 12),
+                ),
+              ),
+            ],
+            if (tranffic.isNotEmpty) ...[
+              Align(
+                alignment: AlignmentDirectional.centerStart,
+                child: Text(
+                  tranffic,
+                  style: TextStyle(color: ThemeDefine.kColorBlue, fontSize: 12),
+                ),
+              ),
+            ],
+            if (tranfficExpire != null) ...[
+              Align(
+                alignment: AlignmentDirectional.centerStart,
+                child: Text(
+                  tranfficExpire.item2,
+                  style: TextStyle(
+                    color: tranfficExpire.item1
+                        ? Colors.red
+                        : ThemeDefine.kColorBlue,
+                    fontSize: 12,
+                  ),
+                ),
+              ),
+            ],
           ],
         ),
         trailing: SizedBox(
-          width: 105,
+          width: 100,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
@@ -420,7 +417,6 @@ class _HomeScreenWidgetPart1 extends State<HomeScreenWidgetPart1> {
                   child: Icon(Icons.add, size: 30),
                 ),
               ),
-              SizedBox(width: 5),
               Icon(Icons.keyboard_arrow_right, size: 20),
             ],
           ),
