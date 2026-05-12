@@ -43,6 +43,7 @@ class TranslationsKo with BaseTranslations<AppLocale, Translations> implements T
 	@override late final _TranslationsUserAgreementScreenKo UserAgreementScreen = _TranslationsUserAgreementScreenKo._(_root);
 	@override late final _TranslationsNetCheckScreenKo NetCheckScreen = _TranslationsNetCheckScreenKo._(_root);
 	@override late final _TranslationsVersionUpdateScreenKo VersionUpdateScreen = _TranslationsVersionUpdateScreenKo._(_root);
+	@override late final _TranslationsLoginScreenKo loginScreen = _TranslationsLoginScreenKo._(_root);
 	@override late final _TranslationsMainKo main = _TranslationsMainKo._(_root);
 	@override late final _TranslationsMetaKo meta = _TranslationsMetaKo._(_root);
 	@override late final _TranslationsPermissionKo permission = _TranslationsPermissionKo._(_root);
@@ -150,6 +151,31 @@ class _TranslationsVersionUpdateScreenKo implements TranslationsVersionUpdateScr
 	@override String versionReady({required Object p}) => '새 버전 [${p}]이 준비되었습니다';
 	@override String get update => '업데이트를 위해 재시작';
 	@override String get cancel => '나중에';
+}
+
+// Path: loginScreen
+class _TranslationsLoginScreenKo implements TranslationsLoginScreenEn {
+	_TranslationsLoginScreenKo._(this._root);
+
+	final TranslationsKo _root; // ignore: unused_field
+
+	// Translations
+	@override String get login => '로그인';
+	@override String get register => '계정 가입';
+	@override String get forgotPassword => '비밀번호 찾기';
+	@override String get provider => '서비스 제공자';
+	@override String get providerName => '${_root.loginScreen.provider} 이름';
+	@override String get providerNameRequired => '${_root.loginScreen.provider} 이름을 입력하세요';
+	@override String get account => '계정';
+	@override String get accountRequired => '계정을 입력하세요';
+	@override String get email => '이메일';
+	@override String get emailRequired => '이메일 주소를 입력하세요';
+	@override String get password => '비밀번호';
+	@override String get passwordRequired => '비밀번호를 입력하세요';
+	@override String get validEmailRequired => '유효한 이메일 주소를 입력하세요';
+	@override String passwordMinLength({required Object minLength}) => '비밀번호 길이는 최소 ${minLength}자 이상이어야 합니다';
+	@override String get unsupportedProvider => '지원되지 않는 ${_root.loginScreen.provider}';
+	@override String get unsupportedProviderType => '지원되지 않는 ${_root.loginScreen.provider} 유형';
 }
 
 // Path: main
@@ -538,6 +564,22 @@ extension on TranslationsKo {
 			'VersionUpdateScreen.versionReady' => ({required Object p}) => '새 버전 [${p}]이 준비되었습니다',
 			'VersionUpdateScreen.update' => '업데이트를 위해 재시작',
 			'VersionUpdateScreen.cancel' => '나중에',
+			'loginScreen.login' => '로그인',
+			'loginScreen.register' => '계정 가입',
+			'loginScreen.forgotPassword' => '비밀번호 찾기',
+			'loginScreen.provider' => '서비스 제공자',
+			'loginScreen.providerName' => '${_root.loginScreen.provider} 이름',
+			'loginScreen.providerNameRequired' => '${_root.loginScreen.provider} 이름을 입력하세요',
+			'loginScreen.account' => '계정',
+			'loginScreen.accountRequired' => '계정을 입력하세요',
+			'loginScreen.email' => '이메일',
+			'loginScreen.emailRequired' => '이메일 주소를 입력하세요',
+			'loginScreen.password' => '비밀번호',
+			'loginScreen.passwordRequired' => '비밀번호를 입력하세요',
+			'loginScreen.validEmailRequired' => '유효한 이메일 주소를 입력하세요',
+			'loginScreen.passwordMinLength' => ({required Object minLength}) => '비밀번호 길이는 최소 ${minLength}자 이상이어야 합니다',
+			'loginScreen.unsupportedProvider' => '지원되지 않는 ${_root.loginScreen.provider}',
+			'loginScreen.unsupportedProviderType' => '지원되지 않는 ${_root.loginScreen.provider} 유형',
 			'main.tray.menuOpen' => '열기',
 			'main.tray.menuExit' => '종료',
 			'meta.enable' => '활성화',

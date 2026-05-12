@@ -43,6 +43,7 @@ class TranslationsEs with BaseTranslations<AppLocale, Translations> implements T
 	@override late final _TranslationsUserAgreementScreenEs UserAgreementScreen = _TranslationsUserAgreementScreenEs._(_root);
 	@override late final _TranslationsVersionUpdateScreenEs VersionUpdateScreen = _TranslationsVersionUpdateScreenEs._(_root);
 	@override late final _TranslationsNetCheckScreenEs NetCheckScreen = _TranslationsNetCheckScreenEs._(_root);
+	@override late final _TranslationsLoginScreenEs loginScreen = _TranslationsLoginScreenEs._(_root);
 	@override late final _TranslationsMainEs main = _TranslationsMainEs._(_root);
 	@override late final _TranslationsMetaEs meta = _TranslationsMetaEs._(_root);
 	@override late final _TranslationsPermissionEs permission = _TranslationsPermissionEs._(_root);
@@ -150,6 +151,31 @@ class _TranslationsNetCheckScreenEs implements TranslationsNetCheckScreenEn {
 	@override String proxyHttpSection({required Object p}) => '3. HTTP (vía Proxy, puerto: ${p})';
 	@override String get tunNotEnabled => 'TUN no está habilitado';
 	@override String get routeTableSection => '4. Tabla de Rutas';
+}
+
+// Path: loginScreen
+class _TranslationsLoginScreenEs implements TranslationsLoginScreenEn {
+	_TranslationsLoginScreenEs._(this._root);
+
+	final TranslationsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get login => 'Iniciar sesión';
+	@override String get register => 'Registrar cuenta';
+	@override String get forgotPassword => 'Olvidé mi contraseña';
+	@override String get provider => 'Proveedor';
+	@override String get providerName => 'Nombre del ${_root.loginScreen.provider}';
+	@override String get providerNameRequired => 'Por favor, introduzca el nombre del ${_root.loginScreen.provider}';
+	@override String get account => 'Cuenta';
+	@override String get accountRequired => 'Por favor, introduzca la cuenta';
+	@override String get email => 'Correo electrónico';
+	@override String get emailRequired => 'Por favor, introduzca la dirección de correo electrónico';
+	@override String get password => 'Contraseña';
+	@override String get passwordRequired => 'Por favor, introduzca la contraseña';
+	@override String get validEmailRequired => 'Por favor, introduzca una dirección de correo electrónico válida';
+	@override String passwordMinLength({required Object minLength}) => 'La contraseña debe tener al menos ${minLength} caracteres';
+	@override String get unsupportedProvider => '${_root.loginScreen.provider} no compatible';
+	@override String get unsupportedProviderType => 'Tipo de ${_root.loginScreen.provider} no compatible';
 }
 
 // Path: main
@@ -538,6 +564,22 @@ extension on TranslationsEs {
 			'NetCheckScreen.proxyHttpSection' => ({required Object p}) => '3. HTTP (vía Proxy, puerto: ${p})',
 			'NetCheckScreen.tunNotEnabled' => 'TUN no está habilitado',
 			'NetCheckScreen.routeTableSection' => '4. Tabla de Rutas',
+			'loginScreen.login' => 'Iniciar sesión',
+			'loginScreen.register' => 'Registrar cuenta',
+			'loginScreen.forgotPassword' => 'Olvidé mi contraseña',
+			'loginScreen.provider' => 'Proveedor',
+			'loginScreen.providerName' => 'Nombre del ${_root.loginScreen.provider}',
+			'loginScreen.providerNameRequired' => 'Por favor, introduzca el nombre del ${_root.loginScreen.provider}',
+			'loginScreen.account' => 'Cuenta',
+			'loginScreen.accountRequired' => 'Por favor, introduzca la cuenta',
+			'loginScreen.email' => 'Correo electrónico',
+			'loginScreen.emailRequired' => 'Por favor, introduzca la dirección de correo electrónico',
+			'loginScreen.password' => 'Contraseña',
+			'loginScreen.passwordRequired' => 'Por favor, introduzca la contraseña',
+			'loginScreen.validEmailRequired' => 'Por favor, introduzca una dirección de correo electrónico válida',
+			'loginScreen.passwordMinLength' => ({required Object minLength}) => 'La contraseña debe tener al menos ${minLength} caracteres',
+			'loginScreen.unsupportedProvider' => '${_root.loginScreen.provider} no compatible',
+			'loginScreen.unsupportedProviderType' => 'Tipo de ${_root.loginScreen.provider} no compatible',
 			'main.tray.menuOpen' => 'Abrir',
 			'main.tray.menuExit' => 'Salir',
 			'meta.enable' => 'Habilitar',

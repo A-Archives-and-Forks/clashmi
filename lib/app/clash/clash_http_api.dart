@@ -358,7 +358,7 @@ class ClashHttpApi {
       return ReturnResult(error: result.error);
     }
     try {
-      var decodedResponse = jsonDecode(result.data!);
+      var decodedResponse = jsonDecode(result.data!.item2);
       ClashConfigs configs = ClashConfigs();
       configs.fromJson(decodedResponse);
       return ReturnResult(data: configs);
@@ -389,7 +389,7 @@ class ClashHttpApi {
       return ReturnResult(error: result.error);
     }
     try {
-      var decodedResponse = jsonDecode(result.data!);
+      var decodedResponse = jsonDecode(result.data!.item2);
       int? delay = decodedResponse["delay"];
       String? err = decodedResponse["message"];
       if (err != null) {
@@ -417,7 +417,7 @@ class ClashHttpApi {
       return ReturnResult(error: result.error);
     }
     try {
-      var decodedResponse = jsonDecode(result.data!);
+      var decodedResponse = jsonDecode(result.data!.item2);
       ClashProxies proxies = ClashProxies();
       proxies.fromJson(decodedResponse);
       return ReturnResult(data: proxies.proxies);
@@ -530,7 +530,7 @@ class ClashHttpApi {
       return ReturnResult(error: result.error);
     }
     try {
-      var decodedResponse = jsonDecode(result.data!);
+      var decodedResponse = jsonDecode(result.data!.item2);
       final answer = decodedResponse["Answer"];
       List<String> ips = [];
       if (answer is List) {

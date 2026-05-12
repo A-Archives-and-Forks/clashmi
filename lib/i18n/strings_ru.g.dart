@@ -43,6 +43,7 @@ class TranslationsRu with BaseTranslations<AppLocale, Translations> implements T
 	@override late final _TranslationsUserAgreementScreenRu UserAgreementScreen = _TranslationsUserAgreementScreenRu._(_root);
 	@override late final _TranslationsNetCheckScreenRu NetCheckScreen = _TranslationsNetCheckScreenRu._(_root);
 	@override late final _TranslationsVersionUpdateScreenRu VersionUpdateScreen = _TranslationsVersionUpdateScreenRu._(_root);
+	@override late final _TranslationsLoginScreenRu loginScreen = _TranslationsLoginScreenRu._(_root);
 	@override late final _TranslationsMainRu main = _TranslationsMainRu._(_root);
 	@override late final _TranslationsMetaRu meta = _TranslationsMetaRu._(_root);
 	@override late final _TranslationsPermissionRu permission = _TranslationsPermissionRu._(_root);
@@ -150,6 +151,31 @@ class _TranslationsVersionUpdateScreenRu implements TranslationsVersionUpdateScr
 	@override String versionReady({required Object p}) => 'Новая версия [${p}] доступна';
 	@override String get update => 'Перезапустить';
 	@override String get cancel => 'Не сейчас';
+}
+
+// Path: loginScreen
+class _TranslationsLoginScreenRu implements TranslationsLoginScreenEn {
+	_TranslationsLoginScreenRu._(this._root);
+
+	final TranslationsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get login => 'Вход';
+	@override String get register => 'Зарегистрировать аккаунт';
+	@override String get forgotPassword => 'Забыли пароль';
+	@override String get provider => 'Провайдер';
+	@override String get providerName => 'Название ${_root.loginScreen.provider}';
+	@override String get providerNameRequired => 'Пожалуйста, введите название ${_root.loginScreen.provider}';
+	@override String get account => 'Аккаунт';
+	@override String get accountRequired => 'Пожалуйста, введите аккаунт';
+	@override String get email => 'Электронная почта';
+	@override String get emailRequired => 'Пожалуйста, введите адрес электронной почты';
+	@override String get password => 'Пароль';
+	@override String get passwordRequired => 'Пожалуйста, введите пароль';
+	@override String get validEmailRequired => 'Пожалуйста, введите действительный адрес электронной почты';
+	@override String passwordMinLength({required Object minLength}) => 'Длина пароля должна быть не менее ${minLength} символов';
+	@override String get unsupportedProvider => 'Неподдерживаемый ${_root.loginScreen.provider}';
+	@override String get unsupportedProviderType => 'Неподдерживаемый тип ${_root.loginScreen.provider}';
 }
 
 // Path: main
@@ -538,6 +564,22 @@ extension on TranslationsRu {
 			'VersionUpdateScreen.versionReady' => ({required Object p}) => 'Новая версия [${p}] доступна',
 			'VersionUpdateScreen.update' => 'Перезапустить',
 			'VersionUpdateScreen.cancel' => 'Не сейчас',
+			'loginScreen.login' => 'Вход',
+			'loginScreen.register' => 'Зарегистрировать аккаунт',
+			'loginScreen.forgotPassword' => 'Забыли пароль',
+			'loginScreen.provider' => 'Провайдер',
+			'loginScreen.providerName' => 'Название ${_root.loginScreen.provider}',
+			'loginScreen.providerNameRequired' => 'Пожалуйста, введите название ${_root.loginScreen.provider}',
+			'loginScreen.account' => 'Аккаунт',
+			'loginScreen.accountRequired' => 'Пожалуйста, введите аккаунт',
+			'loginScreen.email' => 'Электронная почта',
+			'loginScreen.emailRequired' => 'Пожалуйста, введите адрес электронной почты',
+			'loginScreen.password' => 'Пароль',
+			'loginScreen.passwordRequired' => 'Пожалуйста, введите пароль',
+			'loginScreen.validEmailRequired' => 'Пожалуйста, введите действительный адрес электронной почты',
+			'loginScreen.passwordMinLength' => ({required Object minLength}) => 'Длина пароля должна быть не менее ${minLength} символов',
+			'loginScreen.unsupportedProvider' => 'Неподдерживаемый ${_root.loginScreen.provider}',
+			'loginScreen.unsupportedProviderType' => 'Неподдерживаемый тип ${_root.loginScreen.provider}',
 			'main.tray.menuOpen' => 'Открыть',
 			'main.tray.menuExit' => 'Выйти',
 			'meta.enable' => 'Включить',

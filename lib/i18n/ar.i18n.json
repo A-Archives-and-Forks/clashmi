@@ -42,6 +42,24 @@
         "update": "أعد التشغيل للتحديث",
         "cancel": "ليس الآن"
     },
+    "loginScreen": {
+        "login": "دخول",
+        "register": "إنشاء حساب",
+        "forgotPassword": "هل نسيت كلمة المرور",
+        "provider": "مزود الخدمة",
+        "providerName": "اسم @:{loginScreen.provider}",
+        "providerNameRequired": "يرجى إدخال اسم @:{loginScreen.provider}",
+        "account": "حساب",
+        "accountRequired": "يرجى إدخال الحساب",
+        "email": "البريد الإلكتروني",
+        "emailRequired": "يرجى إدخال عنوان بريدك الإلكتروني",
+        "password": "كلمة المرور",
+        "passwordRequired": "يرجى إدخال كلمة المرور",
+        "validEmailRequired": "يرجى إدخال عنوان بريد إلكتروني صحيح",
+        "passwordMinLength": "يجب أن تكون كلمة المرور $minLength أحرف على الأقل",
+        "unsupportedProvider": "@:{loginScreen.provider} غير مدعوم",
+        "unsupportedProviderType": "نوع @:{loginScreen.provider} غير مدعوم"
+    },
     "main": {
         "tray": {
             "menuOpen": "يفتح",

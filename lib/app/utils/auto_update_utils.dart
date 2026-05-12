@@ -11,6 +11,7 @@ import 'package:clashmi/app/utils/app_url_utils.dart';
 import 'package:clashmi/app/utils/http_utils.dart';
 import 'package:clashmi/app/utils/log.dart';
 import 'package:clashmi/app/utils/url_launcher_utils.dart';
+import 'package:tuple/tuple.dart';
 
 class AutoupdateItem {
   String platform = "";
@@ -58,7 +59,7 @@ abstract final class AutoupdateUtils {
       url = UrlLauncherUtils.reorganizationUrl(url, queryParams) ?? url;
     }
 
-    late ReturnResult<String> response;
+    late ReturnResult<Tuple2<int, String>> response;
     List<int?> ports = await VPNService.getPortsByPrefer(false);
     for (var port in ports) {
       response = await HttpUtils.httpGetRequest(
@@ -78,8 +79,8 @@ abstract final class AutoupdateUtils {
       return ReturnResult(error: response.error);
     }
     try {
-      if (response.data!.isNotEmpty) {
-        var decodedResponse = jsonDecode(response.data!);
+      if (response.data!.item2.isNotEmpty) {
+        var decodedResponse = jsonDecode(response.data!.item2);
         if (decodedResponse is List) {
           for (var i in decodedResponse) {
             AutoupdateItem item = AutoupdateItem();
@@ -99,7 +100,7 @@ abstract final class AutoupdateUtils {
   static Future<ReturnResult<RemoteConfig>> getRemoteConfig() async {
     RemoteConfig rc = RemoteConfig();
     String url = RemoteConfigManager.getConfig().config;
-    late ReturnResult<String> response;
+    late ReturnResult<Tuple2<int, String>> response;
     List<int?> ports = await VPNService.getPortsByPrefer(false);
     for (var port in ports) {
       response = await HttpUtils.httpGetRequest(
@@ -119,8 +120,8 @@ abstract final class AutoupdateUtils {
       return ReturnResult(error: response.error);
     }
     try {
-      if (response.data!.isNotEmpty) {
-        var decodedResponse = jsonDecode(response.data!);
+      if (response.data!.item2.isNotEmpty) {
+        var decodedResponse = jsonDecode(response.data!.item2);
         rc.fromJson(decodedResponse);
       }
     } catch (err, _) {

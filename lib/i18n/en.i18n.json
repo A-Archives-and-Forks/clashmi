@@ -42,6 +42,24 @@
         "tunNotEnabled": "TUN is not enabled",
         "routeTableSection": "4. Route Table"
     },
+    "loginScreen": {
+        "login": "Login",
+        "register": "Register Account",
+        "forgotPassword": "Forgot Password",
+        "provider": "Provider",
+        "providerName": "@:{loginScreen.provider} Name",
+        "providerNameRequired": "Please enter the @:{loginScreen.provider} name",
+        "account": "Account",
+        "accountRequired": "Please enter account",
+        "email": "Email",
+        "emailRequired": "Please enter email address",
+        "password": "Password",
+        "passwordRequired": "Please enter password",
+        "validEmailRequired": "Please enter valid email address",
+        "passwordMinLength": "Password length at least $minLength characters",
+        "unsupportedProvider": "Unsupported @:{loginScreen.provider}",
+        "unsupportedProviderType": "Unsupported @:{loginScreen.provider} type"
+    },
     "main": {
         "tray": {
             "menuOpen": "Open",

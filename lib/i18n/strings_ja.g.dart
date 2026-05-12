@@ -43,6 +43,7 @@ class TranslationsJa with BaseTranslations<AppLocale, Translations> implements T
 	@override late final _TranslationsUserAgreementScreenJa UserAgreementScreen = _TranslationsUserAgreementScreenJa._(_root);
 	@override late final _TranslationsNetCheckScreenJa NetCheckScreen = _TranslationsNetCheckScreenJa._(_root);
 	@override late final _TranslationsVersionUpdateScreenJa VersionUpdateScreen = _TranslationsVersionUpdateScreenJa._(_root);
+	@override late final _TranslationsLoginScreenJa loginScreen = _TranslationsLoginScreenJa._(_root);
 	@override late final _TranslationsMainJa main = _TranslationsMainJa._(_root);
 	@override late final _TranslationsMetaJa meta = _TranslationsMetaJa._(_root);
 	@override late final _TranslationsPermissionJa permission = _TranslationsPermissionJa._(_root);
@@ -150,6 +151,31 @@ class _TranslationsVersionUpdateScreenJa implements TranslationsVersionUpdateScr
 	@override String versionReady({required Object p}) => '新しいバージョン [${p}] の準備ができました';
 	@override String get update => '再起動して更新';
 	@override String get cancel => '今はしない';
+}
+
+// Path: loginScreen
+class _TranslationsLoginScreenJa implements TranslationsLoginScreenEn {
+	_TranslationsLoginScreenJa._(this._root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get login => 'ログイン';
+	@override String get register => 'アカウント登録';
+	@override String get forgotPassword => 'パスワードを忘れた';
+	@override String get provider => 'プロバイダー';
+	@override String get providerName => '${_root.loginScreen.provider}名';
+	@override String get providerNameRequired => '${_root.loginScreen.provider}名を入力してください';
+	@override String get account => 'アカウント';
+	@override String get accountRequired => 'アカウントを入力してください';
+	@override String get email => 'メール';
+	@override String get emailRequired => 'メールアドレスを入力してください';
+	@override String get password => 'パスワード';
+	@override String get passwordRequired => 'パスワードを入力してください';
+	@override String get validEmailRequired => '有効なメールアドレスを入力してください';
+	@override String passwordMinLength({required Object minLength}) => 'パスワード長は最低${minLength}文字以上である必要があります';
+	@override String get unsupportedProvider => 'サポートされていない${_root.loginScreen.provider}';
+	@override String get unsupportedProviderType => 'サポートされていない${_root.loginScreen.provider}タイプ';
 }
 
 // Path: main
@@ -538,6 +564,22 @@ extension on TranslationsJa {
 			'VersionUpdateScreen.versionReady' => ({required Object p}) => '新しいバージョン [${p}] の準備ができました',
 			'VersionUpdateScreen.update' => '再起動して更新',
 			'VersionUpdateScreen.cancel' => '今はしない',
+			'loginScreen.login' => 'ログイン',
+			'loginScreen.register' => 'アカウント登録',
+			'loginScreen.forgotPassword' => 'パスワードを忘れた',
+			'loginScreen.provider' => 'プロバイダー',
+			'loginScreen.providerName' => '${_root.loginScreen.provider}名',
+			'loginScreen.providerNameRequired' => '${_root.loginScreen.provider}名を入力してください',
+			'loginScreen.account' => 'アカウント',
+			'loginScreen.accountRequired' => 'アカウントを入力してください',
+			'loginScreen.email' => 'メール',
+			'loginScreen.emailRequired' => 'メールアドレスを入力してください',
+			'loginScreen.password' => 'パスワード',
+			'loginScreen.passwordRequired' => 'パスワードを入力してください',
+			'loginScreen.validEmailRequired' => '有効なメールアドレスを入力してください',
+			'loginScreen.passwordMinLength' => ({required Object minLength}) => 'パスワード長は最低${minLength}文字以上である必要があります',
+			'loginScreen.unsupportedProvider' => 'サポートされていない${_root.loginScreen.provider}',
+			'loginScreen.unsupportedProviderType' => 'サポートされていない${_root.loginScreen.provider}タイプ',
 			'main.tray.menuOpen' => '開く',
 			'main.tray.menuExit' => '終了',
 			'meta.enable' => '有効',

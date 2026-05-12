@@ -42,6 +42,24 @@
         "tunNotEnabled": "TUN no está habilitado",
         "routeTableSection": "4. Tabla de Rutas"
     },
+    "loginScreen": {
+        "login": "Iniciar sesión",
+        "register": "Registrar cuenta",
+        "forgotPassword": "Olvidé mi contraseña",
+        "provider": "Proveedor",
+        "providerName": "Nombre del @:{loginScreen.provider}",
+        "providerNameRequired": "Por favor, introduzca el nombre del @:{loginScreen.provider}",
+        "account": "Cuenta",
+        "accountRequired": "Por favor, introduzca la cuenta",
+        "email": "Correo electrónico",
+        "emailRequired": "Por favor, introduzca la dirección de correo electrónico",
+        "password": "Contraseña",
+        "passwordRequired": "Por favor, introduzca la contraseña",
+        "validEmailRequired": "Por favor, introduzca una dirección de correo electrónico válida",
+        "passwordMinLength": "La contraseña debe tener al menos $minLength caracteres",
+        "unsupportedProvider": "@:{loginScreen.provider} no compatible",
+        "unsupportedProviderType": "Tipo de @:{loginScreen.provider} no compatible"
+    },
     "main": {
         "tray": {
             "menuOpen": "Abrir",

@@ -42,6 +42,24 @@
         "update": "업데이트를 위해 재시작",
         "cancel": "나중에"
     },
+    "loginScreen": {
+        "login": "로그인",
+        "register": "계정 가입",
+        "forgotPassword": "비밀번호 찾기",
+        "provider": "서비스 제공자",
+        "providerName": "@:{loginScreen.provider} 이름",
+        "providerNameRequired": "@:{loginScreen.provider} 이름을 입력하세요",
+        "account": "계정",
+        "accountRequired": "계정을 입력하세요",
+        "email": "이메일",
+        "emailRequired": "이메일 주소를 입력하세요",
+        "password": "비밀번호",
+        "passwordRequired": "비밀번호를 입력하세요",
+        "validEmailRequired": "유효한 이메일 주소를 입력하세요",
+        "passwordMinLength": "비밀번호 길이는 최소 $minLength자 이상이어야 합니다",
+        "unsupportedProvider": "지원되지 않는 @:{loginScreen.provider}",
+        "unsupportedProviderType": "지원되지 않는 @:{loginScreen.provider} 유형"
+    },
     "main": {
         "tray": {
             "menuOpen": "열기",

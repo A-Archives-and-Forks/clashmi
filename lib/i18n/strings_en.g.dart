@@ -46,6 +46,7 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	late final TranslationsUserAgreementScreenEn UserAgreementScreen = TranslationsUserAgreementScreenEn._(_root);
 	late final TranslationsVersionUpdateScreenEn VersionUpdateScreen = TranslationsVersionUpdateScreenEn._(_root);
 	late final TranslationsNetCheckScreenEn NetCheckScreen = TranslationsNetCheckScreenEn._(_root);
+	late final TranslationsLoginScreenEn loginScreen = TranslationsLoginScreenEn._(_root);
 	late final TranslationsMainEn main = TranslationsMainEn._(_root);
 	late final TranslationsMetaEn meta = TranslationsMetaEn._(_root);
 	late final TranslationsPermissionEn permission = TranslationsPermissionEn._(_root);
@@ -222,6 +223,63 @@ class TranslationsNetCheckScreenEn {
 
 	/// en: '4. Route Table'
 	String get routeTableSection => '4. Route Table';
+}
+
+// Path: loginScreen
+class TranslationsLoginScreenEn {
+	TranslationsLoginScreenEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'Login'
+	String get login => 'Login';
+
+	/// en: 'Register Account'
+	String get register => 'Register Account';
+
+	/// en: 'Forgot Password'
+	String get forgotPassword => 'Forgot Password';
+
+	/// en: 'Provider'
+	String get provider => 'Provider';
+
+	/// en: 'Provider Name'
+	String get providerName => '${_root.loginScreen.provider} Name';
+
+	/// en: 'Please enter the Provider name'
+	String get providerNameRequired => 'Please enter the ${_root.loginScreen.provider} name';
+
+	/// en: 'Account'
+	String get account => 'Account';
+
+	/// en: 'Please enter account'
+	String get accountRequired => 'Please enter account';
+
+	/// en: 'Email'
+	String get email => 'Email';
+
+	/// en: 'Please enter email address'
+	String get emailRequired => 'Please enter email address';
+
+	/// en: 'Password'
+	String get password => 'Password';
+
+	/// en: 'Please enter password'
+	String get passwordRequired => 'Please enter password';
+
+	/// en: 'Please enter valid email address'
+	String get validEmailRequired => 'Please enter valid email address';
+
+	/// en: 'Password length at least $minLength characters'
+	String passwordMinLength({required Object minLength}) => 'Password length at least ${minLength} characters';
+
+	/// en: 'Unsupported Provider'
+	String get unsupportedProvider => 'Unsupported ${_root.loginScreen.provider}';
+
+	/// en: 'Unsupported Provider type'
+	String get unsupportedProviderType => 'Unsupported ${_root.loginScreen.provider} type';
 }
 
 // Path: main
@@ -1140,6 +1198,22 @@ extension on Translations {
 			'NetCheckScreen.proxyHttpSection' => ({required Object p}) => '3. HTTP (via Proxy, port: ${p})',
 			'NetCheckScreen.tunNotEnabled' => 'TUN is not enabled',
 			'NetCheckScreen.routeTableSection' => '4. Route Table',
+			'loginScreen.login' => 'Login',
+			'loginScreen.register' => 'Register Account',
+			'loginScreen.forgotPassword' => 'Forgot Password',
+			'loginScreen.provider' => 'Provider',
+			'loginScreen.providerName' => '${_root.loginScreen.provider} Name',
+			'loginScreen.providerNameRequired' => 'Please enter the ${_root.loginScreen.provider} name',
+			'loginScreen.account' => 'Account',
+			'loginScreen.accountRequired' => 'Please enter account',
+			'loginScreen.email' => 'Email',
+			'loginScreen.emailRequired' => 'Please enter email address',
+			'loginScreen.password' => 'Password',
+			'loginScreen.passwordRequired' => 'Please enter password',
+			'loginScreen.validEmailRequired' => 'Please enter valid email address',
+			'loginScreen.passwordMinLength' => ({required Object minLength}) => 'Password length at least ${minLength} characters',
+			'loginScreen.unsupportedProvider' => 'Unsupported ${_root.loginScreen.provider}',
+			'loginScreen.unsupportedProviderType' => 'Unsupported ${_root.loginScreen.provider} type',
 			'main.tray.menuOpen' => 'Open',
 			'main.tray.menuExit' => 'Exit',
 			'meta.enable' => 'Enable',

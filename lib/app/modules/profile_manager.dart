@@ -389,7 +389,6 @@ class ProfileManager {
   }
 
   static Future<void> load() async {
-    String dir = await PathUtils.profilesDir();
     String filePath = await PathUtils.profilesConfigFilePath();
     var file = File(filePath);
     bool exists = await file.exists();
@@ -408,6 +407,7 @@ class ProfileManager {
     }
 
     Map<String, String?> existProfiles = {};
+    String dir = await PathUtils.profilesDir();
     var files = FileUtils.recursionFile(
       dir,
       extensionFilter: {".yaml", ".yml"},
@@ -718,7 +718,6 @@ class ProfileManager {
       null,
       timeout: const Duration(seconds: 30),
     );
-
     profile.update = DateTime.now();
     if (result.error == null) {
       final profileUpdateInterval = result.data!.value(
@@ -818,7 +817,6 @@ class ProfileManager {
       if (updateInterval == null) {
         continue;
       }
-
       if (profile.update == null ||
           now.difference(profile.update!).inSeconds >=
               updateInterval.inSeconds) {

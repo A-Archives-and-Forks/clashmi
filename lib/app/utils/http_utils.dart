@@ -196,7 +196,7 @@ abstract final class HttpUtils {
     return null;
   }
 
-  static Future<ReturnResult<String>> httpGetRequest(
+  static Future<ReturnResult<Tuple2<int, String>>> httpGetRequest(
     String url,
     int? proxyPort,
     Map<String, String>? headers,
@@ -204,6 +204,7 @@ abstract final class HttpUtils {
     String? userAgent,
     List<Cookie>? cookies, {
     bool? noResponseBody,
+    bool checkStatuscode = true,
   }) async {
     timeout ??= const Duration(seconds: 30);
     var client = HttpClient();
@@ -239,16 +240,18 @@ abstract final class HttpUtils {
           ),
         );
       }
-      if (response.statusCode != 200) {
-        return ReturnResult(
-          error: ReturnResultError("http statusCode: ${response.statusCode}"),
-        );
+      if (checkStatuscode == true) {
+        if (response.statusCode != 200) {
+          return ReturnResult(
+            error: ReturnResultError("http statusCode: ${response.statusCode}"),
+          );
+        }
       }
       if (noResponseBody == true) {
-        return ReturnResult(data: "");
+        return ReturnResult(data: Tuple2(response.statusCode, ""));
       }
       var stringData = await response.transform(utf8.decoder).join();
-      return ReturnResult(data: stringData);
+      return ReturnResult(data: Tuple2(response.statusCode, stringData));
     } catch (err, _) {
       Log.i('http GetRequest $url exception: ${err.toString()}');
       return ReturnResult(
@@ -259,7 +262,7 @@ abstract final class HttpUtils {
     }
   }
 
-  static Future<ReturnResult<String>> httpPostRequest(
+  static Future<ReturnResult<Tuple2<int, String>>> httpPostRequest(
     String url,
     int? proxyPort,
     Map<String, String>? headers,
@@ -267,8 +270,9 @@ abstract final class HttpUtils {
     Duration? timeout,
     String? userAgent,
     List<Cookie>? cookies,
-    List<Cookie>? responseCookies,
-  ) async {
+    List<Cookie>? responseCookies, {
+    bool checkStatuscode = true,
+  }) async {
     timeout ??= const Duration(seconds: 30);
     var client = HttpClient();
     client.userAgent = userAgent == null || userAgent.isEmpty
@@ -315,10 +319,12 @@ abstract final class HttpUtils {
           ),
         );
       }
-      if (response.statusCode != 200) {
-        return ReturnResult(
-          error: ReturnResultError("http statusCode: ${response.statusCode}"),
-        );
+      if (checkStatuscode == true) {
+        if (response.statusCode != 200) {
+          return ReturnResult(
+            error: ReturnResultError("http statusCode: ${response.statusCode}"),
+          );
+        }
       }
       var stringData = await response.transform(utf8.decoder).join();
       if (responseCookies != null) {
@@ -327,7 +333,7 @@ abstract final class HttpUtils {
         }
       }
 
-      return ReturnResult(data: stringData);
+      return ReturnResult(data: Tuple2(response.statusCode, stringData));
     } catch (err) {
       Log.i('http PostRequest $url exception: ${err.toString()}');
       return ReturnResult(
@@ -594,9 +600,9 @@ abstract final class HttpUtils {
     );
 
     if (result.error != null) {
-      return result;
+      return ReturnResult(error: result.error);
     }
-    String body = result.data!;
+    String body = result.data!.item2;
     int start = body.indexOf("<title>");
     int end = body.indexOf("</title>");
     String siteName = "";

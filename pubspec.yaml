@@ -101,6 +101,12 @@ dependencies:
       #url: https://github.com/KaringX/libclash-vpn-service.git
       #ref: master
 
+  board_service:
+    path: ../board-service/
+    #git:
+      #url: https://github.com/KaringX/board-service.git
+      #ref: master
+
 dev_dependencies:
   flutter_launcher_icons: 0.14.4
   flutter_test:
