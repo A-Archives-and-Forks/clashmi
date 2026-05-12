@@ -2,6 +2,7 @@ import 'package:board_service/sspanel_uim/sspanel_uim_client.dart'
     as sspanel_client;
 import 'package:board_service/v2board/v2board_client.dart' as v2board_client;
 import 'package:board_service/xboard/xboard_client.dart' as xboard_client;
+import 'package:clashmi/screens/theme_config.dart';
 import 'package:flutter/material.dart';
 import 'package:clashmi/app/modules/board_provider_manager.dart';
 import 'package:clashmi/app/modules/board_session_persistent_manager.dart';
@@ -89,7 +90,66 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     final tcontext = Translations.of(context);
+    Size windowSize = MediaQuery.of(context).size;
 
+    return PopScope(
+      canPop: !_logining,
+      child: Scaffold(
+        appBar: PreferredSize(
+          preferredSize: Size.zero,
+          child: AppBar(title: Text(AppUtils.getName()), centerTitle: true),
+        ),
+        body: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      _logining
+                          ? const SizedBox(width: 50)
+                          : InkWell(
+                              onTap: () => Navigator.pop(context),
+                              child: const SizedBox(
+                                width: 50,
+                                height: 30,
+                                child: Icon(
+                                  Icons.arrow_back_ios_outlined,
+                                  size: 26,
+                                ),
+                              ),
+                            ),
+                      SizedBox(
+                        width: windowSize.width - 50 * 2,
+                        child: Text(
+                          tcontext.loginScreen.login,
+                          textAlign: TextAlign.center,
+                          overflow: TextOverflow.ellipsis,
+                          style: const TextStyle(
+                            fontWeight: ThemeConfig.kFontWeightTitle,
+                            fontSize: ThemeConfig.kFontSizeTitle,
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: 50, height: 30),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 10),
+                Expanded(child: createLoginPanel()),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget createLoginPanel({String title = ""}) {
+    final tcontext = Translations.of(context);
     var accountStr = tcontext.loginScreen.account;
     var accountRequiredStr = tcontext.loginScreen.accountRequired;
     const primaryPurple = Color(0xFF7B5FF5);
@@ -103,215 +163,196 @@ class _LoginScreenState extends State<LoginScreen> {
     }
     bool isProviderSupported =
         _provider != null && BoardProviderType.support(_provider!.type.name);
-    return PopScope(
-      canPop: false,
-      child: Scaffold(
-        appBar: PreferredSize(
-          preferredSize: Size.zero,
-          child: AppBar(title: Text(AppUtils.getName()), centerTitle: true),
-        ),
-        body: SafeArea(
-          child: Center(
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
-              child: Card(
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(24, 24, 24, 24),
-                  child: Form(
-                    key: _formKey,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              tcontext.loginScreen.login,
-                              style: TextStyle(
-                                fontSize: 22,
-                                fontWeight: FontWeight.w700,
-                              ),
-                            ),
-                            isProviderSupported &&
-                                    _provider!.clientServiceUrl.isNotEmpty
-                                ? InkWell(
-                                    onTap: () {
-                                      UrlLauncherUtils.loadUrl(
-                                        _provider!.clientServiceUrl,
-                                      );
-                                    },
-                                    child: Icon(
-                                      Icons.contact_support_outlined,
-                                      size: 30,
-                                      color: ThemeDefine.kColorBlue,
-                                    ),
-                                  )
-                                : const SizedBox.shrink(),
-                          ],
-                        ),
-
-                        const SizedBox(height: 18),
-                        TextFormField(
-                          controller: _serviceNameController,
-                          focusNode: _serviceNameFocus,
-                          decoration: InputDecoration(
-                            labelText: tcontext.loginScreen.providerName,
-                            hintText: tcontext.loginScreen.providerNameRequired,
-                            prefixIcon: const Icon(
-                              Icons.business,
-                              color: ThemeDefine.kColorBlue,
-                            ),
-                            suffixIcon: IconButton(
-                              icon: Icon(
-                                isProviderSupported ? Icons.done : null,
-                                color: ThemeDefine.kColorGreenBright,
-                              ),
-                              onPressed: null,
-                            ),
-                          ),
-                          onChanged: (value) async {
-                            _provider = null;
-                            setState(() {});
-                          },
-                          validator: _validateServiceName,
-                        ),
-                        const SizedBox(height: 16),
-                        TextFormField(
-                          controller: _usernameController,
-                          decoration: InputDecoration(
-                            labelText: accountStr,
-                            hintText: accountRequiredStr,
-                            prefixIcon: const Icon(
-                              Icons.person,
-                              color: ThemeDefine.kColorBlue,
-                            ),
-                          ),
-                          validator: _validateUsername,
-                        ),
-                        const SizedBox(height: 16),
-                        TextFormField(
-                          controller: _passwordController,
-                          obscureText: !_isPasswordVisible,
-                          decoration: InputDecoration(
-                            labelText: tcontext.loginScreen.password,
-                            hintText: tcontext.loginScreen.passwordRequired,
-                            prefixIcon: const Icon(
-                              Icons.lock,
-                              color: ThemeDefine.kColorBlue,
-                            ),
-                            suffixIcon: IconButton(
-                              icon: Icon(
-                                _isPasswordVisible
-                                    ? Icons.visibility
-                                    : Icons.visibility_off,
-                              ),
-                              onPressed: () {
-                                setState(() {
-                                  _isPasswordVisible = !_isPasswordVisible;
-                                });
-                              },
-                            ),
-                          ),
-                          validator: _validatePassword,
-                        ),
-                        const SizedBox(height: 20),
-                        SizedBox(
-                          height: 48,
-                          child: ElevatedButton(
-                            onPressed: _logining ? null : _login,
-                            style: ElevatedButton.styleFrom(
-                              padding: EdgeInsets.zero,
-                            ),
-                            child: Ink(
-                              decoration: BoxDecoration(
-                                gradient: const LinearGradient(
-                                  colors: [
-                                    ThemeDefine.kColorBlue,
-                                    primaryPurple,
-                                  ],
-                                ),
-                                borderRadius: BorderRadius.circular(14),
-                              ),
-                              child: Container(
-                                alignment: Alignment.center,
-                                child: _logining
-                                    ? SizedBox(
-                                        width: 20,
-                                        height: 20,
-                                        child: const RepaintBoundary(
-                                          child: CircularProgressIndicator(
-                                            valueColor:
-                                                AlwaysStoppedAnimation<Color>(
-                                                  Colors.white,
-                                                ),
-                                            strokeWidth: 2,
-                                          ),
-                                        ),
-                                      )
-                                    : Text(
-                                        tcontext.loginScreen.login,
-                                        style: TextStyle(
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w600,
-                                          color: Colors.white,
-                                        ),
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+        child: Card(
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(24, 24, 24, 24),
+            child: Form(
+              key: _formKey,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      /*Text(
+                                      tcontext.loginScreen.login,
+                                      style: TextStyle(
+                                        fontSize: 22,
+                                        fontWeight: FontWeight.w700,
                                       ),
+                                    ),*/
+                      isProviderSupported &&
+                              _provider!.clientServiceUrl.isNotEmpty
+                          ? InkWell(
+                              onTap: () {
+                                UrlLauncherUtils.loadUrl(
+                                  _provider!.clientServiceUrl,
+                                );
+                              },
+                              child: Icon(
+                                Icons.contact_support_outlined,
+                                size: 30,
+                                color: ThemeDefine.kColorBlue,
                               ),
-                            ),
+                            )
+                          : const SizedBox.shrink(),
+                    ],
+                  ),
+
+                  const SizedBox(height: 18),
+                  TextFormField(
+                    controller: _serviceNameController,
+                    focusNode: _serviceNameFocus,
+                    decoration: InputDecoration(
+                      labelText: tcontext.loginScreen.providerName,
+                      hintText: tcontext.loginScreen.providerNameRequired,
+                      prefixIcon: const Icon(
+                        Icons.business,
+                        color: ThemeDefine.kColorBlue,
+                      ),
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                          isProviderSupported ? Icons.done : null,
+                          color: ThemeDefine.kColorGreenBright,
+                        ),
+                        onPressed: null,
+                      ),
+                    ),
+                    onChanged: (value) async {
+                      _provider = null;
+                      setState(() {});
+                    },
+                    validator: _validateServiceName,
+                  ),
+                  const SizedBox(height: 16),
+                  TextFormField(
+                    controller: _usernameController,
+                    decoration: InputDecoration(
+                      labelText: accountStr,
+                      hintText: accountRequiredStr,
+                      prefixIcon: const Icon(
+                        Icons.person,
+                        color: ThemeDefine.kColorBlue,
+                      ),
+                    ),
+                    validator: _validateUsername,
+                  ),
+                  const SizedBox(height: 16),
+                  TextFormField(
+                    controller: _passwordController,
+                    obscureText: !_isPasswordVisible,
+                    decoration: InputDecoration(
+                      labelText: tcontext.loginScreen.password,
+                      hintText: tcontext.loginScreen.passwordRequired,
+                      prefixIcon: const Icon(
+                        Icons.lock,
+                        color: ThemeDefine.kColorBlue,
+                      ),
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                          _isPasswordVisible
+                              ? Icons.visibility
+                              : Icons.visibility_off,
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            _isPasswordVisible = !_isPasswordVisible;
+                          });
+                        },
+                      ),
+                    ),
+                    validator: _validatePassword,
+                  ),
+                  const SizedBox(height: 20),
+                  SizedBox(
+                    height: 48,
+                    child: ElevatedButton(
+                      onPressed: _logining ? null : _login,
+                      style: ElevatedButton.styleFrom(padding: EdgeInsets.zero),
+                      child: Ink(
+                        decoration: BoxDecoration(
+                          gradient: const LinearGradient(
+                            colors: [ThemeDefine.kColorBlue, primaryPurple],
                           ),
+                          borderRadius: BorderRadius.circular(14),
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            TextButton(
-                              onPressed:
-                                  isProviderSupported &&
-                                      _provider!.forgotPasswordUrl.isNotEmpty
-                                  ? () {
-                                      _forgotpwd();
-                                    }
-                                  : null,
-                              child: Text(
-                                isProviderSupported &&
-                                        _provider!.forgotPasswordUrl.isNotEmpty
-                                    ? tcontext.loginScreen.forgotPassword
-                                    : '',
-                                style: TextStyle(
-                                  color: ThemeDefine.kColorBlue,
-                                  fontWeight: FontWeight.w500,
+                        child: Container(
+                          alignment: Alignment.center,
+                          child: _logining
+                              ? SizedBox(
+                                  width: 20,
+                                  height: 20,
+                                  child: const RepaintBoundary(
+                                    child: CircularProgressIndicator(
+                                      valueColor: AlwaysStoppedAnimation<Color>(
+                                        Colors.white,
+                                      ),
+                                      strokeWidth: 2,
+                                    ),
+                                  ),
+                                )
+                              : Text(
+                                  tcontext.loginScreen.login,
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.white,
+                                  ),
                                 ),
-                              ),
-                            ),
-                            TextButton(
-                              onPressed:
-                                  isProviderSupported &&
-                                      _provider!.registerUrl != null &&
-                                      _provider!.type !=
-                                          BoardProviderType.sspanel
-                                  ? () async {
-                                      _register();
-                                    }
-                                  : null,
-                              child: Text(
-                                isProviderSupported &&
-                                        _provider!.registerUrl != null &&
-                                        _provider!.type !=
-                                            BoardProviderType.sspanel
-                                    ? tcontext.loginScreen.register
-                                    : '',
-                                style: TextStyle(
-                                  color: ThemeDefine.kColorBlue,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            ),
-                          ],
                         ),
-                      ],
+                      ),
                     ),
                   ),
-                ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      TextButton(
+                        onPressed:
+                            isProviderSupported &&
+                                _provider!.forgotPasswordUrl.isNotEmpty
+                            ? () {
+                                _forgotpwd();
+                              }
+                            : null,
+                        child: Text(
+                          isProviderSupported &&
+                                  _provider!.forgotPasswordUrl.isNotEmpty
+                              ? tcontext.loginScreen.forgotPassword
+                              : '',
+                          style: TextStyle(
+                            color: ThemeDefine.kColorBlue,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                      TextButton(
+                        onPressed:
+                            isProviderSupported &&
+                                _provider!.registerUrl != null &&
+                                _provider!.type != BoardProviderType.sspanel
+                            ? () async {
+                                _register();
+                              }
+                            : null,
+                        child: Text(
+                          isProviderSupported &&
+                                  _provider!.registerUrl != null &&
+                                  _provider!.type != BoardProviderType.sspanel
+                              ? tcontext.loginScreen.register
+                              : '',
+                          style: TextStyle(
+                            color: ThemeDefine.kColorBlue,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
           ),
