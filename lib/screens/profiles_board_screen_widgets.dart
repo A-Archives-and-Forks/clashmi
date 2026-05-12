@@ -9,6 +9,7 @@ import 'package:clashmi/app/runtime/return_result.dart';
 import 'package:clashmi/i18n/strings.g.dart';
 import 'package:clashmi/screens/dialog_utils.dart';
 import 'package:clashmi/screens/file_view_screen.dart';
+import 'package:clashmi/screens/group_helper.dart';
 import 'package:clashmi/screens/profile_settings_edit_screen.dart';
 import 'package:clashmi/screens/qrcode_screen.dart';
 import 'package:clashmi/screens/theme_define.dart';
@@ -38,8 +39,9 @@ class ProfilesBoardItem extends StatelessWidget {
     final tcontext = Translations.of(context);
     final settings = SettingManager.getConfig();
     final patch = ProfilePatchManager.getProfilePatch(setting.patch);
-    final currentSession = BoardSessionPersistentManager.instance()
-        .getBySubscribeUrl(setting.url);
+    final session = BoardSessionPersistentManager.instance().getBySubscribeUrl(
+      setting.url,
+    );
     String patchRemark = "";
     if (setting.patch.isEmpty || patch.id.isEmpty) {
       final currentPatch = ProfilePatchManager.getCurrent();
@@ -92,7 +94,7 @@ class ProfilesBoardItem extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      if (currentSession != null) ...[
+                      if (session != null) ...[
                         Icon(
                           Icons.business,
                           size: 16,
@@ -281,8 +283,19 @@ class _ProfilesBoardScreenWidget extends State<ProfilesBoardScreenWidget> {
 
   void showMore(ProfileSetting setting) {
     final tcontext = Translations.of(context);
-
+    final session = BoardSessionPersistentManager.instance().getBySubscribeUrl(
+      setting.url,
+    );
     var widgets = [
+      if (session != null) ...[
+        ListTile(
+          title: Text(session.provider.name),
+          onTap: () async {
+            Navigator.of(context).pop();
+            GroupHelper.showVpnProvider(context, session.provider);
+          },
+        ),
+      ],
       ListTile(
         title: Text(
           setting.isRemote() ? tcontext.meta.view : tcontext.meta.edit,
