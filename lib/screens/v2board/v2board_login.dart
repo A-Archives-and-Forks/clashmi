@@ -29,7 +29,7 @@ class V2boardLogin {
         message: loginResponse.getFullMessage(),
       );
     }
-    String? err = await getSubscribe(session);
+    String? err = await getSubscribe(provider, session);
     if (err != null) {
       await session.v2board?.logout();
       return BoardSessionLoginError(session: session, message: err);
@@ -43,6 +43,7 @@ class V2boardLogin {
   }
 
   static Future<String?> getSubscribe(
+    BoardProviderConfig provider,
     BoardSession session, {
     bool reloadProfile = true,
   }) async {
@@ -63,12 +64,10 @@ class V2boardLogin {
     }
     if (reloadProfile) {
       final result = await ProfileManager.addRemote(
-        // "", //todo for test
         subscribeResponse.data!.subscribeUrl,
+        remark: provider.name,
         userAgent: session.provider.userAgent,
         xhwid: session.provider.xhwid,
-        //overwriteDns: session.provider.overwriteDns,
-        //urltestUrl: session.provider.urltestUrl,
       );
       if (result.error != null) {
         return result.error!.message;

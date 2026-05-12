@@ -27,7 +27,7 @@ class SSPanelLogin {
         message: loginResponse.getFullMessage(),
       );
     }
-    String? err = await getSubscribe(session);
+    String? err = await getSubscribe(provider, session);
     if (err != null) {
       await session.ssPanel?.logout();
       return BoardSessionLoginError(session: session, message: err);
@@ -40,7 +40,10 @@ class SSPanelLogin {
     return null;
   }
 
-  static Future<String?> getSubscribe(BoardSession session) async {
+  static Future<String?> getSubscribe(
+    BoardProviderConfig provider,
+    BoardSession session,
+  ) async {
     if (session.ssPanel == null) {
       return null;
     }
@@ -60,10 +63,9 @@ class SSPanelLogin {
 
     final result = await ProfileManager.addRemote(
       userProfileUrlResponse.data!.item1,
+      remark: provider.name,
       userAgent: session.provider.userAgent,
       xhwid: session.provider.xhwid,
-      //overwriteDns: session.provider.overwriteDns,
-      //urltestUrl: session.provider.urltestUrl,
     );
     if (result.error != null) {
       return result.error!.message;
