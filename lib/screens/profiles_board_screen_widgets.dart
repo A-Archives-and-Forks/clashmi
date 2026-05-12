@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:clashmi/app/clash/clash_http_api.dart';
+import 'package:clashmi/app/modules/board_session_persistent_manager.dart';
 import 'package:clashmi/app/modules/profile_manager.dart';
 import 'package:clashmi/app/modules/profile_patch_manager.dart';
 import 'package:clashmi/app/modules/setting_manager.dart';
@@ -37,6 +38,8 @@ class ProfilesBoardItem extends StatelessWidget {
     final tcontext = Translations.of(context);
     final settings = SettingManager.getConfig();
     final patch = ProfilePatchManager.getProfilePatch(setting.patch);
+    final currentSession = BoardSessionPersistentManager.instance()
+        .getBySubscribeUrl(setting.url);
     String patchRemark = "";
     if (setting.patch.isEmpty || patch.id.isEmpty) {
       final currentPatch = ProfilePatchManager.getCurrent();
@@ -86,12 +89,25 @@ class ProfilesBoardItem extends StatelessWidget {
                 SizedBox(height: 10),
                 Align(
                   alignment: AlignmentDirectional.centerStart,
-                  child: Text(
-                    setting.getShowName(),
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                      color: selected ? ThemeDefine.kColorBlue : null,
-                    ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      if (currentSession != null) ...[
+                        Icon(
+                          Icons.business,
+                          size: 16,
+                          color: selected ? ThemeDefine.kColorBlue : null,
+                        ),
+                        const SizedBox(width: 5),
+                      ],
+                      Text(
+                        setting.getShowName(),
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          color: selected ? ThemeDefine.kColorBlue : null,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 Align(

@@ -7,6 +7,7 @@ import 'package:clashmi/app/clash/clash_http_api.dart';
 import 'package:clashmi/app/local_services/vpn_service.dart';
 import 'package:clashmi/app/modules/auto_update_manager.dart';
 import 'package:clashmi/app/modules/biz.dart';
+import 'package:clashmi/app/modules/board_session_persistent_manager.dart';
 import 'package:clashmi/app/modules/clash_setting_manager.dart';
 import 'package:clashmi/app/modules/profile_manager.dart';
 import 'package:clashmi/app/modules/setting_manager.dart';
@@ -174,10 +175,13 @@ class _HomeScreenWidgetPart1 extends State<HomeScreenWidgetPart1> {
     bool connected = _state == FlutterVpnServiceState.connected;
     final currentProfile = ProfileManager.getCurrent();
     final currentProfileName = currentProfile?.getShowName() ?? "";
+    BoardSession? currentSession;
     final settings = SettingManager.getConfig();
     String tranffic = "";
     Tuple2<bool, String>? tranfficExpire;
     if (currentProfile != null && currentProfile.isRemote()) {
+      currentSession = BoardSessionPersistentManager.instance()
+          .getBySubscribeUrl(currentProfile.url);
       if (currentProfile.upload != 0 ||
           currentProfile.download != 0 ||
           currentProfile.total != 0) {
@@ -355,7 +359,10 @@ class _HomeScreenWidgetPart1 extends State<HomeScreenWidgetPart1> {
                     alignment: AlignmentDirectional.centerStart,
                     child: Text(
                       tranffic,
-                      style: TextStyle(color: ThemeDefine.kColorBlue),
+                      style: TextStyle(
+                        color: ThemeDefine.kColorBlue,
+                        fontSize: 10,
+                      ),
                     ),
                   )
                 : SizedBox.shrink(),
@@ -368,7 +375,7 @@ class _HomeScreenWidgetPart1 extends State<HomeScreenWidgetPart1> {
                         color: tranfficExpire.item1
                             ? Colors.red
                             : ThemeDefine.kColorBlue,
-                        fontSize: 12,
+                        fontSize: 10,
                       ),
                     ),
                   )
@@ -376,13 +383,28 @@ class _HomeScreenWidgetPart1 extends State<HomeScreenWidgetPart1> {
           ],
         ),
         trailing: SizedBox(
-          width: 70,
+          width: 105,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
+              if (currentSession != null) ...[
+                SizedBox(
+                  width: 40,
+                  height: 40,
+                  child: InkWell(
+                    onTap: () async {
+                      GroupHelper.showVpnProvider(
+                        context,
+                        currentSession!.provider,
+                      );
+                    },
+                    child: Icon(Icons.business, size: 30),
+                  ),
+                ),
+              ],
               SizedBox(
-                width: 45,
-                height: 45,
+                width: 40,
+                height: 40,
                 child: InkWell(
                   onTap: () async {
                     await Navigator.push(
