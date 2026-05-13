@@ -66,6 +66,7 @@ class SSPanelLogin {
       remark: provider.name,
       userAgent: session.provider.userAgent,
       xhwid: session.provider.xhwid,
+      popToTopIfNotExist: true,
     );
     if (result.error != null) {
       return result.error!.message;

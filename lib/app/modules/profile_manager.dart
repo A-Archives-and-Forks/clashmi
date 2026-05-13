@@ -576,6 +576,7 @@ class ProfileManager {
     String decryptPassword = "",
     Duration? updateInterval,
     bool updateIntervalPreferByProfile = false,
+    bool popToTopIfNotExist = false,
   }) async {
     final uri = Uri.tryParse(url);
     if (uri == null) {
@@ -662,7 +663,11 @@ class ProfileManager {
 
     profile.updateSubscriptionTraffic(result.data);
     if (index < 0) {
-      _config.profiles.add(profile);
+      if (popToTopIfNotExist) {
+        _config.profiles.insert(0, profile);
+      } else {
+        _config.profiles.add(profile);
+      }
     } else {
       _config.profiles[index] = profile;
     }
