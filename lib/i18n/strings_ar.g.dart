@@ -323,6 +323,7 @@ class _TranslationsMetaAr implements TranslationsMetaEn {
 	@override String get hideVpnTips => 'سيؤدي تمكين IPv6 إلى فشل هذه الوظيفة';
 	@override String get hideDockIcon => 'إخفاء أيقونة Dock';
 	@override String get website => 'موقع إلكتروني';
+	@override String get homePage => 'الصفحة الرئيسية';
 	@override String get rule => 'قاعدة';
 	@override String get global => 'عالمي';
 	@override String get direct => 'مباشر';
@@ -373,6 +374,8 @@ class _TranslationsMetaAr implements TranslationsMetaEn {
 	@override String get tvMode => 'وضع التلفزيون';
 	@override String get autoUpdate => 'التحديثات التلقائية';
 	@override String get updateChannel => 'تحديث القنوات تلقائيا';
+	@override String get onlineCustomerService => 'خدمة العملاء عبر الإنترنت';
+	@override String get subscriptionChannel => 'قناة الاشتراك';
 	@override String hasNewVersion({required Object p}) => 'تحديث الإصدار ${p}';
 	@override String get autoDownloadPkg => 'تنزيل حزم التحديث تلقائيًا';
 	@override String get devOptions => 'خيارات للمطور';
@@ -710,6 +713,7 @@ extension on TranslationsAr {
 			'meta.hideVpnTips' => 'سيؤدي تمكين IPv6 إلى فشل هذه الوظيفة',
 			'meta.hideDockIcon' => 'إخفاء أيقونة Dock',
 			'meta.website' => 'موقع إلكتروني',
+			'meta.homePage' => 'الصفحة الرئيسية',
 			'meta.rule' => 'قاعدة',
 			'meta.global' => 'عالمي',
 			'meta.direct' => 'مباشر',
@@ -760,6 +764,8 @@ extension on TranslationsAr {
 			'meta.tvMode' => 'وضع التلفزيون',
 			'meta.autoUpdate' => 'التحديثات التلقائية',
 			'meta.updateChannel' => 'تحديث القنوات تلقائيا',
+			'meta.onlineCustomerService' => 'خدمة العملاء عبر الإنترنت',
+			'meta.subscriptionChannel' => 'قناة الاشتراك',
 			'meta.hasNewVersion' => ({required Object p}) => 'تحديث الإصدار ${p}',
 			'meta.autoDownloadPkg' => 'تنزيل حزم التحديث تلقائيًا',
 			'meta.devOptions' => 'خيارات للمطور',

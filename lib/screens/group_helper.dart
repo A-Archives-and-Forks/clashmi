@@ -2466,6 +2466,7 @@ class GroupHelper {
     BuildContext context,
     BoardProviderConfig provider,
   ) async {
+    final tcontext = Translations.of(context);
     var widgets = [
       ListTile(
         title: Row(
@@ -2473,10 +2474,20 @@ class GroupHelper {
           children: [Text(provider.name)],
         ),
       ),
+      if (provider.homeUrl.isNotEmpty) ...[
+        ListTile(
+          leading: const Icon(Icons.home_outlined),
+          title: Text(tcontext.meta.homePage),
+          onTap: () async {
+            Navigator.pop(context);
+            UrlLauncherUtils.loadUrl(provider.homeUrl);
+          },
+        ),
+      ],
       if (provider.clientServiceUrl.isNotEmpty) ...[
         ListTile(
           leading: const Icon(Icons.contact_support_outlined),
-          title: Text("在线客服"),
+          title: Text(tcontext.meta.onlineCustomerService),
           onTap: () async {
             Navigator.pop(context);
             UrlLauncherUtils.loadUrl(provider.clientServiceUrl);
@@ -2486,7 +2497,7 @@ class GroupHelper {
       if (provider.subscriptionChannelUrl.isNotEmpty) ...[
         ListTile(
           leading: const Icon(Icons.message_outlined),
-          title: Text("订阅频道"),
+          title: Text(tcontext.meta.subscriptionChannel),
           onTap: () async {
             Navigator.pop(context);
             UrlLauncherUtils.loadUrl(provider.subscriptionChannelUrl);

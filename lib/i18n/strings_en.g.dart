@@ -684,6 +684,9 @@ class TranslationsMetaEn {
 	/// en: 'Website'
 	String get website => 'Website';
 
+	/// en: 'Home Page'
+	String get homePage => 'Home Page';
+
 	/// en: 'Rule'
 	String get rule => 'Rule';
 
@@ -833,6 +836,12 @@ class TranslationsMetaEn {
 
 	/// en: 'Auto Update Channel'
 	String get updateChannel => 'Auto Update Channel';
+
+	/// en: 'Online Customer Service'
+	String get onlineCustomerService => 'Online Customer Service';
+
+	/// en: 'Subscription Channel'
+	String get subscriptionChannel => 'Subscription Channel';
 
 	/// en: 'Update Version $p'
 	String hasNewVersion({required Object p}) => 'Update Version ${p}';
@@ -1344,6 +1353,7 @@ extension on Translations {
 			'meta.hideVpnTips' => 'Enabling IPv6 will cause this function to fail',
 			'meta.hideDockIcon' => 'Hide Dock Icon',
 			'meta.website' => 'Website',
+			'meta.homePage' => 'Home Page',
 			'meta.rule' => 'Rule',
 			'meta.global' => 'Global',
 			'meta.direct' => 'Direct',
@@ -1394,6 +1404,8 @@ extension on Translations {
 			'meta.tvMode' => 'TV Mode',
 			'meta.autoUpdate' => 'Auto Update',
 			'meta.updateChannel' => 'Auto Update Channel',
+			'meta.onlineCustomerService' => 'Online Customer Service',
+			'meta.subscriptionChannel' => 'Subscription Channel',
 			'meta.hasNewVersion' => ({required Object p}) => 'Update Version ${p}',
 			'meta.autoDownloadPkg' => 'Auto Download Update Packages',
 			'meta.devOptions' => 'Developer Options',

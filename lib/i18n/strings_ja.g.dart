@@ -323,6 +323,7 @@ class _TranslationsMetaJa implements TranslationsMetaEn {
 	@override String get hideVpnTips => 'IPv6を有効にすると、この機能は失敗します';
 	@override String get hideDockIcon => 'Dockアイコンを隠す';
 	@override String get website => 'ウェブサイト';
+	@override String get homePage => 'ホームページ';
 	@override String get rule => 'ルール';
 	@override String get global => 'グローバル';
 	@override String get direct => '直通';
@@ -373,6 +374,8 @@ class _TranslationsMetaJa implements TranslationsMetaEn {
 	@override String get tvMode => 'TVモード';
 	@override String get autoUpdate => '自動更新';
 	@override String get updateChannel => '自動更新チャンネル';
+	@override String get onlineCustomerService => 'オンラインカスタマーサポート';
+	@override String get subscriptionChannel => '購読チャンネル';
 	@override String hasNewVersion({required Object p}) => 'バージョン ${p} に更新';
 	@override String get autoDownloadPkg => '更新パッケージを自動ダウンロード';
 	@override String get devOptions => '開発者オプション';
@@ -710,6 +713,7 @@ extension on TranslationsJa {
 			'meta.hideVpnTips' => 'IPv6を有効にすると、この機能は失敗します',
 			'meta.hideDockIcon' => 'Dockアイコンを隠す',
 			'meta.website' => 'ウェブサイト',
+			'meta.homePage' => 'ホームページ',
 			'meta.rule' => 'ルール',
 			'meta.global' => 'グローバル',
 			'meta.direct' => '直通',
@@ -760,6 +764,8 @@ extension on TranslationsJa {
 			'meta.tvMode' => 'TVモード',
 			'meta.autoUpdate' => '自動更新',
 			'meta.updateChannel' => '自動更新チャンネル',
+			'meta.onlineCustomerService' => 'オンラインカスタマーサポート',
+			'meta.subscriptionChannel' => '購読チャンネル',
 			'meta.hasNewVersion' => ({required Object p}) => 'バージョン ${p} に更新',
 			'meta.autoDownloadPkg' => '更新パッケージを自動ダウンロード',
 			'meta.devOptions' => '開発者オプション',

@@ -323,6 +323,7 @@ class _TranslationsMetaFa implements TranslationsMetaEn {
 	@override String get hideVpn => 'مخفی کردن آیکون VPN';
 	@override String get hideVpnTips => 'فعال کردن IPv6 باعث از کار افتادن این عملکرد خواهد شد.';
 	@override String get website => 'وبسایت';
+	@override String get homePage => 'صفحه اصلی';
 	@override String get rule => 'قانون';
 	@override String get global => 'عمومی';
 	@override String get direct => 'مستقیم';
@@ -373,6 +374,8 @@ class _TranslationsMetaFa implements TranslationsMetaEn {
 	@override String get tvMode => 'حالت تلویزیون';
 	@override String get autoUpdate => 'به روز رسانی خودکار';
 	@override String get updateChannel => 'کانال به‌روزرسانی خودکار';
+	@override String get onlineCustomerService => 'پشتیبانی آنلاین';
+	@override String get subscriptionChannel => 'کانال اشتراک';
 	@override String hasNewVersion({required Object p}) => 'به‌روزرسانی نسخه ${p} ';
 	@override String get autoDownloadPkg => 'دانلود خودکار بسته‌های به‌روزرسانی';
 	@override String get devOptions => 'تنظیمات توسعه‌دهندگان';
@@ -710,6 +713,7 @@ extension on TranslationsFa {
 			'meta.hideVpn' => 'مخفی کردن آیکون VPN',
 			'meta.hideVpnTips' => 'فعال کردن IPv6 باعث از کار افتادن این عملکرد خواهد شد.',
 			'meta.website' => 'وبسایت',
+			'meta.homePage' => 'صفحه اصلی',
 			'meta.rule' => 'قانون',
 			'meta.global' => 'عمومی',
 			'meta.direct' => 'مستقیم',
@@ -760,6 +764,8 @@ extension on TranslationsFa {
 			'meta.tvMode' => 'حالت تلویزیون',
 			'meta.autoUpdate' => 'به روز رسانی خودکار',
 			'meta.updateChannel' => 'کانال به‌روزرسانی خودکار',
+			'meta.onlineCustomerService' => 'پشتیبانی آنلاین',
+			'meta.subscriptionChannel' => 'کانال اشتراک',
 			'meta.hasNewVersion' => ({required Object p}) => 'به‌روزرسانی نسخه ${p} ',
 			'meta.autoDownloadPkg' => 'دانلود خودکار بسته‌های به‌روزرسانی',
 			'meta.devOptions' => 'تنظیمات توسعه‌دهندگان',

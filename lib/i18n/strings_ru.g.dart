@@ -323,6 +323,7 @@ class _TranslationsMetaRu implements TranslationsMetaEn {
 	@override String get hideVpnTips => 'Включение IPv6 приведет к сбою этой функции.';
 	@override String get hideDockIcon => 'Скрыть значок дока';
 	@override String get website => 'Веб-сайт';
+	@override String get homePage => 'Главная';
 	@override String get rule => 'Правила';
 	@override String get global => 'Глобально';
 	@override String get direct => 'Напрямую';
@@ -373,6 +374,8 @@ class _TranslationsMetaRu implements TranslationsMetaEn {
 	@override String get tvMode => 'Режим ТВ';
 	@override String get autoUpdate => 'Автоматические обновления';
 	@override String get updateChannel => 'Канал автоматического обновления';
+	@override String get onlineCustomerService => 'Онлайн-служба поддержки';
+	@override String get subscriptionChannel => 'Канал подписки';
 	@override String hasNewVersion({required Object p}) => 'Обновить версию ${p}';
 	@override String get autoDownloadPkg => 'Автоматически загружать пакеты обновлений';
 	@override String get devOptions => 'Параметры разработчика';
@@ -710,6 +713,7 @@ extension on TranslationsRu {
 			'meta.hideVpnTips' => 'Включение IPv6 приведет к сбою этой функции.',
 			'meta.hideDockIcon' => 'Скрыть значок дока',
 			'meta.website' => 'Веб-сайт',
+			'meta.homePage' => 'Главная',
 			'meta.rule' => 'Правила',
 			'meta.global' => 'Глобально',
 			'meta.direct' => 'Напрямую',
@@ -760,6 +764,8 @@ extension on TranslationsRu {
 			'meta.tvMode' => 'Режим ТВ',
 			'meta.autoUpdate' => 'Автоматические обновления',
 			'meta.updateChannel' => 'Канал автоматического обновления',
+			'meta.onlineCustomerService' => 'Онлайн-служба поддержки',
+			'meta.subscriptionChannel' => 'Канал подписки',
 			'meta.hasNewVersion' => ({required Object p}) => 'Обновить версию ${p}',
 			'meta.autoDownloadPkg' => 'Автоматически загружать пакеты обновлений',
 			'meta.devOptions' => 'Параметры разработчика',

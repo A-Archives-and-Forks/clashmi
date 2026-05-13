@@ -323,6 +323,7 @@ class _TranslationsMetaEs implements TranslationsMetaEn {
 	@override String get hideVpnTips => 'Habilitar IPv6 causará que esta función falle';
 	@override String get hideDockIcon => 'Ocultar Icono del Dock';
 	@override String get website => 'Sitio Web';
+	@override String get homePage => 'Página principal';
 	@override String get rule => 'Regla';
 	@override String get global => 'Global';
 	@override String get direct => 'Directo';
@@ -373,6 +374,8 @@ class _TranslationsMetaEs implements TranslationsMetaEn {
 	@override String get tvMode => 'Modo TV';
 	@override String get autoUpdate => 'Actualización Automática';
 	@override String get updateChannel => 'Canal de Actualización Automática';
+	@override String get onlineCustomerService => 'Atención al cliente en línea';
+	@override String get subscriptionChannel => 'Canal de suscripción';
 	@override String hasNewVersion({required Object p}) => 'Actualizar Versión ${p}';
 	@override String get autoDownloadPkg => 'Descargar Paquetes de Actualización Automáticamente';
 	@override String get devOptions => 'Opciones de Desarrollador';
@@ -710,6 +713,7 @@ extension on TranslationsEs {
 			'meta.hideVpnTips' => 'Habilitar IPv6 causará que esta función falle',
 			'meta.hideDockIcon' => 'Ocultar Icono del Dock',
 			'meta.website' => 'Sitio Web',
+			'meta.homePage' => 'Página principal',
 			'meta.rule' => 'Regla',
 			'meta.global' => 'Global',
 			'meta.direct' => 'Directo',
@@ -760,6 +764,8 @@ extension on TranslationsEs {
 			'meta.tvMode' => 'Modo TV',
 			'meta.autoUpdate' => 'Actualización Automática',
 			'meta.updateChannel' => 'Canal de Actualización Automática',
+			'meta.onlineCustomerService' => 'Atención al cliente en línea',
+			'meta.subscriptionChannel' => 'Canal de suscripción',
 			'meta.hasNewVersion' => ({required Object p}) => 'Actualizar Versión ${p}',
 			'meta.autoDownloadPkg' => 'Descargar Paquetes de Actualización Automáticamente',
 			'meta.devOptions' => 'Opciones de Desarrollador',

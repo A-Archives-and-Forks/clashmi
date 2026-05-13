@@ -323,6 +323,7 @@ class _TranslationsMetaZhCn implements TranslationsMetaEn {
 	@override String get hideVpnTips => '开启IPv6会导致此功能失效';
 	@override String get hideDockIcon => '隐藏Dock图标';
 	@override String get website => '官网';
+	@override String get homePage => '主页';
 	@override String get rule => '规则';
 	@override String get global => '全局';
 	@override String get direct => '直连';
@@ -373,6 +374,8 @@ class _TranslationsMetaZhCn implements TranslationsMetaEn {
 	@override String get tvMode => 'TV模式';
 	@override String get autoUpdate => '自动更新';
 	@override String get updateChannel => '自动更新通道';
+	@override String get onlineCustomerService => '在线客服';
+	@override String get subscriptionChannel => '订阅频道';
 	@override String hasNewVersion({required Object p}) => '更新版本 ${p}';
 	@override String get autoDownloadPkg => '自动下载更新包';
 	@override String get devOptions => '开发者选项';
@@ -710,6 +713,7 @@ extension on TranslationsZhCn {
 			'meta.hideVpnTips' => '开启IPv6会导致此功能失效',
 			'meta.hideDockIcon' => '隐藏Dock图标',
 			'meta.website' => '官网',
+			'meta.homePage' => '主页',
 			'meta.rule' => '规则',
 			'meta.global' => '全局',
 			'meta.direct' => '直连',
@@ -760,6 +764,8 @@ extension on TranslationsZhCn {
 			'meta.tvMode' => 'TV模式',
 			'meta.autoUpdate' => '自动更新',
 			'meta.updateChannel' => '自动更新通道',
+			'meta.onlineCustomerService' => '在线客服',
+			'meta.subscriptionChannel' => '订阅频道',
 			'meta.hasNewVersion' => ({required Object p}) => '更新版本 ${p}',
 			'meta.autoDownloadPkg' => '自动下载更新包',
 			'meta.devOptions' => '开发者选项',

@@ -323,6 +323,7 @@ class _TranslationsMetaKo implements TranslationsMetaEn {
 	@override String get hideVpnTips => 'IPv6를 활성화하면 이 기능이 작동하지 않습니다';
 	@override String get hideDockIcon => 'Dock 아이콘 숨기기';
 	@override String get website => '웹사이트';
+	@override String get homePage => '홈페이지';
 	@override String get rule => '규칙';
 	@override String get global => '글로벌';
 	@override String get direct => '직접 연결';
@@ -373,6 +374,8 @@ class _TranslationsMetaKo implements TranslationsMetaEn {
 	@override String get tvMode => 'TV 모드';
 	@override String get autoUpdate => '자동 업데이트';
 	@override String get updateChannel => '자동 업데이트 채널';
+	@override String get onlineCustomerService => '온라인 고객센터';
+	@override String get subscriptionChannel => '구독 채널';
 	@override String hasNewVersion({required Object p}) => '버전 ${p}로 업데이트';
 	@override String get autoDownloadPkg => '업데이트 패키지 자동 다운로드';
 	@override String get devOptions => '개발자 옵션';
@@ -710,6 +713,7 @@ extension on TranslationsKo {
 			'meta.hideVpnTips' => 'IPv6를 활성화하면 이 기능이 작동하지 않습니다',
 			'meta.hideDockIcon' => 'Dock 아이콘 숨기기',
 			'meta.website' => '웹사이트',
+			'meta.homePage' => '홈페이지',
 			'meta.rule' => '규칙',
 			'meta.global' => '글로벌',
 			'meta.direct' => '직접 연결',
@@ -760,6 +764,8 @@ extension on TranslationsKo {
 			'meta.tvMode' => 'TV 모드',
 			'meta.autoUpdate' => '자동 업데이트',
 			'meta.updateChannel' => '자동 업데이트 채널',
+			'meta.onlineCustomerService' => '온라인 고객센터',
+			'meta.subscriptionChannel' => '구독 채널',
 			'meta.hasNewVersion' => ({required Object p}) => '버전 ${p}로 업데이트',
 			'meta.autoDownloadPkg' => '업데이트 패키지 자동 다운로드',
 			'meta.devOptions' => '개발자 옵션',
