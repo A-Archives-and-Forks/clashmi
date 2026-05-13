@@ -15,9 +15,7 @@ import 'package:tuple/tuple.dart';
 
 class AutoupdateItem {
   String platform = "";
-
   List<String> channels = [];
-
   List<String> abis = [];
   String version = "";
   String url = "";
