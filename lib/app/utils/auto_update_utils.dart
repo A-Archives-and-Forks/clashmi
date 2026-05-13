@@ -27,12 +27,10 @@ class AutoupdateItem {
       return;
     }
     platform = map["platform"] ?? "";
-
     var _channels = map["channels"] ?? [];
     for (var i in _channels) {
       channels.add(i as String);
     }
-
     var _abis = map["abis"] ?? [];
     for (var i in _abis) {
       abis.add(i as String);
