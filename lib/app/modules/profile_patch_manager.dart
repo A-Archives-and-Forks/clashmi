@@ -6,7 +6,6 @@ import 'dart:io';
 import 'dart:ffi' as ffi;
 
 import 'package:clashmi/app/local_services/vpn_service.dart';
-import 'package:clashmi/app/modules/clash_setting_manager.dart';
 import 'package:clashmi/app/modules/setting_manager.dart';
 import 'package:clashmi/app/runtime/return_result.dart';
 import 'package:clashmi/app/utils/download_utils.dart';
