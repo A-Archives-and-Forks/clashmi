@@ -5,6 +5,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:clashmi/app/local_services/vpn_service.dart';
+import 'package:clashmi/app/modules/clash_setting_manager.dart';
 import 'package:clashmi/app/modules/setting_manager.dart';
 import 'package:clashmi/app/runtime/return_result.dart';
 import 'package:clashmi/app/utils/app_lifecycle_state_notify.dart';
@@ -587,18 +588,24 @@ class ProfileManager {
       userAgent = SettingManager.getConfig().userAgent();
     }
 
-    final result = await DownloadUtils.downloadWithPort(
-      uri,
-      savePath,
-      userAgent,
-      xhwid,
-      null,
-      timeout: const Duration(seconds: 30),
-    );
+    List<int?> ports = await VPNService.getPortsByPrefer(true);
+    late ReturnResult<HttpHeaders> result;
+    for (var port in ports) {
+      result = await DownloadUtils.downloadWithPort(
+        uri,
+        savePath,
+        userAgent,
+        xhwid,
+        port,
+        timeout: const Duration(seconds: 30),
+      );
+      if (result.error == null) {
+        break;
+      }
+    }
     if (result.error != null) {
       return ReturnResult(error: result.error);
     }
-
     Duration? updateIntervalByProfile;
     if (result.data != null) {
       final err = await decryptProfile(result.data, savePath, decryptPassword);
@@ -710,14 +717,21 @@ class ProfileManager {
     }
     final savePath = path.join(await PathUtils.profilesDir(), id);
     final savePathTmp = "$savePath.tmp";
-    final result = await DownloadUtils.downloadWithPort(
-      uri,
-      savePathTmp,
-      userAgent,
-      profile.xhwid,
-      null,
-      timeout: const Duration(seconds: 30),
-    );
+    List<int?> ports = await VPNService.getPortsByPrefer(true);
+    late ReturnResult<HttpHeaders> result;
+    for (var port in ports) {
+      result = await DownloadUtils.downloadWithPort(
+        uri,
+        savePathTmp,
+        userAgent,
+        profile.xhwid,
+        port,
+        timeout: const Duration(seconds: 30),
+      );
+      if (result.error == null) {
+        break;
+      }
+    }
     profile.update = DateTime.now();
     if (result.error == null) {
       final profileUpdateInterval = result.data!.value(

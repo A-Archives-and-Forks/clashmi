@@ -56,7 +56,7 @@ abstract final class AutoupdateUtils {
     }
 
     late ReturnResult<Tuple2<int, String>> response;
-    List<int?> ports = await VPNService.getPortsByPrefer(false);
+    List<int?> ports = await VPNService.getPortsByPrefer(true);
     for (var port in ports) {
       response = await HttpUtils.httpGetRequest(
         url,
@@ -97,7 +97,7 @@ abstract final class AutoupdateUtils {
     RemoteConfig rc = RemoteConfig();
     String url = RemoteConfigManager.getConfig().config;
     late ReturnResult<Tuple2<int, String>> response;
-    List<int?> ports = await VPNService.getPortsByPrefer(false);
+    List<int?> ports = await VPNService.getPortsByPrefer(true);
     for (var port in ports) {
       response = await HttpUtils.httpGetRequest(
         url,

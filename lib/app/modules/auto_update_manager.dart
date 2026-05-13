@@ -5,6 +5,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:clashmi/app/local_services/vpn_service.dart';
+import 'package:clashmi/app/modules/clash_setting_manager.dart';
 import 'package:clashmi/app/modules/setting_manager.dart';
 import 'package:clashmi/app/runtime/return_result.dart';
 import 'package:clashmi/app/utils/app_lifecycle_state_notify.dart';
@@ -270,7 +271,21 @@ class AutoUpdateManager {
         return;
       }
       _downloading = true;
-      final result = await DownloadUtils.download(uri, downloadPath);
+      List<int?> ports = await VPNService.getPortsByPrefer(true);
+      late ReturnResult<HttpHeaders> result;
+      for (var port in ports) {
+        result = await DownloadUtils.downloadWithPort(
+          uri,
+          downloadPath,
+          null,
+          false,
+          port,
+        );
+        if (result.error == null) {
+          break;
+        }
+      }
+
       if (result.error != null) {
         if (result.error!.message.contains("404")) {
           _versionCheck.newVersion = false;
