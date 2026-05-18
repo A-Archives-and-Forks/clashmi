@@ -16,6 +16,7 @@ import 'package:clashmi/app/modules/setting_manager.dart';
 import 'package:clashmi/app/modules/zashboard.dart';
 import 'package:clashmi/app/runtime/return_result.dart';
 import 'package:clashmi/app/utils/backup_and_sync_utils.dart';
+import 'package:clashmi/app/utils/did.dart';
 import 'package:clashmi/app/utils/file_utils.dart';
 import 'package:clashmi/app/utils/network_utils.dart';
 import 'package:clashmi/app/utils/path_utils.dart';
@@ -998,6 +999,10 @@ class GroupHelper {
                   ClipboardData(text: setting.Secret ?? ""),
                 );
               } catch (e) {}
+            },
+            onLongPress: () async {
+              setting.Secret = Did.newUUID().substring(8, 24);
+              setstate?.call();
             },
           ),
         ),

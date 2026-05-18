@@ -11,6 +11,7 @@ import 'package:clashmi/app/modules/diversion_template_manager.dart';
 import 'package:clashmi/app/modules/profile_manager.dart';
 import 'package:clashmi/app/runtime/return_result.dart';
 import 'package:clashmi/app/utils/app_utils.dart';
+import 'package:clashmi/app/utils/did.dart';
 import 'package:clashmi/app/utils/log.dart';
 import 'package:clashmi/app/utils/path_utils.dart';
 import 'package:clashmi/i18n/strings.g.dart';
@@ -29,6 +30,9 @@ class ClashSettingManager {
   static Future<void> init() async {
     ClashHttpApi.getControlPort = () {
       return getControlPort();
+    };
+    ClashHttpApi.getSecret = () {
+      return _setting.Secret ?? "";
     };
     await load();
     await initGeo();
@@ -59,6 +63,11 @@ class ClashSettingManager {
     } catch (err) {
       Log.w("ClashSettingManager.initGeo exception ${err.toString()} ");
     }
+  }
+
+  static Future<String> getSecretFromDid() async {
+    String secret = await Did.getDid();
+    return secret.substring(8, 24);
   }
 
   static Future<void> reload() async {
@@ -589,7 +598,9 @@ class ClashSettingManager {
   }
 
   static Future<void> _initFixed() async {
-    _setting.Secret = await ClashHttpApi.getSecret();
+    if (_setting.Secret == null || _setting.Secret!.isEmpty) {
+      _setting.Secret = await getSecretFromDid();
+    }
     _setting.UnifiedDelay = true;
     _setting.ExternalUI = "";
     _setting.ExternalUIName = "";
