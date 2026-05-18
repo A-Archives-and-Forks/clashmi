@@ -576,7 +576,10 @@ class _HomeScreenWidgetPart1 extends State<HomeScreenWidgetPart1> {
       child: Text(
         value,
         textAlign: TextAlign.start,
-        style: TextStyle(color: ThemeDefine.kColorBlue),
+        style: TextStyle(
+          color: ThemeDefine.kColorBlue,
+          fontFamily: Platform.isWindows ? 'Emoji' : null,
+        ),
       ),
     );
   }

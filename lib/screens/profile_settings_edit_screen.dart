@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:clashmi/app/clash/clash_config.dart';
 import 'package:clashmi/app/clash/clash_http_api.dart';
 import 'package:clashmi/app/local_services/vpn_service.dart';
@@ -517,7 +519,10 @@ class _ProfilesSettingsEditScreenState
       }
       widgets.add(
         ListTile(
-          title: Text("${i + 1} ${node.name}"),
+          title: Text(
+            "${i + 1} ${node.name}",
+            style: TextStyle(fontFamily: Platform.isWindows ? 'Emoji' : null),
+          ),
           subtitle: subtitle.isEmpty
               ? Text(node.type)
               : Row(
