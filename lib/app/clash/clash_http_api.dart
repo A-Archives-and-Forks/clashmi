@@ -7,8 +7,6 @@ import 'package:clashmi/app/clash/clash_config.dart';
 import 'package:clashmi/app/runtime/return_result.dart';
 import 'package:clashmi/app/utils/http_utils.dart';
 
-import '../utils/did.dart';
-
 class ClashConfigsTun {
   bool enable = false;
   String device = "";

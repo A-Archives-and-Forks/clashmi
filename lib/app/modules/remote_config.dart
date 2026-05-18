@@ -76,10 +76,9 @@ class RemoteConfigDonate {
 
 class RemoteConfig {
   static const String kDefaultHost = "clashmi.app";
-  static const String kDefaultConfig =
-      "https://dot.$kDefaultHost/clashmi_config.json";
+  static const String kDefaultConfig = "https://dot.$kDefaultHost/mconfig.json";
   static const String kDefaultAutoUpdate =
-      "https://dot.$kDefaultHost/clashmi_autoupdate.json";
+      "https://dot.$kDefaultHost/mautoupdate.json";
 
   static const String kDefaultGetTranffic =
       "https://$kDefaultHost/page/sponsor#list";
