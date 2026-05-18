@@ -433,6 +433,7 @@ class BoardSessionPersistentManager implements BoardSessionPersistent {
     final filePath = await PathUtils.boardSessionFilePath();
     final file = File(filePath);
     if (!await file.exists()) {
+      await _save();
       return;
     }
     final content = await file.readAsString();

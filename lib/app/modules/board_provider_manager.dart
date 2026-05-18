@@ -301,6 +301,8 @@ class BoardProviderManager {
           return config;
         }).toList();
       } catch (e) {}
+    } else {
+      await _save();
     }
     await updateSessionProviders();
     final session = BoardSessionPersistentManager.instance().current();
