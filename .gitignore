@@ -72,3 +72,4 @@ ios/clashmiWidget/VpnServiceHandler.swift
 *.hprof
 /android/.kotlin
 /android/build
+/dist
