@@ -258,6 +258,10 @@ class _ProfilesSettingsEditScreenState
           name: tcontext.meta.userAgent,
           text: _profile.userAgent,
           textWidthPercent: 0.6,
+          enabled:
+              _currentSession == null ||
+              (_currentSession != null &&
+                  _currentSession!.provider.userAgent.isEmpty),
           onChanged: (String value) {
             _profile.userAgent = value;
           },
@@ -267,10 +271,12 @@ class _ProfilesSettingsEditScreenState
         switchOptions: GroupItemSwitchOptions(
           name: "X-HWID",
           switchValue: _profile.xhwid,
-          onSwitch: (bool value) async {
-            _profile.xhwid = value;
-            setState(() {});
-          },
+          onSwitch: _currentSession != null
+              ? null
+              : (bool value) async {
+                  _profile.xhwid = value;
+                  setState(() {});
+                },
         ),
       ),
       GroupItemOptions(
