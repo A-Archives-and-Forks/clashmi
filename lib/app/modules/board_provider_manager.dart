@@ -42,6 +42,7 @@ class BoardProviderConfig {
   String name;
   List<String> names = [];
   String domain;
+  List<String> domains = [];
   String userAgent;
   String urltestUrl;
   bool xhwid;
@@ -64,6 +65,7 @@ class BoardProviderConfig {
     this.name = '',
     this.names = const [],
     this.domain = '',
+    this.domains = const [],
     this.userAgent = '',
     this.urltestUrl = '',
     this.xhwid = false,
@@ -88,6 +90,7 @@ class BoardProviderConfig {
     'name': name,
     'names': names,
     'domain': domain,
+    'domains': domains,
     'user_agent': userAgent,
     'urltest_url': urltestUrl,
     'xhwid': xhwid,
@@ -121,6 +124,7 @@ class BoardProviderConfig {
       names.add(name);
     }
     domain = map["domain"] ?? "";
+    domains = List<String>.from(map["domains"] ?? []);
     userAgent = map["user_agent"] ?? "";
     urltestUrl = map["urltest_url"] ?? "";
     xhwid = map["xhwid"] ?? false;
