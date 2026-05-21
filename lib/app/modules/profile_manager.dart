@@ -6,13 +6,16 @@ import 'dart:io';
 
 import 'package:clashmi/app/local_services/vpn_service.dart';
 import 'package:clashmi/app/modules/setting_manager.dart';
+import 'package:clashmi/app/private/app_url_utils_private.dart';
 import 'package:clashmi/app/runtime/return_result.dart';
 import 'package:clashmi/app/utils/app_lifecycle_state_notify.dart';
+import 'package:clashmi/app/utils/app_utils.dart';
 import 'package:clashmi/app/utils/convert_utils.dart';
 import 'package:clashmi/app/utils/date_time_utils.dart';
 import 'package:clashmi/app/utils/download_utils.dart';
 import 'package:clashmi/app/utils/file_utils.dart';
 import 'package:clashmi/app/utils/http_utils.dart';
+import 'package:clashmi/app/utils/hwid_utils.dart';
 import 'package:clashmi/app/utils/log.dart';
 import 'package:clashmi/app/utils/path_utils.dart';
 import 'package:clashmi/app/utils/platform_utils.dart';
@@ -55,6 +58,7 @@ class ProfileSetting {
     this.decryptPassword = "",
     this.userAgent = "",
     this.patch = "",
+    this.boardProviderId = "",
   });
   String id = "";
   String remark = "";
@@ -71,6 +75,7 @@ class ProfileSetting {
   num download = 0;
   num total = 0;
   String expire = "";
+  String boardProviderId = "";
 
   bool overwriteProxyGroups = false;
   bool overwriteRules = false;
@@ -94,6 +99,7 @@ class ProfileSetting {
     'download': download,
     'total': total,
     'expire': expire,
+    'board_provider_id': boardProviderId,
     'overwrite_rules': overwriteRules,
     'overwrite_proxy_groups': overwriteProxyGroups,
     'proxy_groups': proxyGroups,
@@ -138,6 +144,7 @@ class ProfileSetting {
     total = map['total'] ?? 0;
     expire = map['expire'] ?? "";
     decryptPassword = map['decrypt_password'] ?? "";
+    boardProviderId = map['board_provider_id'] ?? "";
     overwriteProxyGroups = map['overwrite_proxy_groups'] ?? false;
     overwriteRules = map['overwrite_rules'] ?? false;
     final pgs = map["proxy_groups"];
@@ -576,7 +583,7 @@ class ProfileManager {
     String decryptPassword = "",
     Duration? updateInterval,
     bool updateIntervalPreferByProfile = false,
-    bool popToTopIfNotExist = false,
+    String boardProviderId = "",
   }) async {
     final uri = Uri.tryParse(url);
     if (uri == null) {
@@ -603,9 +610,31 @@ class ProfileManager {
         break;
       }
     }
-    if (result.error != null) {
+    // if (result.error != null) {
+    bool success = false;
+    if (boardProviderId.isNotEmpty) {
+      final result2 = await downloadByProviderProxy(
+        boardProviderId,
+        url,
+        userAgent,
+        xhwid,
+      );
+      if (result2.error == null && result2.data!.item1 == 200) {
+        try {
+          var file = File(savePath);
+          await file.writeAsString(result2.data!.item2, flush: true);
+          success = true;
+        } catch (err) {
+          Log.w(
+            "addRemote downloadByProviderProxy exception ${err.toString()} ",
+          );
+        }
+      }
+    }
+    if (!success) {
       return ReturnResult(error: result.error);
     }
+    //}
     Duration? updateIntervalByProfile;
     if (result.data != null) {
       final err = await decryptProfile(result.data, savePath, decryptPassword);
@@ -659,11 +688,12 @@ class ProfileManager {
       xhwid: xhwid,
       decryptPassword: decryptPassword,
       patch: patch,
+      boardProviderId: boardProviderId,
     );
 
     profile.updateSubscriptionTraffic(result.data);
     if (index < 0) {
-      if (popToTopIfNotExist) {
+      if (boardProviderId.isNotEmpty) {
         _config.profiles.insert(0, profile);
       } else {
         _config.profiles.add(profile);
@@ -734,6 +764,31 @@ class ProfileManager {
       );
       if (result.error == null) {
         break;
+      }
+    }
+    if (result.error != null) {
+      bool success = false;
+      if (profile.boardProviderId.isNotEmpty) {
+        final result2 = await downloadByProviderProxy(
+          profile.boardProviderId,
+          profile.url,
+          userAgent,
+          profile.xhwid,
+        );
+        if (result2.error == null && result2.data!.item1 == 200) {
+          try {
+            var file = File(savePath);
+            await file.writeAsString(result2.data!.item2, flush: true);
+            success = true;
+          } catch (err) {
+            Log.w(
+              "update downloadByProviderProxy exception ${err.toString()} ",
+            );
+          }
+        }
+      }
+      if (!success) {
+        return result.error;
       }
     }
     profile.update = DateTime.now();
@@ -817,6 +872,49 @@ class ProfileManager {
       }
     });
     return result.error;
+  }
+
+  static Future<ReturnResult<Tuple2<int, String>>> downloadByProviderProxy(
+    String boardProviderId,
+    String url,
+    String userAgent,
+    bool xhwid,
+  ) async {
+    var headers = {
+      HttpHeaders.contentTypeHeader: "application/json; charset=UTF-8",
+    };
+    final urlAndbody = ProfileProxyProviderPrivate.getProviderProxyUrlAndBody(
+      app: AppUtils.getName(),
+      version: AppUtils.getBuildinVersion(),
+      boardProviderId: boardProviderId,
+      url: url,
+      userAgent: userAgent.isEmpty ? await HttpUtils.getUserAgent() : userAgent,
+      xhwidHeaders: xhwid ? await HwidUtils.getHwidHeaders() : {},
+    );
+
+    var result = await HttpUtils.httpPostRequest(
+      urlAndbody.item1,
+      null,
+      headers,
+      urlAndbody.item3,
+      const Duration(seconds: 30),
+      null,
+      null,
+      null,
+    );
+    if (result.error != null && urlAndbody.item2.isNotEmpty) {
+      result = await HttpUtils.httpPostRequest(
+        urlAndbody.item2,
+        null,
+        headers,
+        urlAndbody.item3,
+        const Duration(seconds: 30),
+        null,
+        null,
+        null,
+      );
+    }
+    return result;
   }
 
   static Future<void> updateByTicker() async {

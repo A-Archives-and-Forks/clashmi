@@ -197,9 +197,7 @@ class BoardProviderManager {
       checkStatuscode: false,
     );
 
-    if (result.error != null &&
-        result.error!.message.contains("http response timeout") &&
-        urlAndbody.item2.isNotEmpty) {
+    if (result.error != null && urlAndbody.item2.isNotEmpty) {
       result = await HttpUtils.httpPostRequest(
         urlAndbody.item2,
         null,

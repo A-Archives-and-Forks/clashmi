@@ -70,7 +70,7 @@ class V2boardLogin {
         remark: provider.name,
         userAgent: session.provider.userAgent,
         xhwid: session.provider.xhwid,
-        popToTopIfNotExist: true,
+        boardProviderId: provider.id,
       );
       if (result.error != null) {
         return result.error!.message;
