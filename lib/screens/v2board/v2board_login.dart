@@ -17,7 +17,9 @@ class V2boardLogin {
       email,
     );
     if (session == null || session.v2board == null) {
-      return BoardSessionLoginError(message: "unsupported provider type");
+      return BoardSessionLoginError(
+        message: "create session failed, check provider or account",
+      );
     }
     //session.v2board!.proxyUrl = "127.0.0.1:8888";
     final loginRequest = LoginRequest(email: email, password: password);

@@ -16,7 +16,9 @@ class SSPanelLogin {
       email,
     );
     if (session == null || session.ssPanel == null) {
-      return BoardSessionLoginError(message: "unsupported provider type");
+      return BoardSessionLoginError(
+        message: "create session failed, check provider or account",
+      );
     }
     //session.ssPanel!.proxyUrl = "127.0.0.1:8888";
     final loginResponse = await session.ssPanel!.login(email, password);

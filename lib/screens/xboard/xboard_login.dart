@@ -17,7 +17,9 @@ class XboardLogin {
       email,
     );
     if (session == null || session.xboard == null) {
-      return BoardSessionLoginError(message: "unsupported provider type");
+      return BoardSessionLoginError(
+        message: "create session failed, check provider or account",
+      );
     }
     //session.xboard!.proxyUrl = "127.0.0.1:8888";
     final loginRequest = LoginRequest(email: email, password: password);
