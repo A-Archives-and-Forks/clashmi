@@ -196,6 +196,7 @@ class _ProfilesBoardScreenState extends LasyRenderingState<ProfilesBoardScreen>
             url,
             "getTranffic",
             title: tcontext.meta.getProfile,
+            inappWebViewOpenExternal: true,
           );
         },
       ),
