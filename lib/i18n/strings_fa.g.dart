@@ -176,6 +176,7 @@ class _TranslationsLoginScreenFa implements TranslationsLoginScreenEn {
 	@override String passwordMinLength({required Object minLength}) => 'طول رمز عبور باید حداقل ${minLength} کاراکتر باشد';
 	@override String get unsupportedProvider => '${_root.loginScreen.provider} پشتیبانی نمی شود';
 	@override String get unsupportedProviderType => 'نوع ${_root.loginScreen.provider} پشتیبانی نمی شود';
+	@override String get providerLoginSupportRequired => 'این قابلیت فقط زمانی قابل استفاده است که ${_root.loginScreen.provider} شما از آن پشتیبانی کند. پیش از استفاده، لطفاً با ${_root.loginScreen.provider} خود تأیید کنید که ورود در Clash Mi پشتیبانی می شود';
 }
 
 // Path: main
@@ -584,6 +585,7 @@ extension on TranslationsFa {
 			'loginScreen.passwordMinLength' => ({required Object minLength}) => 'طول رمز عبور باید حداقل ${minLength} کاراکتر باشد',
 			'loginScreen.unsupportedProvider' => '${_root.loginScreen.provider} پشتیبانی نمی شود',
 			'loginScreen.unsupportedProviderType' => 'نوع ${_root.loginScreen.provider} پشتیبانی نمی شود',
+			'loginScreen.providerLoginSupportRequired' => 'این قابلیت فقط زمانی قابل استفاده است که ${_root.loginScreen.provider} شما از آن پشتیبانی کند. پیش از استفاده، لطفاً با ${_root.loginScreen.provider} خود تأیید کنید که ورود در Clash Mi پشتیبانی می شود',
 			'main.tray.menuOpen' => 'بازکردن',
 			'main.tray.menuExit' => 'بستن',
 			'meta.enable' => 'فعال‌سازی',

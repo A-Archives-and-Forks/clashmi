@@ -58,7 +58,8 @@
         "validEmailRequired": "يرجى إدخال عنوان بريد إلكتروني صحيح",
         "passwordMinLength": "يجب أن تكون كلمة المرور $minLength أحرف على الأقل",
         "unsupportedProvider": "@:{loginScreen.provider} غير مدعوم",
-        "unsupportedProviderType": "نوع @:{loginScreen.provider} غير مدعوم"
+        "unsupportedProviderType": "نوع @:{loginScreen.provider} غير مدعوم",
+        "providerLoginSupportRequired": "تتطلب هذه الميزة دعماً من @:{loginScreen.provider} الخاص بك. قبل الاستخدام، يرجى التأكد من @:{loginScreen.provider} الخاص بك مما إذا كان تسجيل الدخول على Clash Mi مدعوماً"
     },
     "main": {
         "tray": {

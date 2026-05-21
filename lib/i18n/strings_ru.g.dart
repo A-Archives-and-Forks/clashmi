@@ -176,6 +176,7 @@ class _TranslationsLoginScreenRu implements TranslationsLoginScreenEn {
 	@override String passwordMinLength({required Object minLength}) => 'Длина пароля должна быть не менее ${minLength} символов';
 	@override String get unsupportedProvider => 'Неподдерживаемый ${_root.loginScreen.provider}';
 	@override String get unsupportedProviderType => 'Неподдерживаемый тип ${_root.loginScreen.provider}';
+	@override String get providerLoginSupportRequired => 'Для использования этой функции ваш ${_root.loginScreen.provider} должен поддерживать ее. Перед использованием уточните у вашего ${_root.loginScreen.provider}, поддерживается ли вход в Clash Mi';
 }
 
 // Path: main
@@ -584,6 +585,7 @@ extension on TranslationsRu {
 			'loginScreen.passwordMinLength' => ({required Object minLength}) => 'Длина пароля должна быть не менее ${minLength} символов',
 			'loginScreen.unsupportedProvider' => 'Неподдерживаемый ${_root.loginScreen.provider}',
 			'loginScreen.unsupportedProviderType' => 'Неподдерживаемый тип ${_root.loginScreen.provider}',
+			'loginScreen.providerLoginSupportRequired' => 'Для использования этой функции ваш ${_root.loginScreen.provider} должен поддерживать ее. Перед использованием уточните у вашего ${_root.loginScreen.provider}, поддерживается ли вход в Clash Mi',
 			'main.tray.menuOpen' => 'Открыть',
 			'main.tray.menuExit' => 'Выйти',
 			'meta.enable' => 'Включить',

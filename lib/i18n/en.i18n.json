@@ -58,7 +58,8 @@
         "validEmailRequired": "Please enter valid email address",
         "passwordMinLength": "Password length at least $minLength characters",
         "unsupportedProvider": "Unsupported @:{loginScreen.provider}",
-        "unsupportedProviderType": "Unsupported @:{loginScreen.provider} type"
+        "unsupportedProviderType": "Unsupported @:{loginScreen.provider} type",
+        "providerLoginSupportRequired": "This feature requires support from your @:{loginScreen.provider}. Before using it, please confirm with your @:{loginScreen.provider} whether login on Clash Mi is supported"
     },
     "main": {
         "tray": {

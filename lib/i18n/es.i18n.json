@@ -58,7 +58,8 @@
         "validEmailRequired": "Por favor, introduzca una dirección de correo electrónico válida",
         "passwordMinLength": "La contraseña debe tener al menos $minLength caracteres",
         "unsupportedProvider": "@:{loginScreen.provider} no compatible",
-        "unsupportedProviderType": "Tipo de @:{loginScreen.provider} no compatible"
+        "unsupportedProviderType": "Tipo de @:{loginScreen.provider} no compatible",
+        "providerLoginSupportRequired": "Esta función requiere soporte de tu @:{loginScreen.provider}. Antes de usarla, confirma con tu @:{loginScreen.provider} si admite iniciar sesión en Clash Mi"
     },
     "main": {
         "tray": {

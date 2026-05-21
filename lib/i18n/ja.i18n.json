@@ -58,7 +58,8 @@
         "validEmailRequired": "有効なメールアドレスを入力してください",
         "passwordMinLength": "パスワード長は最低$minLength文字以上である必要があります",
         "unsupportedProvider": "サポートされていない@:{loginScreen.provider}",
-        "unsupportedProviderType": "サポートされていない@:{loginScreen.provider}タイプ"
+        "unsupportedProviderType": "サポートされていない@:{loginScreen.provider}タイプ",
+        "providerLoginSupportRequired": "この機能を利用するには、あなたの@:{loginScreen.provider}のサポートが必要です。利用前に、Clash Mi でのログインに対応しているか@:{loginScreen.provider}に確認してください"
     },
     "main": {
         "tray": {

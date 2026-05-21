@@ -176,6 +176,7 @@ class _TranslationsLoginScreenKo implements TranslationsLoginScreenEn {
 	@override String passwordMinLength({required Object minLength}) => '비밀번호 길이는 최소 ${minLength}자 이상이어야 합니다';
 	@override String get unsupportedProvider => '지원되지 않는 ${_root.loginScreen.provider}';
 	@override String get unsupportedProviderType => '지원되지 않는 ${_root.loginScreen.provider} 유형';
+	@override String get providerLoginSupportRequired => '이 기능을 사용하려면 ${_root.loginScreen.provider}의 지원이 필요합니다. 사용 전에 Clash Mi 로그인 지원 여부를 ${_root.loginScreen.provider}에 먼저 확인하세요';
 }
 
 // Path: main
@@ -584,6 +585,7 @@ extension on TranslationsKo {
 			'loginScreen.passwordMinLength' => ({required Object minLength}) => '비밀번호 길이는 최소 ${minLength}자 이상이어야 합니다',
 			'loginScreen.unsupportedProvider' => '지원되지 않는 ${_root.loginScreen.provider}',
 			'loginScreen.unsupportedProviderType' => '지원되지 않는 ${_root.loginScreen.provider} 유형',
+			'loginScreen.providerLoginSupportRequired' => '이 기능을 사용하려면 ${_root.loginScreen.provider}의 지원이 필요합니다. 사용 전에 Clash Mi 로그인 지원 여부를 ${_root.loginScreen.provider}에 먼저 확인하세요',
 			'main.tray.menuOpen' => '열기',
 			'main.tray.menuExit' => '종료',
 			'meta.enable' => '활성화',

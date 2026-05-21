@@ -176,6 +176,7 @@ class _TranslationsLoginScreenZhTw implements TranslationsLoginScreenEn {
 	@override String passwordMinLength({required Object minLength}) => '密碼長度至少${minLength}位';
 	@override String get unsupportedProvider => '不支持的${_root.loginScreen.provider}';
 	@override String get unsupportedProviderType => '不支持的${_root.loginScreen.provider}類型';
+	@override String get providerLoginSupportRequired => '當前功能需要你的${_root.loginScreen.provider}支持才能使用,使用前請先跟你的${_root.loginScreen.provider}確認是否支持在Clash Mi上登錄';
 }
 
 // Path: main
@@ -584,6 +585,7 @@ extension on TranslationsZhTw {
 			'loginScreen.passwordMinLength' => ({required Object minLength}) => '密碼長度至少${minLength}位',
 			'loginScreen.unsupportedProvider' => '不支持的${_root.loginScreen.provider}',
 			'loginScreen.unsupportedProviderType' => '不支持的${_root.loginScreen.provider}類型',
+			'loginScreen.providerLoginSupportRequired' => '當前功能需要你的${_root.loginScreen.provider}支持才能使用,使用前請先跟你的${_root.loginScreen.provider}確認是否支持在Clash Mi上登錄',
 			'main.tray.menuOpen' => '打開',
 			'main.tray.menuExit' => '退出',
 			'meta.enable' => '啟用',

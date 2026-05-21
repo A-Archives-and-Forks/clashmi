@@ -176,6 +176,7 @@ class _TranslationsLoginScreenJa implements TranslationsLoginScreenEn {
 	@override String passwordMinLength({required Object minLength}) => 'パスワード長は最低${minLength}文字以上である必要があります';
 	@override String get unsupportedProvider => 'サポートされていない${_root.loginScreen.provider}';
 	@override String get unsupportedProviderType => 'サポートされていない${_root.loginScreen.provider}タイプ';
+	@override String get providerLoginSupportRequired => 'この機能を利用するには、あなたの${_root.loginScreen.provider}のサポートが必要です。利用前に、Clash Mi でのログインに対応しているか${_root.loginScreen.provider}に確認してください';
 }
 
 // Path: main
@@ -584,6 +585,7 @@ extension on TranslationsJa {
 			'loginScreen.passwordMinLength' => ({required Object minLength}) => 'パスワード長は最低${minLength}文字以上である必要があります',
 			'loginScreen.unsupportedProvider' => 'サポートされていない${_root.loginScreen.provider}',
 			'loginScreen.unsupportedProviderType' => 'サポートされていない${_root.loginScreen.provider}タイプ',
+			'loginScreen.providerLoginSupportRequired' => 'この機能を利用するには、あなたの${_root.loginScreen.provider}のサポートが必要です。利用前に、Clash Mi でのログインに対応しているか${_root.loginScreen.provider}に確認してください',
 			'main.tray.menuOpen' => '開く',
 			'main.tray.menuExit' => '終了',
 			'meta.enable' => '有効',

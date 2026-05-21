@@ -280,6 +280,9 @@ class TranslationsLoginScreenEn {
 
 	/// en: 'Unsupported Provider type'
 	String get unsupportedProviderType => 'Unsupported ${_root.loginScreen.provider} type';
+
+	/// en: 'This feature requires support from your Provider. Before using it, please confirm with your Provider whether login on Clash Mi is supported'
+	String get providerLoginSupportRequired => 'This feature requires support from your ${_root.loginScreen.provider}. Before using it, please confirm with your ${_root.loginScreen.provider} whether login on Clash Mi is supported';
 }
 
 // Path: main
@@ -1226,6 +1229,7 @@ extension on Translations {
 			'loginScreen.passwordMinLength' => ({required Object minLength}) => 'Password length at least ${minLength} characters',
 			'loginScreen.unsupportedProvider' => 'Unsupported ${_root.loginScreen.provider}',
 			'loginScreen.unsupportedProviderType' => 'Unsupported ${_root.loginScreen.provider} type',
+			'loginScreen.providerLoginSupportRequired' => 'This feature requires support from your ${_root.loginScreen.provider}. Before using it, please confirm with your ${_root.loginScreen.provider} whether login on Clash Mi is supported',
 			'main.tray.menuOpen' => 'Open',
 			'main.tray.menuExit' => 'Exit',
 			'meta.enable' => 'Enable',

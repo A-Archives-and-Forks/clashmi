@@ -176,6 +176,7 @@ class _TranslationsLoginScreenAr implements TranslationsLoginScreenEn {
 	@override String passwordMinLength({required Object minLength}) => 'يجب أن تكون كلمة المرور ${minLength} أحرف على الأقل';
 	@override String get unsupportedProvider => '${_root.loginScreen.provider} غير مدعوم';
 	@override String get unsupportedProviderType => 'نوع ${_root.loginScreen.provider} غير مدعوم';
+	@override String get providerLoginSupportRequired => 'تتطلب هذه الميزة دعماً من ${_root.loginScreen.provider} الخاص بك. قبل الاستخدام، يرجى التأكد من ${_root.loginScreen.provider} الخاص بك مما إذا كان تسجيل الدخول على Clash Mi مدعوماً';
 }
 
 // Path: main
@@ -584,6 +585,7 @@ extension on TranslationsAr {
 			'loginScreen.passwordMinLength' => ({required Object minLength}) => 'يجب أن تكون كلمة المرور ${minLength} أحرف على الأقل',
 			'loginScreen.unsupportedProvider' => '${_root.loginScreen.provider} غير مدعوم',
 			'loginScreen.unsupportedProviderType' => 'نوع ${_root.loginScreen.provider} غير مدعوم',
+			'loginScreen.providerLoginSupportRequired' => 'تتطلب هذه الميزة دعماً من ${_root.loginScreen.provider} الخاص بك. قبل الاستخدام، يرجى التأكد من ${_root.loginScreen.provider} الخاص بك مما إذا كان تسجيل الدخول على Clash Mi مدعوماً',
 			'main.tray.menuOpen' => 'يفتح',
 			'main.tray.menuExit' => 'مخرج',
 			'meta.enable' => 'يُمكَِن',

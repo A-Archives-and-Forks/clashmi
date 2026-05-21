@@ -58,7 +58,8 @@
         "validEmailRequired": "請輸入有效的郵箱地址",
         "passwordMinLength": "密碼長度至少$minLength位",
         "unsupportedProvider": "不支持的@:{loginScreen.provider}",
-        "unsupportedProviderType": "不支持的@:{loginScreen.provider}類型"
+        "unsupportedProviderType": "不支持的@:{loginScreen.provider}類型",
+        "providerLoginSupportRequired": "當前功能需要你的@:{loginScreen.provider}支持才能使用,使用前請先跟你的@:{loginScreen.provider}確認是否支持在Clash Mi上登錄"
     },
     "main": {
         "tray": {

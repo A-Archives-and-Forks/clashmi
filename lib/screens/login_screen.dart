@@ -175,16 +175,19 @@ class _LoginScreenState extends State<LoginScreen> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 mainAxisSize: MainAxisSize.min,
                 children: [
+                  Text(
+                    tcontext.loginScreen.providerLoginSupportRequired,
+                    maxLines: 3,
+                    style: TextStyle(
+                      color: Colors.red,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                  const SizedBox(height: 10),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      /*Text(
-                                      tcontext.loginScreen.login,
-                                      style: TextStyle(
-                                        fontSize: 22,
-                                        fontWeight: FontWeight.w700,
-                                      ),
-                                    ),*/
                       isProviderSupported &&
                               _provider!.clientServiceUrl.isNotEmpty
                           ? InkWell(

@@ -58,7 +58,8 @@
         "validEmailRequired": "Пожалуйста, введите действительный адрес электронной почты",
         "passwordMinLength": "Длина пароля должна быть не менее $minLength символов",
         "unsupportedProvider": "Неподдерживаемый @:{loginScreen.provider}",
-        "unsupportedProviderType": "Неподдерживаемый тип @:{loginScreen.provider}"
+        "unsupportedProviderType": "Неподдерживаемый тип @:{loginScreen.provider}",
+        "providerLoginSupportRequired": "Для использования этой функции ваш @:{loginScreen.provider} должен поддерживать ее. Перед использованием уточните у вашего @:{loginScreen.provider}, поддерживается ли вход в Clash Mi"
     },
     "main": {
         "tray": {
