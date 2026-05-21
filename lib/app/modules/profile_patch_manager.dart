@@ -47,6 +47,7 @@ class ProfilePatchSetting {
     this.update,
     this.url = "",
     this.type = ProfilePatchFileType.yaml,
+    this.appendPatchBuildin = "",
   });
   String id = "";
   String remark = "";
@@ -54,6 +55,7 @@ class ProfilePatchSetting {
   DateTime? update;
   String url;
   ProfilePatchFileType type = ProfilePatchFileType.yaml;
+  String appendPatchBuildin = "";
 
   Map<String, dynamic> toJson() => {
     'id': id,
@@ -62,6 +64,7 @@ class ProfilePatchSetting {
     'update': update.toString(),
     'url': url,
     'type': type.name,
+    'append_patch_buildin': appendPatchBuildin,
   };
   void fromJson(Map<String, dynamic>? map) {
     if (map == null) {
@@ -86,6 +89,12 @@ class ProfilePatchSetting {
       (e) => e.name == map['type'],
       orElse: () => ProfilePatchFileType.yaml,
     );
+    appendPatchBuildin = map['append_patch_buildin'] ?? "";
+    if (appendPatchBuildin != "" &&
+        appendPatchBuildin != kProfilePatchBuildinNoOverwrite &&
+        appendPatchBuildin != kProfilePatchBuildinOverwrite) {
+      appendPatchBuildin = "";
+    }
   }
 
   String getType() {
