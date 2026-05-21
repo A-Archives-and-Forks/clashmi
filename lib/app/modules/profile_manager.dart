@@ -611,31 +611,32 @@ class ProfileManager {
         break;
       }
     }
-    // if (result.error != null) { todo
-    bool success = false;
-    if (boardProviderId.isNotEmpty) {
-      final result2 = await downloadByProviderProxy(
-        boardProviderId,
-        url,
-        userAgent,
-        xhwid,
-      );
-      if (result2.error == null && result2.data!.item1 == 200) {
-        try {
-          var file = File(savePath);
-          await file.writeAsString(result2.data!.item2, flush: true);
-          success = true;
-        } catch (err) {
-          Log.w(
-            "addRemote downloadByProviderProxy exception ${err.toString()} ",
-          );
+    if (result.error != null) {
+      //todo
+      bool success = false;
+      if (boardProviderId.isNotEmpty) {
+        final result2 = await downloadByProviderProxy(
+          boardProviderId,
+          url,
+          userAgent,
+          xhwid,
+        );
+        if (result2.error == null && result2.data!.item1 == 200) {
+          try {
+            var file = File(savePath);
+            await file.writeAsString(result2.data!.item2, flush: true);
+            success = true;
+          } catch (err) {
+            Log.w(
+              "addRemote downloadByProviderProxy exception ${err.toString()} ",
+            );
+          }
         }
       }
+      if (!success) {
+        return ReturnResult(error: result.error);
+      }
     }
-    if (!success) {
-      return ReturnResult(error: result.error);
-    }
-    //}
     Duration? updateIntervalByProfile;
     if (result.data != null) {
       final err = await decryptProfile(result.data, savePath, decryptPassword);
