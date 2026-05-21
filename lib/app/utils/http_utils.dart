@@ -321,8 +321,15 @@ abstract final class HttpUtils {
       }
       if (checkStatuscode == true) {
         if (response.statusCode != 200) {
+          String stringData = "";
+          try {
+            stringData = await response.transform(utf8.decoder).join();
+          } catch (err) {}
           return ReturnResult(
             error: ReturnResultError("http statusCode: ${response.statusCode}"),
+            data: stringData.isNotEmpty
+                ? Tuple2(response.statusCode, stringData)
+                : null,
           );
         }
       }
