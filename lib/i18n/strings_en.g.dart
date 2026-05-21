@@ -540,6 +540,9 @@ class TranslationsMetaEn {
 	/// en: 'Custom Overwrite'
 	String get overwriteCustom => 'Custom Overwrite';
 
+	/// en: 'Append Overwrite'
+	String get overwriteAppend => 'Append Overwrite';
+
 	/// en: 'Original Profile <- Custom Overwrite <- App Overwrite'
 	String get overwriteTips => 'Original Profile <- Custom Overwrite <- App Overwrite';
 
@@ -1305,6 +1308,7 @@ extension on Translations {
 			'meta.coreSettingTips' => 'Note: After modifying the configuration, you need to reconnect to take effect',
 			'meta.overwrite' => 'Overwrite',
 			'meta.overwriteCustom' => 'Custom Overwrite',
+			'meta.overwriteAppend' => 'Append Overwrite',
 			'meta.overwriteTips' => 'Original Profile <- Custom Overwrite <- App Overwrite',
 			'meta.noOverwrite' => 'Do not overwrite',
 			'meta.overwriteSettings' => 'Overwrite Settings',

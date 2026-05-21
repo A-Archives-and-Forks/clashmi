@@ -275,6 +275,7 @@ class _TranslationsMetaEs implements TranslationsMetaEn {
 	@override String get coreSettingTips => 'Nota: Después de modificar la configuración, debe volver a conectar para que surta efecto';
 	@override String get overwrite => 'Sobrescribir';
 	@override String get overwriteCustom => 'Sobrescritura Personalizada';
+	@override String get overwriteAppend => 'Sobrescritura adicional';
 	@override String get overwriteTips => 'Perfil Original <- Sobrescritura Personalizada <- Sobrescritura de App';
 	@override String get noOverwrite => 'No sobrescribir';
 	@override String get overwriteSettings => 'Ajustes de Sobrescritura';
@@ -665,6 +666,7 @@ extension on TranslationsEs {
 			'meta.coreSettingTips' => 'Nota: Después de modificar la configuración, debe volver a conectar para que surta efecto',
 			'meta.overwrite' => 'Sobrescribir',
 			'meta.overwriteCustom' => 'Sobrescritura Personalizada',
+			'meta.overwriteAppend' => 'Sobrescritura adicional',
 			'meta.overwriteTips' => 'Perfil Original <- Sobrescritura Personalizada <- Sobrescritura de App',
 			'meta.noOverwrite' => 'No sobrescribir',
 			'meta.overwriteSettings' => 'Ajustes de Sobrescritura',

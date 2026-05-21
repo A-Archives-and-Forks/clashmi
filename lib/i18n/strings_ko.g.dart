@@ -275,6 +275,7 @@ class _TranslationsMetaKo implements TranslationsMetaEn {
 	@override String get coreSettingTips => '참고: 설정을 수정한 후 적용하려면 다시 연결해야 합니다';
 	@override String get overwrite => '덮어쓰기';
 	@override String get overwriteCustom => '사용자 정의 덮어쓰기';
+	@override String get overwriteAppend => '추가 덮어쓰기';
 	@override String get overwriteTips => '원본 프로필 <- 사용자 정의 덮어쓰기 <- 앱 덮어쓰기';
 	@override String get noOverwrite => '덮어쓰지 않음';
 	@override String get overwriteSettings => '덮어쓰기 설정';
@@ -665,6 +666,7 @@ extension on TranslationsKo {
 			'meta.coreSettingTips' => '참고: 설정을 수정한 후 적용하려면 다시 연결해야 합니다',
 			'meta.overwrite' => '덮어쓰기',
 			'meta.overwriteCustom' => '사용자 정의 덮어쓰기',
+			'meta.overwriteAppend' => '추가 덮어쓰기',
 			'meta.overwriteTips' => '원본 프로필 <- 사용자 정의 덮어쓰기 <- 앱 덮어쓰기',
 			'meta.noOverwrite' => '덮어쓰지 않음',
 			'meta.overwriteSettings' => '덮어쓰기 설정',

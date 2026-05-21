@@ -275,6 +275,7 @@ class _TranslationsMetaAr implements TranslationsMetaEn {
 	@override String get coreSettingTips => 'ملاحظة: بعد تعديل التكوين، تحتاج إلى إعادة الاتصال حتى يسري مفعوله';
 	@override String get overwrite => 'تجاوز';
 	@override String get overwriteCustom => 'تجاوزات مخصصة';
+	@override String get overwriteAppend => 'تجاوز إضافي';
 	@override String get overwriteTips => 'التكوين الأصلي <- تجاوز مخصص <- تجاوز التطبيق';
 	@override String get noOverwrite => 'لا تكتب فوق';
 	@override String get overwriteSettings => 'تجاوز الإعدادات';
@@ -665,6 +666,7 @@ extension on TranslationsAr {
 			'meta.coreSettingTips' => 'ملاحظة: بعد تعديل التكوين، تحتاج إلى إعادة الاتصال حتى يسري مفعوله',
 			'meta.overwrite' => 'تجاوز',
 			'meta.overwriteCustom' => 'تجاوزات مخصصة',
+			'meta.overwriteAppend' => 'تجاوز إضافي',
 			'meta.overwriteTips' => 'التكوين الأصلي <- تجاوز مخصص <- تجاوز التطبيق',
 			'meta.noOverwrite' => 'لا تكتب فوق',
 			'meta.overwriteSettings' => 'تجاوز الإعدادات',

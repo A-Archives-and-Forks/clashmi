@@ -275,6 +275,7 @@ class _TranslationsMetaRu implements TranslationsMetaEn {
 	@override String get coreSettingTips => 'Примечание: После изменения конфигурации необходимо повторно подключиться, чтобы изменения вступили в силу.';
 	@override String get overwrite => 'Переопределить';
 	@override String get overwriteCustom => 'Пользовательские переопределения';
+	@override String get overwriteAppend => 'Дополнительное переопределение';
 	@override String get overwriteTips => 'Исходная конфигурация <- Пользовательское переопределение <- Переопределение приложения';
 	@override String get noOverwrite => 'Не перезаписывать';
 	@override String get overwriteSettings => 'Переопределить настройки';
@@ -665,6 +666,7 @@ extension on TranslationsRu {
 			'meta.coreSettingTips' => 'Примечание: После изменения конфигурации необходимо повторно подключиться, чтобы изменения вступили в силу.',
 			'meta.overwrite' => 'Переопределить',
 			'meta.overwriteCustom' => 'Пользовательские переопределения',
+			'meta.overwriteAppend' => 'Дополнительное переопределение',
 			'meta.overwriteTips' => 'Исходная конфигурация <- Пользовательское переопределение <- Переопределение приложения',
 			'meta.noOverwrite' => 'Не перезаписывать',
 			'meta.overwriteSettings' => 'Переопределить настройки',

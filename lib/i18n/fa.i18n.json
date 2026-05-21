@@ -147,6 +147,7 @@
         "coreSettingTips": "توجه: پس از تغییر پیکربندی، باید دوباره وصل شوید تا اعمال شود",
         "overwrite": "لغو",
         "overwriteCustom": "لغوهای سفارشی",
+        "overwriteAppend": "لغو الحاقی",
         "overwriteTips": "پیکربندی اصلی <- لغو سفارشی <- لغو برنامه",
         "noOverwrite": "رونویسی نکنید",
         "overwriteSettings": "لغو تنظیمات",

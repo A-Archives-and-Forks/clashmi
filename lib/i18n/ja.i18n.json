@@ -147,6 +147,7 @@
         "coreSettingTips": "注意：設定を変更した後、有効にするには再接続する必要があります",
         "overwrite": "上書き",
         "overwriteCustom": "カスタム上書き",
+        "overwriteAppend": "追加上書き",
         "overwriteTips": "オリジナルプロファイル <- カスタム上書き <- アプリ上書き",
         "noOverwrite": "上書きしない",
         "overwriteSettings": "上書き設定",

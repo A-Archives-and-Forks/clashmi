@@ -147,6 +147,7 @@
         "coreSettingTips": "注意:修改配置後,需要重新連接才會生效",
         "overwrite": "覆寫",
         "overwriteCustom": "自定義覆寫",
+        "overwriteAppend": "追加覆寫",
         "overwriteTips": "原始配置<-自定義覆寫<-App覆寫",
         "noOverwrite": "不覆寫",
         "overwriteSettings": "覆寫設置",

@@ -160,7 +160,9 @@ class VPNService {
     final controlPort = ClashSettingManager.getControlPort();
 
     bool overwriteFinal =
-        patch.id.isEmpty || patch.id == kProfilePatchBuildinOverwrite;
+        patch.id.isEmpty ||
+        patch.id == kProfilePatchBuildinOverwrite ||
+        patch.appendPatchBuildin == kProfilePatchBuildinOverwrite;
 
     await ClashSettingManager.saveCorePatchFinal(
       profile.id,

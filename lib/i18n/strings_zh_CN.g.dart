@@ -275,6 +275,7 @@ class _TranslationsMetaZhCn implements TranslationsMetaEn {
 	@override String get coreSettingTips => '注意:修改配置后,需要重新连接才会生效';
 	@override String get overwrite => '覆写';
 	@override String get overwriteCustom => '自定义覆写';
+	@override String get overwriteAppend => '追加覆写';
 	@override String get overwriteTips => '原始配置<-自定义覆写<-App覆写';
 	@override String get noOverwrite => '不覆写';
 	@override String get overwriteSettings => '覆写设置';
@@ -665,6 +666,7 @@ extension on TranslationsZhCn {
 			'meta.coreSettingTips' => '注意:修改配置后,需要重新连接才会生效',
 			'meta.overwrite' => '覆写',
 			'meta.overwriteCustom' => '自定义覆写',
+			'meta.overwriteAppend' => '追加覆写',
 			'meta.overwriteTips' => '原始配置<-自定义覆写<-App覆写',
 			'meta.noOverwrite' => '不覆写',
 			'meta.overwriteSettings' => '覆写设置',

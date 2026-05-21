@@ -275,6 +275,7 @@ class _TranslationsMetaJa implements TranslationsMetaEn {
 	@override String get coreSettingTips => '注意：設定を変更した後、有効にするには再接続する必要があります';
 	@override String get overwrite => '上書き';
 	@override String get overwriteCustom => 'カスタム上書き';
+	@override String get overwriteAppend => '追加上書き';
 	@override String get overwriteTips => 'オリジナルプロファイル <- カスタム上書き <- アプリ上書き';
 	@override String get noOverwrite => '上書きしない';
 	@override String get overwriteSettings => '上書き設定';
@@ -665,6 +666,7 @@ extension on TranslationsJa {
 			'meta.coreSettingTips' => '注意：設定を変更した後、有効にするには再接続する必要があります',
 			'meta.overwrite' => '上書き',
 			'meta.overwriteCustom' => 'カスタム上書き',
+			'meta.overwriteAppend' => '追加上書き',
 			'meta.overwriteTips' => 'オリジナルプロファイル <- カスタム上書き <- アプリ上書き',
 			'meta.noOverwrite' => '上書きしない',
 			'meta.overwriteSettings' => '上書き設定',

@@ -147,6 +147,7 @@
         "coreSettingTips": "ملاحظة: بعد تعديل التكوين، تحتاج إلى إعادة الاتصال حتى يسري مفعوله",
         "overwrite": "تجاوز",
         "overwriteCustom": "تجاوزات مخصصة",
+        "overwriteAppend": "تجاوز إضافي",
         "overwriteTips": "التكوين الأصلي <- تجاوز مخصص <- تجاوز التطبيق",
         "noOverwrite": "لا تكتب فوق",
         "overwriteSettings": "تجاوز الإعدادات",

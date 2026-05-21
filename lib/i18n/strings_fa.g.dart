@@ -275,6 +275,7 @@ class _TranslationsMetaFa implements TranslationsMetaEn {
 	@override String get coreSettingTips => 'توجه: پس از تغییر پیکربندی، باید دوباره وصل شوید تا اعمال شود';
 	@override String get overwrite => 'لغو';
 	@override String get overwriteCustom => 'لغوهای سفارشی';
+	@override String get overwriteAppend => 'لغو الحاقی';
 	@override String get overwriteTips => 'پیکربندی اصلی <- لغو سفارشی <- لغو برنامه';
 	@override String get noOverwrite => 'رونویسی نکنید';
 	@override String get overwriteSettings => 'لغو تنظیمات';
@@ -665,6 +666,7 @@ extension on TranslationsFa {
 			'meta.coreSettingTips' => 'توجه: پس از تغییر پیکربندی، باید دوباره وصل شوید تا اعمال شود',
 			'meta.overwrite' => 'لغو',
 			'meta.overwriteCustom' => 'لغوهای سفارشی',
+			'meta.overwriteAppend' => 'لغو الحاقی',
 			'meta.overwriteTips' => 'پیکربندی اصلی <- لغو سفارشی <- لغو برنامه',
 			'meta.noOverwrite' => 'رونویسی نکنید',
 			'meta.overwriteSettings' => 'لغو تنظیمات',

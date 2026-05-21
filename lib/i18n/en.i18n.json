@@ -147,6 +147,7 @@
         "coreSettingTips": "Note: After modifying the configuration, you need to reconnect to take effect",
         "overwrite": "Overwrite",
         "overwriteCustom": "Custom Overwrite",
+        "overwriteAppend": "Append Overwrite",
         "overwriteTips": "Original Profile <- Custom Overwrite <- App Overwrite",
         "noOverwrite": "Do not overwrite",
         "overwriteSettings": "Overwrite Settings",

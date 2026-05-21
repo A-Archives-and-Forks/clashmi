@@ -275,6 +275,7 @@ class _TranslationsMetaZhTw implements TranslationsMetaEn {
 	@override String get coreSettingTips => '注意:修改配置後,需要重新連接才會生效';
 	@override String get overwrite => '覆寫';
 	@override String get overwriteCustom => '自定義覆寫';
+	@override String get overwriteAppend => '追加覆寫';
 	@override String get overwriteTips => '原始配置<-自定義覆寫<-App覆寫';
 	@override String get noOverwrite => '不覆寫';
 	@override String get overwriteSettings => '覆寫設置';
@@ -665,6 +666,7 @@ extension on TranslationsZhTw {
 			'meta.coreSettingTips' => '注意:修改配置後,需要重新連接才會生效',
 			'meta.overwrite' => '覆寫',
 			'meta.overwriteCustom' => '自定義覆寫',
+			'meta.overwriteAppend' => '追加覆寫',
 			'meta.overwriteTips' => '原始配置<-自定義覆寫<-App覆寫',
 			'meta.noOverwrite' => '不覆寫',
 			'meta.overwriteSettings' => '覆寫設置',

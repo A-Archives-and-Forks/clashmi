@@ -147,6 +147,7 @@
         "coreSettingTips": "Nota: Después de modificar la configuración, debe volver a conectar para que surta efecto",
         "overwrite": "Sobrescribir",
         "overwriteCustom": "Sobrescritura Personalizada",
+        "overwriteAppend": "Sobrescritura adicional",
         "overwriteTips": "Perfil Original <- Sobrescritura Personalizada <- Sobrescritura de App",
         "noOverwrite": "No sobrescribir",
         "overwriteSettings": "Ajustes de Sobrescritura",
