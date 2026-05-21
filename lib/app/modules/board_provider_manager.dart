@@ -86,7 +86,7 @@ class BoardProviderConfig {
     'type': type.name,
     'id': id,
     'name': name,
-    'nicknames': names,
+    'names': names,
     'domain': domain,
     'user_agent': userAgent,
     'urltest_url': urltestUrl,
@@ -116,8 +116,8 @@ class BoardProviderConfig {
     );
     id = map["id"] ?? map["pid"] ?? "";
     name = map["name"] ?? "";
-    names = List<String>.from(map["nicknames"] ?? []);
-    if (names.isEmpty && name.isNotEmpty) {
+    names = List<String>.from(map["names"] ?? map["nicknames"] ?? []);
+    if (name.isNotEmpty && !names.contains(name)) {
       names.add(name);
     }
     domain = map["domain"] ?? "";
@@ -154,19 +154,26 @@ class BoardProviderManager {
   }
 
   static Future<ReturnResult<BoardProviderConfig>> getProvider(
-    String idOrName,
+    String name,
   ) async {
+    if (name.isEmpty) {
+      return ReturnResult(
+        error: ReturnResultError("getProvider: name is empty"),
+      );
+    }
+
     for (final provider in _providers) {
-      if (provider.id == idOrName || provider.names.contains(idOrName)) {
+      if (provider.names.contains(name)) {
         if (provider.lastUpdated != null &&
             DateTime.now().difference(provider.lastUpdated!) <=
-                const Duration(hours: 8)) {
-          if (provider.name != idOrName && provider.names.contains(idOrName)) {
-            provider.name = idOrName;
+                const Duration(hours: 1)) {
+          if (provider.name != name) {
+            provider.name = name;
             await _save();
           }
           return ReturnResult(data: provider);
         }
+        break;
       }
     }
     var headers = {
@@ -176,7 +183,7 @@ class BoardProviderManager {
       app: AppUtils.getName(),
       version: AppUtils.getBuildinVersion(),
       did: await Did.getDid(),
-      idOrName: idOrName,
+      code: name,
     );
     var result = await HttpUtils.httpPostRequest(
       urlAndbody.item1,
@@ -207,9 +214,9 @@ class BoardProviderManager {
     }
     if (result.error != null) {
       for (final provider in _providers) {
-        if (provider.id == idOrName || provider.names.contains(idOrName)) {
-          if (provider.name != idOrName && provider.names.contains(idOrName)) {
-            provider.name = idOrName;
+        if (provider.names.contains(name)) {
+          if (provider.name != name) {
+            provider.name = name;
             await _save();
           }
           return ReturnResult(data: provider);
@@ -220,9 +227,9 @@ class BoardProviderManager {
 
     if (result.data!.item1 != 200) {
       final updated = _providers
-          .where((element) => element.names.contains(idOrName))
+          .where((element) => element.names.contains(name))
           .isNotEmpty;
-      _providers.removeWhere((element) => element.names.contains(idOrName));
+      _providers.removeWhere((element) => element.names.contains(name));
       if (updated) {
         await _save();
       }
@@ -232,8 +239,8 @@ class BoardProviderManager {
       return ReturnResult(
         error: ReturnResultError(
           result.data!.item1 == 410
-              ? "${t.loginScreen.unsupportedProvider}: $idOrName"
-              : "getProvider $idOrName: http statuscode ${result.data!.item1}",
+              ? "${t.loginScreen.unsupportedProvider}: $name"
+              : "getProvider $name: http statuscode ${result.data!.item1}",
         ),
       );
     }
@@ -245,35 +252,35 @@ class BoardProviderManager {
     config.fromJson(decodedBody);
     if (error.code != 0) {
       final updated = _providers
-          .where((element) => element.names.contains(idOrName))
+          .where((element) => element.names.contains(name))
           .isNotEmpty;
-      _providers.removeWhere((element) => element.names.contains(idOrName));
+      _providers.removeWhere((element) => element.names.contains(name));
       if (updated) {
         await _save();
       }
       return ReturnResult(
         error: ReturnResultError(
-          error.msg ?? "getProvider $idOrName: error code ${error.code}",
+          error.msg ?? "getProvider $name: error code ${error.code}",
         ),
       );
     }
     if (config.id.isEmpty) {
       return ReturnResult(
         error: ReturnResultError(
-          error.msg ??
-              "getProvider $idOrName: invalid provider config, empty id",
+          error.msg ?? "getProvider $name: invalid provider config, empty id",
         ),
       );
     }
-    if (config.names.isEmpty && config.name.isNotEmpty) {
-      config.names.add(config.name);
+    if (!config.names.contains(name)) {
+      config.names.add(name);
     }
+    if (config.name != name) {
+      config.name = name;
+    }
+
     var updated = _providers
         .where((element) => element.id == config.id)
         .isEmpty;
-    if (config.name != idOrName && config.names.contains(idOrName)) {
-      config.name = idOrName;
-    }
 
     config.lastUpdated = DateTime.now();
     if (updated) {

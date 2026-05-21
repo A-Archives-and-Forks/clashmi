@@ -378,6 +378,10 @@ class _LoginScreenState extends State<LoginScreen> {
     }
     _provider = result.data;
     Future.delayed(const Duration(milliseconds: 100)).then((value) {
+      if (!mounted) {
+        return;
+      }
+
       setState(() {});
     });
   }
