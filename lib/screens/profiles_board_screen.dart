@@ -200,23 +200,20 @@ class _ProfilesBoardScreenState extends LasyRenderingState<ProfilesBoardScreen>
           );
         },
       ),
-      //todo
-      if (!bool.fromEnvironment("dart.vm.product")) ...[
-        ListTile(
-          leading: const Icon(Icons.login_outlined),
-          title: Text(tcontext.loginScreen.login),
-          onTap: () async {
-            Navigator.of(context).pop();
-            await Navigator.push(
-              context,
-              MaterialPageRoute(
-                settings: LoginScreen.routSettings(),
-                builder: (context) => LoginScreen(),
-              ),
-            );
-          },
-        ),
-      ],
+      ListTile(
+        leading: const Icon(Icons.login_outlined),
+        title: Text(tcontext.loginScreen.login),
+        onTap: () async {
+          Navigator.of(context).pop();
+          await Navigator.push(
+            context,
+            MaterialPageRoute(
+              settings: LoginScreen.routSettings(),
+              builder: (context) => LoginScreen(),
+            ),
+          );
+        },
+      ),
       ListTile(
         leading: const Icon(Icons.add_link_outlined),
         title: Text(tcontext.meta.profileAddUrlOrContent),
