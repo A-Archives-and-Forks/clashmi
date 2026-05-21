@@ -384,7 +384,8 @@ class _HomeScreenWidgetPart1 extends State<HomeScreenWidgetPart1> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              if (currentSession != null) ...[
+              if (currentSession != null &&
+                  GroupHelper.canShowVpnProvider(currentSession.provider)) ...[
                 SizedBox(
                   width: 40,
                   height: 40,

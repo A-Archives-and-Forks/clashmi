@@ -2467,6 +2467,12 @@ class GroupHelper {
     );
   }
 
+  static bool canShowVpnProvider(BoardProviderConfig provider) {
+    return provider.homeUrl.isNotEmpty ||
+        provider.clientServiceUrl.isNotEmpty ||
+        provider.subscriptionChannelUrl.isNotEmpty;
+  }
+
   static Future<void> showVpnProvider(
     BuildContext context,
     BoardProviderConfig provider,

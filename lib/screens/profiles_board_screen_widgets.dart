@@ -287,7 +287,8 @@ class _ProfilesBoardScreenWidget extends State<ProfilesBoardScreenWidget> {
       setting.url,
     );
     var widgets = [
-      if (session != null) ...[
+      if (session != null &&
+          GroupHelper.canShowVpnProvider(session.provider)) ...[
         ListTile(
           title: Text(session.provider.name),
           onTap: () async {
