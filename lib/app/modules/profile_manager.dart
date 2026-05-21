@@ -12,6 +12,7 @@ import 'package:clashmi/app/utils/app_lifecycle_state_notify.dart';
 import 'package:clashmi/app/utils/app_utils.dart';
 import 'package:clashmi/app/utils/convert_utils.dart';
 import 'package:clashmi/app/utils/date_time_utils.dart';
+import 'package:clashmi/app/utils/did.dart';
 import 'package:clashmi/app/utils/download_utils.dart';
 import 'package:clashmi/app/utils/file_utils.dart';
 import 'package:clashmi/app/utils/http_utils.dart';
@@ -886,6 +887,7 @@ class ProfileManager {
     final urlAndbody = ProfileProxyProviderPrivate.getProviderProxyUrlAndBody(
       app: AppUtils.getName(),
       version: AppUtils.getBuildinVersion(),
+      did: await Did.getDid(),
       boardProviderId: boardProviderId,
       url: url,
       userAgent: userAgent.isEmpty ? await HttpUtils.getUserAgent() : userAgent,
