@@ -1,8 +1,11 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:board_service/board_provider.dart';
+
 import 'package:clashmi/app/modules/board_session_persistent_manager.dart';
+import 'package:clashmi/app/private/app_url_utils_private.dart';
 import 'package:clashmi/app/runtime/return_result.dart';
+import 'package:clashmi/app/utils/app_utils.dart';
+import 'package:clashmi/app/utils/did.dart';
 import 'package:clashmi/app/utils/http_utils.dart';
 import 'package:clashmi/app/utils/path_utils.dart';
 import 'package:clashmi/i18n/strings.g.dart';
@@ -111,7 +114,7 @@ class BoardProviderConfig {
       (e) => e.name == type_,
       orElse: () => BoardProviderType.v2board,
     );
-    id = map["id"] ?? "";
+    id = map["id"] ?? map["pid"] ?? "";
     name = map["name"] ?? "";
     names = List<String>.from(map["nicknames"] ?? []);
     if (names.isEmpty && name.isNotEmpty) {
@@ -166,11 +169,20 @@ class BoardProviderManager {
         }
       }
     }
+    var headers = {
+      HttpHeaders.contentTypeHeader: "application/json; charset=UTF-8",
+    };
+    final urlAndbody = BoardProviderPrivate.getBycodeUrlAndBody(
+      app: AppUtils.getName(),
+      version: AppUtils.getBuildinVersion(),
+      did: await Did.getDid(),
+      idOrName: idOrName,
+    );
     var result = await HttpUtils.httpPostRequest(
-      "https://${BoardProvider.getDomain()}/dotfile?nick=${Uri.encodeComponent(idOrName)}",
+      urlAndbody.item1,
       null,
-      null,
-      "",
+      headers,
+      urlAndbody.item3,
       const Duration(seconds: 10),
       null,
       null,
@@ -179,12 +191,13 @@ class BoardProviderManager {
     );
 
     if (result.error != null &&
-        result.error!.message.contains("http response timeout")) {
+        result.error!.message.contains("http response timeout") &&
+        urlAndbody.item2.isNotEmpty) {
       result = await HttpUtils.httpPostRequest(
-        "https://${BoardProvider.getDomainBackup()}/dotfile?nick=${Uri.encodeComponent(idOrName)}",
+        urlAndbody.item2,
         null,
-        null,
-        "",
+        headers,
+        urlAndbody.item3,
         const Duration(seconds: 10),
         null,
         null,
@@ -241,6 +254,14 @@ class BoardProviderManager {
       return ReturnResult(
         error: ReturnResultError(
           error.msg ?? "getProvider $idOrName: error code ${error.code}",
+        ),
+      );
+    }
+    if (config.id.isEmpty) {
+      return ReturnResult(
+        error: ReturnResultError(
+          error.msg ??
+              "getProvider $idOrName: invalid provider config, empty id",
         ),
       );
     }
