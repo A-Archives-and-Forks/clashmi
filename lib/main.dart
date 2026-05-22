@@ -486,7 +486,7 @@ class MyAppState extends State<MyApp>
     if (!PlatformUtils.isPC()) {
       return;
     }
-
+    final mode = ClashSettingManager.getConfigsMode();
     List<MenuItem> items = [
       if (grey) ...[
         MenuItem(key: kMenuConnect, label: "   ${t.meta.connect}   "),
@@ -497,19 +497,17 @@ class MyAppState extends State<MyApp>
       MenuItem.separator(),
       MenuItem.checkbox(
         key: kMenuModeRule,
-        checked: ClashSettingManager.getConfigsMode() == ClashConfigsMode.rule,
+        checked: mode == ClashConfigsMode.rule,
         label: "   ${t.meta.rule}   ",
       ),
       MenuItem.checkbox(
         key: kMenuModeGlobal,
-        checked:
-            ClashSettingManager.getConfigsMode() == ClashConfigsMode.global,
+        checked: mode == ClashConfigsMode.global,
         label: "   ${t.meta.global}   ",
       ),
       MenuItem.checkbox(
         key: kMenuModeDirect,
-        checked:
-            ClashSettingManager.getConfigsMode() == ClashConfigsMode.direct,
+        checked: mode == ClashConfigsMode.direct,
         label: "   ${t.meta.direct}   ",
       ),
       MenuItem.separator(),
