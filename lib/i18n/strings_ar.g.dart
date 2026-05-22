@@ -164,8 +164,8 @@ class _TranslationsLoginScreenAr implements TranslationsLoginScreenEn {
 	@override String get register => 'إنشاء حساب';
 	@override String get forgotPassword => 'هل نسيت كلمة المرور';
 	@override String get provider => 'مزود الخدمة';
-	@override String get providerName => 'اسم ${_root.loginScreen.provider}';
-	@override String get providerNameRequired => 'يرجى إدخال اسم ${_root.loginScreen.provider}';
+	@override String get providerName => 'رمز المرور الخاص بـ ${_root.loginScreen.provider}';
+	@override String get providerNameRequired => 'يرجى إدخال رمز المرور الخاص بـ ${_root.loginScreen.provider}';
 	@override String get account => 'حساب';
 	@override String get accountRequired => 'يرجى إدخال الحساب';
 	@override String get email => 'البريد الإلكتروني';
@@ -176,7 +176,7 @@ class _TranslationsLoginScreenAr implements TranslationsLoginScreenEn {
 	@override String passwordMinLength({required Object minLength}) => 'يجب أن تكون كلمة المرور ${minLength} أحرف على الأقل';
 	@override String get unsupportedProvider => '${_root.loginScreen.provider} غير مدعوم';
 	@override String get unsupportedProviderType => 'نوع ${_root.loginScreen.provider} غير مدعوم';
-	@override String get providerLoginSupportRequired => 'تتطلب هذه الميزة دعماً من ${_root.loginScreen.provider} الخاص بك. قبل الاستخدام، يرجى التأكد من ${_root.loginScreen.provider} الخاص بك مما إذا كان تسجيل الدخول على Clash Mi مدعوماً';
+	@override String providerLoginSupportRequired({required Object p}) => 'يرجى طلب رمز المرور من ${_root.loginScreen.provider}.\nلاطلاع على تكامل ${_root.loginScreen.provider}، راجع: ${p}';
 }
 
 // Path: main
@@ -573,8 +573,8 @@ extension on TranslationsAr {
 			'loginScreen.register' => 'إنشاء حساب',
 			'loginScreen.forgotPassword' => 'هل نسيت كلمة المرور',
 			'loginScreen.provider' => 'مزود الخدمة',
-			'loginScreen.providerName' => 'اسم ${_root.loginScreen.provider}',
-			'loginScreen.providerNameRequired' => 'يرجى إدخال اسم ${_root.loginScreen.provider}',
+			'loginScreen.providerName' => 'رمز المرور الخاص بـ ${_root.loginScreen.provider}',
+			'loginScreen.providerNameRequired' => 'يرجى إدخال رمز المرور الخاص بـ ${_root.loginScreen.provider}',
 			'loginScreen.account' => 'حساب',
 			'loginScreen.accountRequired' => 'يرجى إدخال الحساب',
 			'loginScreen.email' => 'البريد الإلكتروني',
@@ -585,7 +585,7 @@ extension on TranslationsAr {
 			'loginScreen.passwordMinLength' => ({required Object minLength}) => 'يجب أن تكون كلمة المرور ${minLength} أحرف على الأقل',
 			'loginScreen.unsupportedProvider' => '${_root.loginScreen.provider} غير مدعوم',
 			'loginScreen.unsupportedProviderType' => 'نوع ${_root.loginScreen.provider} غير مدعوم',
-			'loginScreen.providerLoginSupportRequired' => 'تتطلب هذه الميزة دعماً من ${_root.loginScreen.provider} الخاص بك. قبل الاستخدام، يرجى التأكد من ${_root.loginScreen.provider} الخاص بك مما إذا كان تسجيل الدخول على Clash Mi مدعوماً',
+			'loginScreen.providerLoginSupportRequired' => ({required Object p}) => 'يرجى طلب رمز المرور من ${_root.loginScreen.provider}.\nلاطلاع على تكامل ${_root.loginScreen.provider}، راجع: ${p}',
 			'main.tray.menuOpen' => 'يفتح',
 			'main.tray.menuExit' => 'مخرج',
 			'meta.enable' => 'يُمكَِن',

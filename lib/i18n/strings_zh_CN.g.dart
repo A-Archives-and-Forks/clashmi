@@ -164,8 +164,8 @@ class _TranslationsLoginScreenZhCn implements TranslationsLoginScreenEn {
 	@override String get register => '注册账号';
 	@override String get forgotPassword => '忘记密码';
 	@override String get provider => '服务商(机场)';
-	@override String get providerName => '${_root.loginScreen.provider}名称';
-	@override String get providerNameRequired => '请输入${_root.loginScreen.provider}名称';
+	@override String get providerName => '${_root.loginScreen.provider}通行码';
+	@override String get providerNameRequired => '请输入${_root.loginScreen.provider}通行码';
 	@override String get account => '账号';
 	@override String get accountRequired => '请输入账号';
 	@override String get email => '邮箱';
@@ -176,7 +176,7 @@ class _TranslationsLoginScreenZhCn implements TranslationsLoginScreenEn {
 	@override String passwordMinLength({required Object minLength}) => '密码长度至少${minLength}位';
 	@override String get unsupportedProvider => '不支持的${_root.loginScreen.provider}';
 	@override String get unsupportedProviderType => '不支持的${_root.loginScreen.provider}类型';
-	@override String get providerLoginSupportRequired => '当前功能需要你的${_root.loginScreen.provider}支持才能使用,使用前请先跟你的${_root.loginScreen.provider}确认是否支持在Clash Mi上登录';
+	@override String providerLoginSupportRequired({required Object p}) => '通行码请找${_root.loginScreen.provider}索要\n${_root.loginScreen.provider}接入请参考:${p}';
 }
 
 // Path: main
@@ -573,8 +573,8 @@ extension on TranslationsZhCn {
 			'loginScreen.register' => '注册账号',
 			'loginScreen.forgotPassword' => '忘记密码',
 			'loginScreen.provider' => '服务商(机场)',
-			'loginScreen.providerName' => '${_root.loginScreen.provider}名称',
-			'loginScreen.providerNameRequired' => '请输入${_root.loginScreen.provider}名称',
+			'loginScreen.providerName' => '${_root.loginScreen.provider}通行码',
+			'loginScreen.providerNameRequired' => '请输入${_root.loginScreen.provider}通行码',
 			'loginScreen.account' => '账号',
 			'loginScreen.accountRequired' => '请输入账号',
 			'loginScreen.email' => '邮箱',
@@ -585,7 +585,7 @@ extension on TranslationsZhCn {
 			'loginScreen.passwordMinLength' => ({required Object minLength}) => '密码长度至少${minLength}位',
 			'loginScreen.unsupportedProvider' => '不支持的${_root.loginScreen.provider}',
 			'loginScreen.unsupportedProviderType' => '不支持的${_root.loginScreen.provider}类型',
-			'loginScreen.providerLoginSupportRequired' => '当前功能需要你的${_root.loginScreen.provider}支持才能使用,使用前请先跟你的${_root.loginScreen.provider}确认是否支持在Clash Mi上登录',
+			'loginScreen.providerLoginSupportRequired' => ({required Object p}) => '通行码请找${_root.loginScreen.provider}索要\n${_root.loginScreen.provider}接入请参考:${p}',
 			'main.tray.menuOpen' => '打开',
 			'main.tray.menuExit' => '退出',
 			'meta.enable' => '启用',

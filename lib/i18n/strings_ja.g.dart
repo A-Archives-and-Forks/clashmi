@@ -164,8 +164,8 @@ class _TranslationsLoginScreenJa implements TranslationsLoginScreenEn {
 	@override String get register => 'アカウント登録';
 	@override String get forgotPassword => 'パスワードを忘れた';
 	@override String get provider => 'プロバイダー';
-	@override String get providerName => '${_root.loginScreen.provider}名';
-	@override String get providerNameRequired => '${_root.loginScreen.provider}名を入力してください';
+	@override String get providerName => '${_root.loginScreen.provider}パスコード';
+	@override String get providerNameRequired => '${_root.loginScreen.provider}パスコードを入力してください';
 	@override String get account => 'アカウント';
 	@override String get accountRequired => 'アカウントを入力してください';
 	@override String get email => 'メール';
@@ -176,7 +176,7 @@ class _TranslationsLoginScreenJa implements TranslationsLoginScreenEn {
 	@override String passwordMinLength({required Object minLength}) => 'パスワード長は最低${minLength}文字以上である必要があります';
 	@override String get unsupportedProvider => 'サポートされていない${_root.loginScreen.provider}';
 	@override String get unsupportedProviderType => 'サポートされていない${_root.loginScreen.provider}タイプ';
-	@override String get providerLoginSupportRequired => 'この機能を利用するには、あなたの${_root.loginScreen.provider}のサポートが必要です。利用前に、Clash Mi でのログインに対応しているか${_root.loginScreen.provider}に確認してください';
+	@override String providerLoginSupportRequired({required Object p}) => 'パスコードは${_root.loginScreen.provider}にお問い合わせください。\n${_root.loginScreen.provider}連携の案内はこちら: ${p}';
 }
 
 // Path: main
@@ -573,8 +573,8 @@ extension on TranslationsJa {
 			'loginScreen.register' => 'アカウント登録',
 			'loginScreen.forgotPassword' => 'パスワードを忘れた',
 			'loginScreen.provider' => 'プロバイダー',
-			'loginScreen.providerName' => '${_root.loginScreen.provider}名',
-			'loginScreen.providerNameRequired' => '${_root.loginScreen.provider}名を入力してください',
+			'loginScreen.providerName' => '${_root.loginScreen.provider}パスコード',
+			'loginScreen.providerNameRequired' => '${_root.loginScreen.provider}パスコードを入力してください',
 			'loginScreen.account' => 'アカウント',
 			'loginScreen.accountRequired' => 'アカウントを入力してください',
 			'loginScreen.email' => 'メール',
@@ -585,7 +585,7 @@ extension on TranslationsJa {
 			'loginScreen.passwordMinLength' => ({required Object minLength}) => 'パスワード長は最低${minLength}文字以上である必要があります',
 			'loginScreen.unsupportedProvider' => 'サポートされていない${_root.loginScreen.provider}',
 			'loginScreen.unsupportedProviderType' => 'サポートされていない${_root.loginScreen.provider}タイプ',
-			'loginScreen.providerLoginSupportRequired' => 'この機能を利用するには、あなたの${_root.loginScreen.provider}のサポートが必要です。利用前に、Clash Mi でのログインに対応しているか${_root.loginScreen.provider}に確認してください',
+			'loginScreen.providerLoginSupportRequired' => ({required Object p}) => 'パスコードは${_root.loginScreen.provider}にお問い合わせください。\n${_root.loginScreen.provider}連携の案内はこちら: ${p}',
 			'main.tray.menuOpen' => '開く',
 			'main.tray.menuExit' => '終了',
 			'meta.enable' => '有効',

@@ -245,11 +245,11 @@ class TranslationsLoginScreenEn {
 	/// en: 'Provider'
 	String get provider => 'Provider';
 
-	/// en: 'Provider Name'
-	String get providerName => '${_root.loginScreen.provider} Name';
+	/// en: 'Provider Passcode'
+	String get providerName => '${_root.loginScreen.provider} Passcode';
 
-	/// en: 'Please enter the Provider name'
-	String get providerNameRequired => 'Please enter the ${_root.loginScreen.provider} name';
+	/// en: 'Please enter the Provider passcode'
+	String get providerNameRequired => 'Please enter the ${_root.loginScreen.provider} passcode';
 
 	/// en: 'Account'
 	String get account => 'Account';
@@ -281,8 +281,8 @@ class TranslationsLoginScreenEn {
 	/// en: 'Unsupported Provider type'
 	String get unsupportedProviderType => 'Unsupported ${_root.loginScreen.provider} type';
 
-	/// en: 'This feature requires support from your Provider. Before using it, please confirm with your Provider whether login on Clash Mi is supported'
-	String get providerLoginSupportRequired => 'This feature requires support from your ${_root.loginScreen.provider}. Before using it, please confirm with your ${_root.loginScreen.provider} whether login on Clash Mi is supported';
+	/// en: 'Please request the passcode from your Provider. For Provider integration, please refer to: $p'
+	String providerLoginSupportRequired({required Object p}) => 'Please request the passcode from your ${_root.loginScreen.provider}.\nFor ${_root.loginScreen.provider} integration, please refer to: ${p}';
 }
 
 // Path: main
@@ -1217,8 +1217,8 @@ extension on Translations {
 			'loginScreen.register' => 'Register Account',
 			'loginScreen.forgotPassword' => 'Forgot Password',
 			'loginScreen.provider' => 'Provider',
-			'loginScreen.providerName' => '${_root.loginScreen.provider} Name',
-			'loginScreen.providerNameRequired' => 'Please enter the ${_root.loginScreen.provider} name',
+			'loginScreen.providerName' => '${_root.loginScreen.provider} Passcode',
+			'loginScreen.providerNameRequired' => 'Please enter the ${_root.loginScreen.provider} passcode',
 			'loginScreen.account' => 'Account',
 			'loginScreen.accountRequired' => 'Please enter account',
 			'loginScreen.email' => 'Email',
@@ -1229,7 +1229,7 @@ extension on Translations {
 			'loginScreen.passwordMinLength' => ({required Object minLength}) => 'Password length at least ${minLength} characters',
 			'loginScreen.unsupportedProvider' => 'Unsupported ${_root.loginScreen.provider}',
 			'loginScreen.unsupportedProviderType' => 'Unsupported ${_root.loginScreen.provider} type',
-			'loginScreen.providerLoginSupportRequired' => 'This feature requires support from your ${_root.loginScreen.provider}. Before using it, please confirm with your ${_root.loginScreen.provider} whether login on Clash Mi is supported',
+			'loginScreen.providerLoginSupportRequired' => ({required Object p}) => 'Please request the passcode from your ${_root.loginScreen.provider}.\nFor ${_root.loginScreen.provider} integration, please refer to: ${p}',
 			'main.tray.menuOpen' => 'Open',
 			'main.tray.menuExit' => 'Exit',
 			'meta.enable' => 'Enable',

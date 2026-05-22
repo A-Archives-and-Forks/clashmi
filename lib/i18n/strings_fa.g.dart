@@ -164,8 +164,8 @@ class _TranslationsLoginScreenFa implements TranslationsLoginScreenEn {
 	@override String get register => 'ایجاد حساب';
 	@override String get forgotPassword => 'فراموشی رمز عبور';
 	@override String get provider => 'ارائه دهنده خدمات';
-	@override String get providerName => 'نام ${_root.loginScreen.provider}';
-	@override String get providerNameRequired => 'لطفا نام ${_root.loginScreen.provider} را وارد کنید';
+	@override String get providerName => 'کد ورود ${_root.loginScreen.provider}';
+	@override String get providerNameRequired => 'لطفا کد ورود ${_root.loginScreen.provider} را وارد کنید';
 	@override String get account => 'حساب';
 	@override String get accountRequired => 'لطفا حساب را وارد کنید';
 	@override String get email => 'ایمیل';
@@ -176,7 +176,7 @@ class _TranslationsLoginScreenFa implements TranslationsLoginScreenEn {
 	@override String passwordMinLength({required Object minLength}) => 'طول رمز عبور باید حداقل ${minLength} کاراکتر باشد';
 	@override String get unsupportedProvider => '${_root.loginScreen.provider} پشتیبانی نمی شود';
 	@override String get unsupportedProviderType => 'نوع ${_root.loginScreen.provider} پشتیبانی نمی شود';
-	@override String get providerLoginSupportRequired => 'این قابلیت فقط زمانی قابل استفاده است که ${_root.loginScreen.provider} شما از آن پشتیبانی کند. پیش از استفاده، لطفاً با ${_root.loginScreen.provider} خود تأیید کنید که ورود در Clash Mi پشتیبانی می شود';
+	@override String providerLoginSupportRequired({required Object p}) => 'لطفاً کد ورود را از ${_root.loginScreen.provider} دریافت کنید.\nبرای راهنمای اتصال ${_root.loginScreen.provider} به این لینک مراجعه کنید: ${p}';
 }
 
 // Path: main
@@ -573,8 +573,8 @@ extension on TranslationsFa {
 			'loginScreen.register' => 'ایجاد حساب',
 			'loginScreen.forgotPassword' => 'فراموشی رمز عبور',
 			'loginScreen.provider' => 'ارائه دهنده خدمات',
-			'loginScreen.providerName' => 'نام ${_root.loginScreen.provider}',
-			'loginScreen.providerNameRequired' => 'لطفا نام ${_root.loginScreen.provider} را وارد کنید',
+			'loginScreen.providerName' => 'کد ورود ${_root.loginScreen.provider}',
+			'loginScreen.providerNameRequired' => 'لطفا کد ورود ${_root.loginScreen.provider} را وارد کنید',
 			'loginScreen.account' => 'حساب',
 			'loginScreen.accountRequired' => 'لطفا حساب را وارد کنید',
 			'loginScreen.email' => 'ایمیل',
@@ -585,7 +585,7 @@ extension on TranslationsFa {
 			'loginScreen.passwordMinLength' => ({required Object minLength}) => 'طول رمز عبور باید حداقل ${minLength} کاراکتر باشد',
 			'loginScreen.unsupportedProvider' => '${_root.loginScreen.provider} پشتیبانی نمی شود',
 			'loginScreen.unsupportedProviderType' => 'نوع ${_root.loginScreen.provider} پشتیبانی نمی شود',
-			'loginScreen.providerLoginSupportRequired' => 'این قابلیت فقط زمانی قابل استفاده است که ${_root.loginScreen.provider} شما از آن پشتیبانی کند. پیش از استفاده، لطفاً با ${_root.loginScreen.provider} خود تأیید کنید که ورود در Clash Mi پشتیبانی می شود',
+			'loginScreen.providerLoginSupportRequired' => ({required Object p}) => 'لطفاً کد ورود را از ${_root.loginScreen.provider} دریافت کنید.\nبرای راهنمای اتصال ${_root.loginScreen.provider} به این لینک مراجعه کنید: ${p}',
 			'main.tray.menuOpen' => 'بازکردن',
 			'main.tray.menuExit' => 'بستن',
 			'meta.enable' => 'فعال‌سازی',

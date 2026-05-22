@@ -164,8 +164,8 @@ class _TranslationsLoginScreenRu implements TranslationsLoginScreenEn {
 	@override String get register => 'Зарегистрировать аккаунт';
 	@override String get forgotPassword => 'Забыли пароль';
 	@override String get provider => 'Провайдер';
-	@override String get providerName => 'Название ${_root.loginScreen.provider}';
-	@override String get providerNameRequired => 'Пожалуйста, введите название ${_root.loginScreen.provider}';
+	@override String get providerName => 'Код доступа ${_root.loginScreen.provider}';
+	@override String get providerNameRequired => 'Пожалуйста, введите код доступа ${_root.loginScreen.provider}';
 	@override String get account => 'Аккаунт';
 	@override String get accountRequired => 'Пожалуйста, введите аккаунт';
 	@override String get email => 'Электронная почта';
@@ -176,7 +176,7 @@ class _TranslationsLoginScreenRu implements TranslationsLoginScreenEn {
 	@override String passwordMinLength({required Object minLength}) => 'Длина пароля должна быть не менее ${minLength} символов';
 	@override String get unsupportedProvider => 'Неподдерживаемый ${_root.loginScreen.provider}';
 	@override String get unsupportedProviderType => 'Неподдерживаемый тип ${_root.loginScreen.provider}';
-	@override String get providerLoginSupportRequired => 'Для использования этой функции ваш ${_root.loginScreen.provider} должен поддерживать ее. Перед использованием уточните у вашего ${_root.loginScreen.provider}, поддерживается ли вход в Clash Mi';
+	@override String providerLoginSupportRequired({required Object p}) => 'Запросите код доступа у вашего ${_root.loginScreen.provider}.\nИнструкцию по интеграции с ${_root.loginScreen.provider} смотрите: ${p}';
 }
 
 // Path: main
@@ -573,8 +573,8 @@ extension on TranslationsRu {
 			'loginScreen.register' => 'Зарегистрировать аккаунт',
 			'loginScreen.forgotPassword' => 'Забыли пароль',
 			'loginScreen.provider' => 'Провайдер',
-			'loginScreen.providerName' => 'Название ${_root.loginScreen.provider}',
-			'loginScreen.providerNameRequired' => 'Пожалуйста, введите название ${_root.loginScreen.provider}',
+			'loginScreen.providerName' => 'Код доступа ${_root.loginScreen.provider}',
+			'loginScreen.providerNameRequired' => 'Пожалуйста, введите код доступа ${_root.loginScreen.provider}',
 			'loginScreen.account' => 'Аккаунт',
 			'loginScreen.accountRequired' => 'Пожалуйста, введите аккаунт',
 			'loginScreen.email' => 'Электронная почта',
@@ -585,7 +585,7 @@ extension on TranslationsRu {
 			'loginScreen.passwordMinLength' => ({required Object minLength}) => 'Длина пароля должна быть не менее ${minLength} символов',
 			'loginScreen.unsupportedProvider' => 'Неподдерживаемый ${_root.loginScreen.provider}',
 			'loginScreen.unsupportedProviderType' => 'Неподдерживаемый тип ${_root.loginScreen.provider}',
-			'loginScreen.providerLoginSupportRequired' => 'Для использования этой функции ваш ${_root.loginScreen.provider} должен поддерживать ее. Перед использованием уточните у вашего ${_root.loginScreen.provider}, поддерживается ли вход в Clash Mi',
+			'loginScreen.providerLoginSupportRequired' => ({required Object p}) => 'Запросите код доступа у вашего ${_root.loginScreen.provider}.\nИнструкцию по интеграции с ${_root.loginScreen.provider} смотрите: ${p}',
 			'main.tray.menuOpen' => 'Открыть',
 			'main.tray.menuExit' => 'Выйти',
 			'meta.enable' => 'Включить',

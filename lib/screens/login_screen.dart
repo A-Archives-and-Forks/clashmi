@@ -2,6 +2,7 @@ import 'package:board_service/sspanel_uim/sspanel_uim_client.dart'
     as sspanel_client;
 import 'package:board_service/v2board/v2board_client.dart' as v2board_client;
 import 'package:board_service/xboard/xboard_client.dart' as xboard_client;
+import 'package:clashmi/app/modules/remote_config_manager.dart';
 import 'package:clashmi/screens/theme_config.dart';
 import 'package:flutter/material.dart';
 import 'package:clashmi/app/modules/board_provider_manager.dart';
@@ -176,7 +177,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-                    tcontext.loginScreen.providerLoginSupportRequired,
+                    tcontext.loginScreen.providerLoginSupportRequired(
+                      p: RemoteConfigManager.getConfig().connect,
+                    ),
                     maxLines: 3,
                     style: TextStyle(
                       color: Colors.red,

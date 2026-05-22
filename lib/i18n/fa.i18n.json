@@ -59,7 +59,7 @@
         "passwordMinLength": "طول رمز عبور باید حداقل $minLength کاراکتر باشد",
         "unsupportedProvider": "@:{loginScreen.provider} پشتیبانی نمی شود",
         "unsupportedProviderType": "نوع @:{loginScreen.provider} پشتیبانی نمی شود",
-        "providerLoginSupportRequired": "این قابلیت فقط زمانی قابل استفاده است که @:{loginScreen.provider} شما از آن پشتیبانی کند. پیش از استفاده، لطفاً با @:{loginScreen.provider} خود تأیید کنید که ورود در Clash Mi پشتیبانی می شود"
+        "providerLoginSupportRequired": "لطفاً کد ورود را از @:{loginScreen.provider} دریافت کنید.\nبرای راهنمای اتصال @:{loginScreen.provider} به این لینک مراجعه کنید: $p"
     },
     "main": {
         "tray": {

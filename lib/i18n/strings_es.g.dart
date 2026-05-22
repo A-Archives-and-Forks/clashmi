@@ -164,8 +164,8 @@ class _TranslationsLoginScreenEs implements TranslationsLoginScreenEn {
 	@override String get register => 'Registrar cuenta';
 	@override String get forgotPassword => 'Olvidé mi contraseña';
 	@override String get provider => 'Proveedor';
-	@override String get providerName => 'Nombre del ${_root.loginScreen.provider}';
-	@override String get providerNameRequired => 'Por favor, introduzca el nombre del ${_root.loginScreen.provider}';
+	@override String get providerName => 'Código de acceso del ${_root.loginScreen.provider}';
+	@override String get providerNameRequired => 'Por favor, introduzca el código de acceso del ${_root.loginScreen.provider}';
 	@override String get account => 'Cuenta';
 	@override String get accountRequired => 'Por favor, introduzca la cuenta';
 	@override String get email => 'Correo electrónico';
@@ -176,7 +176,7 @@ class _TranslationsLoginScreenEs implements TranslationsLoginScreenEn {
 	@override String passwordMinLength({required Object minLength}) => 'La contraseña debe tener al menos ${minLength} caracteres';
 	@override String get unsupportedProvider => '${_root.loginScreen.provider} no compatible';
 	@override String get unsupportedProviderType => 'Tipo de ${_root.loginScreen.provider} no compatible';
-	@override String get providerLoginSupportRequired => 'Esta función requiere soporte de tu ${_root.loginScreen.provider}. Antes de usarla, confirma con tu ${_root.loginScreen.provider} si admite iniciar sesión en Clash Mi';
+	@override String providerLoginSupportRequired({required Object p}) => 'Solicita el código de acceso a tu ${_root.loginScreen.provider}.\nPara la integración con ${_root.loginScreen.provider}, consulta: ${p}';
 }
 
 // Path: main
@@ -573,8 +573,8 @@ extension on TranslationsEs {
 			'loginScreen.register' => 'Registrar cuenta',
 			'loginScreen.forgotPassword' => 'Olvidé mi contraseña',
 			'loginScreen.provider' => 'Proveedor',
-			'loginScreen.providerName' => 'Nombre del ${_root.loginScreen.provider}',
-			'loginScreen.providerNameRequired' => 'Por favor, introduzca el nombre del ${_root.loginScreen.provider}',
+			'loginScreen.providerName' => 'Código de acceso del ${_root.loginScreen.provider}',
+			'loginScreen.providerNameRequired' => 'Por favor, introduzca el código de acceso del ${_root.loginScreen.provider}',
 			'loginScreen.account' => 'Cuenta',
 			'loginScreen.accountRequired' => 'Por favor, introduzca la cuenta',
 			'loginScreen.email' => 'Correo electrónico',
@@ -585,7 +585,7 @@ extension on TranslationsEs {
 			'loginScreen.passwordMinLength' => ({required Object minLength}) => 'La contraseña debe tener al menos ${minLength} caracteres',
 			'loginScreen.unsupportedProvider' => '${_root.loginScreen.provider} no compatible',
 			'loginScreen.unsupportedProviderType' => 'Tipo de ${_root.loginScreen.provider} no compatible',
-			'loginScreen.providerLoginSupportRequired' => 'Esta función requiere soporte de tu ${_root.loginScreen.provider}. Antes de usarla, confirma con tu ${_root.loginScreen.provider} si admite iniciar sesión en Clash Mi',
+			'loginScreen.providerLoginSupportRequired' => ({required Object p}) => 'Solicita el código de acceso a tu ${_root.loginScreen.provider}.\nPara la integración con ${_root.loginScreen.provider}, consulta: ${p}',
 			'main.tray.menuOpen' => 'Abrir',
 			'main.tray.menuExit' => 'Salir',
 			'meta.enable' => 'Habilitar',

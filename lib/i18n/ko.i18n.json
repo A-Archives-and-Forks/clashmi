@@ -59,7 +59,7 @@
         "passwordMinLength": "비밀번호 길이는 최소 $minLength자 이상이어야 합니다",
         "unsupportedProvider": "지원되지 않는 @:{loginScreen.provider}",
         "unsupportedProviderType": "지원되지 않는 @:{loginScreen.provider} 유형",
-        "providerLoginSupportRequired": "이 기능을 사용하려면 @:{loginScreen.provider}의 지원이 필요합니다. 사용 전에 Clash Mi 로그인 지원 여부를 @:{loginScreen.provider}에 먼저 확인하세요"
+        "providerLoginSupportRequired": "패스코드는 @:{loginScreen.provider}에 문의해 주세요.\n@:{loginScreen.provider} 연동은 다음을 참고하세요: $p"
     },
     "main": {
         "tray": {
