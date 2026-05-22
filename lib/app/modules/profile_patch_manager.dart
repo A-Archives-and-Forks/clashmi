@@ -805,8 +805,8 @@ class ProfilePatchManager {
     }
     JavascriptRuntime flutterJs = getJavascriptRuntime();
     try {
-      fileCoreContent = EmojiUtils.unemojify(fileCoreContent);
-      var doc = loadYaml(fileCoreContent);
+      final result = EmojiUtils.unemojify(fileCoreContent);
+      var doc = loadYaml(result.item1);
       if (doc == null) {
         Log.w("evaluate ${patch.remark} loadYaml from $corePath failed");
         return corePath;
@@ -838,6 +838,9 @@ class ProfilePatchManager {
           "evaluate ${patch.remark} rawResult type unsupport: ${res.rawResult.runtimeType}",
         );
         return corePath;
+      }
+      if (result.item2) {
+        value = EmojiUtils.emojify(value);
       }
 
       String newCorePath = await PathUtils.serviceCorePatchPath();
