@@ -7,6 +7,7 @@ import 'package:clashmi/app/clash/clash_http_api.dart';
 import 'package:clashmi/app/local_services/vpn_service.dart';
 import 'package:clashmi/app/modules/auto_update_manager.dart';
 import 'package:clashmi/app/modules/biz.dart';
+import 'package:clashmi/app/modules/board_provider_manager.dart';
 import 'package:clashmi/app/modules/board_session_persistent_manager.dart';
 import 'package:clashmi/app/modules/clash_setting_manager.dart';
 import 'package:clashmi/app/modules/profile_manager.dart';
@@ -175,13 +176,14 @@ class _HomeScreenWidgetPart1 extends State<HomeScreenWidgetPart1> {
     bool connected = _state == FlutterVpnServiceState.connected;
     final currentProfile = ProfileManager.getCurrent();
     final currentProfileName = currentProfile?.getShowName() ?? "";
-    BoardSession? currentSession;
+    final provider = BoardProviderManager.getProviderById(
+      currentProfile?.boardProviderId ?? "",
+    );
+
     final settings = SettingManager.getConfig();
     String tranffic = "";
     Tuple2<bool, String>? tranfficExpire;
     if (currentProfile != null && currentProfile.isRemote()) {
-      currentSession = BoardSessionPersistentManager.instance()
-          .getBySubscribeUrl(currentProfile.url);
       if (currentProfile.upload != 0 ||
           currentProfile.download != 0 ||
           currentProfile.total != 0) {
@@ -384,17 +386,14 @@ class _HomeScreenWidgetPart1 extends State<HomeScreenWidgetPart1> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              if (currentSession != null &&
-                  GroupHelper.canShowVpnProvider(currentSession.provider)) ...[
+              if (provider != null &&
+                  GroupHelper.canShowVpnProvider(provider)) ...[
                 SizedBox(
                   width: 40,
                   height: 40,
                   child: InkWell(
                     onTap: () async {
-                      GroupHelper.showVpnProvider(
-                        context,
-                        currentSession!.provider,
-                      );
+                      GroupHelper.showVpnProvider(context, provider);
                     },
                     child: Icon(Icons.business, size: 30),
                   ),

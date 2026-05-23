@@ -59,6 +59,7 @@
         "passwordMinLength": "يجب أن تكون كلمة المرور $minLength أحرف على الأقل",
         "unsupportedProvider": "@:{loginScreen.provider} غير مدعوم",
         "unsupportedProviderType": "نوع @:{loginScreen.provider} غير مدعوم",
+        "unActivedProvider": "ميزة تسجيل الدخول غير مفعلة",
         "providerLoginSupportRequired": "يرجى طلب رمز المرور من @:{loginScreen.provider}.\nلاطلاع على تكامل @:{loginScreen.provider}، راجع: $p"
     },
     "main": {

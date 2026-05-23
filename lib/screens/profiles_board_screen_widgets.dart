@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:clashmi/app/clash/clash_http_api.dart';
+import 'package:clashmi/app/modules/board_provider_manager.dart';
 import 'package:clashmi/app/modules/board_session_persistent_manager.dart';
 import 'package:clashmi/app/modules/profile_manager.dart';
 import 'package:clashmi/app/modules/profile_patch_manager.dart';
@@ -14,6 +15,7 @@ import 'package:clashmi/screens/profile_settings_edit_screen.dart';
 import 'package:clashmi/screens/qrcode_screen.dart';
 import 'package:clashmi/screens/theme_define.dart';
 import 'package:clashmi/screens/widgets/sheet.dart';
+import 'package:fast_cached_network_image/fast_cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:tuple/tuple.dart';
@@ -39,9 +41,10 @@ class ProfilesBoardItem extends StatelessWidget {
     final tcontext = Translations.of(context);
     final settings = SettingManager.getConfig();
     final patch = ProfilePatchManager.getProfilePatch(setting.patch);
-    final session = BoardSessionPersistentManager.instance().getBySubscribeUrl(
-      setting.url,
+    final provider = BoardProviderManager.getProviderById(
+      setting.boardProviderId,
     );
+
     String patchRemark = "";
     if (setting.patch.isEmpty || patch.id.isEmpty) {
       final currentPatch = ProfilePatchManager.getCurrent();
@@ -94,7 +97,25 @@ class ProfilesBoardItem extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      if (session != null) ...[
+                      if (provider != null) ...[
+                        /*provider.appIconUrl.isNotEmpty &&
+                                provider.benefits.contains(
+                                  BoardProviderBenefit.logoBranding.name,
+                                )
+                            ? FastCachedImage(
+                                url: provider.appIconUrl,
+                                width: 16,
+                                height: 16,
+                                cacheWidth: 64,
+                                cacheHeight: 64,
+                                loadingBuilder: (context, loadingProgress) {
+                                  return SizedBox.shrink();
+                                },
+                                errorBuilder: (context, error, stackTrace) {
+                                  return SizedBox.shrink();
+                                },
+                              )
+                            :*/
                         Icon(
                           Icons.business,
                           size: 16,
@@ -283,17 +304,17 @@ class _ProfilesBoardScreenWidget extends State<ProfilesBoardScreenWidget> {
 
   void showMore(ProfileSetting setting) {
     final tcontext = Translations.of(context);
-    final session = BoardSessionPersistentManager.instance().getBySubscribeUrl(
-      setting.url,
+    final provider = BoardProviderManager.getProviderById(
+      setting.boardProviderId,
     );
+
     var widgets = [
-      if (session != null &&
-          GroupHelper.canShowVpnProvider(session.provider)) ...[
+      if (provider != null && GroupHelper.canShowVpnProvider(provider)) ...[
         ListTile(
-          title: Text(session.provider.name),
+          title: Text(provider.name),
           onTap: () async {
             Navigator.of(context).pop();
-            GroupHelper.showVpnProvider(context, session.provider);
+            GroupHelper.showVpnProvider(context, provider);
           },
         ),
       ],

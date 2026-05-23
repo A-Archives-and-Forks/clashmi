@@ -701,7 +701,17 @@ class ProfileManager {
 
     profile.updateSubscriptionTraffic(result.data);
     if (index < 0) {
+      bool insertToFirst = false;
       if (boardProviderId.isNotEmpty) {
+        final provider = BoardProviderManager.getProviderById(boardProviderId);
+        if (provider != null &&
+            provider.benefits.contains(
+              BoardProviderBenefit.highlightPin.name,
+            )) {
+          insertToFirst = true;
+        }
+      }
+      if (insertToFirst) {
         _config.profiles.insert(0, profile);
       } else {
         _config.profiles.add(profile);

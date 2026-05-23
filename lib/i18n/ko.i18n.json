@@ -59,6 +59,7 @@
         "passwordMinLength": "비밀번호 길이는 최소 $minLength자 이상이어야 합니다",
         "unsupportedProvider": "지원되지 않는 @:{loginScreen.provider}",
         "unsupportedProviderType": "지원되지 않는 @:{loginScreen.provider} 유형",
+        "unActivedProvider": "로그인 기능이 활성화되어 있지 않습니다",
         "providerLoginSupportRequired": "패스코드는 @:{loginScreen.provider}에 문의해 주세요.\n@:{loginScreen.provider} 연동은 다음을 참고하세요: $p"
     },
     "main": {

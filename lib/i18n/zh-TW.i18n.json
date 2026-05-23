@@ -59,6 +59,7 @@
         "passwordMinLength": "密碼長度至少$minLength位",
         "unsupportedProvider": "不支持的@:{loginScreen.provider}",
         "unsupportedProviderType": "不支持的@:{loginScreen.provider}類型",
+        "unActivedProvider": "登入功能未啟用",
         "providerLoginSupportRequired": "通行碼請向@:{loginScreen.provider}索取\n@:{loginScreen.provider}接入請參考:$p"
     },
     "main": {

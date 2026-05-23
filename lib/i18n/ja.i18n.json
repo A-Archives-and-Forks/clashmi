@@ -59,6 +59,7 @@
         "passwordMinLength": "パスワード長は最低$minLength文字以上である必要があります",
         "unsupportedProvider": "サポートされていない@:{loginScreen.provider}",
         "unsupportedProviderType": "サポートされていない@:{loginScreen.provider}タイプ",
+        "unActivedProvider": "ログイン機能は有効化されていません",
         "providerLoginSupportRequired": "パスコードは@:{loginScreen.provider}にお問い合わせください。\n@:{loginScreen.provider}連携の案内はこちら: $p"
     },
     "main": {

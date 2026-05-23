@@ -59,6 +59,7 @@
         "passwordMinLength": "Password length at least $minLength characters",
         "unsupportedProvider": "Unsupported @:{loginScreen.provider}",
         "unsupportedProviderType": "Unsupported @:{loginScreen.provider} type",
+        "unActivedProvider": "Login feature is not activated",
         "providerLoginSupportRequired": "Please request the passcode from your @:{loginScreen.provider}.\nFor @:{loginScreen.provider} integration, please refer to: $p"
     },
     "main": {

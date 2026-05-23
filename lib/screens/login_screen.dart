@@ -523,6 +523,21 @@ class _LoginScreenState extends State<LoginScreen> {
       );
       return;
     }
+
+    if (!result.data!.benefits.contains(BoardProviderBenefit.panelLogin.name)) {
+      _provider = null;
+      _logining = false;
+      setState(() {});
+      final tcontext = Translations.of(context);
+      DialogUtils.showAlertDialog(
+        context,
+        "${tcontext.loginScreen.unActivedProvider}: $serviceName",
+        showCopy: true,
+        showFAQ: true,
+        withVersion: true,
+      );
+      return;
+    }
     _provider = result.data!;
     BoardProviderConfig provider = _provider!;
     BoardSessionLoginError? sessionLoginError;

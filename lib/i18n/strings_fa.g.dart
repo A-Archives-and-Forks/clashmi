@@ -176,6 +176,7 @@ class _TranslationsLoginScreenFa implements TranslationsLoginScreenEn {
 	@override String passwordMinLength({required Object minLength}) => 'طول رمز عبور باید حداقل ${minLength} کاراکتر باشد';
 	@override String get unsupportedProvider => '${_root.loginScreen.provider} پشتیبانی نمی شود';
 	@override String get unsupportedProviderType => 'نوع ${_root.loginScreen.provider} پشتیبانی نمی شود';
+	@override String get unActivedProvider => 'قابلیت ورود فعال نشده است';
 	@override String providerLoginSupportRequired({required Object p}) => 'لطفاً کد ورود را از ${_root.loginScreen.provider} دریافت کنید.\nبرای راهنمای اتصال ${_root.loginScreen.provider} به این لینک مراجعه کنید: ${p}';
 }
 
@@ -585,6 +586,7 @@ extension on TranslationsFa {
 			'loginScreen.passwordMinLength' => ({required Object minLength}) => 'طول رمز عبور باید حداقل ${minLength} کاراکتر باشد',
 			'loginScreen.unsupportedProvider' => '${_root.loginScreen.provider} پشتیبانی نمی شود',
 			'loginScreen.unsupportedProviderType' => 'نوع ${_root.loginScreen.provider} پشتیبانی نمی شود',
+			'loginScreen.unActivedProvider' => 'قابلیت ورود فعال نشده است',
 			'loginScreen.providerLoginSupportRequired' => ({required Object p}) => 'لطفاً کد ورود را از ${_root.loginScreen.provider} دریافت کنید.\nبرای راهنمای اتصال ${_root.loginScreen.provider} به این لینک مراجعه کنید: ${p}',
 			'main.tray.menuOpen' => 'بازکردن',
 			'main.tray.menuExit' => 'بستن',

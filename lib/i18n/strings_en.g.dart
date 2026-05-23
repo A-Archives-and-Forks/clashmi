@@ -281,6 +281,9 @@ class TranslationsLoginScreenEn {
 	/// en: 'Unsupported Provider type'
 	String get unsupportedProviderType => 'Unsupported ${_root.loginScreen.provider} type';
 
+	/// en: 'Login feature is not activated'
+	String get unActivedProvider => 'Login feature is not activated';
+
 	/// en: 'Please request the passcode from your Provider. For Provider integration, please refer to: $p'
 	String providerLoginSupportRequired({required Object p}) => 'Please request the passcode from your ${_root.loginScreen.provider}.\nFor ${_root.loginScreen.provider} integration, please refer to: ${p}';
 }
@@ -1229,6 +1232,7 @@ extension on Translations {
 			'loginScreen.passwordMinLength' => ({required Object minLength}) => 'Password length at least ${minLength} characters',
 			'loginScreen.unsupportedProvider' => 'Unsupported ${_root.loginScreen.provider}',
 			'loginScreen.unsupportedProviderType' => 'Unsupported ${_root.loginScreen.provider} type',
+			'loginScreen.unActivedProvider' => 'Login feature is not activated',
 			'loginScreen.providerLoginSupportRequired' => ({required Object p}) => 'Please request the passcode from your ${_root.loginScreen.provider}.\nFor ${_root.loginScreen.provider} integration, please refer to: ${p}',
 			'main.tray.menuOpen' => 'Open',
 			'main.tray.menuExit' => 'Exit',

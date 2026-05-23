@@ -176,6 +176,7 @@ class _TranslationsLoginScreenKo implements TranslationsLoginScreenEn {
 	@override String passwordMinLength({required Object minLength}) => '비밀번호 길이는 최소 ${minLength}자 이상이어야 합니다';
 	@override String get unsupportedProvider => '지원되지 않는 ${_root.loginScreen.provider}';
 	@override String get unsupportedProviderType => '지원되지 않는 ${_root.loginScreen.provider} 유형';
+	@override String get unActivedProvider => '로그인 기능이 활성화되어 있지 않습니다';
 	@override String providerLoginSupportRequired({required Object p}) => '패스코드는 ${_root.loginScreen.provider}에 문의해 주세요.\n${_root.loginScreen.provider} 연동은 다음을 참고하세요: ${p}';
 }
 
@@ -585,6 +586,7 @@ extension on TranslationsKo {
 			'loginScreen.passwordMinLength' => ({required Object minLength}) => '비밀번호 길이는 최소 ${minLength}자 이상이어야 합니다',
 			'loginScreen.unsupportedProvider' => '지원되지 않는 ${_root.loginScreen.provider}',
 			'loginScreen.unsupportedProviderType' => '지원되지 않는 ${_root.loginScreen.provider} 유형',
+			'loginScreen.unActivedProvider' => '로그인 기능이 활성화되어 있지 않습니다',
 			'loginScreen.providerLoginSupportRequired' => ({required Object p}) => '패스코드는 ${_root.loginScreen.provider}에 문의해 주세요.\n${_root.loginScreen.provider} 연동은 다음을 참고하세요: ${p}',
 			'main.tray.menuOpen' => '열기',
 			'main.tray.menuExit' => '종료',

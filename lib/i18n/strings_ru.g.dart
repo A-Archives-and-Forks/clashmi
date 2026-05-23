@@ -176,6 +176,7 @@ class _TranslationsLoginScreenRu implements TranslationsLoginScreenEn {
 	@override String passwordMinLength({required Object minLength}) => 'Длина пароля должна быть не менее ${minLength} символов';
 	@override String get unsupportedProvider => 'Неподдерживаемый ${_root.loginScreen.provider}';
 	@override String get unsupportedProviderType => 'Неподдерживаемый тип ${_root.loginScreen.provider}';
+	@override String get unActivedProvider => 'Функция входа не активирована';
 	@override String providerLoginSupportRequired({required Object p}) => 'Запросите код доступа у вашего ${_root.loginScreen.provider}.\nИнструкцию по интеграции с ${_root.loginScreen.provider} смотрите: ${p}';
 }
 
@@ -585,6 +586,7 @@ extension on TranslationsRu {
 			'loginScreen.passwordMinLength' => ({required Object minLength}) => 'Длина пароля должна быть не менее ${minLength} символов',
 			'loginScreen.unsupportedProvider' => 'Неподдерживаемый ${_root.loginScreen.provider}',
 			'loginScreen.unsupportedProviderType' => 'Неподдерживаемый тип ${_root.loginScreen.provider}',
+			'loginScreen.unActivedProvider' => 'Функция входа не активирована',
 			'loginScreen.providerLoginSupportRequired' => ({required Object p}) => 'Запросите код доступа у вашего ${_root.loginScreen.provider}.\nИнструкцию по интеграции с ${_root.loginScreen.provider} смотрите: ${p}',
 			'main.tray.menuOpen' => 'Открыть',
 			'main.tray.menuExit' => 'Выйти',

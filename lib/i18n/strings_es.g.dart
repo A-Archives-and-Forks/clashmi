@@ -176,6 +176,7 @@ class _TranslationsLoginScreenEs implements TranslationsLoginScreenEn {
 	@override String passwordMinLength({required Object minLength}) => 'La contraseña debe tener al menos ${minLength} caracteres';
 	@override String get unsupportedProvider => '${_root.loginScreen.provider} no compatible';
 	@override String get unsupportedProviderType => 'Tipo de ${_root.loginScreen.provider} no compatible';
+	@override String get unActivedProvider => 'La función de inicio de sesión no está activada';
 	@override String providerLoginSupportRequired({required Object p}) => 'Solicita el código de acceso a tu ${_root.loginScreen.provider}.\nPara la integración con ${_root.loginScreen.provider}, consulta: ${p}';
 }
 
@@ -585,6 +586,7 @@ extension on TranslationsEs {
 			'loginScreen.passwordMinLength' => ({required Object minLength}) => 'La contraseña debe tener al menos ${minLength} caracteres',
 			'loginScreen.unsupportedProvider' => '${_root.loginScreen.provider} no compatible',
 			'loginScreen.unsupportedProviderType' => 'Tipo de ${_root.loginScreen.provider} no compatible',
+			'loginScreen.unActivedProvider' => 'La función de inicio de sesión no está activada',
 			'loginScreen.providerLoginSupportRequired' => ({required Object p}) => 'Solicita el código de acceso a tu ${_root.loginScreen.provider}.\nPara la integración con ${_root.loginScreen.provider}, consulta: ${p}',
 			'main.tray.menuOpen' => 'Abrir',
 			'main.tray.menuExit' => 'Salir',

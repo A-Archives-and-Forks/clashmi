@@ -195,6 +195,9 @@ class BoardProviderManager {
   }
 
   static BoardProviderConfig? getProviderById(String id) {
+    if (id.isEmpty) {
+      return null;
+    }
     for (final provider in _providers) {
       if (provider.id == id) {
         return provider;
