@@ -5,6 +5,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:clashmi/app/local_services/vpn_service.dart';
+import 'package:clashmi/app/modules/board_provider_manager.dart';
 import 'package:clashmi/app/modules/setting_manager.dart';
 import 'package:clashmi/app/private/app_url_utils_private.dart';
 import 'package:clashmi/app/runtime/return_result.dart';
@@ -614,21 +615,27 @@ class ProfileManager {
     if (result.error != null) {
       bool success = false;
       if (boardProviderId.isNotEmpty) {
-        final result2 = await downloadByProviderProxy(
-          boardProviderId,
-          url,
-          userAgent,
-          xhwid,
-        );
-        if (result2.error == null && result2.data!.item1 == 200) {
-          try {
-            var file = File(savePath);
-            await file.writeAsString(result2.data!.item2, flush: true);
-            success = true;
-          } catch (err) {
-            Log.w(
-              "addRemote downloadByProviderProxy exception ${err.toString()} ",
-            );
+        final provider = BoardProviderManager.getProviderById(boardProviderId);
+        if (provider != null &&
+            provider.benefits.contains(
+              BoardProviderBenefit.unbanSubscription.name,
+            )) {
+          final result2 = await downloadByProviderProxy(
+            boardProviderId,
+            url,
+            userAgent,
+            xhwid,
+          );
+          if (result2.error == null && result2.data!.item1 == 200) {
+            try {
+              var file = File(savePath);
+              await file.writeAsString(result2.data!.item2, flush: true);
+              success = true;
+            } catch (err) {
+              Log.w(
+                "addRemote downloadByProviderProxy exception ${err.toString()} ",
+              );
+            }
           }
         }
       }
@@ -770,21 +777,29 @@ class ProfileManager {
     if (result.error != null) {
       bool success = false;
       if (profile.boardProviderId.isNotEmpty) {
-        final result2 = await downloadByProviderProxy(
+        final provider = BoardProviderManager.getProviderById(
           profile.boardProviderId,
-          profile.url,
-          userAgent,
-          profile.xhwid,
         );
-        if (result2.error == null && result2.data!.item1 == 200) {
-          try {
-            var file = File(savePath);
-            await file.writeAsString(result2.data!.item2, flush: true);
-            success = true;
-          } catch (err) {
-            Log.w(
-              "update downloadByProviderProxy exception ${err.toString()} ",
-            );
+        if (provider != null &&
+            provider.benefits.contains(
+              BoardProviderBenefit.unbanSubscription.name,
+            )) {
+          final result2 = await downloadByProviderProxy(
+            profile.boardProviderId,
+            profile.url,
+            userAgent,
+            profile.xhwid,
+          );
+          if (result2.error == null && result2.data!.item1 == 200) {
+            try {
+              var file = File(savePath);
+              await file.writeAsString(result2.data!.item2, flush: true);
+              success = true;
+            } catch (err) {
+              Log.w(
+                "update downloadByProviderProxy exception ${err.toString()} ",
+              );
+            }
           }
         }
       }

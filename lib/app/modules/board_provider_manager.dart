@@ -194,6 +194,15 @@ class BoardProviderManager {
     return _providers;
   }
 
+  static BoardProviderConfig? getProviderById(String id) {
+    for (final provider in _providers) {
+      if (provider.id == id) {
+        return provider;
+      }
+    }
+    return null;
+  }
+
   static Future<ReturnResult<BoardProviderConfig>> getProvider(
     String name,
   ) async {

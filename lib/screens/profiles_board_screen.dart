@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:after_layout/after_layout.dart';
 import 'package:clashmi/app/modules/profile_manager.dart';
 import 'package:clashmi/app/modules/remote_config_manager.dart';
+import 'package:clashmi/app/modules/board_provider_manager.dart';
 import 'package:clashmi/app/utils/url_launcher_utils.dart';
 import 'package:clashmi/i18n/strings.g.dart';
 import 'package:clashmi/screens/add_profile_by_import_from_file_screen.dart';
@@ -172,34 +173,49 @@ class _ProfilesBoardScreenState extends LasyRenderingState<ProfilesBoardScreen>
 
   void onTapAdd() async {
     final tcontext = Translations.of(context);
+    bool hideGetProfile = false;
+    final currentProfile = ProfileManager.getCurrent();
+    if (currentProfile != null && currentProfile.boardProviderId.isNotEmpty) {
+      var provider = BoardProviderManager.getProviderById(
+        currentProfile.boardProviderId,
+      );
+      if (provider != null &&
+          provider.benefits.contains(
+            BoardProviderBenefit.hideRecommendMenu.name,
+          )) {
+        hideGetProfile = true;
+      }
+    }
     var widgets = [
-      ListTile(
-        leading: const Icon(Icons.shopping_cart_outlined),
-        title: Text(
-          Platform.isIOS
-              ? tcontext.meta.getProfile
-              : "${tcontext.meta.getProfile} / ${tcontext.meta.buyProfile}",
+      if (!hideGetProfile) ...[
+        ListTile(
+          leading: const Icon(Icons.shopping_cart_outlined),
+          title: Text(
+            Platform.isIOS
+                ? tcontext.meta.getProfile
+                : "${tcontext.meta.getProfile} / ${tcontext.meta.buyProfile}",
+          ),
+          onTap: () async {
+            Navigator.of(context).pop();
+            var remoteConfig = RemoteConfigManager.getConfig();
+
+            String url = remoteConfig.getTranffic;
+
+            url = await UrlLauncherUtils.reorganizationUrlWithAnchor(url);
+
+            if (!mounted) {
+              return;
+            }
+            await WebviewHelper.loadUrl(
+              context,
+              url,
+              "getTranffic",
+              title: tcontext.meta.getProfile,
+              inappWebViewOpenExternal: true,
+            );
+          },
         ),
-        onTap: () async {
-          Navigator.of(context).pop();
-          var remoteConfig = RemoteConfigManager.getConfig();
-
-          String url = remoteConfig.getTranffic;
-
-          url = await UrlLauncherUtils.reorganizationUrlWithAnchor(url);
-
-          if (!mounted) {
-            return;
-          }
-          await WebviewHelper.loadUrl(
-            context,
-            url,
-            "getTranffic",
-            title: tcontext.meta.getProfile,
-            inappWebViewOpenExternal: true,
-          );
-        },
-      ),
+      ],
       ListTile(
         leading: const Icon(Icons.login_outlined),
         title: Text(tcontext.loginScreen.login),
