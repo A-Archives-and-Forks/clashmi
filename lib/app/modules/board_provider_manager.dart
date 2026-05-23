@@ -23,6 +23,35 @@ enum BoardProviderType {
   }
 }
 
+enum BoardProviderBenefit {
+  panelLogin(name: "panel_login"),
+  highlightPin(name: "highlight_pin"),
+  logoBranding(name: "logo_branding"),
+  renewalReminder(name: "renewal_reminder"),
+  hideRecommendMenu(name: "hide_recommend_menu"),
+  partialPanelRenewal(name: "partial_panel_renewal"),
+  unbanSubscription(name: "unban_subscription"),
+  customSpell(name: "custom_spell"),
+  notificationPush(name: "notification_push");
+
+  const BoardProviderBenefit({required this.name});
+  final String name;
+
+  static bool support(String name) {
+    return {
+      panelLogin.name,
+      highlightPin.name,
+      logoBranding.name,
+      renewalReminder.name,
+      hideRecommendMenu.name,
+      partialPanelRenewal.name,
+      unbanSubscription.name,
+      customSpell.name,
+      notificationPush.name,
+    }.contains(name);
+  }
+}
+
 class BoardProviderConfigError {
   int code;
   String? msg;
@@ -57,6 +86,8 @@ class BoardProviderConfig {
   String forgotPasswordUrl;
   String planUrl;
   String homeUrl;
+  String appIconUrl;
+  List<String> benefits = [];
   String botCookie;
   DateTime? lastUpdated;
   BoardProviderConfig({
@@ -80,6 +111,8 @@ class BoardProviderConfig {
     this.forgotPasswordUrl = '',
     this.planUrl = '',
     this.homeUrl = '',
+    this.appIconUrl = '',
+    this.benefits = const [],
     this.botCookie = 'cf_clearance',
     this.lastUpdated,
   });
@@ -105,6 +138,8 @@ class BoardProviderConfig {
     'forgot_password_url': forgotPasswordUrl,
     'plan_url': planUrl,
     'home_url': homeUrl,
+    'app_icon_url': appIconUrl,
+    'benefits': benefits,
     'bot_cookie': botCookie,
     //'last_updated': lastUpdated?.microsecondsSinceEpoch,
   };
@@ -139,6 +174,8 @@ class BoardProviderConfig {
     forgotPasswordUrl = map["forgot_password_url"] ?? "";
     planUrl = map["plan_url"] ?? "";
     homeUrl = map["home_url"] ?? "";
+    appIconUrl = map["app_icon_url"] ?? "";
+    benefits = List<String>.from(map["benefits"] ?? []);
     botCookie = map["bot_cookie"] ?? "cf_clearance";
     // lastUpdated = map["last_updated"] != null
     //     ? DateTime.fromMicrosecondsSinceEpoch(map["last_updated"])
