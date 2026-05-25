@@ -16,6 +16,7 @@ import 'package:clashmi/app/modules/setting_manager.dart';
 import 'package:clashmi/app/utils/app_args.dart';
 import 'package:clashmi/app/utils/app_lifecycle_state_notify.dart';
 import 'package:clashmi/app/utils/app_utils.dart';
+import 'package:clashmi/app/utils/device_utils.dart';
 import 'package:clashmi/app/utils/log.dart';
 import 'package:clashmi/app/utils/move_to_background_utils.dart';
 import 'package:clashmi/app/utils/path_utils.dart';
@@ -161,7 +162,9 @@ Future<void> run(List<String> args) async {
     }
 
     await AutoUpdateManager.init();
-    if (PlatformUtils.isMobile()) {
+
+    bool disableOrientation = await DeviceUtils.disableOrientation();
+    if (!disableOrientation) {
       if (SettingManager.getConfig().ui.autoOrientation) {
         SystemChrome.setPreferredOrientations([
           DeviceOrientation.portraitUp,

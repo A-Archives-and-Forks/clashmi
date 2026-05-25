@@ -16,6 +16,7 @@ import 'package:clashmi/app/modules/setting_manager.dart';
 import 'package:clashmi/app/modules/zashboard.dart';
 import 'package:clashmi/app/runtime/return_result.dart';
 import 'package:clashmi/app/utils/backup_and_sync_utils.dart';
+import 'package:clashmi/app/utils/device_utils.dart';
 import 'package:clashmi/app/utils/did.dart';
 import 'package:clashmi/app/utils/file_utils.dart';
 import 'package:clashmi/app/utils/network_utils.dart';
@@ -522,6 +523,7 @@ class GroupHelper {
     ) async {
       final tcontext = Translations.of(context);
       var setting = SettingManager.getConfig();
+      bool disableOrientation = await DeviceUtils.disableOrientation();
       List<GroupItemOptions> options0 = [
         GroupItemOptions(
           pushOptions: GroupItemPushOptions(
@@ -581,6 +583,29 @@ class GroupHelper {
             },
           ),
         ),
+        if (!disableOrientation) ...[
+          GroupItemOptions(
+            switchOptions: GroupItemSwitchOptions(
+              name: tcontext.meta.autoOrientation,
+              switchValue: setting.ui.autoOrientation,
+              onSwitch: (bool value) async {
+                setting.ui.autoOrientation = value;
+                if (value) {
+                  SystemChrome.setPreferredOrientations([
+                    DeviceOrientation.portraitUp,
+                    DeviceOrientation.landscapeLeft,
+                    DeviceOrientation.portraitDown,
+                    DeviceOrientation.landscapeRight,
+                  ]);
+                } else {
+                  SystemChrome.setPreferredOrientations([
+                    DeviceOrientation.portraitUp,
+                  ]);
+                }
+              },
+            ),
+          ),
+        ],
         if (Platform.isAndroid) ...[
           GroupItemOptions(
             switchOptions: GroupItemSwitchOptions(
