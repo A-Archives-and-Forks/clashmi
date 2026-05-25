@@ -583,29 +583,6 @@ class GroupHelper {
             },
           ),
         ),
-        if (!disableOrientation) ...[
-          GroupItemOptions(
-            switchOptions: GroupItemSwitchOptions(
-              name: tcontext.meta.autoOrientation,
-              switchValue: setting.ui.autoOrientation,
-              onSwitch: (bool value) async {
-                setting.ui.autoOrientation = value;
-                if (value) {
-                  SystemChrome.setPreferredOrientations([
-                    DeviceOrientation.portraitUp,
-                    DeviceOrientation.landscapeLeft,
-                    DeviceOrientation.portraitDown,
-                    DeviceOrientation.landscapeRight,
-                  ]);
-                } else {
-                  SystemChrome.setPreferredOrientations([
-                    DeviceOrientation.portraitUp,
-                  ]);
-                }
-              },
-            ),
-          ),
-        ],
         if (Platform.isAndroid) ...[
           GroupItemOptions(
             switchOptions: GroupItemSwitchOptions(
@@ -618,7 +595,7 @@ class GroupHelper {
             ),
           ),
         ],
-        if (PlatformUtils.isMobile()) ...[
+        if (!disableOrientation) ...[
           GroupItemOptions(
             switchOptions: GroupItemSwitchOptions(
               name: tcontext.meta.autoOrientation,
