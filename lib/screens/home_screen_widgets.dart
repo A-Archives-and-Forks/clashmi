@@ -8,7 +8,6 @@ import 'package:clashmi/app/local_services/vpn_service.dart';
 import 'package:clashmi/app/modules/auto_update_manager.dart';
 import 'package:clashmi/app/modules/biz.dart';
 import 'package:clashmi/app/modules/board_provider_manager.dart';
-import 'package:clashmi/app/modules/board_session_persistent_manager.dart';
 import 'package:clashmi/app/modules/clash_setting_manager.dart';
 import 'package:clashmi/app/modules/profile_manager.dart';
 import 'package:clashmi/app/modules/setting_manager.dart';
@@ -36,6 +35,7 @@ import 'package:clashmi/screens/theme_config.dart';
 import 'package:clashmi/screens/theme_define.dart';
 import 'package:clashmi/screens/webview_helper.dart';
 import 'package:clashmi/screens/widgets/segmented_elevated_button.dart';
+import 'package:fast_cached_network_image/fast_cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:libclash_vpn_service/state.dart';
 import 'package:libclash_vpn_service/vpn_service.dart';
@@ -395,7 +395,25 @@ class _HomeScreenWidgetPart1 extends State<HomeScreenWidgetPart1> {
                     onTap: () async {
                       GroupHelper.showVpnProvider(context, provider);
                     },
-                    child: Icon(Icons.business, size: 30),
+                    child:
+                        provider.appIconUrl.isNotEmpty &&
+                            provider.benefits.contains(
+                              BoardProviderBenefit.logoBranding.name,
+                            )
+                        ? FastCachedImage(
+                            url: provider.appIconUrl,
+                            width: 32,
+                            height: 32,
+                            cacheWidth: 64,
+                            cacheHeight: 64,
+                            loadingBuilder: (context, loadingProgress) {
+                              return SizedBox.shrink();
+                            },
+                            errorBuilder: (context, error, stackTrace) {
+                              return Icon(Icons.business, size: 32);
+                            },
+                          )
+                        : Icon(Icons.business, size: 32),
                   ),
                 ),
               ],

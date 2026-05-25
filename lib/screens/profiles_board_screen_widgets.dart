@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:clashmi/app/clash/clash_http_api.dart';
 import 'package:clashmi/app/modules/board_provider_manager.dart';
-import 'package:clashmi/app/modules/board_session_persistent_manager.dart';
 import 'package:clashmi/app/modules/profile_manager.dart';
 import 'package:clashmi/app/modules/profile_patch_manager.dart';
 import 'package:clashmi/app/modules/setting_manager.dart';
@@ -98,7 +97,7 @@ class ProfilesBoardItem extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       if (provider != null) ...[
-                        /*provider.appIconUrl.isNotEmpty &&
+                        provider.appIconUrl.isNotEmpty &&
                                 provider.benefits.contains(
                                   BoardProviderBenefit.logoBranding.name,
                                 )
@@ -112,15 +111,20 @@ class ProfilesBoardItem extends StatelessWidget {
                                   return SizedBox.shrink();
                                 },
                                 errorBuilder: (context, error, stackTrace) {
-                                  return SizedBox.shrink();
+                                  return Icon(
+                                    Icons.business,
+                                    size: 16,
+                                    color: selected
+                                        ? ThemeDefine.kColorBlue
+                                        : null,
+                                  );
                                 },
                               )
-                            :*/
-                        Icon(
-                          Icons.business,
-                          size: 16,
-                          color: selected ? ThemeDefine.kColorBlue : null,
-                        ),
+                            : Icon(
+                                Icons.business,
+                                size: 16,
+                                color: selected ? ThemeDefine.kColorBlue : null,
+                              ),
                         const SizedBox(width: 5),
                       ],
                       Text(
