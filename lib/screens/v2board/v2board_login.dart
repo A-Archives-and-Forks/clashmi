@@ -12,7 +12,7 @@ class V2boardLogin {
     String email,
     String password,
   ) async {
-    final session = BoardSessionPersistentManager.instance().getOrCreate(
+    final session = await BoardSessionPersistentManager.instance().getOrCreate(
       provider,
       email,
     );
@@ -81,7 +81,10 @@ class V2boardLogin {
   }
 
   static Future<void> logout() async {
-    final session = BoardSessionPersistentManager.instance().current();
+    final currentProfile = ProfileManager.getCurrent();
+    final session = BoardSessionPersistentManager.instance().getBySubscribeUrl(
+      currentProfile?.url ?? "",
+    );
     if (session == null) {
       return;
     }

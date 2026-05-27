@@ -384,9 +384,9 @@ class BoardProviderManager {
       await _save();
     }
     await updateSessionProviders();
-    final session = BoardSessionPersistentManager.instance().current();
-    if (session != null) {
-      getProvider(session.provider.name);
+    final sessionNames = BoardSessionPersistentManager.instance().getAllNames();
+    for (var name in sessionNames) {
+      getProvider(name);
     }
   }
 }

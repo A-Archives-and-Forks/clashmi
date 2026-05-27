@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
-
+import 'package:clashmi/app/local_services/vpn_service.dart';
 import 'package:board_service/board_session_persistent.dart';
 import 'package:board_service/crypto.dart';
 import 'package:board_service/sspanel_uim/sspanel_uim_client.dart'
@@ -8,8 +8,10 @@ import 'package:board_service/sspanel_uim/sspanel_uim_client.dart'
 import 'package:board_service/v2board/v2board_client.dart' as v2board_client;
 import 'package:board_service/xboard/xboard_client.dart' as xboard_client;
 import 'package:clashmi/app/modules/board_provider_manager.dart';
+import 'package:clashmi/app/modules/clash_setting_manager.dart';
 import 'package:clashmi/app/modules/setting_manager.dart';
 import 'package:clashmi/app/utils/path_utils.dart';
+import 'package:libclash_vpn_service/state.dart';
 
 class BoardSessionLoginError {
   BoardSession? session;
@@ -267,6 +269,7 @@ class BoardSessionPersistentManager implements BoardSessionPersistent {
 
   static Future<void> init() async {
     await _instance._load();
+    _instance.onVpnStateChanged();
   }
 
   void updateHeadersAndCookies(
@@ -282,7 +285,10 @@ class BoardSessionPersistentManager implements BoardSessionPersistent {
     _save();
   }
 
-  BoardSession? getOrCreate(BoardProviderConfig provider, String account) {
+  Future<BoardSession?> getOrCreate(
+    BoardProviderConfig provider,
+    String account,
+  ) async {
     if (provider.id.isEmpty || account.isEmpty) {
       return null;
     }
@@ -297,6 +303,11 @@ class BoardSessionPersistentManager implements BoardSessionPersistent {
         return _config.sessions[0];
       }
     }
+
+    final connected = await VPNService.getStarted();
+    final proxyUrl = connected
+        ? "127.0.0.1:${ClashSettingManager.getMixedPort()}"
+        : "";
 
     final newSession = BoardSession(
       provider: provider,
@@ -315,6 +326,7 @@ class BoardSessionPersistentManager implements BoardSessionPersistent {
         id: provider.id,
         persistent: this,
       );
+      newSession._v2board!.proxyUrl = proxyUrl;
       newSession._v2board!.userAgent = useagent;
       newSession._v2board!.setVersion(newSession.provider.version);
     } else if (newSession.provider.type == BoardProviderType.xboard) {
@@ -324,6 +336,7 @@ class BoardSessionPersistentManager implements BoardSessionPersistent {
         id: provider.id,
         persistent: this,
       );
+      newSession._xboard!.proxyUrl = proxyUrl;
       newSession._xboard!.userAgent = useagent;
     } else if (newSession.provider.type == BoardProviderType.sspanel) {
       newSession._ssPanel = sspanel_client.SSPanelUimClient(
@@ -332,6 +345,7 @@ class BoardSessionPersistentManager implements BoardSessionPersistent {
         id: provider.id,
         persistent: this,
       );
+      newSession._ssPanel!.proxyUrl = proxyUrl;
       newSession._ssPanel!.userAgent = useagent;
     } else {
       return null;
@@ -347,6 +361,14 @@ class BoardSessionPersistentManager implements BoardSessionPersistent {
       return null;
     }
     return _config.sessions.first;
+  }
+
+  Set<String> getAllNames() {
+    Set<String> names = {};
+    for (var session in _config.sessions) {
+      names.add(session.provider.name);
+    }
+    return names;
   }
 
   BoardSession? getBySubscribeUrl(String url) {
@@ -376,7 +398,14 @@ class BoardSessionPersistentManager implements BoardSessionPersistent {
     await _save();
   }
 
-  void _updateProvider(BoardSession session, BoardProviderConfig provider) {
+  Future<void> _updateProvider(
+    BoardSession session,
+    BoardProviderConfig provider,
+  ) async {
+    final connected = await VPNService.getStarted();
+    final proxyUrl = connected
+        ? "127.0.0.1:${ClashSettingManager.getMixedPort()}"
+        : "";
     final useagent = provider.userAgent.isNotEmpty
         ? provider.userAgent
         : SettingManager.getConfig().userAgent();
@@ -388,6 +417,7 @@ class BoardSessionPersistentManager implements BoardSessionPersistent {
         id: provider.id,
         persistent: this,
       );
+      session._v2board!.proxyUrl = proxyUrl;
       session._v2board!.baseUrl = baseUrl;
       session._v2board!.userAgent = useagent;
       session._v2board!.setVersion(provider.version);
@@ -400,6 +430,7 @@ class BoardSessionPersistentManager implements BoardSessionPersistent {
         id: provider.id,
         persistent: this,
       );
+      session._xboard!.proxyUrl = proxyUrl;
       session._xboard!.baseUrl = baseUrl;
       session._xboard!.userAgent = useagent;
       session._xboard!.setAccount(session.account);
@@ -411,6 +442,7 @@ class BoardSessionPersistentManager implements BoardSessionPersistent {
         id: provider.id,
         persistent: this,
       );
+      session._ssPanel!.proxyUrl = proxyUrl;
       session._ssPanel!.baseUrl = baseUrl;
       session._ssPanel!.userAgent = useagent;
       session._ssPanel!.setAccount(session.account);
@@ -452,7 +484,7 @@ class BoardSessionPersistentManager implements BoardSessionPersistent {
     }
     _config.fromJson(jsonData);
     for (var session in _config.sessions) {
-      _updateProvider(session, session.provider);
+      await _updateProvider(session, session.provider);
       if (session.provider.botCookie.isNotEmpty) {
         final headersAndCookies =
             _config.headersAndCookies[session.provider.botCookie];
@@ -476,6 +508,30 @@ class BoardSessionPersistentManager implements BoardSessionPersistent {
         }
       }
     }
+  }
+
+  void onVpnStateChanged() {
+    VPNService.onEventStateChanged.add((
+      FlutterVpnServiceState state,
+      Map<String, String> params,
+    ) async {
+      if (state != FlutterVpnServiceState.connected &&
+          state != FlutterVpnServiceState.disconnected) {
+        return;
+      }
+      final proxyUrl = state == FlutterVpnServiceState.connected
+          ? "127.0.0.1:${ClashSettingManager.getMixedPort()}"
+          : "";
+      for (int i = 0; i < _instance._config.sessions.length; i++) {
+        if (_instance._config.sessions[i]._v2board != null) {
+          _instance._config.sessions[i]._v2board!.proxyUrl = proxyUrl;
+        } else if (_instance._config.sessions[i]._xboard != null) {
+          _instance._config.sessions[i]._xboard!.proxyUrl = proxyUrl;
+        } else if (_instance._config.sessions[i]._ssPanel != null) {
+          _instance._config.sessions[i]._ssPanel!.proxyUrl = proxyUrl;
+        }
+      }
+    });
   }
 
   void relogin() {

@@ -8,6 +8,8 @@ import 'package:clashmi/app/clash/clash_config.dart';
 import 'package:clashmi/app/local_services/vpn_service.dart';
 import 'package:clashmi/app/modules/auto_update_manager.dart';
 import 'package:clashmi/app/modules/board_provider_manager.dart';
+import 'package:clashmi/app/modules/board_session_persistent_manager.dart'
+    show BoardSession;
 import 'package:clashmi/app/modules/clash_setting_manager.dart';
 import 'package:clashmi/app/modules/profile_manager.dart';
 import 'package:clashmi/app/modules/profile_patch_manager.dart';
@@ -2478,6 +2480,7 @@ class GroupHelper {
   static Future<void> showVpnProvider(
     BuildContext context,
     BoardProviderConfig provider,
+    BoardSession? session,
   ) async {
     final tcontext = Translations.of(context);
     var widgets = [
@@ -2493,7 +2496,18 @@ class GroupHelper {
           title: Text(tcontext.meta.homePage),
           onTap: () async {
             Navigator.pop(context);
-            UrlLauncherUtils.loadUrl(provider.homeUrl);
+            //UrlLauncherUtils.loadUrl(provider.homeUrl);
+            WebviewHelper.loadUrl(
+              context,
+              provider.homeUrl,
+              "homeUrl",
+              title: tcontext.meta.homePage,
+              useInappWebViewForPC: true,
+              inappWebViewOpenExternal: true,
+              headers: session?.headers(),
+              cookies: session?.cookies(),
+              localStorage: session?.localStorage(),
+            );
           },
         ),
       ],

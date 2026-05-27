@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:clashmi/app/clash/clash_http_api.dart';
 import 'package:clashmi/app/modules/board_provider_manager.dart';
+import 'package:clashmi/app/modules/board_session_persistent_manager.dart';
 import 'package:clashmi/app/modules/profile_manager.dart';
 import 'package:clashmi/app/modules/profile_patch_manager.dart';
 import 'package:clashmi/app/modules/setting_manager.dart';
@@ -318,7 +319,9 @@ class _ProfilesBoardScreenWidget extends State<ProfilesBoardScreenWidget> {
           title: Text(provider.name),
           onTap: () async {
             Navigator.of(context).pop();
-            GroupHelper.showVpnProvider(context, provider);
+            final session = BoardSessionPersistentManager.instance()
+                .getBySubscribeUrl(setting.url);
+            GroupHelper.showVpnProvider(context, provider, session);
           },
         ),
       ],

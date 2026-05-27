@@ -8,6 +8,7 @@ import 'package:clashmi/app/local_services/vpn_service.dart';
 import 'package:clashmi/app/modules/auto_update_manager.dart';
 import 'package:clashmi/app/modules/biz.dart';
 import 'package:clashmi/app/modules/board_provider_manager.dart';
+import 'package:clashmi/app/modules/board_session_persistent_manager.dart';
 import 'package:clashmi/app/modules/clash_setting_manager.dart';
 import 'package:clashmi/app/modules/profile_manager.dart';
 import 'package:clashmi/app/modules/setting_manager.dart';
@@ -393,7 +394,9 @@ class _HomeScreenWidgetPart1 extends State<HomeScreenWidgetPart1> {
                   height: 40,
                   child: InkWell(
                     onTap: () async {
-                      GroupHelper.showVpnProvider(context, provider);
+                      final session = BoardSessionPersistentManager.instance()
+                          .getBySubscribeUrl(currentProfile?.url ?? "");
+                      GroupHelper.showVpnProvider(context, provider, session);
                     },
                     child:
                         provider.appIconUrl.isNotEmpty &&
