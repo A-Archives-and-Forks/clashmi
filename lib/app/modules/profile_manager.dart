@@ -814,6 +814,12 @@ class ProfileManager {
         }
       }
       if (!success) {
+        updating.remove(id);
+        Future.delayed(const Duration(milliseconds: 10), () async {
+          for (var event in onEventUpdate) {
+            event(id, true);
+          }
+        });
         return result.error;
       }
     }
@@ -837,14 +843,19 @@ class ProfileManager {
         profile.decryptPassword,
       );
       if (err1 != null) {
+        updating.remove(id);
         await FileUtils.deletePath(savePath);
+        Future.delayed(const Duration(milliseconds: 10), () async {
+          for (var event in onEventUpdate) {
+            event(id, true);
+          }
+        });
         return err1;
       }
       final err = await validFileContentFormat(savePathTmp);
       if (err != null) {
         updating.remove(id);
         await FileUtils.deletePath(savePathTmp);
-
         Future.delayed(const Duration(milliseconds: 10), () async {
           for (var event in onEventUpdate) {
             event(id, true);
@@ -868,7 +879,6 @@ class ProfileManager {
       if (renameError.isNotEmpty) {
         updating.remove(id);
         await FileUtils.deletePath(savePathTmp);
-
         Future.delayed(const Duration(milliseconds: 10), () async {
           for (var event in onEventUpdate) {
             event(id, true);
