@@ -60,7 +60,7 @@
         "unsupportedProvider": "@:{loginScreen.provider} پشتیبانی نمی شود",
         "unsupportedProviderType": "نوع @:{loginScreen.provider} پشتیبانی نمی شود",
         "unActivedProvider": "قابلیت ورود فعال نشده است",
-        "providerLoginSupportRequired": "لطفاً کد ورود را از @:{loginScreen.provider} دریافت کنید.\nبرای راهنمای اتصال @:{loginScreen.provider} به این لینک مراجعه کنید: $p"
+        "providerLoginSupportRequired": "لطفاً کد/نام مستعار ارائه‌دهنده را از @:{loginScreen.provider} دریافت کنید.\nبرای راهنمای اتصال @:{loginScreen.provider} به این لینک مراجعه کنید: $p"
     },
     "main": {
         "tray": {

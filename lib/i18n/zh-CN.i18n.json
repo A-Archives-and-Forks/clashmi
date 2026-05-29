@@ -60,7 +60,7 @@
         "unsupportedProvider": "不支持的@:{loginScreen.provider}",
         "unsupportedProviderType": "不支持的@:{loginScreen.provider}类型",
         "unActivedProvider": "登录功能未激活",
-        "providerLoginSupportRequired": "通行码请找@:{loginScreen.provider}索要\n@:{loginScreen.provider}接入请参考:$p"
+        "providerLoginSupportRequired": "编码/别名请找@:{loginScreen.provider}索要\n@:{loginScreen.provider}接入请参考:$p"
     },
     "main": {
         "tray": {

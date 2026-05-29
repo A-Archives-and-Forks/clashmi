@@ -60,7 +60,7 @@
         "unsupportedProvider": "@:{loginScreen.provider} no compatible",
         "unsupportedProviderType": "Tipo de @:{loginScreen.provider} no compatible",
         "unActivedProvider": "La función de inicio de sesión no está activada",
-        "providerLoginSupportRequired": "Solicita el código de acceso a tu @:{loginScreen.provider}.\nPara la integración con @:{loginScreen.provider}, consulta: $p"
+        "providerLoginSupportRequired": "Solicita el código/alias del proveedor a tu @:{loginScreen.provider}.\nPara la integración con @:{loginScreen.provider}, consulta: $p"
     },
     "main": {
         "tray": {

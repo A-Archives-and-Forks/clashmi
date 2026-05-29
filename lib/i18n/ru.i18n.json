@@ -60,7 +60,7 @@
         "unsupportedProvider": "Неподдерживаемый @:{loginScreen.provider}",
         "unsupportedProviderType": "Неподдерживаемый тип @:{loginScreen.provider}",
         "unActivedProvider": "Функция входа не активирована",
-        "providerLoginSupportRequired": "Запросите код доступа у вашего @:{loginScreen.provider}.\nИнструкцию по интеграции с @:{loginScreen.provider} смотрите: $p"
+        "providerLoginSupportRequired": "Запросите код/алиас провайдера у вашего @:{loginScreen.provider}.\nИнструкцию по интеграции с @:{loginScreen.provider} смотрите: $p"
     },
     "main": {
         "tray": {

@@ -284,8 +284,8 @@ class TranslationsLoginScreenEn {
 	/// en: 'Login feature is not activated'
 	String get unActivedProvider => 'Login feature is not activated';
 
-	/// en: 'Please request the passcode from your Provider. For Provider integration, please refer to: $p'
-	String providerLoginSupportRequired({required Object p}) => 'Please request the passcode from your ${_root.loginScreen.provider}.\nFor ${_root.loginScreen.provider} integration, please refer to: ${p}';
+	/// en: 'Please request the provider code/alias from your Provider. For Provider integration, please refer to: $p'
+	String providerLoginSupportRequired({required Object p}) => 'Please request the provider code/alias from your ${_root.loginScreen.provider}.\nFor ${_root.loginScreen.provider} integration, please refer to: ${p}';
 }
 
 // Path: main
@@ -1233,7 +1233,7 @@ extension on Translations {
 			'loginScreen.unsupportedProvider' => 'Unsupported ${_root.loginScreen.provider}',
 			'loginScreen.unsupportedProviderType' => 'Unsupported ${_root.loginScreen.provider} type',
 			'loginScreen.unActivedProvider' => 'Login feature is not activated',
-			'loginScreen.providerLoginSupportRequired' => ({required Object p}) => 'Please request the passcode from your ${_root.loginScreen.provider}.\nFor ${_root.loginScreen.provider} integration, please refer to: ${p}',
+			'loginScreen.providerLoginSupportRequired' => ({required Object p}) => 'Please request the provider code/alias from your ${_root.loginScreen.provider}.\nFor ${_root.loginScreen.provider} integration, please refer to: ${p}',
 			'main.tray.menuOpen' => 'Open',
 			'main.tray.menuExit' => 'Exit',
 			'meta.enable' => 'Enable',

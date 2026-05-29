@@ -177,7 +177,7 @@ class _TranslationsLoginScreenJa implements TranslationsLoginScreenEn {
 	@override String get unsupportedProvider => 'サポートされていない${_root.loginScreen.provider}';
 	@override String get unsupportedProviderType => 'サポートされていない${_root.loginScreen.provider}タイプ';
 	@override String get unActivedProvider => 'ログイン機能は有効化されていません';
-	@override String providerLoginSupportRequired({required Object p}) => 'パスコードは${_root.loginScreen.provider}にお問い合わせください。\n${_root.loginScreen.provider}連携の案内はこちら: ${p}';
+	@override String providerLoginSupportRequired({required Object p}) => 'プロバイダーのコード/別名は${_root.loginScreen.provider}にお問い合わせください。\n${_root.loginScreen.provider}連携は次をご参照ください: ${p}';
 }
 
 // Path: main
@@ -587,7 +587,7 @@ extension on TranslationsJa {
 			'loginScreen.unsupportedProvider' => 'サポートされていない${_root.loginScreen.provider}',
 			'loginScreen.unsupportedProviderType' => 'サポートされていない${_root.loginScreen.provider}タイプ',
 			'loginScreen.unActivedProvider' => 'ログイン機能は有効化されていません',
-			'loginScreen.providerLoginSupportRequired' => ({required Object p}) => 'パスコードは${_root.loginScreen.provider}にお問い合わせください。\n${_root.loginScreen.provider}連携の案内はこちら: ${p}',
+			'loginScreen.providerLoginSupportRequired' => ({required Object p}) => 'プロバイダーのコード/別名は${_root.loginScreen.provider}にお問い合わせください。\n${_root.loginScreen.provider}連携は次をご参照ください: ${p}',
 			'main.tray.menuOpen' => '開く',
 			'main.tray.menuExit' => '終了',
 			'meta.enable' => '有効',

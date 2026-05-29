@@ -177,7 +177,7 @@ class _TranslationsLoginScreenAr implements TranslationsLoginScreenEn {
 	@override String get unsupportedProvider => '${_root.loginScreen.provider} غير مدعوم';
 	@override String get unsupportedProviderType => 'نوع ${_root.loginScreen.provider} غير مدعوم';
 	@override String get unActivedProvider => 'ميزة تسجيل الدخول غير مفعلة';
-	@override String providerLoginSupportRequired({required Object p}) => 'يرجى طلب رمز المرور من ${_root.loginScreen.provider}.\nلاطلاع على تكامل ${_root.loginScreen.provider}، راجع: ${p}';
+	@override String providerLoginSupportRequired({required Object p}) => 'يرجى طلب رمز/اسم مستعار المزوّد من ${_root.loginScreen.provider}.\nللاطلاع على تكامل ${_root.loginScreen.provider}، راجع: ${p}';
 }
 
 // Path: main
@@ -587,7 +587,7 @@ extension on TranslationsAr {
 			'loginScreen.unsupportedProvider' => '${_root.loginScreen.provider} غير مدعوم',
 			'loginScreen.unsupportedProviderType' => 'نوع ${_root.loginScreen.provider} غير مدعوم',
 			'loginScreen.unActivedProvider' => 'ميزة تسجيل الدخول غير مفعلة',
-			'loginScreen.providerLoginSupportRequired' => ({required Object p}) => 'يرجى طلب رمز المرور من ${_root.loginScreen.provider}.\nلاطلاع على تكامل ${_root.loginScreen.provider}، راجع: ${p}',
+			'loginScreen.providerLoginSupportRequired' => ({required Object p}) => 'يرجى طلب رمز/اسم مستعار المزوّد من ${_root.loginScreen.provider}.\nللاطلاع على تكامل ${_root.loginScreen.provider}، راجع: ${p}',
 			'main.tray.menuOpen' => 'يفتح',
 			'main.tray.menuExit' => 'مخرج',
 			'meta.enable' => 'يُمكَِن',

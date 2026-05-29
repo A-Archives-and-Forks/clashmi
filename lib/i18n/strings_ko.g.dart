@@ -177,7 +177,7 @@ class _TranslationsLoginScreenKo implements TranslationsLoginScreenEn {
 	@override String get unsupportedProvider => '지원되지 않는 ${_root.loginScreen.provider}';
 	@override String get unsupportedProviderType => '지원되지 않는 ${_root.loginScreen.provider} 유형';
 	@override String get unActivedProvider => '로그인 기능이 활성화되어 있지 않습니다';
-	@override String providerLoginSupportRequired({required Object p}) => '패스코드는 ${_root.loginScreen.provider}에 문의해 주세요.\n${_root.loginScreen.provider} 연동은 다음을 참고하세요: ${p}';
+	@override String providerLoginSupportRequired({required Object p}) => '공급자 코드/별칭은 ${_root.loginScreen.provider}에 문의해 주세요.\n${_root.loginScreen.provider} 연동은 다음을 참고하세요: ${p}';
 }
 
 // Path: main
@@ -587,7 +587,7 @@ extension on TranslationsKo {
 			'loginScreen.unsupportedProvider' => '지원되지 않는 ${_root.loginScreen.provider}',
 			'loginScreen.unsupportedProviderType' => '지원되지 않는 ${_root.loginScreen.provider} 유형',
 			'loginScreen.unActivedProvider' => '로그인 기능이 활성화되어 있지 않습니다',
-			'loginScreen.providerLoginSupportRequired' => ({required Object p}) => '패스코드는 ${_root.loginScreen.provider}에 문의해 주세요.\n${_root.loginScreen.provider} 연동은 다음을 참고하세요: ${p}',
+			'loginScreen.providerLoginSupportRequired' => ({required Object p}) => '공급자 코드/별칭은 ${_root.loginScreen.provider}에 문의해 주세요.\n${_root.loginScreen.provider} 연동은 다음을 참고하세요: ${p}',
 			'main.tray.menuOpen' => '열기',
 			'main.tray.menuExit' => '종료',
 			'meta.enable' => '활성화',

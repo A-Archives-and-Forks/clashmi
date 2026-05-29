@@ -60,7 +60,7 @@
         "unsupportedProvider": "サポートされていない@:{loginScreen.provider}",
         "unsupportedProviderType": "サポートされていない@:{loginScreen.provider}タイプ",
         "unActivedProvider": "ログイン機能は有効化されていません",
-        "providerLoginSupportRequired": "パスコードは@:{loginScreen.provider}にお問い合わせください。\n@:{loginScreen.provider}連携の案内はこちら: $p"
+        "providerLoginSupportRequired": "プロバイダーのコード/別名は@:{loginScreen.provider}にお問い合わせください。\n@:{loginScreen.provider}連携は次をご参照ください: $p"
     },
     "main": {
         "tray": {

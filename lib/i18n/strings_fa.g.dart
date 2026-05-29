@@ -177,7 +177,7 @@ class _TranslationsLoginScreenFa implements TranslationsLoginScreenEn {
 	@override String get unsupportedProvider => '${_root.loginScreen.provider} پشتیبانی نمی شود';
 	@override String get unsupportedProviderType => 'نوع ${_root.loginScreen.provider} پشتیبانی نمی شود';
 	@override String get unActivedProvider => 'قابلیت ورود فعال نشده است';
-	@override String providerLoginSupportRequired({required Object p}) => 'لطفاً کد ورود را از ${_root.loginScreen.provider} دریافت کنید.\nبرای راهنمای اتصال ${_root.loginScreen.provider} به این لینک مراجعه کنید: ${p}';
+	@override String providerLoginSupportRequired({required Object p}) => 'لطفاً کد/نام مستعار ارائه‌دهنده را از ${_root.loginScreen.provider} دریافت کنید.\nبرای راهنمای اتصال ${_root.loginScreen.provider} به این لینک مراجعه کنید: ${p}';
 }
 
 // Path: main
@@ -587,7 +587,7 @@ extension on TranslationsFa {
 			'loginScreen.unsupportedProvider' => '${_root.loginScreen.provider} پشتیبانی نمی شود',
 			'loginScreen.unsupportedProviderType' => 'نوع ${_root.loginScreen.provider} پشتیبانی نمی شود',
 			'loginScreen.unActivedProvider' => 'قابلیت ورود فعال نشده است',
-			'loginScreen.providerLoginSupportRequired' => ({required Object p}) => 'لطفاً کد ورود را از ${_root.loginScreen.provider} دریافت کنید.\nبرای راهنمای اتصال ${_root.loginScreen.provider} به این لینک مراجعه کنید: ${p}',
+			'loginScreen.providerLoginSupportRequired' => ({required Object p}) => 'لطفاً کد/نام مستعار ارائه‌دهنده را از ${_root.loginScreen.provider} دریافت کنید.\nبرای راهنمای اتصال ${_root.loginScreen.provider} به این لینک مراجعه کنید: ${p}',
 			'main.tray.menuOpen' => 'بازکردن',
 			'main.tray.menuExit' => 'بستن',
 			'meta.enable' => 'فعال‌سازی',
