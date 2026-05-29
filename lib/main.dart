@@ -551,19 +551,19 @@ class MyAppState extends State<MyApp>
       menuItem.checked = true;
       _menu?.getMenuItem(kMenuModeGlobal)?.checked = false;
       _menu?.getMenuItem(kMenuModeDirect)?.checked = false;
-      await trayManager.setContextMenu(_menu!);
+      trayManager.setContextMenu(_menu!);
     } else if (menuItem.key == kMenuModeGlobal) {
       await ClashSettingManager.setConfigsMode(ClashConfigsMode.global);
       menuItem.checked = true;
       _menu?.getMenuItem(kMenuModeRule)?.checked = false;
       _menu?.getMenuItem(kMenuModeDirect)?.checked = false;
-      await trayManager.setContextMenu(_menu!);
+      trayManager.setContextMenu(_menu!);
     } else if (menuItem.key == kMenuModeDirect) {
       await ClashSettingManager.setConfigsMode(ClashConfigsMode.direct);
       menuItem.checked = true;
       _menu?.getMenuItem(kMenuModeRule)?.checked = false;
       _menu?.getMenuItem(kMenuModeGlobal)?.checked = false;
-      await trayManager.setContextMenu(_menu!);
+      trayManager.setContextMenu(_menu!);
     } else if (menuItem.key == kMenuExit) {
       await _quit();
     } else if (menuItem.key == kMenuOpen) {
