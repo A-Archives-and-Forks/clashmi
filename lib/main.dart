@@ -216,6 +216,7 @@ class MyAppState extends State<MyApp>
   bool _launchAtStartup = false;
   bool _windowVisibleForMac = false;
   bool _trayGrey = true;
+  Menu? _menu;
   @override
   void initState() {
     super.initState();
@@ -517,8 +518,8 @@ class MyAppState extends State<MyApp>
       MenuItem(key: kMenuOpen, label: "   ${t.main.tray.menuOpen}   "),
       MenuItem(key: kMenuExit, label: "   ${t.main.tray.menuExit}   "),
     ];
-
-    await trayManager.setContextMenu(Menu(items: items));
+    _menu = Menu(items: items);
+    await trayManager.setContextMenu(_menu!);
     if (!Platform.isLinux) {
       await trayManager.popUpContextMenu(bringAppToFront: true);
     }
@@ -547,10 +548,22 @@ class MyAppState extends State<MyApp>
       VpnActionHandler.vpnDisconnect?.call("menu", false);
     } else if (menuItem.key == kMenuModeRule) {
       await ClashSettingManager.setConfigsMode(ClashConfigsMode.rule);
+      menuItem.checked = true;
+      _menu?.getMenuItem(kMenuModeGlobal)?.checked = false;
+      _menu?.getMenuItem(kMenuModeDirect)?.checked = false;
+      await trayManager.setContextMenu(_menu!);
     } else if (menuItem.key == kMenuModeGlobal) {
       await ClashSettingManager.setConfigsMode(ClashConfigsMode.global);
+      menuItem.checked = true;
+      _menu?.getMenuItem(kMenuModeRule)?.checked = false;
+      _menu?.getMenuItem(kMenuModeDirect)?.checked = false;
+      await trayManager.setContextMenu(_menu!);
     } else if (menuItem.key == kMenuModeDirect) {
       await ClashSettingManager.setConfigsMode(ClashConfigsMode.direct);
+      menuItem.checked = true;
+      _menu?.getMenuItem(kMenuModeRule)?.checked = false;
+      _menu?.getMenuItem(kMenuModeGlobal)?.checked = false;
+      await trayManager.setContextMenu(_menu!);
     } else if (menuItem.key == kMenuExit) {
       await _quit();
     } else if (menuItem.key == kMenuOpen) {
