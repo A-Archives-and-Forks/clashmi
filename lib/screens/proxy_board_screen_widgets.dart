@@ -109,7 +109,9 @@ class _ProxyScreenProxiesNodeWidget
                     Text(
                       node.name,
                       style: TextStyle(
-                        fontFamily: Platform.isWindows ? 'Emoji' : null,
+                        fontFamily: Platform.isWindows || Platform.isLinux
+                            ? 'Emoji'
+                            : null,
                       ),
                     ),
                   ],
@@ -117,7 +119,9 @@ class _ProxyScreenProxiesNodeWidget
               : Text(
                   node.name,
                   style: TextStyle(
-                    fontFamily: Platform.isWindows ? 'Emoji' : null,
+                    fontFamily: Platform.isWindows || Platform.isLinux
+                        ? 'Emoji'
+                        : null,
                   ),
                 ),
           subtitle: !_nodesTesting.contains(node.name)
@@ -154,7 +158,9 @@ class _ProxyScreenProxiesNodeWidget
                     textAlign: TextAlign.right,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
-                      fontFamily: Platform.isWindows ? 'Emoji' : null,
+                      fontFamily: Platform.isWindows || Platform.isLinux
+                          ? 'Emoji'
+                          : null,
                     ),
                   ),
                 ),
@@ -250,7 +256,9 @@ class _ProxyScreenProxiesNodeWidget
                     Text(
                       node.name,
                       style: TextStyle(
-                        fontFamily: Platform.isWindows ? 'Emoji' : null,
+                        fontFamily: Platform.isWindows || Platform.isLinux
+                            ? 'Emoji'
+                            : null,
                       ),
                     ),
                   ],
@@ -258,7 +266,9 @@ class _ProxyScreenProxiesNodeWidget
               : Text(
                   "${i + 1} ${node.name}",
                   style: TextStyle(
-                    fontFamily: Platform.isWindows ? 'Emoji' : null,
+                    fontFamily: Platform.isWindows || Platform.isLinux
+                        ? 'Emoji'
+                        : null,
                   ),
                 ),
           subtitle: subtitle.isEmpty

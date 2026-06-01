@@ -151,7 +151,8 @@ class _ProxyGroupsScreenState extends LasyRenderingState<ProxyGroupsScreen> {
                                     overflow: TextOverflow.ellipsis,
                                     style: TextStyle(
                                       fontSize: ThemeConfig.kFontSizeGroupItem,
-                                      fontFamily: Platform.isWindows
+                                      fontFamily:
+                                          Platform.isWindows || Platform.isLinux
                                           ? 'Emoji'
                                           : null,
                                     ),
