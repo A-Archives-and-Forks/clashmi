@@ -4,6 +4,7 @@ import 'package:board_service/v2board/v2board_client.dart' as v2board_client;
 import 'package:board_service/xboard/xboard_client.dart' as xboard_client;
 import 'package:clashmi/app/modules/remote_config_manager.dart';
 import 'package:clashmi/screens/theme_config.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:clashmi/app/modules/board_provider_manager.dart';
 import 'package:clashmi/app/modules/board_session_persistent_manager.dart';
@@ -176,17 +177,38 @@ class _LoginScreenState extends State<LoginScreen> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text(
-                    tcontext.loginScreen.providerLoginSupportRequired(
-                      p: RemoteConfigManager.getConfig().connect,
-                    ),
-                    maxLines: 3,
-                    style: TextStyle(
-                      color: Colors.red,
-                      fontSize: 12,
-                      fontWeight: FontWeight.w700,
+                  Text.rich(
+                    TextSpan(
+                      children: [
+                        TextSpan(
+                          text: tcontext.loginScreen
+                              .providerLoginSupportRequired(p: ''),
+
+                          style: TextStyle(
+                            color: Colors.red,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                        TextSpan(
+                          text: RemoteConfigManager.getConfig().connect,
+                          style: TextStyle(
+                            color: Colors.red,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w700,
+                            decoration: TextDecoration.underline,
+                          ),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              UrlLauncherUtils.loadUrl(
+                                RemoteConfigManager.getConfig().connect,
+                              );
+                            },
+                        ),
+                      ],
                     ),
                   ),
+
                   const SizedBox(height: 10),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
