@@ -183,7 +183,6 @@ class _LoginScreenState extends State<LoginScreen> {
                         TextSpan(
                           text: tcontext.loginScreen
                               .providerLoginSupportRequired(p: ''),
-
                           style: TextStyle(
                             color: Colors.red,
                             fontSize: 12,
