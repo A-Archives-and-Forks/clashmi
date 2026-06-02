@@ -720,7 +720,8 @@ class _HomeScreenWidgetPart1 extends State<HomeScreenWidgetPart1> {
       DialogUtils.showAlertDialog(context, err.message, withVersion: true);
       return false;
     }
-
+    final mode = ClashSettingManager.getConfigsMode();
+    await ClashSettingManager.setConfigsMode(mode);
     return true;
   }
 
