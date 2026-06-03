@@ -229,7 +229,8 @@ class _TranslationsMetaRu implements TranslationsMetaEn {
 	@override String get days => 'дни';
 	@override String get hours => 'часы';
 	@override String get minutes => 'минуты';
-	@override String get seconds => 'Второй';
+	@override String get seconds => 'секунды';
+	@override String get milliseconds => 'миллисекунды';
 	@override String get protocol => 'Протокол';
 	@override String get search => 'Поиск';
 	@override String get custom => 'Настроить самостоятельно';
@@ -622,7 +623,8 @@ extension on TranslationsRu {
 			'meta.days' => 'дни',
 			'meta.hours' => 'часы',
 			'meta.minutes' => 'минуты',
-			'meta.seconds' => 'Второй',
+			'meta.seconds' => 'секунды',
+			'meta.milliseconds' => 'миллисекунды',
 			'meta.protocol' => 'Протокол',
 			'meta.search' => 'Поиск',
 			'meta.custom' => 'Настроить самостоятельно',

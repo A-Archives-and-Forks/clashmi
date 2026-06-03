@@ -230,6 +230,7 @@ class _TranslationsMetaFa implements TranslationsMetaEn {
 	@override String get hours => 'ساعت';
 	@override String get minutes => 'دقیقه';
 	@override String get seconds => 'دومین';
+	@override String get milliseconds => 'میلی‌ثانیه';
 	@override String get protocol => 'پروتکل';
 	@override String get search => 'جستجو';
 	@override String get custom => 'سفارشی';
@@ -623,6 +624,7 @@ extension on TranslationsFa {
 			'meta.hours' => 'ساعت',
 			'meta.minutes' => 'دقیقه',
 			'meta.seconds' => 'دومین',
+			'meta.milliseconds' => 'میلی‌ثانیه',
 			'meta.protocol' => 'پروتکل',
 			'meta.search' => 'جستجو',
 			'meta.custom' => 'سفارشی',

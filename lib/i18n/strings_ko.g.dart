@@ -230,6 +230,7 @@ class _TranslationsMetaKo implements TranslationsMetaEn {
 	@override String get hours => '시간';
 	@override String get minutes => '분';
 	@override String get seconds => '초';
+	@override String get milliseconds => '밀리초';
 	@override String get protocol => '프로토콜';
 	@override String get search => '검색';
 	@override String get custom => '사용자 정의';
@@ -623,6 +624,7 @@ extension on TranslationsKo {
 			'meta.hours' => '시간',
 			'meta.minutes' => '분',
 			'meta.seconds' => '초',
+			'meta.milliseconds' => '밀리초',
 			'meta.protocol' => '프로토콜',
 			'meta.search' => '검색',
 			'meta.custom' => '사용자 정의',

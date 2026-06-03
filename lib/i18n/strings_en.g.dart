@@ -405,6 +405,9 @@ class TranslationsMetaEn {
 	/// en: 'Seconds'
 	String get seconds => 'Seconds';
 
+	/// en: 'Milliseconds'
+	String get milliseconds => 'Milliseconds';
+
 	/// en: 'Protocol'
 	String get protocol => 'Protocol';
 
@@ -1269,6 +1272,7 @@ extension on Translations {
 			'meta.hours' => 'Hours',
 			'meta.minutes' => 'Minutes',
 			'meta.seconds' => 'Seconds',
+			'meta.milliseconds' => 'Milliseconds',
 			'meta.protocol' => 'Protocol',
 			'meta.search' => 'Search',
 			'meta.custom' => 'Custom',

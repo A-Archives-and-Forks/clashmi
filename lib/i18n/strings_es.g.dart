@@ -230,6 +230,7 @@ class _TranslationsMetaEs implements TranslationsMetaEn {
 	@override String get hours => 'Horas';
 	@override String get minutes => 'Minutos';
 	@override String get seconds => 'Segundos';
+	@override String get milliseconds => 'Milisegundos';
 	@override String get protocol => 'Protocolo';
 	@override String get search => 'Buscar';
 	@override String get custom => 'Personalizado';
@@ -623,6 +624,7 @@ extension on TranslationsEs {
 			'meta.hours' => 'Horas',
 			'meta.minutes' => 'Minutos',
 			'meta.seconds' => 'Segundos',
+			'meta.milliseconds' => 'Milisegundos',
 			'meta.protocol' => 'Protocolo',
 			'meta.search' => 'Buscar',
 			'meta.custom' => 'Personalizado',

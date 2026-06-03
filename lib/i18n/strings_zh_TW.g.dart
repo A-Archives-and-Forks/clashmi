@@ -230,6 +230,7 @@ class _TranslationsMetaZhTw implements TranslationsMetaEn {
 	@override String get hours => '時';
 	@override String get minutes => '分';
 	@override String get seconds => '秒';
+	@override String get milliseconds => '毫秒';
 	@override String get protocol => '協議';
 	@override String get search => '搜索';
 	@override String get custom => '自定義';
@@ -623,6 +624,7 @@ extension on TranslationsZhTw {
 			'meta.hours' => '時',
 			'meta.minutes' => '分',
 			'meta.seconds' => '秒',
+			'meta.milliseconds' => '毫秒',
 			'meta.protocol' => '協議',
 			'meta.search' => '搜索',
 			'meta.custom' => '自定義',

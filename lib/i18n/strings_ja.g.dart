@@ -230,6 +230,7 @@ class _TranslationsMetaJa implements TranslationsMetaEn {
 	@override String get hours => '時間';
 	@override String get minutes => '分';
 	@override String get seconds => '秒';
+	@override String get milliseconds => 'ミリ秒';
 	@override String get protocol => 'プロトコル';
 	@override String get search => '検索';
 	@override String get custom => 'カスタム';
@@ -623,6 +624,7 @@ extension on TranslationsJa {
 			'meta.hours' => '時間',
 			'meta.minutes' => '分',
 			'meta.seconds' => '秒',
+			'meta.milliseconds' => 'ミリ秒',
 			'meta.protocol' => 'プロトコル',
 			'meta.search' => '検索',
 			'meta.custom' => 'カスタム',

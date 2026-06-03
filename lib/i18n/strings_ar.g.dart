@@ -230,6 +230,7 @@ class _TranslationsMetaAr implements TranslationsMetaEn {
 	@override String get hours => 'ساعات';
 	@override String get minutes => 'دقائق';
 	@override String get seconds => 'ثانية';
+	@override String get milliseconds => 'ميلي ثانية';
 	@override String get protocol => 'بروتوكول';
 	@override String get search => 'يبحث';
 	@override String get custom => 'مخصص';
@@ -623,6 +624,7 @@ extension on TranslationsAr {
 			'meta.hours' => 'ساعات',
 			'meta.minutes' => 'دقائق',
 			'meta.seconds' => 'ثانية',
+			'meta.milliseconds' => 'ميلي ثانية',
 			'meta.protocol' => 'بروتوكول',
 			'meta.search' => 'يبحث',
 			'meta.custom' => 'مخصص',
