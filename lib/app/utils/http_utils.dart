@@ -32,6 +32,7 @@ abstract final class HttpUtils {
   ) async {
     timeout ??= const Duration(seconds: 20);
     var client = HttpClient();
+    client.badCertificateCallback = _certificateCheck;
     client.userAgent = await getUserAgent();
     client.connectionTimeout = timeout;
     if ((proxyPort != null) && (proxyPort != 0)) {
@@ -275,6 +276,7 @@ abstract final class HttpUtils {
   }) async {
     timeout ??= const Duration(seconds: 30);
     var client = HttpClient();
+    client.badCertificateCallback = _certificateCheck;
     client.userAgent = userAgent == null || userAgent.isEmpty
         ? await getUserAgent()
         : userAgent;
@@ -363,6 +365,7 @@ abstract final class HttpUtils {
   ) async {
     timeout ??= const Duration(seconds: 20);
     var client = HttpClient();
+    client.badCertificateCallback = _certificateCheck;
     client.userAgent = userAgent == null || userAgent.isEmpty
         ? await getUserAgent()
         : userAgent;
@@ -441,6 +444,7 @@ abstract final class HttpUtils {
   ) async {
     timeout ??= const Duration(seconds: 20);
     var client = HttpClient();
+    client.badCertificateCallback = _certificateCheck;
     client.userAgent = userAgent == null || userAgent.isEmpty
         ? await getUserAgent()
         : userAgent;
@@ -518,6 +522,7 @@ abstract final class HttpUtils {
   ) async {
     timeout ??= const Duration(seconds: 20);
     var client = HttpClient();
+    client.badCertificateCallback = _certificateCheck;
     client.userAgent = userAgent == null || userAgent.isEmpty
         ? await getUserAgent()
         : userAgent;
