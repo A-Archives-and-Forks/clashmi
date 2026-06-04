@@ -2,6 +2,7 @@ import 'package:board_service/xboard/xboard_models.dart';
 import 'package:clashmi/app/modules/board_provider_manager.dart';
 import 'package:clashmi/app/modules/board_session_persistent_manager.dart';
 import 'package:clashmi/app/modules/profile_manager.dart';
+import 'package:clashmi/app/modules/profile_patch_manager.dart';
 
 class XboardLogin {
   static final Map<int, Function()> onEventLogin = {};
@@ -65,11 +66,15 @@ class XboardLogin {
       return subscribeResponse.getFullMessage();
     }
     if (reloadProfile) {
+      final patch = provider.overwrite
+          ? kProfilePatchBuildinOverwrite
+          : kProfilePatchBuildinNoOverwrite;
       final result = await ProfileManager.addRemote(
         subscribeResponse.data!.subscribeUrl,
         remark: provider.name,
-        userAgent: session.provider.userAgent,
-        xhwid: session.provider.xhwid,
+        patch: patch,
+        userAgent: provider.userAgent,
+        xhwid: provider.xhwid,
         boardProviderId: provider.id,
       );
       if (result.error != null) {

@@ -1,6 +1,7 @@
 import 'package:clashmi/app/modules/board_provider_manager.dart';
 import 'package:clashmi/app/modules/board_session_persistent_manager.dart';
 import 'package:clashmi/app/modules/profile_manager.dart';
+import 'package:clashmi/app/modules/profile_patch_manager.dart';
 
 class SSPanelLogin {
   static final Map<int, Function()> onEventLogin = {};
@@ -62,12 +63,16 @@ class SSPanelLogin {
         userSubscribeResponse.ret != true) {
       return userSubscribeResponse.getFullMessage();
     }*/
+    final patch = provider.overwrite
+        ? kProfilePatchBuildinOverwrite
+        : kProfilePatchBuildinNoOverwrite;
 
     final result = await ProfileManager.addRemote(
       userProfileUrlResponse.data!.item1,
       remark: provider.name,
-      userAgent: session.provider.userAgent,
-      xhwid: session.provider.xhwid,
+      patch: patch,
+      userAgent: provider.userAgent,
+      xhwid: provider.xhwid,
       boardProviderId: provider.id,
     );
     if (result.error != null) {

@@ -76,6 +76,7 @@ class BoardProviderConfig {
   String urltestUrl;
   bool xhwid;
   bool web;
+  bool overwrite = true;
   bool overwriteDns = true;
   String version;
   String userAgreement;
@@ -101,6 +102,7 @@ class BoardProviderConfig {
     this.urltestUrl = '',
     this.xhwid = false,
     this.web = false,
+    this.overwrite = true,
     this.overwriteDns = true,
     this.version = '',
     this.userAgreement = '',
@@ -128,6 +130,7 @@ class BoardProviderConfig {
     'urltest_url': urltestUrl,
     'xhwid': xhwid,
     'web': web,
+    'overwrite': overwrite,
     'overwrite_dns': overwriteDns,
     'version': version,
     'user_agreement': userAgreement,
@@ -164,6 +167,7 @@ class BoardProviderConfig {
     urltestUrl = map["urltest_url"] ?? "";
     xhwid = map["xhwid"] ?? false;
     web = map["web"] ?? false;
+    overwrite = map["overwrite"] ?? true;
     overwriteDns = map["overwrite_dns"] ?? true;
     version = map["version"] ?? "";
     userAgreement = map["user_agreement"] ?? "";
