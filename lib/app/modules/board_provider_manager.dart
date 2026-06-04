@@ -284,14 +284,11 @@ class BoardProviderManager {
       if (updated) {
         await _save();
       }
-    }
-
-    if (result.data!.item1 != 200) {
       return ReturnResult(
         error: ReturnResultError(
           result.data!.item1 == 410
               ? "${t.loginScreen.unsupportedProvider}: $name"
-              : "getProvider $name: http statuscode ${result.data!.item1}",
+              : "getProvider $name: http statuscode ${result.data!.item1} ${result.data!.item2}",
         ),
       );
     }
