@@ -256,8 +256,7 @@ class _ProxyGroupScreenScreenState
                                     current.name,
                                     style: TextStyle(
                                       fontSize: ThemeConfig.kFontSizeGroupItem,
-                                      fontFamily:
-                                          Platform.isWindows || Platform.isLinux
+                                      fontFamily: Platform.isWindows
                                           ? 'Emoji'
                                           : null,
                                     ),

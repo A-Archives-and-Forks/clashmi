@@ -525,11 +525,7 @@ class _ProfilesSettingsEditScreenState
         ListTile(
           title: Text(
             "${i + 1} ${node.name}",
-            style: TextStyle(
-              fontFamily: Platform.isWindows || Platform.isLinux
-                  ? 'Emoji'
-                  : null,
-            ),
+            style: TextStyle(fontFamily: Platform.isWindows ? 'Emoji' : null),
           ),
           subtitle: subtitle.isEmpty
               ? Text(node.type)
