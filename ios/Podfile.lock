@@ -62,7 +62,6 @@ PODS:
     - Flutter
   - move_to_background (0.0.1):
     - Flutter
-  - MTBBarcodeScanner (5.0.11)
   - open_file_ios (1.0.3):
     - Flutter
   - OrderedSet (6.0.3)
@@ -75,7 +74,6 @@ PODS:
     - Flutter
   - qr_code_scanner_plus (0.2.6):
     - Flutter
-    - MTBBarcodeScanner
   - quick_actions_ios (0.0.1):
     - Flutter
   - SDWebImage (5.21.0):
@@ -114,7 +112,6 @@ SPEC REPOS:
   trunk:
     - DKImagePickerController
     - DKPhotoGallery
-    - MTBBarcodeScanner
     - OrderedSet
     - SDWebImage
     - SwiftyGif
@@ -179,13 +176,12 @@ SPEC CHECKSUMS:
   image_picker_ios: 7fe1ff8e34c1790d6fff70a32484959f563a928a
   libclash_vpn_service: 1ddb417c8206300a8895d98d9027aee7ecaa181b
   move_to_background: 155f7bfbd34d43ad847cb630d2d2d87c17199710
-  MTBBarcodeScanner: f453b33c4b7dfe545d8c6484ed744d55671788cb
   open_file_ios: 46184d802ee7959203f6392abcfa0dd49fdb5be0
   OrderedSet: e539b66b644ff081c73a262d24ad552a69be3a94
   package_info_plus: af8e2ca6888548050f16fa2f1938db7b5a5df499
   path_provider_foundation: 080d55be775b7414fd5a5ef3ac137b97b097e564
   protocol_handler: 1da40ea1d5e307f725c72fbec4781d234ef46f66
-  qr_code_scanner_plus: 7e087021bc69873140e0754750eb87d867bed755
+  qr_code_scanner_plus: 1fb59fd4576edb53ec7560c3746f454dee54300c
   quick_actions_ios: 500fcc11711d9f646739093395c4ae8eec25f779
   SDWebImage: f84b0feeb08d2d11e6a9b843cb06d75ebf5b8868
   share_plus: 50da8cb520a8f0f65671c6c6a99b3617ed10a58a
