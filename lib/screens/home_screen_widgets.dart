@@ -862,38 +862,33 @@ class _HomeScreenWidgetPart1 extends State<HomeScreenWidgetPart1> {
     }
     const Duration duration = Duration(seconds: 1);
     _timerConnectToCore ??= Timer.periodic(duration, (timer) async {
-      if (AppLifecycleStateNofity.isPaused()) {
-        return;
-      }
       String connections = await FlutterVpnService.clashiApiConnections(false);
       String tranffic = await FlutterVpnService.clashiApiTraffic();
-      if (AppLifecycleStateNofity.isPaused()) {
-        return;
-      }
-      String trafficTotal = _trafficTotal.value;
-      String trafficSpeed = _trafficSpeed.value;
+
+      String trafficTotalNew = "";
+      String trafficSpeedNew = "";
       try {
         var obj = jsonDecode(connections);
         ClashConnections body = ClashConnections();
         body.fromJson(obj, false);
         //_memory.value =
         //    ClashHttpApi.convertTrafficToStringDouble(body.memory);
-        _trafficTotal.value =
+        trafficTotalNew =
             "↑ ${ClashHttpApi.convertTrafficToStringDouble(body.uploadTotal)}  ↓ ${ClashHttpApi.convertTrafficToStringDouble(body.downloadTotal)} ";
       } catch (err) {}
       try {
         var obj = jsonDecode(tranffic);
         ClashTraffic traffic = ClashTraffic();
         traffic.fromJson(obj);
-        _trafficSpeed.value =
+        trafficSpeedNew =
             "↑ ${ClashHttpApi.convertTrafficToStringDouble(traffic.upload)}/s  ↓ ${ClashHttpApi.convertTrafficToStringDouble(traffic.download)}/s";
       } catch (err) {}
-      Biz.trafficChanged(
-        trafficTotal,
-        _trafficTotal.value,
-        trafficSpeed,
-        _trafficSpeed.value,
-      );
+      Biz.trafficChanged(trafficTotalNew, trafficSpeedNew);
+      if (AppLifecycleStateNofity.isPaused()) {
+        return;
+      }
+      _trafficTotal.value = trafficTotalNew;
+      _trafficSpeed.value = trafficSpeedNew;
       if (_proxyNow.value.isEmpty) {
         Future.delayed(Duration(seconds: 1), () async {
           _updateProxyNow();
@@ -906,11 +901,9 @@ class _HomeScreenWidgetPart1 extends State<HomeScreenWidgetPart1> {
     _timerConnectToCore?.cancel();
     _timerConnectToCore = null;
     if (resetUI) {
-      String trafficTotal = _trafficTotal.value;
-      String trafficSpeed = _trafficSpeed.value;
       _trafficTotal.value = _kNoTrafficTotal;
       _trafficSpeed.value = _kNoSpeed;
-      Biz.trafficChanged(trafficTotal, "", trafficSpeed, "");
+      Biz.trafficChanged("", "");
       // _memory.value = _kNoMemory;
       _proxyNow.value = "";
     }

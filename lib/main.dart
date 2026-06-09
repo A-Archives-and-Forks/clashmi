@@ -222,6 +222,8 @@ class MyAppState extends State<MyApp>
   bool _windowVisibleForMac = false;
   bool _trayGrey = true;
   Menu? _menu;
+  String _trafficOld = "";
+  String _speedOld = "";
   @override
   void initState() {
     super.initState();
@@ -233,16 +235,13 @@ class MyAppState extends State<MyApp>
       _setTray(true, false, true);
     }
     if (Platform.isMacOS) {
-      Biz.onEventTrafficChanged.add((
-        String trafficOld,
-        String traffic,
-        String speedOld,
-        String speed,
-      ) {
+      Biz.onEventTrafficChanged.add((String traffic, String speed) {
         if (!SettingManager.getConfig().showTrayTraffic) {
           return;
         }
-        if (trafficOld != traffic || speedOld != speed) {
+        if (_trafficOld != traffic || _speedOld != speed) {
+          _trafficOld = traffic;
+          _speedOld = speed;
           if (traffic.isEmpty && speed.isEmpty) {
             trayManager.setTitle("");
           }
