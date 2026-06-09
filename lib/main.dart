@@ -141,8 +141,13 @@ Future<void> run(List<String> args) async {
       await windowManager.ensureInitialized();
       const inProduction = bool.fromEnvironment("dart.vm.product");
       if (inProduction) {
-        await windowManager.setResizable(false);
-        await windowManager.setMaximizable(false);
+        //await windowManager.setResizable(false);
+        //await windowManager.setMaximizable(false);
+        if (Platform.isLinux) {
+          await windowManager.setMinimumSize(Size(400, 740));
+        } else {
+          await windowManager.setMinimumSize(Size(400, 700));
+        }
       }
 
       await windowManager.center();
