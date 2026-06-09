@@ -448,6 +448,11 @@ class MyAppState extends State<MyApp>
           return;
         }
         _setTray(!connected, false, false);
+        if (Platform.isMacOS && !connected) {
+          _trafficOld = "";
+          _speedOld = "";
+          trayManager.setTitle("");
+        }
       }
     });
     if (startFailedReason == null) {
