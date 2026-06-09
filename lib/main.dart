@@ -243,7 +243,16 @@ class MyAppState extends State<MyApp>
           return;
         }
         if (trafficOld != traffic || speedOld != speed) {
-          trayManager.setTitle("$traffic-$speed");
+          if (traffic.isEmpty && speed.isEmpty) {
+            trayManager.setTitle("");
+          }
+          if (traffic.isNotEmpty && speed.isNotEmpty) {
+            trayManager.setTitle("$traffic $speed");
+          } else if (traffic.isNotEmpty) {
+            trayManager.setTitle(traffic);
+          } else if (speed.isNotEmpty) {
+            trayManager.setTitle(speed);
+          }
         }
       });
     }
