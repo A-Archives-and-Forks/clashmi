@@ -236,6 +236,10 @@ class MyAppState extends State<MyApp>
     }
     if (Platform.isMacOS) {
       Biz.onEventTrafficChanged.add((String traffic, String speed) {
+        if (!SettingManager.getConfig().showTrayTraffic) {
+          traffic = "";
+          speed = "";
+        }
         if (_trafficOld != traffic || _speedOld != speed) {
           _trafficOld = traffic;
           _speedOld = speed;

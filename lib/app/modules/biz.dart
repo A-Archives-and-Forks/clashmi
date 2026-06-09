@@ -1,7 +1,5 @@
 //import 'package:device_info_plus/device_info_plus.dart';
 
-import 'dart:io';
-
 import 'package:clashmi/app/local_services/vpn_service.dart';
 import 'package:clashmi/app/modules/auto_update_manager.dart';
 import 'package:clashmi/app/modules/clash_setting_manager.dart';
