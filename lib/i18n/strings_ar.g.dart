@@ -37,21 +37,21 @@ class TranslationsAr with BaseTranslations<AppLocale, Translations> implements T
 	TranslationsAr $copyWith({TranslationMetadata<AppLocale, Translations>? meta}) => TranslationsAr(meta: meta ?? this.$meta);
 
 	// Translations
-	@override late final _TranslationsBackupAndSyncWebdavScreenAr BackupAndSyncWebdavScreen = _TranslationsBackupAndSyncWebdavScreenAr._(_root);
-	@override late final _TranslationsLaunchFailedScreenAr LaunchFailedScreen = _TranslationsLaunchFailedScreenAr._(_root);
-	@override late final _TranslationsPerAppAndroidScreenAr PerAppAndroidScreen = _TranslationsPerAppAndroidScreenAr._(_root);
-	@override late final _TranslationsUserAgreementScreenAr UserAgreementScreen = _TranslationsUserAgreementScreenAr._(_root);
-	@override late final _TranslationsNetCheckScreenAr NetCheckScreen = _TranslationsNetCheckScreenAr._(_root);
-	@override late final _TranslationsVersionUpdateScreenAr VersionUpdateScreen = _TranslationsVersionUpdateScreenAr._(_root);
-	@override late final _TranslationsLoginScreenAr loginScreen = _TranslationsLoginScreenAr._(_root);
-	@override late final _TranslationsMainAr main = _TranslationsMainAr._(_root);
-	@override late final _TranslationsMetaAr meta = _TranslationsMetaAr._(_root);
-	@override late final _TranslationsPermissionAr permission = _TranslationsPermissionAr._(_root);
-	@override late final _TranslationsTlsAr tls = _TranslationsTlsAr._(_root);
-	@override late final _TranslationsTunAr tun = _TranslationsTunAr._(_root);
-	@override late final _TranslationsDnsAr dns = _TranslationsDnsAr._(_root);
-	@override late final _TranslationsSnifferAr sniffer = _TranslationsSnifferAr._(_root);
-	@override late final _TranslationsProfilePatchModeAr profilePatchMode = _TranslationsProfilePatchModeAr._(_root);
+	@override late final _Translations$BackupAndSyncWebdavScreen$ar BackupAndSyncWebdavScreen = _Translations$BackupAndSyncWebdavScreen$ar._(_root);
+	@override late final _Translations$LaunchFailedScreen$ar LaunchFailedScreen = _Translations$LaunchFailedScreen$ar._(_root);
+	@override late final _Translations$PerAppAndroidScreen$ar PerAppAndroidScreen = _Translations$PerAppAndroidScreen$ar._(_root);
+	@override late final _Translations$UserAgreementScreen$ar UserAgreementScreen = _Translations$UserAgreementScreen$ar._(_root);
+	@override late final _Translations$NetCheckScreen$ar NetCheckScreen = _Translations$NetCheckScreen$ar._(_root);
+	@override late final _Translations$VersionUpdateScreen$ar VersionUpdateScreen = _Translations$VersionUpdateScreen$ar._(_root);
+	@override late final _Translations$loginScreen$ar loginScreen = _Translations$loginScreen$ar._(_root);
+	@override late final _Translations$main$ar main = _Translations$main$ar._(_root);
+	@override late final _Translations$meta$ar meta = _Translations$meta$ar._(_root);
+	@override late final _Translations$permission$ar permission = _Translations$permission$ar._(_root);
+	@override late final _Translations$tls$ar tls = _Translations$tls$ar._(_root);
+	@override late final _Translations$tun$ar tun = _Translations$tun$ar._(_root);
+	@override late final _Translations$dns$ar dns = _Translations$dns$ar._(_root);
+	@override late final _Translations$sniffer$ar sniffer = _Translations$sniffer$ar._(_root);
+	@override late final _Translations$profilePatchMode$ar profilePatchMode = _Translations$profilePatchMode$ar._(_root);
 	@override String get protocolSniff => 'الكشف عن البروتوكول';
 	@override String get protocolSniffOverrideDestination => 'يغطي اسم المجال المكتشف عنوان هدف الاتصال';
 	@override String get edgeRuntimeNotInstalled => 'لم يتم تثبيت وقت تشغيل Edge WebView2 على الجهاز الحالي ولا يمكن عرض الصفحة، يرجى تنزيل وتثبيت وقت تشغيل Edge WebView2 (x64)، وإعادة تشغيل التطبيق والمحاولة مرة أخرى.';
@@ -69,8 +69,8 @@ class TranslationsAr with BaseTranslations<AppLocale, Translations> implements T
 }
 
 // Path: BackupAndSyncWebdavScreen
-class _TranslationsBackupAndSyncWebdavScreenAr implements TranslationsBackupAndSyncWebdavScreenEn {
-	_TranslationsBackupAndSyncWebdavScreenAr._(this._root);
+class _Translations$BackupAndSyncWebdavScreen$ar implements Translations$BackupAndSyncWebdavScreen$en {
+	_Translations$BackupAndSyncWebdavScreen$ar._(this._root);
 
 	final TranslationsAr _root; // ignore: unused_field
 
@@ -82,8 +82,8 @@ class _TranslationsBackupAndSyncWebdavScreenAr implements TranslationsBackupAndS
 }
 
 // Path: LaunchFailedScreen
-class _TranslationsLaunchFailedScreenAr implements TranslationsLaunchFailedScreenEn {
-	_TranslationsLaunchFailedScreenAr._(this._root);
+class _Translations$LaunchFailedScreen$ar implements Translations$LaunchFailedScreen$en {
+	_Translations$LaunchFailedScreen$ar._(this._root);
 
 	final TranslationsAr _root; // ignore: unused_field
 
@@ -96,8 +96,8 @@ class _TranslationsLaunchFailedScreenAr implements TranslationsLaunchFailedScree
 }
 
 // Path: PerAppAndroidScreen
-class _TranslationsPerAppAndroidScreenAr implements TranslationsPerAppAndroidScreenEn {
-	_TranslationsPerAppAndroidScreenAr._(this._root);
+class _Translations$PerAppAndroidScreen$ar implements Translations$PerAppAndroidScreen$en {
+	_Translations$PerAppAndroidScreen$ar._(this._root);
 
 	final TranslationsAr _root; // ignore: unused_field
 
@@ -108,8 +108,8 @@ class _TranslationsPerAppAndroidScreenAr implements TranslationsPerAppAndroidScr
 }
 
 // Path: UserAgreementScreen
-class _TranslationsUserAgreementScreenAr implements TranslationsUserAgreementScreenEn {
-	_TranslationsUserAgreementScreenAr._(this._root);
+class _Translations$UserAgreementScreen$ar implements Translations$UserAgreementScreen$en {
+	_Translations$UserAgreementScreen$ar._(this._root);
 
 	final TranslationsAr _root; // ignore: unused_field
 
@@ -119,8 +119,8 @@ class _TranslationsUserAgreementScreenAr implements TranslationsUserAgreementScr
 }
 
 // Path: NetCheckScreen
-class _TranslationsNetCheckScreenAr implements TranslationsNetCheckScreenEn {
-	_TranslationsNetCheckScreenAr._(this._root);
+class _Translations$NetCheckScreen$ar implements Translations$NetCheckScreen$en {
+	_Translations$NetCheckScreen$ar._(this._root);
 
 	final TranslationsAr _root; // ignore: unused_field
 
@@ -142,8 +142,8 @@ class _TranslationsNetCheckScreenAr implements TranslationsNetCheckScreenEn {
 }
 
 // Path: VersionUpdateScreen
-class _TranslationsVersionUpdateScreenAr implements TranslationsVersionUpdateScreenEn {
-	_TranslationsVersionUpdateScreenAr._(this._root);
+class _Translations$VersionUpdateScreen$ar implements Translations$VersionUpdateScreen$en {
+	_Translations$VersionUpdateScreen$ar._(this._root);
 
 	final TranslationsAr _root; // ignore: unused_field
 
@@ -154,8 +154,8 @@ class _TranslationsVersionUpdateScreenAr implements TranslationsVersionUpdateScr
 }
 
 // Path: loginScreen
-class _TranslationsLoginScreenAr implements TranslationsLoginScreenEn {
-	_TranslationsLoginScreenAr._(this._root);
+class _Translations$loginScreen$ar implements Translations$loginScreen$en {
+	_Translations$loginScreen$ar._(this._root);
 
 	final TranslationsAr _root; // ignore: unused_field
 
@@ -181,18 +181,18 @@ class _TranslationsLoginScreenAr implements TranslationsLoginScreenEn {
 }
 
 // Path: main
-class _TranslationsMainAr implements TranslationsMainEn {
-	_TranslationsMainAr._(this._root);
+class _Translations$main$ar implements Translations$main$en {
+	_Translations$main$ar._(this._root);
 
 	final TranslationsAr _root; // ignore: unused_field
 
 	// Translations
-	@override late final _TranslationsMainTrayAr tray = _TranslationsMainTrayAr._(_root);
+	@override late final _Translations$main$tray$ar tray = _Translations$main$tray$ar._(_root);
 }
 
 // Path: meta
-class _TranslationsMetaAr implements TranslationsMetaEn {
-	_TranslationsMetaAr._(this._root);
+class _Translations$meta$ar implements Translations$meta$en {
+	_Translations$meta$ar._(this._root);
 
 	final TranslationsAr _root; // ignore: unused_field
 
@@ -326,6 +326,7 @@ class _TranslationsMetaAr implements TranslationsMetaEn {
 	@override String get hideVpn => 'إخفاء أيقونة VPN';
 	@override String get hideVpnTips => 'سيؤدي تمكين IPv6 إلى فشل هذه الوظيفة';
 	@override String get hideDockIcon => 'إخفاء أيقونة Dock';
+	@override String get showTrayTraffic => 'إظهار معلومات حركة المرور في شريط النظام';
 	@override String get website => 'موقع إلكتروني';
 	@override String get homePage => 'الصفحة الرئيسية';
 	@override String get rule => 'قاعدة';
@@ -428,8 +429,8 @@ class _TranslationsMetaAr implements TranslationsMetaEn {
 }
 
 // Path: permission
-class _TranslationsPermissionAr implements TranslationsPermissionEn {
-	_TranslationsPermissionAr._(this._root);
+class _Translations$permission$ar implements Translations$permission$en {
+	_Translations$permission$ar._(this._root);
 
 	final TranslationsAr _root; // ignore: unused_field
 
@@ -442,8 +443,8 @@ class _TranslationsPermissionAr implements TranslationsPermissionEn {
 }
 
 // Path: tls
-class _TranslationsTlsAr implements TranslationsTlsEn {
-	_TranslationsTlsAr._(this._root);
+class _Translations$tls$ar implements Translations$tls$en {
+	_Translations$tls$ar._(this._root);
 
 	final TranslationsAr _root; // ignore: unused_field
 
@@ -455,8 +456,8 @@ class _TranslationsTlsAr implements TranslationsTlsEn {
 }
 
 // Path: tun
-class _TranslationsTunAr implements TranslationsTunEn {
-	_TranslationsTunAr._(this._root);
+class _Translations$tun$ar implements Translations$tun$en {
+	_Translations$tun$ar._(this._root);
 
 	final TranslationsAr _root; // ignore: unused_field
 
@@ -474,8 +475,8 @@ class _TranslationsTunAr implements TranslationsTunEn {
 }
 
 // Path: dns
-class _TranslationsDnsAr implements TranslationsDnsEn {
-	_TranslationsDnsAr._(this._root);
+class _Translations$dns$ar implements Translations$dns$en {
+	_Translations$dns$ar._(this._root);
 
 	final TranslationsAr _root; // ignore: unused_field
 
@@ -500,8 +501,8 @@ class _TranslationsDnsAr implements TranslationsDnsEn {
 }
 
 // Path: sniffer
-class _TranslationsSnifferAr implements TranslationsSnifferEn {
-	_TranslationsSnifferAr._(this._root);
+class _Translations$sniffer$ar implements Translations$sniffer$en {
+	_Translations$sniffer$ar._(this._root);
 
 	final TranslationsAr _root; // ignore: unused_field
 
@@ -510,8 +511,8 @@ class _TranslationsSnifferAr implements TranslationsSnifferEn {
 }
 
 // Path: profilePatchMode
-class _TranslationsProfilePatchModeAr implements TranslationsProfilePatchModeEn {
-	_TranslationsProfilePatchModeAr._(this._root);
+class _Translations$profilePatchMode$ar implements Translations$profilePatchMode$en {
+	_Translations$profilePatchMode$ar._(this._root);
 
 	final TranslationsAr _root; // ignore: unused_field
 
@@ -522,8 +523,8 @@ class _TranslationsProfilePatchModeAr implements TranslationsProfilePatchModeEn 
 }
 
 // Path: main.tray
-class _TranslationsMainTrayAr implements TranslationsMainTrayEn {
-	_TranslationsMainTrayAr._(this._root);
+class _Translations$main$tray$ar implements Translations$main$tray$en {
+	_Translations$main$tray$ar._(this._root);
 
 	final TranslationsAr _root; // ignore: unused_field
 
@@ -720,6 +721,7 @@ extension on TranslationsAr {
 			'meta.hideVpn' => 'إخفاء أيقونة VPN',
 			'meta.hideVpnTips' => 'سيؤدي تمكين IPv6 إلى فشل هذه الوظيفة',
 			'meta.hideDockIcon' => 'إخفاء أيقونة Dock',
+			'meta.showTrayTraffic' => 'إظهار معلومات حركة المرور في شريط النظام',
 			'meta.website' => 'موقع إلكتروني',
 			'meta.homePage' => 'الصفحة الرئيسية',
 			'meta.rule' => 'قاعدة',

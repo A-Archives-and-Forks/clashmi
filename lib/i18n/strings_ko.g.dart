@@ -37,21 +37,21 @@ class TranslationsKo with BaseTranslations<AppLocale, Translations> implements T
 	TranslationsKo $copyWith({TranslationMetadata<AppLocale, Translations>? meta}) => TranslationsKo(meta: meta ?? this.$meta);
 
 	// Translations
-	@override late final _TranslationsBackupAndSyncWebdavScreenKo BackupAndSyncWebdavScreen = _TranslationsBackupAndSyncWebdavScreenKo._(_root);
-	@override late final _TranslationsLaunchFailedScreenKo LaunchFailedScreen = _TranslationsLaunchFailedScreenKo._(_root);
-	@override late final _TranslationsPerAppAndroidScreenKo PerAppAndroidScreen = _TranslationsPerAppAndroidScreenKo._(_root);
-	@override late final _TranslationsUserAgreementScreenKo UserAgreementScreen = _TranslationsUserAgreementScreenKo._(_root);
-	@override late final _TranslationsNetCheckScreenKo NetCheckScreen = _TranslationsNetCheckScreenKo._(_root);
-	@override late final _TranslationsVersionUpdateScreenKo VersionUpdateScreen = _TranslationsVersionUpdateScreenKo._(_root);
-	@override late final _TranslationsLoginScreenKo loginScreen = _TranslationsLoginScreenKo._(_root);
-	@override late final _TranslationsMainKo main = _TranslationsMainKo._(_root);
-	@override late final _TranslationsMetaKo meta = _TranslationsMetaKo._(_root);
-	@override late final _TranslationsPermissionKo permission = _TranslationsPermissionKo._(_root);
-	@override late final _TranslationsTlsKo tls = _TranslationsTlsKo._(_root);
-	@override late final _TranslationsTunKo tun = _TranslationsTunKo._(_root);
-	@override late final _TranslationsDnsKo dns = _TranslationsDnsKo._(_root);
-	@override late final _TranslationsSnifferKo sniffer = _TranslationsSnifferKo._(_root);
-	@override late final _TranslationsProfilePatchModeKo profilePatchMode = _TranslationsProfilePatchModeKo._(_root);
+	@override late final _Translations$BackupAndSyncWebdavScreen$ko BackupAndSyncWebdavScreen = _Translations$BackupAndSyncWebdavScreen$ko._(_root);
+	@override late final _Translations$LaunchFailedScreen$ko LaunchFailedScreen = _Translations$LaunchFailedScreen$ko._(_root);
+	@override late final _Translations$PerAppAndroidScreen$ko PerAppAndroidScreen = _Translations$PerAppAndroidScreen$ko._(_root);
+	@override late final _Translations$UserAgreementScreen$ko UserAgreementScreen = _Translations$UserAgreementScreen$ko._(_root);
+	@override late final _Translations$NetCheckScreen$ko NetCheckScreen = _Translations$NetCheckScreen$ko._(_root);
+	@override late final _Translations$VersionUpdateScreen$ko VersionUpdateScreen = _Translations$VersionUpdateScreen$ko._(_root);
+	@override late final _Translations$loginScreen$ko loginScreen = _Translations$loginScreen$ko._(_root);
+	@override late final _Translations$main$ko main = _Translations$main$ko._(_root);
+	@override late final _Translations$meta$ko meta = _Translations$meta$ko._(_root);
+	@override late final _Translations$permission$ko permission = _Translations$permission$ko._(_root);
+	@override late final _Translations$tls$ko tls = _Translations$tls$ko._(_root);
+	@override late final _Translations$tun$ko tun = _Translations$tun$ko._(_root);
+	@override late final _Translations$dns$ko dns = _Translations$dns$ko._(_root);
+	@override late final _Translations$sniffer$ko sniffer = _Translations$sniffer$ko._(_root);
+	@override late final _Translations$profilePatchMode$ko profilePatchMode = _Translations$profilePatchMode$ko._(_root);
 	@override String get protocolSniff => '프로토콜 스니핑';
 	@override String get protocolSniffOverrideDestination => '스니핑된 도메인 이름으로 연결 대상 주소 덮어쓰기';
 	@override String get edgeRuntimeNotInstalled => '현재 장치에 Edge WebView2 런타임이 설치되어 있지 않아 페이지를 표시할 수 없습니다. Edge WebView2 런타임(x64)을 다운로드하여 설치하고 앱을 다시 시작한 후 다시 시도하십시오。';
@@ -69,8 +69,8 @@ class TranslationsKo with BaseTranslations<AppLocale, Translations> implements T
 }
 
 // Path: BackupAndSyncWebdavScreen
-class _TranslationsBackupAndSyncWebdavScreenKo implements TranslationsBackupAndSyncWebdavScreenEn {
-	_TranslationsBackupAndSyncWebdavScreenKo._(this._root);
+class _Translations$BackupAndSyncWebdavScreen$ko implements Translations$BackupAndSyncWebdavScreen$en {
+	_Translations$BackupAndSyncWebdavScreen$ko._(this._root);
 
 	final TranslationsKo _root; // ignore: unused_field
 
@@ -82,8 +82,8 @@ class _TranslationsBackupAndSyncWebdavScreenKo implements TranslationsBackupAndS
 }
 
 // Path: LaunchFailedScreen
-class _TranslationsLaunchFailedScreenKo implements TranslationsLaunchFailedScreenEn {
-	_TranslationsLaunchFailedScreenKo._(this._root);
+class _Translations$LaunchFailedScreen$ko implements Translations$LaunchFailedScreen$en {
+	_Translations$LaunchFailedScreen$ko._(this._root);
 
 	final TranslationsKo _root; // ignore: unused_field
 
@@ -96,8 +96,8 @@ class _TranslationsLaunchFailedScreenKo implements TranslationsLaunchFailedScree
 }
 
 // Path: PerAppAndroidScreen
-class _TranslationsPerAppAndroidScreenKo implements TranslationsPerAppAndroidScreenEn {
-	_TranslationsPerAppAndroidScreenKo._(this._root);
+class _Translations$PerAppAndroidScreen$ko implements Translations$PerAppAndroidScreen$en {
+	_Translations$PerAppAndroidScreen$ko._(this._root);
 
 	final TranslationsKo _root; // ignore: unused_field
 
@@ -108,8 +108,8 @@ class _TranslationsPerAppAndroidScreenKo implements TranslationsPerAppAndroidScr
 }
 
 // Path: UserAgreementScreen
-class _TranslationsUserAgreementScreenKo implements TranslationsUserAgreementScreenEn {
-	_TranslationsUserAgreementScreenKo._(this._root);
+class _Translations$UserAgreementScreen$ko implements Translations$UserAgreementScreen$en {
+	_Translations$UserAgreementScreen$ko._(this._root);
 
 	final TranslationsKo _root; // ignore: unused_field
 
@@ -119,8 +119,8 @@ class _TranslationsUserAgreementScreenKo implements TranslationsUserAgreementScr
 }
 
 // Path: NetCheckScreen
-class _TranslationsNetCheckScreenKo implements TranslationsNetCheckScreenEn {
-	_TranslationsNetCheckScreenKo._(this._root);
+class _Translations$NetCheckScreen$ko implements Translations$NetCheckScreen$en {
+	_Translations$NetCheckScreen$ko._(this._root);
 
 	final TranslationsKo _root; // ignore: unused_field
 
@@ -142,8 +142,8 @@ class _TranslationsNetCheckScreenKo implements TranslationsNetCheckScreenEn {
 }
 
 // Path: VersionUpdateScreen
-class _TranslationsVersionUpdateScreenKo implements TranslationsVersionUpdateScreenEn {
-	_TranslationsVersionUpdateScreenKo._(this._root);
+class _Translations$VersionUpdateScreen$ko implements Translations$VersionUpdateScreen$en {
+	_Translations$VersionUpdateScreen$ko._(this._root);
 
 	final TranslationsKo _root; // ignore: unused_field
 
@@ -154,8 +154,8 @@ class _TranslationsVersionUpdateScreenKo implements TranslationsVersionUpdateScr
 }
 
 // Path: loginScreen
-class _TranslationsLoginScreenKo implements TranslationsLoginScreenEn {
-	_TranslationsLoginScreenKo._(this._root);
+class _Translations$loginScreen$ko implements Translations$loginScreen$en {
+	_Translations$loginScreen$ko._(this._root);
 
 	final TranslationsKo _root; // ignore: unused_field
 
@@ -181,18 +181,18 @@ class _TranslationsLoginScreenKo implements TranslationsLoginScreenEn {
 }
 
 // Path: main
-class _TranslationsMainKo implements TranslationsMainEn {
-	_TranslationsMainKo._(this._root);
+class _Translations$main$ko implements Translations$main$en {
+	_Translations$main$ko._(this._root);
 
 	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
-	@override late final _TranslationsMainTrayKo tray = _TranslationsMainTrayKo._(_root);
+	@override late final _Translations$main$tray$ko tray = _Translations$main$tray$ko._(_root);
 }
 
 // Path: meta
-class _TranslationsMetaKo implements TranslationsMetaEn {
-	_TranslationsMetaKo._(this._root);
+class _Translations$meta$ko implements Translations$meta$en {
+	_Translations$meta$ko._(this._root);
 
 	final TranslationsKo _root; // ignore: unused_field
 
@@ -326,6 +326,7 @@ class _TranslationsMetaKo implements TranslationsMetaEn {
 	@override String get hideVpn => 'VPN 아이콘 숨기기';
 	@override String get hideVpnTips => 'IPv6를 활성화하면 이 기능이 작동하지 않습니다';
 	@override String get hideDockIcon => 'Dock 아이콘 숨기기';
+	@override String get showTrayTraffic => '트레이에 트래픽 정보 표시';
 	@override String get website => '웹사이트';
 	@override String get homePage => '홈페이지';
 	@override String get rule => '규칙';
@@ -428,8 +429,8 @@ class _TranslationsMetaKo implements TranslationsMetaEn {
 }
 
 // Path: permission
-class _TranslationsPermissionKo implements TranslationsPermissionEn {
-	_TranslationsPermissionKo._(this._root);
+class _Translations$permission$ko implements Translations$permission$en {
+	_Translations$permission$ko._(this._root);
 
 	final TranslationsKo _root; // ignore: unused_field
 
@@ -442,8 +443,8 @@ class _TranslationsPermissionKo implements TranslationsPermissionEn {
 }
 
 // Path: tls
-class _TranslationsTlsKo implements TranslationsTlsEn {
-	_TranslationsTlsKo._(this._root);
+class _Translations$tls$ko implements Translations$tls$en {
+	_Translations$tls$ko._(this._root);
 
 	final TranslationsKo _root; // ignore: unused_field
 
@@ -455,8 +456,8 @@ class _TranslationsTlsKo implements TranslationsTlsEn {
 }
 
 // Path: tun
-class _TranslationsTunKo implements TranslationsTunEn {
-	_TranslationsTunKo._(this._root);
+class _Translations$tun$ko implements Translations$tun$en {
+	_Translations$tun$ko._(this._root);
 
 	final TranslationsKo _root; // ignore: unused_field
 
@@ -474,8 +475,8 @@ class _TranslationsTunKo implements TranslationsTunEn {
 }
 
 // Path: dns
-class _TranslationsDnsKo implements TranslationsDnsEn {
-	_TranslationsDnsKo._(this._root);
+class _Translations$dns$ko implements Translations$dns$en {
+	_Translations$dns$ko._(this._root);
 
 	final TranslationsKo _root; // ignore: unused_field
 
@@ -500,8 +501,8 @@ class _TranslationsDnsKo implements TranslationsDnsEn {
 }
 
 // Path: sniffer
-class _TranslationsSnifferKo implements TranslationsSnifferEn {
-	_TranslationsSnifferKo._(this._root);
+class _Translations$sniffer$ko implements Translations$sniffer$en {
+	_Translations$sniffer$ko._(this._root);
 
 	final TranslationsKo _root; // ignore: unused_field
 
@@ -510,8 +511,8 @@ class _TranslationsSnifferKo implements TranslationsSnifferEn {
 }
 
 // Path: profilePatchMode
-class _TranslationsProfilePatchModeKo implements TranslationsProfilePatchModeEn {
-	_TranslationsProfilePatchModeKo._(this._root);
+class _Translations$profilePatchMode$ko implements Translations$profilePatchMode$en {
+	_Translations$profilePatchMode$ko._(this._root);
 
 	final TranslationsKo _root; // ignore: unused_field
 
@@ -522,8 +523,8 @@ class _TranslationsProfilePatchModeKo implements TranslationsProfilePatchModeEn 
 }
 
 // Path: main.tray
-class _TranslationsMainTrayKo implements TranslationsMainTrayEn {
-	_TranslationsMainTrayKo._(this._root);
+class _Translations$main$tray$ko implements Translations$main$tray$en {
+	_Translations$main$tray$ko._(this._root);
 
 	final TranslationsKo _root; // ignore: unused_field
 
@@ -720,6 +721,7 @@ extension on TranslationsKo {
 			'meta.hideVpn' => 'VPN 아이콘 숨기기',
 			'meta.hideVpnTips' => 'IPv6를 활성화하면 이 기능이 작동하지 않습니다',
 			'meta.hideDockIcon' => 'Dock 아이콘 숨기기',
+			'meta.showTrayTraffic' => '트레이에 트래픽 정보 표시',
 			'meta.website' => '웹사이트',
 			'meta.homePage' => '홈페이지',
 			'meta.rule' => '규칙',

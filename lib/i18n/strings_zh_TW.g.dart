@@ -37,21 +37,21 @@ class TranslationsZhTw with BaseTranslations<AppLocale, Translations> implements
 	TranslationsZhTw $copyWith({TranslationMetadata<AppLocale, Translations>? meta}) => TranslationsZhTw(meta: meta ?? this.$meta);
 
 	// Translations
-	@override late final _TranslationsBackupAndSyncWebdavScreenZhTw BackupAndSyncWebdavScreen = _TranslationsBackupAndSyncWebdavScreenZhTw._(_root);
-	@override late final _TranslationsLaunchFailedScreenZhTw LaunchFailedScreen = _TranslationsLaunchFailedScreenZhTw._(_root);
-	@override late final _TranslationsPerAppAndroidScreenZhTw PerAppAndroidScreen = _TranslationsPerAppAndroidScreenZhTw._(_root);
-	@override late final _TranslationsUserAgreementScreenZhTw UserAgreementScreen = _TranslationsUserAgreementScreenZhTw._(_root);
-	@override late final _TranslationsNetCheckScreenZhTw NetCheckScreen = _TranslationsNetCheckScreenZhTw._(_root);
-	@override late final _TranslationsVersionUpdateScreenZhTw VersionUpdateScreen = _TranslationsVersionUpdateScreenZhTw._(_root);
-	@override late final _TranslationsLoginScreenZhTw loginScreen = _TranslationsLoginScreenZhTw._(_root);
-	@override late final _TranslationsMainZhTw main = _TranslationsMainZhTw._(_root);
-	@override late final _TranslationsMetaZhTw meta = _TranslationsMetaZhTw._(_root);
-	@override late final _TranslationsPermissionZhTw permission = _TranslationsPermissionZhTw._(_root);
-	@override late final _TranslationsTlsZhTw tls = _TranslationsTlsZhTw._(_root);
-	@override late final _TranslationsTunZhTw tun = _TranslationsTunZhTw._(_root);
-	@override late final _TranslationsDnsZhTw dns = _TranslationsDnsZhTw._(_root);
-	@override late final _TranslationsSnifferZhTw sniffer = _TranslationsSnifferZhTw._(_root);
-	@override late final _TranslationsProfilePatchModeZhTw profilePatchMode = _TranslationsProfilePatchModeZhTw._(_root);
+	@override late final Translations$BackupAndSyncWebdavScreen$zh_TW BackupAndSyncWebdavScreen = Translations$BackupAndSyncWebdavScreen$zh_TW.internal(_root);
+	@override late final Translations$LaunchFailedScreen$zh_TW LaunchFailedScreen = Translations$LaunchFailedScreen$zh_TW.internal(_root);
+	@override late final Translations$PerAppAndroidScreen$zh_TW PerAppAndroidScreen = Translations$PerAppAndroidScreen$zh_TW.internal(_root);
+	@override late final Translations$UserAgreementScreen$zh_TW UserAgreementScreen = Translations$UserAgreementScreen$zh_TW.internal(_root);
+	@override late final Translations$NetCheckScreen$zh_TW NetCheckScreen = Translations$NetCheckScreen$zh_TW.internal(_root);
+	@override late final Translations$VersionUpdateScreen$zh_TW VersionUpdateScreen = Translations$VersionUpdateScreen$zh_TW.internal(_root);
+	@override late final Translations$loginScreen$zh_TW loginScreen = Translations$loginScreen$zh_TW.internal(_root);
+	@override late final Translations$main$zh_TW main = Translations$main$zh_TW.internal(_root);
+	@override late final Translations$meta$zh_TW meta = Translations$meta$zh_TW.internal(_root);
+	@override late final Translations$permission$zh_TW permission = Translations$permission$zh_TW.internal(_root);
+	@override late final Translations$tls$zh_TW tls = Translations$tls$zh_TW.internal(_root);
+	@override late final Translations$tun$zh_TW tun = Translations$tun$zh_TW.internal(_root);
+	@override late final Translations$dns$zh_TW dns = Translations$dns$zh_TW.internal(_root);
+	@override late final Translations$sniffer$zh_TW sniffer = Translations$sniffer$zh_TW.internal(_root);
+	@override late final Translations$profilePatchMode$zh_TW profilePatchMode = Translations$profilePatchMode$zh_TW.internal(_root);
 	@override String get protocolSniff => '協議探測';
 	@override String get protocolSniffOverrideDestination => '探測的域名覆蓋連接目標地址';
 	@override String get edgeRuntimeNotInstalled => '當前設備尚未安裝Edge WebView2運行時,無法展示頁面,請下載安裝Edge WebView2運行時(x64)後,重啟App再試';
@@ -69,8 +69,8 @@ class TranslationsZhTw with BaseTranslations<AppLocale, Translations> implements
 }
 
 // Path: BackupAndSyncWebdavScreen
-class _TranslationsBackupAndSyncWebdavScreenZhTw implements TranslationsBackupAndSyncWebdavScreenEn {
-	_TranslationsBackupAndSyncWebdavScreenZhTw._(this._root);
+class Translations$BackupAndSyncWebdavScreen$zh_TW implements Translations$BackupAndSyncWebdavScreen$en {
+	Translations$BackupAndSyncWebdavScreen$zh_TW.internal(this._root);
 
 	final TranslationsZhTw _root; // ignore: unused_field
 
@@ -82,8 +82,8 @@ class _TranslationsBackupAndSyncWebdavScreenZhTw implements TranslationsBackupAn
 }
 
 // Path: LaunchFailedScreen
-class _TranslationsLaunchFailedScreenZhTw implements TranslationsLaunchFailedScreenEn {
-	_TranslationsLaunchFailedScreenZhTw._(this._root);
+class Translations$LaunchFailedScreen$zh_TW implements Translations$LaunchFailedScreen$en {
+	Translations$LaunchFailedScreen$zh_TW.internal(this._root);
 
 	final TranslationsZhTw _root; // ignore: unused_field
 
@@ -96,8 +96,8 @@ class _TranslationsLaunchFailedScreenZhTw implements TranslationsLaunchFailedScr
 }
 
 // Path: PerAppAndroidScreen
-class _TranslationsPerAppAndroidScreenZhTw implements TranslationsPerAppAndroidScreenEn {
-	_TranslationsPerAppAndroidScreenZhTw._(this._root);
+class Translations$PerAppAndroidScreen$zh_TW implements Translations$PerAppAndroidScreen$en {
+	Translations$PerAppAndroidScreen$zh_TW.internal(this._root);
 
 	final TranslationsZhTw _root; // ignore: unused_field
 
@@ -108,8 +108,8 @@ class _TranslationsPerAppAndroidScreenZhTw implements TranslationsPerAppAndroidS
 }
 
 // Path: UserAgreementScreen
-class _TranslationsUserAgreementScreenZhTw implements TranslationsUserAgreementScreenEn {
-	_TranslationsUserAgreementScreenZhTw._(this._root);
+class Translations$UserAgreementScreen$zh_TW implements Translations$UserAgreementScreen$en {
+	Translations$UserAgreementScreen$zh_TW.internal(this._root);
 
 	final TranslationsZhTw _root; // ignore: unused_field
 
@@ -119,8 +119,8 @@ class _TranslationsUserAgreementScreenZhTw implements TranslationsUserAgreementS
 }
 
 // Path: NetCheckScreen
-class _TranslationsNetCheckScreenZhTw implements TranslationsNetCheckScreenEn {
-	_TranslationsNetCheckScreenZhTw._(this._root);
+class Translations$NetCheckScreen$zh_TW implements Translations$NetCheckScreen$en {
+	Translations$NetCheckScreen$zh_TW.internal(this._root);
 
 	final TranslationsZhTw _root; // ignore: unused_field
 
@@ -142,8 +142,8 @@ class _TranslationsNetCheckScreenZhTw implements TranslationsNetCheckScreenEn {
 }
 
 // Path: VersionUpdateScreen
-class _TranslationsVersionUpdateScreenZhTw implements TranslationsVersionUpdateScreenEn {
-	_TranslationsVersionUpdateScreenZhTw._(this._root);
+class Translations$VersionUpdateScreen$zh_TW implements Translations$VersionUpdateScreen$en {
+	Translations$VersionUpdateScreen$zh_TW.internal(this._root);
 
 	final TranslationsZhTw _root; // ignore: unused_field
 
@@ -154,8 +154,8 @@ class _TranslationsVersionUpdateScreenZhTw implements TranslationsVersionUpdateS
 }
 
 // Path: loginScreen
-class _TranslationsLoginScreenZhTw implements TranslationsLoginScreenEn {
-	_TranslationsLoginScreenZhTw._(this._root);
+class Translations$loginScreen$zh_TW implements Translations$loginScreen$en {
+	Translations$loginScreen$zh_TW.internal(this._root);
 
 	final TranslationsZhTw _root; // ignore: unused_field
 
@@ -181,18 +181,18 @@ class _TranslationsLoginScreenZhTw implements TranslationsLoginScreenEn {
 }
 
 // Path: main
-class _TranslationsMainZhTw implements TranslationsMainEn {
-	_TranslationsMainZhTw._(this._root);
+class Translations$main$zh_TW implements Translations$main$en {
+	Translations$main$zh_TW.internal(this._root);
 
 	final TranslationsZhTw _root; // ignore: unused_field
 
 	// Translations
-	@override late final _TranslationsMainTrayZhTw tray = _TranslationsMainTrayZhTw._(_root);
+	@override late final Translations$main$tray$zh_TW tray = Translations$main$tray$zh_TW.internal(_root);
 }
 
 // Path: meta
-class _TranslationsMetaZhTw implements TranslationsMetaEn {
-	_TranslationsMetaZhTw._(this._root);
+class Translations$meta$zh_TW implements Translations$meta$en {
+	Translations$meta$zh_TW.internal(this._root);
 
 	final TranslationsZhTw _root; // ignore: unused_field
 
@@ -326,6 +326,7 @@ class _TranslationsMetaZhTw implements TranslationsMetaEn {
 	@override String get hideVpn => '隱藏VPN圖標';
 	@override String get hideVpnTips => '開啟IPv6會導致此功能失效';
 	@override String get hideDockIcon => '隱藏Dock圖標';
+	@override String get showTrayTraffic => '托盤上顯示流量資訊';
 	@override String get website => '官網';
 	@override String get homePage => '主頁';
 	@override String get rule => '規則';
@@ -428,8 +429,8 @@ class _TranslationsMetaZhTw implements TranslationsMetaEn {
 }
 
 // Path: permission
-class _TranslationsPermissionZhTw implements TranslationsPermissionEn {
-	_TranslationsPermissionZhTw._(this._root);
+class Translations$permission$zh_TW implements Translations$permission$en {
+	Translations$permission$zh_TW.internal(this._root);
 
 	final TranslationsZhTw _root; // ignore: unused_field
 
@@ -442,8 +443,8 @@ class _TranslationsPermissionZhTw implements TranslationsPermissionEn {
 }
 
 // Path: tls
-class _TranslationsTlsZhTw implements TranslationsTlsEn {
-	_TranslationsTlsZhTw._(this._root);
+class Translations$tls$zh_TW implements Translations$tls$en {
+	Translations$tls$zh_TW.internal(this._root);
 
 	final TranslationsZhTw _root; // ignore: unused_field
 
@@ -455,8 +456,8 @@ class _TranslationsTlsZhTw implements TranslationsTlsEn {
 }
 
 // Path: tun
-class _TranslationsTunZhTw implements TranslationsTunEn {
-	_TranslationsTunZhTw._(this._root);
+class Translations$tun$zh_TW implements Translations$tun$en {
+	Translations$tun$zh_TW.internal(this._root);
 
 	final TranslationsZhTw _root; // ignore: unused_field
 
@@ -474,8 +475,8 @@ class _TranslationsTunZhTw implements TranslationsTunEn {
 }
 
 // Path: dns
-class _TranslationsDnsZhTw implements TranslationsDnsEn {
-	_TranslationsDnsZhTw._(this._root);
+class Translations$dns$zh_TW implements Translations$dns$en {
+	Translations$dns$zh_TW.internal(this._root);
 
 	final TranslationsZhTw _root; // ignore: unused_field
 
@@ -500,8 +501,8 @@ class _TranslationsDnsZhTw implements TranslationsDnsEn {
 }
 
 // Path: sniffer
-class _TranslationsSnifferZhTw implements TranslationsSnifferEn {
-	_TranslationsSnifferZhTw._(this._root);
+class Translations$sniffer$zh_TW implements Translations$sniffer$en {
+	Translations$sniffer$zh_TW.internal(this._root);
 
 	final TranslationsZhTw _root; // ignore: unused_field
 
@@ -510,8 +511,8 @@ class _TranslationsSnifferZhTw implements TranslationsSnifferEn {
 }
 
 // Path: profilePatchMode
-class _TranslationsProfilePatchModeZhTw implements TranslationsProfilePatchModeEn {
-	_TranslationsProfilePatchModeZhTw._(this._root);
+class Translations$profilePatchMode$zh_TW implements Translations$profilePatchMode$en {
+	Translations$profilePatchMode$zh_TW.internal(this._root);
 
 	final TranslationsZhTw _root; // ignore: unused_field
 
@@ -522,8 +523,8 @@ class _TranslationsProfilePatchModeZhTw implements TranslationsProfilePatchModeE
 }
 
 // Path: main.tray
-class _TranslationsMainTrayZhTw implements TranslationsMainTrayEn {
-	_TranslationsMainTrayZhTw._(this._root);
+class Translations$main$tray$zh_TW implements Translations$main$tray$en {
+	Translations$main$tray$zh_TW.internal(this._root);
 
 	final TranslationsZhTw _root; // ignore: unused_field
 
@@ -720,6 +721,7 @@ extension on TranslationsZhTw {
 			'meta.hideVpn' => '隱藏VPN圖標',
 			'meta.hideVpnTips' => '開啟IPv6會導致此功能失效',
 			'meta.hideDockIcon' => '隱藏Dock圖標',
+			'meta.showTrayTraffic' => '托盤上顯示流量資訊',
 			'meta.website' => '官網',
 			'meta.homePage' => '主頁',
 			'meta.rule' => '規則',

@@ -40,21 +40,21 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 	Translations $copyWith({TranslationMetadata<AppLocale, Translations>? meta}) => Translations(meta: meta ?? this.$meta);
 
 	// Translations
-	late final TranslationsBackupAndSyncWebdavScreenEn BackupAndSyncWebdavScreen = TranslationsBackupAndSyncWebdavScreenEn._(_root);
-	late final TranslationsLaunchFailedScreenEn LaunchFailedScreen = TranslationsLaunchFailedScreenEn._(_root);
-	late final TranslationsPerAppAndroidScreenEn PerAppAndroidScreen = TranslationsPerAppAndroidScreenEn._(_root);
-	late final TranslationsUserAgreementScreenEn UserAgreementScreen = TranslationsUserAgreementScreenEn._(_root);
-	late final TranslationsVersionUpdateScreenEn VersionUpdateScreen = TranslationsVersionUpdateScreenEn._(_root);
-	late final TranslationsNetCheckScreenEn NetCheckScreen = TranslationsNetCheckScreenEn._(_root);
-	late final TranslationsLoginScreenEn loginScreen = TranslationsLoginScreenEn._(_root);
-	late final TranslationsMainEn main = TranslationsMainEn._(_root);
-	late final TranslationsMetaEn meta = TranslationsMetaEn._(_root);
-	late final TranslationsPermissionEn permission = TranslationsPermissionEn._(_root);
-	late final TranslationsTlsEn tls = TranslationsTlsEn._(_root);
-	late final TranslationsTunEn tun = TranslationsTunEn._(_root);
-	late final TranslationsDnsEn dns = TranslationsDnsEn._(_root);
-	late final TranslationsSnifferEn sniffer = TranslationsSnifferEn._(_root);
-	late final TranslationsProfilePatchModeEn profilePatchMode = TranslationsProfilePatchModeEn._(_root);
+	late final Translations$BackupAndSyncWebdavScreen$en BackupAndSyncWebdavScreen = Translations$BackupAndSyncWebdavScreen$en._(_root);
+	late final Translations$LaunchFailedScreen$en LaunchFailedScreen = Translations$LaunchFailedScreen$en._(_root);
+	late final Translations$PerAppAndroidScreen$en PerAppAndroidScreen = Translations$PerAppAndroidScreen$en._(_root);
+	late final Translations$UserAgreementScreen$en UserAgreementScreen = Translations$UserAgreementScreen$en._(_root);
+	late final Translations$VersionUpdateScreen$en VersionUpdateScreen = Translations$VersionUpdateScreen$en._(_root);
+	late final Translations$NetCheckScreen$en NetCheckScreen = Translations$NetCheckScreen$en._(_root);
+	late final Translations$loginScreen$en loginScreen = Translations$loginScreen$en._(_root);
+	late final Translations$main$en main = Translations$main$en._(_root);
+	late final Translations$meta$en meta = Translations$meta$en._(_root);
+	late final Translations$permission$en permission = Translations$permission$en._(_root);
+	late final Translations$tls$en tls = Translations$tls$en._(_root);
+	late final Translations$tun$en tun = Translations$tun$en._(_root);
+	late final Translations$dns$en dns = Translations$dns$en._(_root);
+	late final Translations$sniffer$en sniffer = Translations$sniffer$en._(_root);
+	late final Translations$profilePatchMode$en profilePatchMode = Translations$profilePatchMode$en._(_root);
 
 	/// en: 'Protocol Sniff'
 	String get protocolSniff => 'Protocol Sniff';
@@ -79,8 +79,8 @@ class Translations with BaseTranslations<AppLocale, Translations> {
 }
 
 // Path: BackupAndSyncWebdavScreen
-class TranslationsBackupAndSyncWebdavScreenEn {
-	TranslationsBackupAndSyncWebdavScreenEn._(this._root);
+class Translations$BackupAndSyncWebdavScreen$en {
+	Translations$BackupAndSyncWebdavScreen$en._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
@@ -100,8 +100,8 @@ class TranslationsBackupAndSyncWebdavScreenEn {
 }
 
 // Path: LaunchFailedScreen
-class TranslationsLaunchFailedScreenEn {
-	TranslationsLaunchFailedScreenEn._(this._root);
+class Translations$LaunchFailedScreen$en {
+	Translations$LaunchFailedScreen$en._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
@@ -124,8 +124,8 @@ class TranslationsLaunchFailedScreenEn {
 }
 
 // Path: PerAppAndroidScreen
-class TranslationsPerAppAndroidScreenEn {
-	TranslationsPerAppAndroidScreenEn._(this._root);
+class Translations$PerAppAndroidScreen$en {
+	Translations$PerAppAndroidScreen$en._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
@@ -142,8 +142,8 @@ class TranslationsPerAppAndroidScreenEn {
 }
 
 // Path: UserAgreementScreen
-class TranslationsUserAgreementScreenEn {
-	TranslationsUserAgreementScreenEn._(this._root);
+class Translations$UserAgreementScreen$en {
+	Translations$UserAgreementScreen$en._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
@@ -157,8 +157,8 @@ class TranslationsUserAgreementScreenEn {
 }
 
 // Path: VersionUpdateScreen
-class TranslationsVersionUpdateScreenEn {
-	TranslationsVersionUpdateScreenEn._(this._root);
+class Translations$VersionUpdateScreen$en {
+	Translations$VersionUpdateScreen$en._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
@@ -175,8 +175,8 @@ class TranslationsVersionUpdateScreenEn {
 }
 
 // Path: NetCheckScreen
-class TranslationsNetCheckScreenEn {
-	TranslationsNetCheckScreenEn._(this._root);
+class Translations$NetCheckScreen$en {
+	Translations$NetCheckScreen$en._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
@@ -226,8 +226,8 @@ class TranslationsNetCheckScreenEn {
 }
 
 // Path: loginScreen
-class TranslationsLoginScreenEn {
-	TranslationsLoginScreenEn._(this._root);
+class Translations$loginScreen$en {
+	Translations$loginScreen$en._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
@@ -289,18 +289,18 @@ class TranslationsLoginScreenEn {
 }
 
 // Path: main
-class TranslationsMainEn {
-	TranslationsMainEn._(this._root);
+class Translations$main$en {
+	Translations$main$en._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	late final TranslationsMainTrayEn tray = TranslationsMainTrayEn._(_root);
+	late final Translations$main$tray$en tray = Translations$main$tray$en._(_root);
 }
 
 // Path: meta
-class TranslationsMetaEn {
-	TranslationsMetaEn._(this._root);
+class Translations$meta$en {
+	Translations$meta$en._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
@@ -693,6 +693,9 @@ class TranslationsMetaEn {
 	/// en: 'Hide Dock Icon'
 	String get hideDockIcon => 'Hide Dock Icon';
 
+	/// en: 'Show traffic info in tray'
+	String get showTrayTraffic => 'Show traffic info in tray';
+
 	/// en: 'Website'
 	String get website => 'Website';
 
@@ -992,8 +995,8 @@ class TranslationsMetaEn {
 }
 
 // Path: permission
-class TranslationsPermissionEn {
-	TranslationsPermissionEn._(this._root);
+class Translations$permission$en {
+	Translations$permission$en._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
@@ -1016,8 +1019,8 @@ class TranslationsPermissionEn {
 }
 
 // Path: tls
-class TranslationsTlsEn {
-	TranslationsTlsEn._(this._root);
+class Translations$tls$en {
+	Translations$tls$en._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
@@ -1037,8 +1040,8 @@ class TranslationsTlsEn {
 }
 
 // Path: tun
-class TranslationsTunEn {
-	TranslationsTunEn._(this._root);
+class Translations$tun$en {
+	Translations$tun$en._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
@@ -1076,8 +1079,8 @@ class TranslationsTunEn {
 }
 
 // Path: dns
-class TranslationsDnsEn {
-	TranslationsDnsEn._(this._root);
+class Translations$dns$en {
+	Translations$dns$en._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
@@ -1136,8 +1139,8 @@ class TranslationsDnsEn {
 }
 
 // Path: sniffer
-class TranslationsSnifferEn {
-	TranslationsSnifferEn._(this._root);
+class Translations$sniffer$en {
+	Translations$sniffer$en._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
@@ -1148,8 +1151,8 @@ class TranslationsSnifferEn {
 }
 
 // Path: profilePatchMode
-class TranslationsProfilePatchModeEn {
-	TranslationsProfilePatchModeEn._(this._root);
+class Translations$profilePatchMode$en {
+	Translations$profilePatchMode$en._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
@@ -1166,8 +1169,8 @@ class TranslationsProfilePatchModeEn {
 }
 
 // Path: main.tray
-class TranslationsMainTrayEn {
-	TranslationsMainTrayEn._(this._root);
+class Translations$main$tray$en {
+	Translations$main$tray$en._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
@@ -1368,6 +1371,7 @@ extension on Translations {
 			'meta.hideVpn' => 'Hide VPN Icon',
 			'meta.hideVpnTips' => 'Enabling IPv6 will cause this function to fail',
 			'meta.hideDockIcon' => 'Hide Dock Icon',
+			'meta.showTrayTraffic' => 'Show traffic info in tray',
 			'meta.website' => 'Website',
 			'meta.homePage' => 'Home Page',
 			'meta.rule' => 'Rule',

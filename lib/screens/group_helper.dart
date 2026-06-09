@@ -887,6 +887,15 @@ class GroupHelper {
             },
           ),
         ),
+        GroupItemOptions(
+          switchOptions: GroupItemSwitchOptions(
+            name: tcontext.meta.showTrayTraffic,
+            switchValue: setting.showTrayTraffic,
+            onSwitch: (bool value) async {
+              setting.showTrayTraffic = value;
+            },
+          ),
+        ),
       ];
 
       List<GroupItem> gitems = [

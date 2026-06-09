@@ -198,6 +198,7 @@
         "hideVpn": "Hide VPN Icon",
         "hideVpnTips": "Enabling IPv6 will cause this function to fail",
         "hideDockIcon": "Hide Dock Icon",
+        "showTrayTraffic": "Show traffic info in tray",
         "website": "Website",
         "homePage": "Home Page",
         "rule": "Rule",

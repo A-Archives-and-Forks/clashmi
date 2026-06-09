@@ -198,6 +198,7 @@
         "hideVpn": "VPNアイコンを隠す",
         "hideVpnTips": "IPv6を有効にすると、この機能は失敗します",
         "hideDockIcon": "Dockアイコンを隠す",
+        "showTrayTraffic": "トレイに通信量情報を表示",
         "website": "ウェブサイト",
         "homePage": "ホームページ",
         "rule": "ルール",

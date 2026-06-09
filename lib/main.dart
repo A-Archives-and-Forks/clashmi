@@ -232,6 +232,22 @@ class MyAppState extends State<MyApp>
       trayManager.addListener(this);
       _setTray(true, false, true);
     }
+    if (Platform.isMacOS) {
+      Biz.onEventTrafficChanged.add((
+        String trafficOld,
+        String traffic,
+        String speedOld,
+        String speed,
+      ) {
+        if (!SettingManager.getConfig().showTrayTraffic) {
+          return;
+        }
+        if (trafficOld != traffic || speedOld != speed) {
+          trayManager.setTitle("$traffic-$speed");
+        }
+      });
+    }
+
     AppLifecycleStateNofity.init();
     LocaleSettings.getLocaleStream().listen((event) {});
     String launchStartupArg = processArgs.firstWhere(

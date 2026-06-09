@@ -198,6 +198,7 @@
         "hideVpn": "VPN 아이콘 숨기기",
         "hideVpnTips": "IPv6를 활성화하면 이 기능이 작동하지 않습니다",
         "hideDockIcon": "Dock 아이콘 숨기기",
+        "showTrayTraffic": "트레이에 트래픽 정보 표시",
         "website": "웹사이트",
         "homePage": "홈페이지",
         "rule": "규칙",

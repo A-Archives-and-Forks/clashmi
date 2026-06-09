@@ -198,6 +198,7 @@
         "hideVpn": "Ocultar Icono VPN",
         "hideVpnTips": "Habilitar IPv6 causará que esta función falle",
         "hideDockIcon": "Ocultar Icono del Dock",
+        "showTrayTraffic": "Mostrar información de tráfico en la bandeja",
         "website": "Sitio Web",
         "homePage": "Página principal",
         "rule": "Regla",

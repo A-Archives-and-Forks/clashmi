@@ -134,6 +134,7 @@ class SettingConfig {
   String delayTestUrl = kDefaultDelayTestUrl;
   int delayTestTimeout = 5000;
   bool hideDockIcon = false; //macos
+  bool showTrayTraffic = false; //macos
   bool excludeFromRecent = false; //android
   bool wakeLock = false; //android
   bool autoConnectAtBoot = false; //android
@@ -156,6 +157,7 @@ class SettingConfig {
     'delay_test_url': delayTestUrl,
     'delay_test_url_timeout': delayTestTimeout,
     'hide_dock_icon': hideDockIcon,
+    'show_tray_traffic': showTrayTraffic,
     'exclude_from_recent': excludeFromRecent,
     'wake_lock': wakeLock,
     'auto_connect_at_boot': autoConnectAtBoot,
@@ -192,6 +194,7 @@ class SettingConfig {
     delayTestUrl = map["delay_test_url"] ?? kDefaultDelayTestUrl;
     delayTestTimeout = map["delay_test_url_timeout"] ?? 5000;
     hideDockIcon = map["hide_dock_icon"] ?? false;
+    showTrayTraffic = map["show_tray_traffic"] ?? false;
     excludeFromRecent = map["exclude_from_recent"] ?? false;
     wakeLock = map["wake_lock"] ?? false;
     autoConnectAtBoot = map["auto_connect_at_boot"] ?? false;

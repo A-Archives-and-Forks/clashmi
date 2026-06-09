@@ -37,21 +37,21 @@ class TranslationsRu with BaseTranslations<AppLocale, Translations> implements T
 	TranslationsRu $copyWith({TranslationMetadata<AppLocale, Translations>? meta}) => TranslationsRu(meta: meta ?? this.$meta);
 
 	// Translations
-	@override late final _TranslationsBackupAndSyncWebdavScreenRu BackupAndSyncWebdavScreen = _TranslationsBackupAndSyncWebdavScreenRu._(_root);
-	@override late final _TranslationsLaunchFailedScreenRu LaunchFailedScreen = _TranslationsLaunchFailedScreenRu._(_root);
-	@override late final _TranslationsPerAppAndroidScreenRu PerAppAndroidScreen = _TranslationsPerAppAndroidScreenRu._(_root);
-	@override late final _TranslationsUserAgreementScreenRu UserAgreementScreen = _TranslationsUserAgreementScreenRu._(_root);
-	@override late final _TranslationsNetCheckScreenRu NetCheckScreen = _TranslationsNetCheckScreenRu._(_root);
-	@override late final _TranslationsVersionUpdateScreenRu VersionUpdateScreen = _TranslationsVersionUpdateScreenRu._(_root);
-	@override late final _TranslationsLoginScreenRu loginScreen = _TranslationsLoginScreenRu._(_root);
-	@override late final _TranslationsMainRu main = _TranslationsMainRu._(_root);
-	@override late final _TranslationsMetaRu meta = _TranslationsMetaRu._(_root);
-	@override late final _TranslationsPermissionRu permission = _TranslationsPermissionRu._(_root);
-	@override late final _TranslationsTlsRu tls = _TranslationsTlsRu._(_root);
-	@override late final _TranslationsTunRu tun = _TranslationsTunRu._(_root);
-	@override late final _TranslationsDnsRu dns = _TranslationsDnsRu._(_root);
-	@override late final _TranslationsSnifferRu sniffer = _TranslationsSnifferRu._(_root);
-	@override late final _TranslationsProfilePatchModeRu profilePatchMode = _TranslationsProfilePatchModeRu._(_root);
+	@override late final _Translations$BackupAndSyncWebdavScreen$ru BackupAndSyncWebdavScreen = _Translations$BackupAndSyncWebdavScreen$ru._(_root);
+	@override late final _Translations$LaunchFailedScreen$ru LaunchFailedScreen = _Translations$LaunchFailedScreen$ru._(_root);
+	@override late final _Translations$PerAppAndroidScreen$ru PerAppAndroidScreen = _Translations$PerAppAndroidScreen$ru._(_root);
+	@override late final _Translations$UserAgreementScreen$ru UserAgreementScreen = _Translations$UserAgreementScreen$ru._(_root);
+	@override late final _Translations$NetCheckScreen$ru NetCheckScreen = _Translations$NetCheckScreen$ru._(_root);
+	@override late final _Translations$VersionUpdateScreen$ru VersionUpdateScreen = _Translations$VersionUpdateScreen$ru._(_root);
+	@override late final _Translations$loginScreen$ru loginScreen = _Translations$loginScreen$ru._(_root);
+	@override late final _Translations$main$ru main = _Translations$main$ru._(_root);
+	@override late final _Translations$meta$ru meta = _Translations$meta$ru._(_root);
+	@override late final _Translations$permission$ru permission = _Translations$permission$ru._(_root);
+	@override late final _Translations$tls$ru tls = _Translations$tls$ru._(_root);
+	@override late final _Translations$tun$ru tun = _Translations$tun$ru._(_root);
+	@override late final _Translations$dns$ru dns = _Translations$dns$ru._(_root);
+	@override late final _Translations$sniffer$ru sniffer = _Translations$sniffer$ru._(_root);
+	@override late final _Translations$profilePatchMode$ru profilePatchMode = _Translations$profilePatchMode$ru._(_root);
 	@override String get protocolSniff => 'Определение протокола';
 	@override String get protocolSniffOverrideDestination => 'Обнаруженное имя домена перезаписывает целевой адрес подключения.';
 	@override String get edgeRuntimeNotInstalled => 'Среда выполнения Edge WebView2 не установлена ​​на текущем устройстве, и страница не может быть отображена. Загрузите и установите среду выполнения Edge WebView2 (x64), перезапустите приложение и повторите попытку.';
@@ -69,8 +69,8 @@ class TranslationsRu with BaseTranslations<AppLocale, Translations> implements T
 }
 
 // Path: BackupAndSyncWebdavScreen
-class _TranslationsBackupAndSyncWebdavScreenRu implements TranslationsBackupAndSyncWebdavScreenEn {
-	_TranslationsBackupAndSyncWebdavScreenRu._(this._root);
+class _Translations$BackupAndSyncWebdavScreen$ru implements Translations$BackupAndSyncWebdavScreen$en {
+	_Translations$BackupAndSyncWebdavScreen$ru._(this._root);
 
 	final TranslationsRu _root; // ignore: unused_field
 
@@ -82,8 +82,8 @@ class _TranslationsBackupAndSyncWebdavScreenRu implements TranslationsBackupAndS
 }
 
 // Path: LaunchFailedScreen
-class _TranslationsLaunchFailedScreenRu implements TranslationsLaunchFailedScreenEn {
-	_TranslationsLaunchFailedScreenRu._(this._root);
+class _Translations$LaunchFailedScreen$ru implements Translations$LaunchFailedScreen$en {
+	_Translations$LaunchFailedScreen$ru._(this._root);
 
 	final TranslationsRu _root; // ignore: unused_field
 
@@ -96,8 +96,8 @@ class _TranslationsLaunchFailedScreenRu implements TranslationsLaunchFailedScree
 }
 
 // Path: PerAppAndroidScreen
-class _TranslationsPerAppAndroidScreenRu implements TranslationsPerAppAndroidScreenEn {
-	_TranslationsPerAppAndroidScreenRu._(this._root);
+class _Translations$PerAppAndroidScreen$ru implements Translations$PerAppAndroidScreen$en {
+	_Translations$PerAppAndroidScreen$ru._(this._root);
 
 	final TranslationsRu _root; // ignore: unused_field
 
@@ -108,8 +108,8 @@ class _TranslationsPerAppAndroidScreenRu implements TranslationsPerAppAndroidScr
 }
 
 // Path: UserAgreementScreen
-class _TranslationsUserAgreementScreenRu implements TranslationsUserAgreementScreenEn {
-	_TranslationsUserAgreementScreenRu._(this._root);
+class _Translations$UserAgreementScreen$ru implements Translations$UserAgreementScreen$en {
+	_Translations$UserAgreementScreen$ru._(this._root);
 
 	final TranslationsRu _root; // ignore: unused_field
 
@@ -119,8 +119,8 @@ class _TranslationsUserAgreementScreenRu implements TranslationsUserAgreementScr
 }
 
 // Path: NetCheckScreen
-class _TranslationsNetCheckScreenRu implements TranslationsNetCheckScreenEn {
-	_TranslationsNetCheckScreenRu._(this._root);
+class _Translations$NetCheckScreen$ru implements Translations$NetCheckScreen$en {
+	_Translations$NetCheckScreen$ru._(this._root);
 
 	final TranslationsRu _root; // ignore: unused_field
 
@@ -142,8 +142,8 @@ class _TranslationsNetCheckScreenRu implements TranslationsNetCheckScreenEn {
 }
 
 // Path: VersionUpdateScreen
-class _TranslationsVersionUpdateScreenRu implements TranslationsVersionUpdateScreenEn {
-	_TranslationsVersionUpdateScreenRu._(this._root);
+class _Translations$VersionUpdateScreen$ru implements Translations$VersionUpdateScreen$en {
+	_Translations$VersionUpdateScreen$ru._(this._root);
 
 	final TranslationsRu _root; // ignore: unused_field
 
@@ -154,8 +154,8 @@ class _TranslationsVersionUpdateScreenRu implements TranslationsVersionUpdateScr
 }
 
 // Path: loginScreen
-class _TranslationsLoginScreenRu implements TranslationsLoginScreenEn {
-	_TranslationsLoginScreenRu._(this._root);
+class _Translations$loginScreen$ru implements Translations$loginScreen$en {
+	_Translations$loginScreen$ru._(this._root);
 
 	final TranslationsRu _root; // ignore: unused_field
 
@@ -181,18 +181,18 @@ class _TranslationsLoginScreenRu implements TranslationsLoginScreenEn {
 }
 
 // Path: main
-class _TranslationsMainRu implements TranslationsMainEn {
-	_TranslationsMainRu._(this._root);
+class _Translations$main$ru implements Translations$main$en {
+	_Translations$main$ru._(this._root);
 
 	final TranslationsRu _root; // ignore: unused_field
 
 	// Translations
-	@override late final _TranslationsMainTrayRu tray = _TranslationsMainTrayRu._(_root);
+	@override late final _Translations$main$tray$ru tray = _Translations$main$tray$ru._(_root);
 }
 
 // Path: meta
-class _TranslationsMetaRu implements TranslationsMetaEn {
-	_TranslationsMetaRu._(this._root);
+class _Translations$meta$ru implements Translations$meta$en {
+	_Translations$meta$ru._(this._root);
 
 	final TranslationsRu _root; // ignore: unused_field
 
@@ -326,6 +326,7 @@ class _TranslationsMetaRu implements TranslationsMetaEn {
 	@override String get hideVpn => 'Скрыть значок VPN';
 	@override String get hideVpnTips => 'Включение IPv6 приведет к сбою этой функции.';
 	@override String get hideDockIcon => 'Скрыть значок дока';
+	@override String get showTrayTraffic => 'Показывать трафик в трее';
 	@override String get website => 'Веб-сайт';
 	@override String get homePage => 'Главная';
 	@override String get rule => 'Правила';
@@ -428,8 +429,8 @@ class _TranslationsMetaRu implements TranslationsMetaEn {
 }
 
 // Path: permission
-class _TranslationsPermissionRu implements TranslationsPermissionEn {
-	_TranslationsPermissionRu._(this._root);
+class _Translations$permission$ru implements Translations$permission$en {
+	_Translations$permission$ru._(this._root);
 
 	final TranslationsRu _root; // ignore: unused_field
 
@@ -442,8 +443,8 @@ class _TranslationsPermissionRu implements TranslationsPermissionEn {
 }
 
 // Path: tls
-class _TranslationsTlsRu implements TranslationsTlsEn {
-	_TranslationsTlsRu._(this._root);
+class _Translations$tls$ru implements Translations$tls$en {
+	_Translations$tls$ru._(this._root);
 
 	final TranslationsRu _root; // ignore: unused_field
 
@@ -455,8 +456,8 @@ class _TranslationsTlsRu implements TranslationsTlsEn {
 }
 
 // Path: tun
-class _TranslationsTunRu implements TranslationsTunEn {
-	_TranslationsTunRu._(this._root);
+class _Translations$tun$ru implements Translations$tun$en {
+	_Translations$tun$ru._(this._root);
 
 	final TranslationsRu _root; // ignore: unused_field
 
@@ -474,8 +475,8 @@ class _TranslationsTunRu implements TranslationsTunEn {
 }
 
 // Path: dns
-class _TranslationsDnsRu implements TranslationsDnsEn {
-	_TranslationsDnsRu._(this._root);
+class _Translations$dns$ru implements Translations$dns$en {
+	_Translations$dns$ru._(this._root);
 
 	final TranslationsRu _root; // ignore: unused_field
 
@@ -500,8 +501,8 @@ class _TranslationsDnsRu implements TranslationsDnsEn {
 }
 
 // Path: sniffer
-class _TranslationsSnifferRu implements TranslationsSnifferEn {
-	_TranslationsSnifferRu._(this._root);
+class _Translations$sniffer$ru implements Translations$sniffer$en {
+	_Translations$sniffer$ru._(this._root);
 
 	final TranslationsRu _root; // ignore: unused_field
 
@@ -510,8 +511,8 @@ class _TranslationsSnifferRu implements TranslationsSnifferEn {
 }
 
 // Path: profilePatchMode
-class _TranslationsProfilePatchModeRu implements TranslationsProfilePatchModeEn {
-	_TranslationsProfilePatchModeRu._(this._root);
+class _Translations$profilePatchMode$ru implements Translations$profilePatchMode$en {
+	_Translations$profilePatchMode$ru._(this._root);
 
 	final TranslationsRu _root; // ignore: unused_field
 
@@ -522,8 +523,8 @@ class _TranslationsProfilePatchModeRu implements TranslationsProfilePatchModeEn 
 }
 
 // Path: main.tray
-class _TranslationsMainTrayRu implements TranslationsMainTrayEn {
-	_TranslationsMainTrayRu._(this._root);
+class _Translations$main$tray$ru implements Translations$main$tray$en {
+	_Translations$main$tray$ru._(this._root);
 
 	final TranslationsRu _root; // ignore: unused_field
 
@@ -720,6 +721,7 @@ extension on TranslationsRu {
 			'meta.hideVpn' => 'Скрыть значок VPN',
 			'meta.hideVpnTips' => 'Включение IPv6 приведет к сбою этой функции.',
 			'meta.hideDockIcon' => 'Скрыть значок дока',
+			'meta.showTrayTraffic' => 'Показывать трафик в трее',
 			'meta.website' => 'Веб-сайт',
 			'meta.homePage' => 'Главная',
 			'meta.rule' => 'Правила',

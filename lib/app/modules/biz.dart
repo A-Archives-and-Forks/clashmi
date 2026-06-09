@@ -1,11 +1,14 @@
 //import 'package:device_info_plus/device_info_plus.dart';
 
+import 'dart:io';
+
 import 'package:clashmi/app/local_services/vpn_service.dart';
 import 'package:clashmi/app/modules/auto_update_manager.dart';
 import 'package:clashmi/app/modules/clash_setting_manager.dart';
 import 'package:clashmi/app/modules/profile_manager.dart';
 import 'package:clashmi/app/modules/profile_patch_manager.dart';
 import 'package:clashmi/app/modules/diversion_template_manager.dart';
+import 'package:clashmi/app/modules/setting_manager.dart';
 import 'package:clashmi/app/utils/app_lifecycle_state_notify.dart';
 import 'package:clashmi/app/utils/log.dart';
 
@@ -13,6 +16,11 @@ class Biz {
   static final List<void Function()> onEventInitFinish = [];
   static final List<void Function()> onEventInitHomeFinish = [];
   static final List<void Function()> onEventInitAllFinish = [];
+  static final List<
+    Function(String trafficOld, String traffic, String speedOld, String speed)
+  >
+  onEventTrafficChanged = [];
+
   static bool _initFinish = false;
   static bool _initHomeFinish = false;
 
@@ -78,6 +86,17 @@ class Biz {
   static void vpnStateChanged(bool isConnected) {
     if (onEventVPNStateChanged != null) {
       onEventVPNStateChanged!(isConnected);
+    }
+  }
+
+  static void trafficChanged(
+    String trafficOld,
+    String traffic,
+    String speedOld,
+    String speed,
+  ) {
+    for (var callback in onEventTrafficChanged) {
+      callback(trafficOld, traffic, speedOld, speed);
     }
   }
 }

@@ -803,6 +803,9 @@ class _HomeScreenWidgetPart1 extends State<HomeScreenWidgetPart1> {
 
   Future<void> _onStatePaused() async {
     _stopStateCheckTimer();
+    if (Platform.isMacOS && SettingManager.getConfig().showTrayTraffic) {
+      return;
+    }
     _disconnectToCore(resetUI: false);
   }
 
@@ -867,6 +870,8 @@ class _HomeScreenWidgetPart1 extends State<HomeScreenWidgetPart1> {
       if (AppLifecycleStateNofity.isPaused()) {
         return;
       }
+      String trafficTotal = _trafficTotal.value;
+      String trafficSpeed = _trafficSpeed.value;
       try {
         var obj = jsonDecode(connections);
         ClashConnections body = ClashConnections();
@@ -883,7 +888,12 @@ class _HomeScreenWidgetPart1 extends State<HomeScreenWidgetPart1> {
         _trafficSpeed.value =
             "↑ ${ClashHttpApi.convertTrafficToStringDouble(traffic.upload)}/s  ↓ ${ClashHttpApi.convertTrafficToStringDouble(traffic.download)}/s";
       } catch (err) {}
-
+      Biz.trafficChanged(
+        trafficTotal,
+        _trafficTotal.value,
+        trafficSpeed,
+        _trafficSpeed.value,
+      );
       if (_proxyNow.value.isEmpty) {
         Future.delayed(Duration(seconds: 1), () async {
           _updateProxyNow();
@@ -896,8 +906,11 @@ class _HomeScreenWidgetPart1 extends State<HomeScreenWidgetPart1> {
     _timerConnectToCore?.cancel();
     _timerConnectToCore = null;
     if (resetUI) {
+      String trafficTotal = _trafficTotal.value;
+      String trafficSpeed = _trafficSpeed.value;
       _trafficTotal.value = _kNoTrafficTotal;
       _trafficSpeed.value = _kNoSpeed;
+      Biz.trafficChanged(trafficTotal, "", trafficSpeed, "");
       // _memory.value = _kNoMemory;
       _proxyNow.value = "";
     }

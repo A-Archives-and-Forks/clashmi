@@ -198,6 +198,7 @@
         "hideVpn": "隐藏VPN图标",
         "hideVpnTips": "开启IPv6会导致此功能失效",
         "hideDockIcon": "隐藏Dock图标",
+        "showTrayTraffic": "托盘上显示流量信息",
         "website": "官网",
         "homePage": "主页",
         "rule": "规则",
