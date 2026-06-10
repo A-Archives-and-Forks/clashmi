@@ -425,6 +425,7 @@ class _Translations$meta$fa implements Translations$meta$en {
 	@override String get profileDownloadBackupChannelTips => 'کانال دانلود پراکسی ارائه‌شده توسط Clash Mi (هیچ اطلاعاتی ذخیره نمی‌شود)';
 	@override String get profileEditReloadAfterProfileUpdate => 'بارگذاری مجدد پس‌از به‌روزرسانی پروفایل';
 	@override String get profileRulesAppendApplePush => 'افزودن قوانین اعلان‌های Push اپل';
+	@override String get profileRulesAppendProxyTips => 'قوانین به‌صورت خودکار روی نخستین پراکسی با نوع [url-test] یا [select] در [proxy-groups] پیکربندی اصلی تنظیم می‌شوند';
 	@override String get profileImport => 'وارد‌کردن فایل پروفایل';
 	@override String get profileAddUrlOrContent => 'افزودن لینک پروفایل';
 	@override String get profileUrlOrContent => 'پیوند پیکربندی Clash';
@@ -824,6 +825,7 @@ extension on TranslationsFa {
 			'meta.profileDownloadBackupChannelTips' => 'کانال دانلود پراکسی ارائه‌شده توسط Clash Mi (هیچ اطلاعاتی ذخیره نمی‌شود)',
 			'meta.profileEditReloadAfterProfileUpdate' => 'بارگذاری مجدد پس‌از به‌روزرسانی پروفایل',
 			'meta.profileRulesAppendApplePush' => 'افزودن قوانین اعلان‌های Push اپل',
+			'meta.profileRulesAppendProxyTips' => 'قوانین به‌صورت خودکار روی نخستین پراکسی با نوع [url-test] یا [select] در [proxy-groups] پیکربندی اصلی تنظیم می‌شوند',
 			'meta.profileImport' => 'وارد‌کردن فایل پروفایل',
 			'meta.profileAddUrlOrContent' => 'افزودن لینک پروفایل',
 			'meta.profileUrlOrContent' => 'پیوند پیکربندی Clash',

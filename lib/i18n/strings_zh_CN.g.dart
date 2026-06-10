@@ -424,7 +424,8 @@ class Translations$meta$zh_CN implements Translations$meta$en {
 	@override String get profileDownloadBackupChannel => '启用备用下载通道';
 	@override String get profileDownloadBackupChannelTips => 'Clash Mi提供的代理下载通道(不存储任何信息)';
 	@override String get profileEditReloadAfterProfileUpdate => '配置更新后重新加载';
-	@override String get profileRulesAppendApplePush => '附加Apple推送通知规则';
+	@override String get profileRulesAppendApplePush => '附加 Apple 推送通知规则';
+	@override String get profileRulesAppendProxyTips => '规则将自动设置为原始配置里[proxy-groups]中的第一个类型为[url-test]或[select]的代理';
 	@override String get profileImport => '导入配置文件';
 	@override String get profileAddUrlOrContent => '添加配置链接';
 	@override String get profileUrlOrContent => 'Clash配置链接';
@@ -823,7 +824,8 @@ extension on TranslationsZhCn {
 			'meta.profileDownloadBackupChannel' => '启用备用下载通道',
 			'meta.profileDownloadBackupChannelTips' => 'Clash Mi提供的代理下载通道(不存储任何信息)',
 			'meta.profileEditReloadAfterProfileUpdate' => '配置更新后重新加载',
-			'meta.profileRulesAppendApplePush' => '附加Apple推送通知规则',
+			'meta.profileRulesAppendApplePush' => '附加 Apple 推送通知规则',
+			'meta.profileRulesAppendProxyTips' => '规则将自动设置为原始配置里[proxy-groups]中的第一个类型为[url-test]或[select]的代理',
 			'meta.profileImport' => '导入配置文件',
 			'meta.profileAddUrlOrContent' => '添加配置链接',
 			'meta.profileUrlOrContent' => 'Clash配置链接',

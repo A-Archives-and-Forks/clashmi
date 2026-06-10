@@ -425,6 +425,7 @@ class _Translations$meta$ko implements Translations$meta$en {
 	@override String get profileDownloadBackupChannelTips => 'Clash Mi에서 제공하는 프록시 다운로드 채널(어떤 정보도 저장하지 않음)';
 	@override String get profileEditReloadAfterProfileUpdate => '프로필 업데이트 후 다시 로드';
 	@override String get profileRulesAppendApplePush => 'Apple 푸시 알림 규칙 추가';
+	@override String get profileRulesAppendProxyTips => '규칙은 원본 설정의 [proxy-groups]에서 [url-test] 또는 [select] 유형의 첫 번째 프록시로 자동 설정됩니다';
 	@override String get profileImport => '프로필 파일 가져오기';
 	@override String get profileAddUrlOrContent => '프로필 링크 추가';
 	@override String get profileUrlOrContent => 'Clash 설정 링크';
@@ -824,6 +825,7 @@ extension on TranslationsKo {
 			'meta.profileDownloadBackupChannelTips' => 'Clash Mi에서 제공하는 프록시 다운로드 채널(어떤 정보도 저장하지 않음)',
 			'meta.profileEditReloadAfterProfileUpdate' => '프로필 업데이트 후 다시 로드',
 			'meta.profileRulesAppendApplePush' => 'Apple 푸시 알림 규칙 추가',
+			'meta.profileRulesAppendProxyTips' => '규칙은 원본 설정의 [proxy-groups]에서 [url-test] 또는 [select] 유형의 첫 번째 프록시로 자동 설정됩니다',
 			'meta.profileImport' => '프로필 파일 가져오기',
 			'meta.profileAddUrlOrContent' => '프로필 링크 추가',
 			'meta.profileUrlOrContent' => 'Clash 설정 링크',

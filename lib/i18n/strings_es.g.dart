@@ -425,6 +425,7 @@ class _Translations$meta$es implements Translations$meta$en {
 	@override String get profileDownloadBackupChannelTips => 'Canal de descarga por proxy proporcionado por Clash Mi (no se almacena ninguna información)';
 	@override String get profileEditReloadAfterProfileUpdate => 'Recargar tras actualización del Perfil';
 	@override String get profileRulesAppendApplePush => 'Añadir reglas de notificaciones Push de Apple';
+	@override String get profileRulesAppendProxyTips => 'Las reglas se establecerán automáticamente en el primer proxy de tipo [url-test] o [select] en [proxy-groups] de la configuración original';
 	@override String get profileImport => 'Importar Archivo de Perfil';
 	@override String get profileAddUrlOrContent => 'Añadir Enlace de Perfil';
 	@override String get profileUrlOrContent => 'Enlace de Perfil Clash';
@@ -824,6 +825,7 @@ extension on TranslationsEs {
 			'meta.profileDownloadBackupChannelTips' => 'Canal de descarga por proxy proporcionado por Clash Mi (no se almacena ninguna información)',
 			'meta.profileEditReloadAfterProfileUpdate' => 'Recargar tras actualización del Perfil',
 			'meta.profileRulesAppendApplePush' => 'Añadir reglas de notificaciones Push de Apple',
+			'meta.profileRulesAppendProxyTips' => 'Las reglas se establecerán automáticamente en el primer proxy de tipo [url-test] o [select] en [proxy-groups] de la configuración original',
 			'meta.profileImport' => 'Importar Archivo de Perfil',
 			'meta.profileAddUrlOrContent' => 'Añadir Enlace de Perfil',
 			'meta.profileUrlOrContent' => 'Enlace de Perfil Clash',

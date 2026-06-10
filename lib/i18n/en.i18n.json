@@ -297,6 +297,7 @@
         "profileDownloadBackupChannelTips": "Proxy download channel provided by Clash Mi (no information is stored)",
         "profileEditReloadAfterProfileUpdate": "Reload after Profile update",
         "profileRulesAppendApplePush": "Append Apple Push Notification rules",
+        "profileRulesAppendProxyTips": "Rules will be automatically set to the first proxy in [proxy-groups] of the original config with type [url-test] or [select]",
         "profileImport": "Import Profile File",
         "profileAddUrlOrContent": "Add Profile Link",
         "profileUrlOrContent": "Clash Profile Link",

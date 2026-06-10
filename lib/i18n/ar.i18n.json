@@ -297,6 +297,7 @@
         "profileDownloadBackupChannelTips": "قناة تنزيل عبر الوكيل توفرها Clash Mi (لا يتم تخزين أي معلومات)",
         "profileEditReloadAfterProfileUpdate": "إعادة التحميل بعد تحديث الملف الشخصي",
         "profileRulesAppendApplePush": "إضافة قواعد إشعارات Apple Push",
+        "profileRulesAppendProxyTips": "سيتم تعيين القواعد تلقائيًا إلى أول وكيل في [proxy-groups] من التكوين الأصلي يكون نوعه [url-test] أو [select]",
         "profileImport": "استيراد ملف الملف الشخصي",
         "profileAddUrlOrContent": "إضافة رابط ملف التعريف",
         "profileUrlOrContent": "رابط إعداد Clash",

@@ -425,6 +425,7 @@ class _Translations$meta$ja implements Translations$meta$en {
 	@override String get profileDownloadBackupChannelTips => 'Clash Mi が提供するプロキシダウンロードチャネル（情報は一切保存されません）';
 	@override String get profileEditReloadAfterProfileUpdate => 'プロファイル更新後にリロード';
 	@override String get profileRulesAppendApplePush => 'Appleプッシュ通知ルールを追加';
+	@override String get profileRulesAppendProxyTips => 'ルールは元の設定の [proxy-groups] 内で、タイプが [url-test] または [select] の最初のプロキシに自動設定されます';
 	@override String get profileImport => 'プロファイルファイルをインポート';
 	@override String get profileAddUrlOrContent => 'プロファイルリンクを追加';
 	@override String get profileUrlOrContent => 'Clash設定リンク';
@@ -824,6 +825,7 @@ extension on TranslationsJa {
 			'meta.profileDownloadBackupChannelTips' => 'Clash Mi が提供するプロキシダウンロードチャネル（情報は一切保存されません）',
 			'meta.profileEditReloadAfterProfileUpdate' => 'プロファイル更新後にリロード',
 			'meta.profileRulesAppendApplePush' => 'Appleプッシュ通知ルールを追加',
+			'meta.profileRulesAppendProxyTips' => 'ルールは元の設定の [proxy-groups] 内で、タイプが [url-test] または [select] の最初のプロキシに自動設定されます',
 			'meta.profileImport' => 'プロファイルファイルをインポート',
 			'meta.profileAddUrlOrContent' => 'プロファイルリンクを追加',
 			'meta.profileUrlOrContent' => 'Clash設定リンク',

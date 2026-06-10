@@ -425,6 +425,7 @@ class _Translations$meta$ar implements Translations$meta$en {
 	@override String get profileDownloadBackupChannelTips => 'قناة تنزيل عبر الوكيل توفرها Clash Mi (لا يتم تخزين أي معلومات)';
 	@override String get profileEditReloadAfterProfileUpdate => 'إعادة التحميل بعد تحديث الملف الشخصي';
 	@override String get profileRulesAppendApplePush => 'إضافة قواعد إشعارات Apple Push';
+	@override String get profileRulesAppendProxyTips => 'سيتم تعيين القواعد تلقائيًا إلى أول وكيل في [proxy-groups] من التكوين الأصلي يكون نوعه [url-test] أو [select]';
 	@override String get profileImport => 'استيراد ملف الملف الشخصي';
 	@override String get profileAddUrlOrContent => 'إضافة رابط ملف التعريف';
 	@override String get profileUrlOrContent => 'رابط إعداد Clash';
@@ -824,6 +825,7 @@ extension on TranslationsAr {
 			'meta.profileDownloadBackupChannelTips' => 'قناة تنزيل عبر الوكيل توفرها Clash Mi (لا يتم تخزين أي معلومات)',
 			'meta.profileEditReloadAfterProfileUpdate' => 'إعادة التحميل بعد تحديث الملف الشخصي',
 			'meta.profileRulesAppendApplePush' => 'إضافة قواعد إشعارات Apple Push',
+			'meta.profileRulesAppendProxyTips' => 'سيتم تعيين القواعد تلقائيًا إلى أول وكيل في [proxy-groups] من التكوين الأصلي يكون نوعه [url-test] أو [select]',
 			'meta.profileImport' => 'استيراد ملف الملف الشخصي',
 			'meta.profileAddUrlOrContent' => 'إضافة رابط ملف التعريف',
 			'meta.profileUrlOrContent' => 'رابط إعداد Clash',

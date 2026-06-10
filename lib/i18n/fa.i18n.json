@@ -297,6 +297,7 @@
         "profileDownloadBackupChannelTips": "کانال دانلود پراکسی ارائه‌شده توسط Clash Mi (هیچ اطلاعاتی ذخیره نمی‌شود)",
         "profileEditReloadAfterProfileUpdate": "بارگذاری مجدد پس‌از به‌روزرسانی پروفایل",
         "profileRulesAppendApplePush": "افزودن قوانین اعلان‌های Push اپل",
+        "profileRulesAppendProxyTips": "قوانین به‌صورت خودکار روی نخستین پراکسی با نوع [url-test] یا [select] در [proxy-groups] پیکربندی اصلی تنظیم می‌شوند",
         "profileImport": "وارد‌کردن فایل پروفایل",
         "profileAddUrlOrContent": "افزودن لینک پروفایل",
         "profileUrlOrContent": "پیوند پیکربندی Clash",

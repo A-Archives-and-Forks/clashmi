@@ -990,6 +990,9 @@ class Translations$meta$en {
 	/// en: 'Append Apple Push Notification rules'
 	String get profileRulesAppendApplePush => 'Append Apple Push Notification rules';
 
+	/// en: 'Rules will be automatically set to the first proxy in [proxy-groups] of the original config with type [url-test] or [select]'
+	String get profileRulesAppendProxyTips => 'Rules will be automatically set to the first proxy in [proxy-groups] of the original config with type [url-test] or [select]';
+
 	/// en: 'Import Profile File'
 	String get profileImport => 'Import Profile File';
 
@@ -1482,6 +1485,7 @@ extension on Translations {
 			'meta.profileDownloadBackupChannelTips' => 'Proxy download channel provided by Clash Mi (no information is stored)',
 			'meta.profileEditReloadAfterProfileUpdate' => 'Reload after Profile update',
 			'meta.profileRulesAppendApplePush' => 'Append Apple Push Notification rules',
+			'meta.profileRulesAppendProxyTips' => 'Rules will be automatically set to the first proxy in [proxy-groups] of the original config with type [url-test] or [select]',
 			'meta.profileImport' => 'Import Profile File',
 			'meta.profileAddUrlOrContent' => 'Add Profile Link',
 			'meta.profileUrlOrContent' => 'Clash Profile Link',

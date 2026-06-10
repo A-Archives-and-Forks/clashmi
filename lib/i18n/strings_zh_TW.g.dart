@@ -425,6 +425,7 @@ class Translations$meta$zh_TW implements Translations$meta$en {
 	@override String get profileDownloadBackupChannelTips => 'Clash Mi 提供的代理下載通道（不儲存任何資訊）';
 	@override String get profileEditReloadAfterProfileUpdate => '設定更新後重新載入';
 	@override String get profileRulesAppendApplePush => '附加 Apple 推送通知規則';
+	@override String get profileRulesAppendProxyTips => '規則將自動設為原始設定中 [proxy-groups] 內第一個類型為 [url-test] 或 [select] 的代理';
 	@override String get profileImport => '匯入設定檔';
 	@override String get profileAddUrlOrContent => '添加設定連結';
 	@override String get profileUrlOrContent => 'Clash設定連結';
@@ -824,6 +825,7 @@ extension on TranslationsZhTw {
 			'meta.profileDownloadBackupChannelTips' => 'Clash Mi 提供的代理下載通道（不儲存任何資訊）',
 			'meta.profileEditReloadAfterProfileUpdate' => '設定更新後重新載入',
 			'meta.profileRulesAppendApplePush' => '附加 Apple 推送通知規則',
+			'meta.profileRulesAppendProxyTips' => '規則將自動設為原始設定中 [proxy-groups] 內第一個類型為 [url-test] 或 [select] 的代理',
 			'meta.profileImport' => '匯入設定檔',
 			'meta.profileAddUrlOrContent' => '添加設定連結',
 			'meta.profileUrlOrContent' => 'Clash設定連結',

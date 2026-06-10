@@ -297,6 +297,7 @@
         "profileDownloadBackupChannelTips": "Clash Mi에서 제공하는 프록시 다운로드 채널(어떤 정보도 저장하지 않음)",
         "profileEditReloadAfterProfileUpdate": "프로필 업데이트 후 다시 로드",
         "profileRulesAppendApplePush": "Apple 푸시 알림 규칙 추가",
+        "profileRulesAppendProxyTips": "규칙은 원본 설정의 [proxy-groups]에서 [url-test] 또는 [select] 유형의 첫 번째 프록시로 자동 설정됩니다",
         "profileImport": "프로필 파일 가져오기",
         "profileAddUrlOrContent": "프로필 링크 추가",
         "profileUrlOrContent": "Clash 설정 링크",
