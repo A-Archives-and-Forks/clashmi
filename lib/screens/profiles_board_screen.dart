@@ -178,7 +178,6 @@ class _ProfilesBoardScreenState extends LasyRenderingState<ProfilesBoardScreen>
     if (currentProfile != null && currentProfile.boardProviderId.isNotEmpty) {
       var provider = BoardProviderManager.getProviderById(
         currentProfile.boardProviderId,
-        includeUnknownProviderId: false,
       );
       if (provider != null &&
           provider.benefits.contains(

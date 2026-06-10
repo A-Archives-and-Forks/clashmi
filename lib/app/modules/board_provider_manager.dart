@@ -189,57 +189,140 @@ class BoardProviderConfig {
 
 class BoardProviderManager {
   static List<BoardProviderConfig> _providers = [];
+  static Map<String, BoardProviderType> _providerTypeCache = {};
   static bool _saving = false;
   static Future<void> updateSessionProviders() async {
     await BoardSessionPersistentManager.instance().updateProviders(_providers);
   }
 
   static String get unknownProviderId => "000";
-  static BoardProviderConfig get unknownProvider => BoardProviderConfig(
-    id: unknownProviderId,
-    name: "",
-    domain: "",
-    userAgent: "",
-    urltestUrl: "",
-    xhwid: false,
-    web: false,
-    overwrite: true,
-    overwriteDns: true,
-    version: "",
-    userAgreement: "",
-    clientServiceUrl: "",
-    subscriptionChannelUrl: "",
-    loginUrl: "",
-    forgotPasswordUrl: "",
-    planUrl: "",
-    homeUrl: "",
-    appIconUrl: "",
-    benefits: [
-      BoardProviderBenefit.panelLogin.name,
-      BoardProviderBenefit.unbanSubscription.name,
-    ],
-  );
-
+  static String get unknownProviderIdPrefix => "${unknownProviderId}_";
   static List<BoardProviderConfig> getProviders() {
     return _providers;
   }
 
-  static BoardProviderConfig? getProviderById(
-    String id, {
-    bool includeUnknownProviderId = false,
-  }) {
+  static Future<BoardProviderType?> getProviderTypeById(Uri uri) async {
+    if (uri.host.isEmpty) {
+      return null;
+    }
+
+    final type = _providerTypeCache[uri.host];
+    if (type != null) {
+      return type;
+    }
+    final urlSSpanel = "https://${uri.host}/auth/login";
+    final urlV2OrXboard = "https://${uri.host}/#/login";
+
+    var result = await HttpUtils.httpGetRequest(
+      urlSSpanel,
+      null,
+      null,
+      const Duration(seconds: 10),
+      null,
+      null,
+      checkStatuscode: false,
+    );
+    if (result.error == null) {
+      if (result.data!.item1 == 200 &&
+          result.data!.item2.contains("SSPanel-UIM")) {
+        _providerTypeCache[uri.host] = BoardProviderType.sspanel;
+        return BoardProviderType.sspanel;
+      }
+      return null;
+    }
+    result = await HttpUtils.httpGetRequest(
+      urlV2OrXboard,
+      null,
+      null,
+      const Duration(seconds: 10),
+      null,
+      null,
+      checkStatuscode: false,
+    );
+    if (result.error != null || result.data!.item1 != 200) {
+      return null;
+    }
+    if (result.data!.item2.contains("/Xboard/")) {
+      _providerTypeCache[uri.host] = BoardProviderType.xboard;
+      return BoardProviderType.xboard;
+    }
+    if (result.data!.item2.contains("/auth/login")) {
+      //sspanel
+      return null;
+    }
+    _providerTypeCache[uri.host] = BoardProviderType.v2board;
+    return BoardProviderType.v2board;
+  }
+
+  static BoardProviderConfig? getProviderById(String id) {
     if (id.isEmpty) {
       return null;
     }
-    if (includeUnknownProviderId && id == unknownProviderId) {
-      return unknownProvider;
-    }
+
     for (final provider in _providers) {
       if (provider.id == id) {
         return provider;
       }
     }
     return null;
+  }
+
+  static Future<ReturnResult<BoardProviderConfig>> getProviderByUri(
+    Uri uri,
+  ) async {
+    BoardProviderType? providerType =
+        await BoardProviderManager.getProviderTypeById(uri);
+    if (providerType == null) {
+      return ReturnResult(
+        error: ReturnResultError("getProviderByUri: providerType is null"),
+      );
+    }
+    final name = "${uri.scheme}://${Uri.decodeComponent(uri.host)}";
+    for (final provider in _providers) {
+      if (provider.type == providerType && provider.name == name) {
+        return ReturnResult(data: provider);
+      }
+    }
+    Set<String> ids = {};
+    for (final provider in _providers) {
+      ids.add(provider.id);
+    }
+    var id = "";
+    for (int i = 0; ; i++) {
+      id = "$unknownProviderIdPrefix$i";
+      if (!ids.contains(id)) {
+        break;
+      }
+    }
+    final provider = BoardProviderConfig(
+      type: providerType,
+      id: id,
+      name: name,
+      domain: uri.host,
+      userAgent: "",
+      urltestUrl: "",
+      xhwid: false,
+      web: false,
+      overwrite: true,
+      overwriteDns: true,
+      version: "",
+      userAgreement: "",
+      clientServiceUrl: "",
+      subscriptionChannelUrl: "",
+      loginUrl: "",
+      forgotPasswordUrl: "",
+      planUrl: "",
+      homeUrl: "",
+      appIconUrl: "",
+      benefits: [
+        BoardProviderBenefit.panelLogin.name,
+        BoardProviderBenefit.unbanSubscription.name,
+      ],
+    );
+
+    _providers.add(provider);
+    await _save();
+    return ReturnResult(data: provider);
   }
 
   static Future<ReturnResult<BoardProviderConfig>> getProvider(

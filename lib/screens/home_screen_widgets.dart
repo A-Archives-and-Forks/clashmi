@@ -179,7 +179,6 @@ class _HomeScreenWidgetPart1 extends State<HomeScreenWidgetPart1> {
     final currentProfileName = currentProfile?.getShowName() ?? "";
     final provider = BoardProviderManager.getProviderById(
       currentProfile?.boardProviderId ?? "",
-      includeUnknownProviderId: false,
     );
 
     final settings = SettingManager.getConfig();

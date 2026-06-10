@@ -45,6 +45,7 @@ class ProfilePatchSetting {
     this.remark = "",
     this.updateInterval,
     this.update,
+    this.updateFailed,
     this.url = "",
     this.type = ProfilePatchFileType.yaml,
     this.appendPatchBuildin = "",
@@ -53,6 +54,7 @@ class ProfilePatchSetting {
   String remark = "";
   Duration? updateInterval;
   DateTime? update;
+  DateTime? updateFailed;
   String url;
   ProfilePatchFileType type = ProfilePatchFileType.yaml;
   String appendPatchBuildin = "";
@@ -136,6 +138,7 @@ class ProfilePatchSetting {
       remark: remark,
       updateInterval: updateInterval,
       update: update,
+      updateFailed: updateFailed,
       url: url,
       type: type,
     );
@@ -716,7 +719,11 @@ class ProfilePatchManager {
       if (profile.update == null ||
           now.difference(profile.update!).inSeconds >=
               profile.updateInterval!.inSeconds) {
-        update(profile.id);
+        if (profile.updateFailed == null ||
+            now.difference(profile.updateFailed!).inSeconds >=
+                profile.updateInterval!.inSeconds) {
+          update(profile.id);
+        }
       }
     }
   }

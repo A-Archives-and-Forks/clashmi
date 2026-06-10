@@ -51,10 +51,7 @@ class _ProfilesSettingsEditScreenState
         ? SettingManager.getConfig().userAgent()
         : _profile.userAgent;
 
-    _provider = BoardProviderManager.getProviderById(
-      _profile.boardProviderId,
-      includeUnknownProviderId: false,
-    );
+    _provider = BoardProviderManager.getProviderById(_profile.boardProviderId);
 
     _textControllerRemark.value = _textControllerRemark.value.copyWith(
       text: _profile.remark,

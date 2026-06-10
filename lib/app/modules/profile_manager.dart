@@ -55,6 +55,7 @@ class ProfileSetting {
     this.updateIntervalByProfile,
     this.updateIntervalPreferByProfile = false,
     this.update,
+    this.updateFailed,
     this.url = "",
     this.xhwid = false,
     this.decryptPassword = "",
@@ -69,6 +70,7 @@ class ProfileSetting {
   Duration? updateIntervalByProfile;
   bool updateIntervalPreferByProfile = false;
   DateTime? update;
+  DateTime? updateFailed;
   String url;
   String userAgent;
   bool xhwid = false;
@@ -260,6 +262,7 @@ class ProfileSetting {
     ps.updateIntervalByProfile = updateIntervalByProfile;
     ps.updateIntervalPreferByProfile = updateIntervalPreferByProfile;
     ps.update = update;
+    ps.updateFailed = updateFailed;
     ps.url = url;
     ps.userAgent = userAgent;
     ps.xhwid = xhwid;
@@ -621,10 +624,7 @@ class ProfileManager {
       bool success = false;
       if (!HttpUtils.isStatusError(result.error!) &&
           boardProviderId.isNotEmpty) {
-        final provider = BoardProviderManager.getProviderById(
-          boardProviderId,
-          includeUnknownProviderId: true,
-        );
+        final provider = BoardProviderManager.getProviderById(boardProviderId);
         if (provider != null &&
             provider.benefits.contains(
               BoardProviderBenefit.unbanSubscription.name,
@@ -682,12 +682,22 @@ class ProfileManager {
     }
 
     await FileUtils.append(savePath, "\n$urlComment$url\n");
-    if (remark.isEmpty) {
+    if (remark.isEmpty ||
+        boardProviderId.startsWith(
+          BoardProviderManager.unknownProviderIdPrefix,
+        )) {
       final result = await HttpUtils.httpGetTitle(url, userAgent);
       if (result.data == null || result.data!.length > 32) {
         remark = uri.host;
       } else {
-        remark = result.data!;
+        if (boardProviderId.startsWith(
+              BoardProviderManager.unknownProviderIdPrefix,
+            ) &&
+            result.data!.isNotEmpty) {
+          remark = "$remark (${result.data!})";
+        } else {
+          remark = result.data!;
+        }
       }
     }
     int index = _config.profiles.indexWhere((value) {
@@ -705,17 +715,16 @@ class ProfileManager {
       xhwid: xhwid,
       decryptPassword: decryptPassword,
       patch: patch,
-      boardProviderId: boardProviderId,
+      boardProviderId: boardProviderId == BoardProviderManager.unknownProviderId
+          ? ""
+          : boardProviderId,
     );
 
     profile.updateSubscriptionTraffic(result.data);
     if (index < 0) {
       bool insertToFirst = false;
       if (boardProviderId.isNotEmpty) {
-        final provider = BoardProviderManager.getProviderById(
-          boardProviderId,
-          includeUnknownProviderId: false,
-        );
+        final provider = BoardProviderManager.getProviderById(boardProviderId);
         if (provider != null &&
             provider.benefits.contains(
               BoardProviderBenefit.highlightPin.name,
@@ -802,7 +811,6 @@ class ProfileManager {
           profile.boardProviderId.isNotEmpty) {
         final provider = BoardProviderManager.getProviderById(
           profile.boardProviderId,
-          includeUnknownProviderId: false,
         );
         if (provider != null &&
             provider.benefits.contains(
@@ -834,10 +842,12 @@ class ProfileManager {
             event(id, true);
           }
         });
+        profile.updateFailed = DateTime.now();
         return result.error;
       }
     }
     profile.update = DateTime.now();
+    profile.updateFailed = null;
     if (result.error == null) {
       final profileUpdateInterval = result.data!.value(
         "profile-update-interval",
@@ -933,6 +943,9 @@ class ProfileManager {
     var headers = {
       HttpHeaders.contentTypeHeader: "application/json; charset=UTF-8",
     };
+    if (boardProviderId.startsWith(BoardProviderManager.unknownProviderId)) {
+      boardProviderId = BoardProviderManager.unknownProviderId;
+    }
     final urlAndbody = ProfileProxyProviderPrivate.getProviderProxyUrlAndBody(
       app: AppUtils.getName(),
       version: AppUtils.getBuildinVersion(),
@@ -987,7 +1000,11 @@ class ProfileManager {
       if (profile.update == null ||
           now.difference(profile.update!).inSeconds >=
               updateInterval.inSeconds) {
-        update(profile.id);
+        if (profile.updateFailed == null ||
+            now.difference(profile.updateFailed!).inSeconds >=
+                updateInterval.inSeconds) {
+          update(profile.id);
+        }
       }
     }
   }

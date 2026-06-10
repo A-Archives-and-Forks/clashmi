@@ -1,7 +1,10 @@
+import 'dart:convert';
+
 import 'package:board_service/sspanel_uim/sspanel_uim_client.dart'
     as sspanel_client;
 import 'package:board_service/v2board/v2board_client.dart' as v2board_client;
 import 'package:board_service/xboard/xboard_client.dart' as xboard_client;
+import 'package:punycode_converter/punycode_converter.dart';
 import 'package:clashmi/app/modules/remote_config_manager.dart';
 import 'package:clashmi/screens/theme_config.dart';
 import 'package:flutter/gestures.dart';
@@ -52,6 +55,22 @@ class _LoginScreenState extends State<LoginScreen> {
       if (_serviceNameFocus.hasFocus) {
         return;
       }
+      final value = _serviceNameController.text.trim();
+      if (value.isNotEmpty) {
+        Uri? uri;
+        if (value.contains(".")) {
+          if (!value.startsWith("https://")) {
+            uri = Uri.tryParse("https://$value");
+          } else {
+            uri = Uri.tryParse(value);
+          }
+          if (uri != null) {
+            _serviceNameController.text =
+                "${uri.scheme}://${Uri.decodeComponent(uri.host)}";
+          }
+        }
+      }
+
       _validateServiceNameAsync();
     });
     V2boardLogin.onEventLogin[hashCode] = (() {
@@ -393,7 +412,14 @@ class _LoginScreenState extends State<LoginScreen> {
     if (value.isEmpty) {
       return;
     }
-    final result = await BoardProviderManager.getProvider(value);
+    Uri? uri;
+    if (value.startsWith("https://")) {
+      uri = Uri.tryParse(value);
+    }
+
+    final result = uri != null && uri.host.isNotEmpty
+        ? await BoardProviderManager.getProviderByUri(uri)
+        : await BoardProviderManager.getProvider(value);
     if (result.error != null) {
       return;
     }
@@ -512,7 +538,13 @@ class _LoginScreenState extends State<LoginScreen> {
     final serviceName = _serviceNameController.text.trim();
     _logining = true;
     setState(() {});
-    final result = await BoardProviderManager.getProvider(serviceName);
+    Uri? uri;
+    if (serviceName.startsWith("https://")) {
+      uri = Uri.tryParse(serviceName);
+    }
+    final result = uri != null && uri.host.isNotEmpty
+        ? await BoardProviderManager.getProviderByUri(uri)
+        : await BoardProviderManager.getProvider(serviceName);
     if (!mounted) {
       return;
     }

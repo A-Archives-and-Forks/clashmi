@@ -43,7 +43,6 @@ class ProfilesBoardItem extends StatelessWidget {
     final patch = ProfilePatchManager.getProfilePatch(setting.patch);
     final provider = BoardProviderManager.getProviderById(
       setting.boardProviderId,
-      includeUnknownProviderId: false,
     );
 
     String patchRemark = "";
@@ -312,7 +311,6 @@ class _ProfilesBoardScreenWidget extends State<ProfilesBoardScreenWidget> {
     final tcontext = Translations.of(context);
     final provider = BoardProviderManager.getProviderById(
       setting.boardProviderId,
-      includeUnknownProviderId: false,
     );
 
     var widgets = [
