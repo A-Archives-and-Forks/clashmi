@@ -265,6 +265,7 @@ class ProfileSetting {
     ps.download = download;
     ps.total = total;
     ps.expire = expire;
+    ps.boardProviderId = boardProviderId;
     ps.overwriteProxyGroups = overwriteProxyGroups;
     ps.overwriteRules = overwriteRules;
     proxyGroups.forEach((key, value) {
