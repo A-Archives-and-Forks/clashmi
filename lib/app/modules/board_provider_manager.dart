@@ -194,13 +194,45 @@ class BoardProviderManager {
     await BoardSessionPersistentManager.instance().updateProviders(_providers);
   }
 
+  static String get unknownProviderId => "000";
+  static BoardProviderConfig get unknownProvider => BoardProviderConfig(
+    id: unknownProviderId,
+    name: "",
+    domain: "",
+    userAgent: "",
+    urltestUrl: "",
+    xhwid: false,
+    web: false,
+    overwrite: true,
+    overwriteDns: true,
+    version: "",
+    userAgreement: "",
+    clientServiceUrl: "",
+    subscriptionChannelUrl: "",
+    loginUrl: "",
+    forgotPasswordUrl: "",
+    planUrl: "",
+    homeUrl: "",
+    appIconUrl: "",
+    benefits: [
+      BoardProviderBenefit.panelLogin.name,
+      BoardProviderBenefit.unbanSubscription.name,
+    ],
+  );
+
   static List<BoardProviderConfig> getProviders() {
     return _providers;
   }
 
-  static BoardProviderConfig? getProviderById(String id) {
+  static BoardProviderConfig? getProviderById(
+    String id, {
+    bool includeUnknownProviderId = false,
+  }) {
     if (id.isEmpty) {
       return null;
+    }
+    if (includeUnknownProviderId && id == unknownProviderId) {
+      return unknownProvider;
     }
     for (final provider in _providers) {
       if (provider.id == id) {

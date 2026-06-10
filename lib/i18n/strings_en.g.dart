@@ -978,8 +978,17 @@ class Translations$meta$en {
 	/// en: 'Please set this profile as the current profile first, then start/reconnect'
 	String get profileNeedActive => 'Please set this profile as the current profile first, then start/reconnect';
 
+	/// en: 'Enable backup download channel'
+	String get profileDownloadBackupChannel => 'Enable backup download channel';
+
+	/// en: 'Proxy download channel provided by Clash Mi (no information is stored)'
+	String get profileDownloadBackupChannelTips => 'Proxy download channel provided by Clash Mi (no information is stored)';
+
 	/// en: 'Reload after Profile update'
 	String get profileEditReloadAfterProfileUpdate => 'Reload after Profile update';
+
+	/// en: 'Append Apple Push Notification rules'
+	String get profileRulesAppendApplePush => 'Append Apple Push Notification rules';
 
 	/// en: 'Import Profile File'
 	String get profileImport => 'Import Profile File';
@@ -1469,7 +1478,10 @@ extension on Translations {
 			'meta.myProfiles' => 'My Profiles',
 			'meta.profileEdit' => 'Profile Edit',
 			'meta.profileNeedActive' => 'Please set this profile as the current profile first, then start/reconnect',
+			'meta.profileDownloadBackupChannel' => 'Enable backup download channel',
+			'meta.profileDownloadBackupChannelTips' => 'Proxy download channel provided by Clash Mi (no information is stored)',
 			'meta.profileEditReloadAfterProfileUpdate' => 'Reload after Profile update',
+			'meta.profileRulesAppendApplePush' => 'Append Apple Push Notification rules',
 			'meta.profileImport' => 'Import Profile File',
 			'meta.profileAddUrlOrContent' => 'Add Profile Link',
 			'meta.profileUrlOrContent' => 'Clash Profile Link',

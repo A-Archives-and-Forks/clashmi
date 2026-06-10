@@ -18,6 +18,10 @@ typedef DecodeCallback = String Function(String);
 
 abstract final class HttpUtils {
   static const String _proxy = "PROXY 127.0.0.1:8888";
+  static const String kStatusError = "http statusCode:";
+  static bool isStatusError(ReturnResultError error) {
+    return error.message.contains(kStatusError);
+  }
 
   static Future<String> getUserAgent() async {
     String version = AppUtils.getBuildinVersion();
@@ -146,7 +150,7 @@ abstract final class HttpUtils {
       }
       if (response.statusCode != 200) {
         return ReturnResult(
-          error: ReturnResultError("http statusCode: ${response.statusCode}"),
+          error: ReturnResultError("$kStatusError ${response.statusCode}"),
         );
       }
       return ReturnResult(data: response.headers);
@@ -186,7 +190,7 @@ abstract final class HttpUtils {
       var response = await ioclient.send(request);
 
       if (response.statusCode != 200) {
-        return ReturnResultError("http statusCode:${response.statusCode}");
+        return ReturnResultError("$kStatusError ${response.statusCode}");
       }
     } catch (err, _) {
       Log.i('http Upload ${uri.toString()} exception: ${err.toString()}');
@@ -244,7 +248,7 @@ abstract final class HttpUtils {
       if (checkStatuscode == true) {
         if (response.statusCode != 200) {
           return ReturnResult(
-            error: ReturnResultError("http statusCode: ${response.statusCode}"),
+            error: ReturnResultError("$kStatusError ${response.statusCode}"),
           );
         }
       }
@@ -328,7 +332,7 @@ abstract final class HttpUtils {
             stringData = await response.transform(utf8.decoder).join();
           } catch (err) {}
           return ReturnResult(
-            error: ReturnResultError("http statusCode: ${response.statusCode}"),
+            error: ReturnResultError("$kStatusError ${response.statusCode}"),
             data: stringData.isNotEmpty
                 ? Tuple2(response.statusCode, stringData)
                 : null,
@@ -412,7 +416,7 @@ abstract final class HttpUtils {
       }
       if (response.statusCode != 200 && response.statusCode != 204) {
         return ReturnResult(
-          error: ReturnResultError("http statusCode:${response.statusCode}"),
+          error: ReturnResultError("$kStatusError ${response.statusCode}"),
         );
       }
       var stringData = await response.transform(utf8.decoder).join();
@@ -496,7 +500,7 @@ abstract final class HttpUtils {
       }
       if (response.statusCode != 200 && response.statusCode != 204) {
         return ReturnResult(
-          error: ReturnResultError("http statusCode:${response.statusCode}"),
+          error: ReturnResultError("$kStatusError ${response.statusCode}"),
         );
       }
       var stringData = await response.transform(utf8.decoder).join();
@@ -573,7 +577,7 @@ abstract final class HttpUtils {
       }
       if (response.statusCode != 200 && response.statusCode != 204) {
         return ReturnResult(
-          error: ReturnResultError("http statusCode: ${response.statusCode}"),
+          error: ReturnResultError("$kStatusError ${response.statusCode}"),
         );
       }
       var stringData = await response.transform(utf8.decoder).join();

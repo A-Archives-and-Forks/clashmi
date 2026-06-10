@@ -51,7 +51,10 @@ class _ProfilesSettingsEditScreenState
         ? SettingManager.getConfig().userAgent()
         : _profile.userAgent;
 
-    _provider = BoardProviderManager.getProviderById(_profile.boardProviderId);
+    _provider = BoardProviderManager.getProviderById(
+      _profile.boardProviderId,
+      includeUnknownProviderId: false,
+    );
 
     _textControllerRemark.value = _textControllerRemark.value.copyWith(
       text: _profile.remark,
@@ -362,8 +365,24 @@ class _ProfilesSettingsEditScreenState
       ),
     ];
 
+    List<GroupItemOptions> options2 = [
+      GroupItemOptions(
+        switchOptions: GroupItemSwitchOptions(
+          name: tcontext.meta.profileRulesAppendApplePush,
+          switchValue: _profile.appendApplePushRules,
+          onSwitch: (bool value) async {
+            _profile.appendApplePushRules = value;
+            setState(() {});
+          },
+        ),
+      ),
+    ];
+
     groupOptions.add(GroupItem(options: options));
     groupOptions.add(GroupItem(options: options1));
+    if (Platform.isIOS) {
+      groupOptions.add(GroupItem(options: options2));
+    }
 
     return groupOptions;
   }

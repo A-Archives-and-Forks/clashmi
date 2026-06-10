@@ -421,7 +421,10 @@ class Translations$meta$zh_CN implements Translations$meta$en {
 	@override String get myProfiles => '我的配置';
 	@override String get profileEdit => '编辑配置';
 	@override String get profileNeedActive => '请先将本配置设置为当前配置,并开启连接/重新连接';
+	@override String get profileDownloadBackupChannel => '启用备用下载通道';
+	@override String get profileDownloadBackupChannelTips => 'Clash Mi提供的代理下载通道(不存储任何信息)';
 	@override String get profileEditReloadAfterProfileUpdate => '配置更新后重新加载';
+	@override String get profileRulesAppendApplePush => '附加Apple推送通知规则';
 	@override String get profileImport => '导入配置文件';
 	@override String get profileAddUrlOrContent => '添加配置链接';
 	@override String get profileUrlOrContent => 'Clash配置链接';
@@ -817,7 +820,10 @@ extension on TranslationsZhCn {
 			'meta.myProfiles' => '我的配置',
 			'meta.profileEdit' => '编辑配置',
 			'meta.profileNeedActive' => '请先将本配置设置为当前配置,并开启连接/重新连接',
+			'meta.profileDownloadBackupChannel' => '启用备用下载通道',
+			'meta.profileDownloadBackupChannelTips' => 'Clash Mi提供的代理下载通道(不存储任何信息)',
 			'meta.profileEditReloadAfterProfileUpdate' => '配置更新后重新加载',
+			'meta.profileRulesAppendApplePush' => '附加Apple推送通知规则',
 			'meta.profileImport' => '导入配置文件',
 			'meta.profileAddUrlOrContent' => '添加配置链接',
 			'meta.profileUrlOrContent' => 'Clash配置链接',

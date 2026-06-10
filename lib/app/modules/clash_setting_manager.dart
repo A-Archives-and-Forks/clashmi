@@ -404,6 +404,7 @@ class ClashSettingManager {
     bool overwrite,
     Map<String, String>? overwriteRule,
     Map<String, ProfileSettingProxyGroup>? overwriteProxyGroups,
+    List<String>? appendRules,
   ) async {
     if (Platform.isIOS || Platform.isMacOS) {
       _setting.Tun?.Stack = ClashTunStack.gvisor.name;
@@ -500,6 +501,7 @@ class ClashSettingManager {
         }
       }
     }
+    _setting.Extension?.AppendRules = appendRules;
     if (overwrite) {
       final map = _setting.toJson();
       MapHelper.removeNullOrEmpty(map, true, true);
@@ -525,12 +527,14 @@ class ClashSettingManager {
     bool overwrite,
     Map<String, String>? overwriteRule,
     Map<String, ProfileSettingProxyGroup>? overwriteProxyGroups,
+    List<String>? appendRules,
   ) async {
     final result = await getPatchContent(
       profileId,
       overwrite,
       overwriteRule,
       overwriteProxyGroups,
+      appendRules,
     );
     if (result.error != null) {
       return result.error;

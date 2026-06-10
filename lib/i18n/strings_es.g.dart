@@ -421,7 +421,10 @@ class _Translations$meta$es implements Translations$meta$en {
 	@override String get myProfiles => 'Mis Perfiles';
 	@override String get profileEdit => 'Editar Perfil';
 	@override String get profileNeedActive => 'Primero establece este perfil como perfil actual y luego inicia/reconecta';
+	@override String get profileDownloadBackupChannel => 'Habilitar canal de descarga de respaldo';
+	@override String get profileDownloadBackupChannelTips => 'Canal de descarga por proxy proporcionado por Clash Mi (no se almacena ninguna información)';
 	@override String get profileEditReloadAfterProfileUpdate => 'Recargar tras actualización del Perfil';
+	@override String get profileRulesAppendApplePush => 'Añadir reglas de notificaciones Push de Apple';
 	@override String get profileImport => 'Importar Archivo de Perfil';
 	@override String get profileAddUrlOrContent => 'Añadir Enlace de Perfil';
 	@override String get profileUrlOrContent => 'Enlace de Perfil Clash';
@@ -817,7 +820,10 @@ extension on TranslationsEs {
 			'meta.myProfiles' => 'Mis Perfiles',
 			'meta.profileEdit' => 'Editar Perfil',
 			'meta.profileNeedActive' => 'Primero establece este perfil como perfil actual y luego inicia/reconecta',
+			'meta.profileDownloadBackupChannel' => 'Habilitar canal de descarga de respaldo',
+			'meta.profileDownloadBackupChannelTips' => 'Canal de descarga por proxy proporcionado por Clash Mi (no se almacena ninguna información)',
 			'meta.profileEditReloadAfterProfileUpdate' => 'Recargar tras actualización del Perfil',
+			'meta.profileRulesAppendApplePush' => 'Añadir reglas de notificaciones Push de Apple',
 			'meta.profileImport' => 'Importar Archivo de Perfil',
 			'meta.profileAddUrlOrContent' => 'Añadir Enlace de Perfil',
 			'meta.profileUrlOrContent' => 'Enlace de Perfil Clash',

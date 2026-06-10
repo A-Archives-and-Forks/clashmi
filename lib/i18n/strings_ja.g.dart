@@ -421,7 +421,10 @@ class _Translations$meta$ja implements Translations$meta$en {
 	@override String get myProfiles => 'マイプロファイル';
 	@override String get profileEdit => 'プロファイルを編集';
 	@override String get profileNeedActive => '先にこのプロファイルを現在のプロファイルに設定し、接続/再接続してください';
+	@override String get profileDownloadBackupChannel => 'バックアップダウンロードチャネルを有効化';
+	@override String get profileDownloadBackupChannelTips => 'Clash Mi が提供するプロキシダウンロードチャネル（情報は一切保存されません）';
 	@override String get profileEditReloadAfterProfileUpdate => 'プロファイル更新後にリロード';
+	@override String get profileRulesAppendApplePush => 'Appleプッシュ通知ルールを追加';
 	@override String get profileImport => 'プロファイルファイルをインポート';
 	@override String get profileAddUrlOrContent => 'プロファイルリンクを追加';
 	@override String get profileUrlOrContent => 'Clash設定リンク';
@@ -817,7 +820,10 @@ extension on TranslationsJa {
 			'meta.myProfiles' => 'マイプロファイル',
 			'meta.profileEdit' => 'プロファイルを編集',
 			'meta.profileNeedActive' => '先にこのプロファイルを現在のプロファイルに設定し、接続/再接続してください',
+			'meta.profileDownloadBackupChannel' => 'バックアップダウンロードチャネルを有効化',
+			'meta.profileDownloadBackupChannelTips' => 'Clash Mi が提供するプロキシダウンロードチャネル（情報は一切保存されません）',
 			'meta.profileEditReloadAfterProfileUpdate' => 'プロファイル更新後にリロード',
+			'meta.profileRulesAppendApplePush' => 'Appleプッシュ通知ルールを追加',
 			'meta.profileImport' => 'プロファイルファイルをインポート',
 			'meta.profileAddUrlOrContent' => 'プロファイルリンクを追加',
 			'meta.profileUrlOrContent' => 'Clash設定リンク',

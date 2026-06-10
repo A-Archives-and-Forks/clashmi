@@ -421,7 +421,10 @@ class _Translations$meta$ru implements Translations$meta$en {
 	@override String get myProfiles => 'Профили';
 	@override String get profileEdit => 'Редактирование профилей';
 	@override String get profileNeedActive => 'Сначала сделайте этот профиль текущим, затем включите подключение/переподключитесь';
+	@override String get profileDownloadBackupChannel => 'Включить резервный канал загрузки';
+	@override String get profileDownloadBackupChannelTips => 'Прокси-канал загрузки, предоставляемый Clash Mi (никакая информация не сохраняется)';
 	@override String get profileEditReloadAfterProfileUpdate => 'Перезагрузить после обновления профиля';
+	@override String get profileRulesAppendApplePush => 'Добавить правила Push-уведомлений Apple';
 	@override String get profileImport => 'Импорт файла конфигурации';
 	@override String get profileAddUrlOrContent => 'Добавление подписки';
 	@override String get profileUrlOrContent => 'Ссылка на профиль Clash';
@@ -817,7 +820,10 @@ extension on TranslationsRu {
 			'meta.myProfiles' => 'Профили',
 			'meta.profileEdit' => 'Редактирование профилей',
 			'meta.profileNeedActive' => 'Сначала сделайте этот профиль текущим, затем включите подключение/переподключитесь',
+			'meta.profileDownloadBackupChannel' => 'Включить резервный канал загрузки',
+			'meta.profileDownloadBackupChannelTips' => 'Прокси-канал загрузки, предоставляемый Clash Mi (никакая информация не сохраняется)',
 			'meta.profileEditReloadAfterProfileUpdate' => 'Перезагрузить после обновления профиля',
+			'meta.profileRulesAppendApplePush' => 'Добавить правила Push-уведомлений Apple',
 			'meta.profileImport' => 'Импорт файла конфигурации',
 			'meta.profileAddUrlOrContent' => 'Добавление подписки',
 			'meta.profileUrlOrContent' => 'Ссылка на профиль Clash',

@@ -84,6 +84,7 @@ class ProfileSetting {
   Map<String, ProfileSettingProxyGroup> proxyGroups = {};
   Map<String, String> rules = {};
   Map<String, String> rulesForProxyGroups = {};
+  bool appendApplePushRules = true;
 
   Map<String, dynamic> toJson() => {
     'id': id,
@@ -107,6 +108,7 @@ class ProfileSetting {
     'proxy_groups': proxyGroups,
     'rules': rules,
     'rules_for_proxy_groups': rulesForProxyGroups,
+    'append_apple_push_rules': appendApplePushRules,
   };
   void fromJson(Map<String, dynamic>? map) {
     if (map == null) {
@@ -166,6 +168,7 @@ class ProfileSetting {
     rulesForProxyGroups.removeWhere((key, value) {
       return key.isEmpty || value.isEmpty;
     });
+    appendApplePushRules = map['append_apple_push_rules'] ?? true;
   }
 
   String getType() {
@@ -277,6 +280,7 @@ class ProfileSetting {
     rulesForProxyGroups.forEach((key, value) {
       ps.rulesForProxyGroups[key] = value;
     });
+    ps.appendApplePushRules = appendApplePushRules;
     return ps;
   }
 }
@@ -615,8 +619,12 @@ class ProfileManager {
     }
     if (result.error != null) {
       bool success = false;
-      if (boardProviderId.isNotEmpty) {
-        final provider = BoardProviderManager.getProviderById(boardProviderId);
+      if (!HttpUtils.isStatusError(result.error!) &&
+          boardProviderId.isNotEmpty) {
+        final provider = BoardProviderManager.getProviderById(
+          boardProviderId,
+          includeUnknownProviderId: true,
+        );
         if (provider != null &&
             provider.benefits.contains(
               BoardProviderBenefit.unbanSubscription.name,
@@ -704,7 +712,10 @@ class ProfileManager {
     if (index < 0) {
       bool insertToFirst = false;
       if (boardProviderId.isNotEmpty) {
-        final provider = BoardProviderManager.getProviderById(boardProviderId);
+        final provider = BoardProviderManager.getProviderById(
+          boardProviderId,
+          includeUnknownProviderId: false,
+        );
         if (provider != null &&
             provider.benefits.contains(
               BoardProviderBenefit.highlightPin.name,
@@ -787,9 +798,11 @@ class ProfileManager {
     }
     if (result.error != null) {
       bool success = false;
-      if (profile.boardProviderId.isNotEmpty) {
+      if (!HttpUtils.isStatusError(result.error!) &&
+          profile.boardProviderId.isNotEmpty) {
         final provider = BoardProviderManager.getProviderById(
           profile.boardProviderId,
+          includeUnknownProviderId: false,
         );
         if (provider != null &&
             provider.benefits.contains(

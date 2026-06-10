@@ -3,6 +3,7 @@
 import 'dart:async';
 
 import 'package:after_layout/after_layout.dart';
+import 'package:clashmi/app/modules/board_provider_manager.dart';
 import 'package:clashmi/app/modules/profile_manager.dart';
 import 'package:clashmi/app/modules/profile_patch_manager.dart';
 import 'package:clashmi/app/modules/setting_manager.dart';
@@ -48,6 +49,7 @@ class _AddProfileByUrlScreenState
   bool _updateIntervalPreferByProfile = true;
   String _userAgent = "";
   bool _xhwid = false;
+  String _boardProviderId = "";
   String _decryptPassword = "";
   String _patch = "";
   bool _loading = false;
@@ -63,6 +65,7 @@ class _AddProfileByUrlScreenState
     } else if (widget.overwrite == false) {
       _patch = kProfilePatchBuildinNoOverwrite;
     }
+    _boardProviderId = BoardProviderManager.unknownProviderId;
     _xhwid = widget.xhwid == true;
     super.initState();
   }
@@ -94,6 +97,7 @@ class _AddProfileByUrlScreenState
       decryptPassword: _decryptPassword,
       updateInterval: _updateInterval,
       updateIntervalPreferByProfile: _updateIntervalPreferByProfile,
+      boardProviderId: _boardProviderId,
     );
 
     if (!mounted) {
@@ -337,6 +341,20 @@ class _AddProfileByUrlScreenState
           switchValue: _xhwid,
           onSwitch: (bool value) async {
             _xhwid = value;
+            setState(() {});
+          },
+        ),
+      ),
+      GroupItemOptions(
+        switchOptions: GroupItemSwitchOptions(
+          name: tcontext.meta.profileDownloadBackupChannel,
+          tips: tcontext.meta.profileDownloadBackupChannelTips,
+          switchValue:
+              _boardProviderId == BoardProviderManager.unknownProviderId,
+          onSwitch: (bool value) async {
+            _boardProviderId = value
+                ? BoardProviderManager.unknownProviderId
+                : "";
             setState(() {});
           },
         ),

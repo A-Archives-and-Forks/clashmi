@@ -1310,6 +1310,10 @@ class GroupHelper {
           onDone: (context) async {
             final profile = ProfileManager.getCurrent();
             final currentPatch = ProfilePatchManager.getCurrent();
+            List<String>? appendRules =
+                Platform.isIOS && profile?.appendApplePushRules == true
+                ? ProfilePatchManager.appendRulesApplePush()
+                : null;
             final result = await ClashSettingManager.getPatchContent(
               currentPatch.id,
               currentPatch.id.isEmpty ||
@@ -1322,6 +1326,7 @@ class GroupHelper {
               profile != null && profile.overwriteProxyGroups
                   ? profile.proxyGroups
                   : null,
+              appendRules,
             );
             if (!context.mounted) {
               return false;

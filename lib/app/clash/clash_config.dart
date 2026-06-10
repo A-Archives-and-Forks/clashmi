@@ -438,6 +438,8 @@ class RawExtensionTun {
 
 @JsonSerializable(explicitToJson: true)
 class RawExtension {
+  @JsonKey(name: 'append_rules')
+  List<String>? AppendRules;
   @JsonKey(name: 'geo-rule-set')
   RawExtensionGeoRuleset Ruleset;
   @JsonKey(name: 'profile-store-selected-prefix')
@@ -451,6 +453,7 @@ class RawExtension {
   @JsonKey(name: 'runtime-profile-save-path')
   String? RuntimeProfileSavePath;
   RawExtension.by({
+    this.AppendRules,
     required this.Ruleset,
     required this.Tun,
     this.PprofAddr,
@@ -458,6 +461,7 @@ class RawExtension {
     this.RuntimeProfileSavePath,
   });
   RawExtension(
+    this.AppendRules,
     this.Ruleset,
     this.Tun,
     this.PprofAddr,

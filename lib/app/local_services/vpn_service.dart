@@ -163,7 +163,9 @@ class VPNService {
         patch.id.isEmpty ||
         patch.id == kProfilePatchBuildinOverwrite ||
         patch.appendPatchBuildin == kProfilePatchBuildinOverwrite;
-
+    List<String>? appendRules = Platform.isIOS && profile.appendApplePushRules
+        ? ProfilePatchManager.appendRulesApplePush()
+        : null;
     await ClashSettingManager.saveCorePatchFinal(
       profile.id,
       overwriteFinal,
@@ -173,6 +175,7 @@ class VPNService {
                 : profile.rules)
           : null,
       profile.overwriteProxyGroups ? profile.proxyGroups : null,
+      appendRules,
     );
 
     var excludePorts = [controlPort];
@@ -199,6 +202,7 @@ class VPNService {
         profile.patch,
       );
     }
+
     config.core_path_patch_final = await PathUtils.serviceCorePatchFinalPath();
     config.log_path = await PathUtils.serviceLogFilePath();
     config.err_path = await PathUtils.serviceStdErrorFilePath();

@@ -421,7 +421,10 @@ class _Translations$meta$ar implements Translations$meta$en {
 	@override String get myProfiles => 'مظهر';
 	@override String get profileEdit => 'تحرير الملف الشخصي';
 	@override String get profileNeedActive => 'يرجى أولاً تعيين هذا الملف كملف التعريف الحالي، ثم بدء الاتصال/إعادة الاتصال';
+	@override String get profileDownloadBackupChannel => 'تمكين قناة التنزيل الاحتياطية';
+	@override String get profileDownloadBackupChannelTips => 'قناة تنزيل عبر الوكيل توفرها Clash Mi (لا يتم تخزين أي معلومات)';
 	@override String get profileEditReloadAfterProfileUpdate => 'إعادة التحميل بعد تحديث الملف الشخصي';
+	@override String get profileRulesAppendApplePush => 'إضافة قواعد إشعارات Apple Push';
 	@override String get profileImport => 'استيراد ملف الملف الشخصي';
 	@override String get profileAddUrlOrContent => 'إضافة رابط ملف التعريف';
 	@override String get profileUrlOrContent => 'رابط إعداد Clash';
@@ -817,7 +820,10 @@ extension on TranslationsAr {
 			'meta.myProfiles' => 'مظهر',
 			'meta.profileEdit' => 'تحرير الملف الشخصي',
 			'meta.profileNeedActive' => 'يرجى أولاً تعيين هذا الملف كملف التعريف الحالي، ثم بدء الاتصال/إعادة الاتصال',
+			'meta.profileDownloadBackupChannel' => 'تمكين قناة التنزيل الاحتياطية',
+			'meta.profileDownloadBackupChannelTips' => 'قناة تنزيل عبر الوكيل توفرها Clash Mi (لا يتم تخزين أي معلومات)',
 			'meta.profileEditReloadAfterProfileUpdate' => 'إعادة التحميل بعد تحديث الملف الشخصي',
+			'meta.profileRulesAppendApplePush' => 'إضافة قواعد إشعارات Apple Push',
 			'meta.profileImport' => 'استيراد ملف الملف الشخصي',
 			'meta.profileAddUrlOrContent' => 'إضافة رابط ملف التعريف',
 			'meta.profileUrlOrContent' => 'رابط إعداد Clash',
