@@ -369,6 +369,7 @@ class _ProfilesSettingsEditScreenState
       GroupItemOptions(
         switchOptions: GroupItemSwitchOptions(
           name: tcontext.meta.profileRulesAppendApplePush,
+          tips: tcontext.meta.profileRulesAppendProxyTips,
           switchValue: _profile.appendApplePushRules,
           onSwitch: (bool value) async {
             _profile.appendApplePushRules = value;
