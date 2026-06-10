@@ -375,10 +375,8 @@ class _ProfilesSettingsEditScreenState
       return;
     }
     if (!connected || current == null || current.id != _profile.id) {
-      DialogUtils.showAlertDialog(
-        context,
-        "Please activate this profile and start the connection before trying again.",
-      );
+      final tcontext = Translations.of(context);
+      DialogUtils.showAlertDialog(context, tcontext.meta.profileNeedActive);
       return;
     }
     if (_nodes.isEmpty) {
@@ -481,10 +479,8 @@ class _ProfilesSettingsEditScreenState
       return;
     }
     if (!connected || current == null || current.id != _profile.id) {
-      DialogUtils.showAlertDialog(
-        context,
-        "Please activate this profile and start the connection before trying again.",
-      );
+      final tcontext = Translations.of(context);
+      DialogUtils.showAlertDialog(context, tcontext.meta.profileNeedActive);
       return;
     }
     if (_nodes.isEmpty) {

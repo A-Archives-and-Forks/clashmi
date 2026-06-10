@@ -292,6 +292,7 @@
         "addProfile": "إضافة ملف تعريف",
         "myProfiles": "مظهر",
         "profileEdit": "تحرير الملف الشخصي",
+        "profileNeedActive": "يرجى أولاً تعيين هذا الملف كملف التعريف الحالي، ثم بدء الاتصال/إعادة الاتصال",
         "profileEditReloadAfterProfileUpdate": "إعادة التحميل بعد تحديث الملف الشخصي",
         "profileImport": "استيراد ملف الملف الشخصي",
         "profileAddUrlOrContent": "إضافة رابط ملف التعريف",

@@ -292,6 +292,7 @@
         "addProfile": "Añadir Perfil",
         "myProfiles": "Mis Perfiles",
         "profileEdit": "Editar Perfil",
+        "profileNeedActive": "Primero establece este perfil como perfil actual y luego inicia/reconecta",
         "profileEditReloadAfterProfileUpdate": "Recargar tras actualización del Perfil",
         "profileImport": "Importar Archivo de Perfil",
         "profileAddUrlOrContent": "Añadir Enlace de Perfil",

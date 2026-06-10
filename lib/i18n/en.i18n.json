@@ -292,6 +292,7 @@
         "addProfile": "Add Profile",
         "myProfiles": "My Profiles",
         "profileEdit": "Profile Edit",
+        "profileNeedActive": "Please set this profile as the current profile first, then start/reconnect",
         "profileEditReloadAfterProfileUpdate": "Reload after Profile update",
         "profileImport": "Import Profile File",
         "profileAddUrlOrContent": "Add Profile Link",

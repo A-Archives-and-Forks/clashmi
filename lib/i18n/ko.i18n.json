@@ -292,6 +292,7 @@
         "addProfile": "프로필 추가",
         "myProfiles": "내 프로필",
         "profileEdit": "프로필 편집",
+        "profileNeedActive": "먼저 이 프로필을 현재 프로필로 설정한 뒤 연결/재연결하세요",
         "profileEditReloadAfterProfileUpdate": "프로필 업데이트 후 다시 로드",
         "profileImport": "프로필 파일 가져오기",
         "profileAddUrlOrContent": "프로필 링크 추가",

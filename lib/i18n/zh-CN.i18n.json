@@ -292,6 +292,7 @@
         "addProfile": "添加配置",
         "myProfiles": "我的配置",
         "profileEdit": "编辑配置",
+        "profileNeedActive": "请先将本配置设置为当前配置,并开启连接/重新连接",
         "profileEditReloadAfterProfileUpdate": "配置更新后重新加载",
         "profileImport": "导入配置文件",
         "profileAddUrlOrContent": "添加配置链接",

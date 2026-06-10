@@ -420,6 +420,7 @@ class _Translations$meta$ar implements Translations$meta$en {
 	@override String get addProfile => 'إضافة ملف تعريف';
 	@override String get myProfiles => 'مظهر';
 	@override String get profileEdit => 'تحرير الملف الشخصي';
+	@override String get profileNeedActive => 'يرجى أولاً تعيين هذا الملف كملف التعريف الحالي، ثم بدء الاتصال/إعادة الاتصال';
 	@override String get profileEditReloadAfterProfileUpdate => 'إعادة التحميل بعد تحديث الملف الشخصي';
 	@override String get profileImport => 'استيراد ملف الملف الشخصي';
 	@override String get profileAddUrlOrContent => 'إضافة رابط ملف التعريف';
@@ -815,6 +816,7 @@ extension on TranslationsAr {
 			'meta.addProfile' => 'إضافة ملف تعريف',
 			'meta.myProfiles' => 'مظهر',
 			'meta.profileEdit' => 'تحرير الملف الشخصي',
+			'meta.profileNeedActive' => 'يرجى أولاً تعيين هذا الملف كملف التعريف الحالي، ثم بدء الاتصال/إعادة الاتصال',
 			'meta.profileEditReloadAfterProfileUpdate' => 'إعادة التحميل بعد تحديث الملف الشخصي',
 			'meta.profileImport' => 'استيراد ملف الملف الشخصي',
 			'meta.profileAddUrlOrContent' => 'إضافة رابط ملف التعريف',

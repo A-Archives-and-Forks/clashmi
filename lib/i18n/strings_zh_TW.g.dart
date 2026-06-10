@@ -420,6 +420,7 @@ class Translations$meta$zh_TW implements Translations$meta$en {
 	@override String get addProfile => '添加設定';
 	@override String get myProfiles => '我的設定';
 	@override String get profileEdit => '編輯設定';
+	@override String get profileNeedActive => '請先將本設定設為目前設定，並開啟連線/重新連線';
 	@override String get profileEditReloadAfterProfileUpdate => '設定更新後重新載入';
 	@override String get profileImport => '匯入設定檔';
 	@override String get profileAddUrlOrContent => '添加設定連結';
@@ -815,6 +816,7 @@ extension on TranslationsZhTw {
 			'meta.addProfile' => '添加設定',
 			'meta.myProfiles' => '我的設定',
 			'meta.profileEdit' => '編輯設定',
+			'meta.profileNeedActive' => '請先將本設定設為目前設定，並開啟連線/重新連線',
 			'meta.profileEditReloadAfterProfileUpdate' => '設定更新後重新載入',
 			'meta.profileImport' => '匯入設定檔',
 			'meta.profileAddUrlOrContent' => '添加設定連結',

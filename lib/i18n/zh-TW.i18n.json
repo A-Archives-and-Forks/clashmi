@@ -292,6 +292,7 @@
         "addProfile": "添加設定",
         "myProfiles": "我的設定",
         "profileEdit": "編輯設定",
+        "profileNeedActive": "請先將本設定設為目前設定，並開啟連線/重新連線",
         "profileEditReloadAfterProfileUpdate": "設定更新後重新載入",
         "profileImport": "匯入設定檔",
         "profileAddUrlOrContent": "添加設定連結",

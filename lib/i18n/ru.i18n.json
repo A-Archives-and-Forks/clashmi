@@ -292,6 +292,7 @@
         "addProfile": "Добавить профиль",
         "myProfiles": "Профили",
         "profileEdit": "Редактирование профилей",
+        "profileNeedActive": "Сначала сделайте этот профиль текущим, затем включите подключение/переподключитесь",
         "profileEditReloadAfterProfileUpdate": "Перезагрузить после обновления профиля",
         "profileImport": "Импорт файла конфигурации",
         "profileAddUrlOrContent": "Добавление подписки",

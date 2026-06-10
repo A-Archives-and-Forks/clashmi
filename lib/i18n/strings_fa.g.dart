@@ -420,6 +420,7 @@ class _Translations$meta$fa implements Translations$meta$en {
 	@override String get addProfile => 'افزودن پروفایل';
 	@override String get myProfiles => 'پروفایل‌ها';
 	@override String get profileEdit => 'ویرایش پروفایل';
+	@override String get profileNeedActive => 'ابتدا این پروفایل را به‌عنوان پروفایل فعلی تنظیم کنید، سپس اتصال را فعال/دوباره متصل کنید';
 	@override String get profileEditReloadAfterProfileUpdate => 'بارگذاری مجدد پس‌از به‌روزرسانی پروفایل';
 	@override String get profileImport => 'وارد‌کردن فایل پروفایل';
 	@override String get profileAddUrlOrContent => 'افزودن لینک پروفایل';
@@ -815,6 +816,7 @@ extension on TranslationsFa {
 			'meta.addProfile' => 'افزودن پروفایل',
 			'meta.myProfiles' => 'پروفایل‌ها',
 			'meta.profileEdit' => 'ویرایش پروفایل',
+			'meta.profileNeedActive' => 'ابتدا این پروفایل را به‌عنوان پروفایل فعلی تنظیم کنید، سپس اتصال را فعال/دوباره متصل کنید',
 			'meta.profileEditReloadAfterProfileUpdate' => 'بارگذاری مجدد پس‌از به‌روزرسانی پروفایل',
 			'meta.profileImport' => 'وارد‌کردن فایل پروفایل',
 			'meta.profileAddUrlOrContent' => 'افزودن لینک پروفایل',

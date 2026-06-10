@@ -292,6 +292,7 @@
         "addProfile": "افزودن پروفایل",
         "myProfiles": "پروفایل‌ها",
         "profileEdit": "ویرایش پروفایل",
+        "profileNeedActive": "ابتدا این پروفایل را به‌عنوان پروفایل فعلی تنظیم کنید، سپس اتصال را فعال/دوباره متصل کنید",
         "profileEditReloadAfterProfileUpdate": "بارگذاری مجدد پس‌از به‌روزرسانی پروفایل",
         "profileImport": "وارد‌کردن فایل پروفایل",
         "profileAddUrlOrContent": "افزودن لینک پروفایل",

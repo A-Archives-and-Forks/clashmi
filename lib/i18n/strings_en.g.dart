@@ -975,6 +975,9 @@ class Translations$meta$en {
 	/// en: 'Profile Edit'
 	String get profileEdit => 'Profile Edit';
 
+	/// en: 'Please set this profile as the current profile first, then start/reconnect'
+	String get profileNeedActive => 'Please set this profile as the current profile first, then start/reconnect';
+
 	/// en: 'Reload after Profile update'
 	String get profileEditReloadAfterProfileUpdate => 'Reload after Profile update';
 
@@ -1465,6 +1468,7 @@ extension on Translations {
 			'meta.addProfile' => 'Add Profile',
 			'meta.myProfiles' => 'My Profiles',
 			'meta.profileEdit' => 'Profile Edit',
+			'meta.profileNeedActive' => 'Please set this profile as the current profile first, then start/reconnect',
 			'meta.profileEditReloadAfterProfileUpdate' => 'Reload after Profile update',
 			'meta.profileImport' => 'Import Profile File',
 			'meta.profileAddUrlOrContent' => 'Add Profile Link',

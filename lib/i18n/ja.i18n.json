@@ -292,6 +292,7 @@
         "addProfile": "プロファイルを追加",
         "myProfiles": "マイプロファイル",
         "profileEdit": "プロファイルを編集",
+        "profileNeedActive": "先にこのプロファイルを現在のプロファイルに設定し、接続/再接続してください",
         "profileEditReloadAfterProfileUpdate": "プロファイル更新後にリロード",
         "profileImport": "プロファイルファイルをインポート",
         "profileAddUrlOrContent": "プロファイルリンクを追加",

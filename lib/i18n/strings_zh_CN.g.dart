@@ -420,6 +420,7 @@ class Translations$meta$zh_CN implements Translations$meta$en {
 	@override String get addProfile => '添加配置';
 	@override String get myProfiles => '我的配置';
 	@override String get profileEdit => '编辑配置';
+	@override String get profileNeedActive => '请先将本配置设置为当前配置,并开启连接/重新连接';
 	@override String get profileEditReloadAfterProfileUpdate => '配置更新后重新加载';
 	@override String get profileImport => '导入配置文件';
 	@override String get profileAddUrlOrContent => '添加配置链接';
@@ -815,6 +816,7 @@ extension on TranslationsZhCn {
 			'meta.addProfile' => '添加配置',
 			'meta.myProfiles' => '我的配置',
 			'meta.profileEdit' => '编辑配置',
+			'meta.profileNeedActive' => '请先将本配置设置为当前配置,并开启连接/重新连接',
 			'meta.profileEditReloadAfterProfileUpdate' => '配置更新后重新加载',
 			'meta.profileImport' => '导入配置文件',
 			'meta.profileAddUrlOrContent' => '添加配置链接',

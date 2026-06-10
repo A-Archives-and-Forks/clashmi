@@ -420,6 +420,7 @@ class _Translations$meta$ko implements Translations$meta$en {
 	@override String get addProfile => '프로필 추가';
 	@override String get myProfiles => '내 프로필';
 	@override String get profileEdit => '프로필 편집';
+	@override String get profileNeedActive => '먼저 이 프로필을 현재 프로필로 설정한 뒤 연결/재연결하세요';
 	@override String get profileEditReloadAfterProfileUpdate => '프로필 업데이트 후 다시 로드';
 	@override String get profileImport => '프로필 파일 가져오기';
 	@override String get profileAddUrlOrContent => '프로필 링크 추가';
@@ -815,6 +816,7 @@ extension on TranslationsKo {
 			'meta.addProfile' => '프로필 추가',
 			'meta.myProfiles' => '내 프로필',
 			'meta.profileEdit' => '프로필 편집',
+			'meta.profileNeedActive' => '먼저 이 프로필을 현재 프로필로 설정한 뒤 연결/재연결하세요',
 			'meta.profileEditReloadAfterProfileUpdate' => '프로필 업데이트 후 다시 로드',
 			'meta.profileImport' => '프로필 파일 가져오기',
 			'meta.profileAddUrlOrContent' => '프로필 링크 추가',

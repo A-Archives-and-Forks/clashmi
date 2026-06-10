@@ -420,6 +420,7 @@ class _Translations$meta$ru implements Translations$meta$en {
 	@override String get addProfile => 'Добавить профиль';
 	@override String get myProfiles => 'Профили';
 	@override String get profileEdit => 'Редактирование профилей';
+	@override String get profileNeedActive => 'Сначала сделайте этот профиль текущим, затем включите подключение/переподключитесь';
 	@override String get profileEditReloadAfterProfileUpdate => 'Перезагрузить после обновления профиля';
 	@override String get profileImport => 'Импорт файла конфигурации';
 	@override String get profileAddUrlOrContent => 'Добавление подписки';
@@ -815,6 +816,7 @@ extension on TranslationsRu {
 			'meta.addProfile' => 'Добавить профиль',
 			'meta.myProfiles' => 'Профили',
 			'meta.profileEdit' => 'Редактирование профилей',
+			'meta.profileNeedActive' => 'Сначала сделайте этот профиль текущим, затем включите подключение/переподключитесь',
 			'meta.profileEditReloadAfterProfileUpdate' => 'Перезагрузить после обновления профиля',
 			'meta.profileImport' => 'Импорт файла конфигурации',
 			'meta.profileAddUrlOrContent' => 'Добавление подписки',
