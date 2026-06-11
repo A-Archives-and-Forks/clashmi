@@ -164,8 +164,8 @@ class _Translations$loginScreen$ko implements Translations$loginScreen$en {
 	@override String get register => '계정 가입';
 	@override String get forgotPassword => '비밀번호 찾기';
 	@override String get provider => '서비스 제공자';
-	@override String get providerName => '${_root.loginScreen.provider} 코드/별칭';
-	@override String get providerNameRequired => '${_root.loginScreen.provider} 코드/별칭을 입력하세요';
+	@override String get providerName => '${_root.loginScreen.provider} 코드/별칭/URL';
+	@override String get providerNameRequired => '${_root.loginScreen.provider} 코드/별칭/URL을 입력하세요';
 	@override String get account => '계정';
 	@override String get accountRequired => '계정을 입력하세요';
 	@override String get email => '이메일';
@@ -581,8 +581,8 @@ extension on TranslationsKo {
 			'loginScreen.register' => '계정 가입',
 			'loginScreen.forgotPassword' => '비밀번호 찾기',
 			'loginScreen.provider' => '서비스 제공자',
-			'loginScreen.providerName' => '${_root.loginScreen.provider} 코드/별칭',
-			'loginScreen.providerNameRequired' => '${_root.loginScreen.provider} 코드/별칭을 입력하세요',
+			'loginScreen.providerName' => '${_root.loginScreen.provider} 코드/별칭/URL',
+			'loginScreen.providerNameRequired' => '${_root.loginScreen.provider} 코드/별칭/URL을 입력하세요',
 			'loginScreen.account' => '계정',
 			'loginScreen.accountRequired' => '계정을 입력하세요',
 			'loginScreen.email' => '이메일',

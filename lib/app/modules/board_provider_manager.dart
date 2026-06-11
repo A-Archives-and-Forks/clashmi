@@ -232,9 +232,12 @@ class BoardProviderManager {
         _providerTypeCache[uri.host] = BoardProviderType.sspanel;
         return ReturnResult(data: BoardProviderType.sspanel);
       }
+      String content = result.data!.item2.length > 512
+          ? result.data!.item2.substring(0, 512)
+          : result.data!.item2;
       return ReturnResult(
         error: ReturnResultError(
-          "${t.loginScreen.unsupportedProvider}: ${uri.toString()}",
+          "${t.loginScreen.unsupportedProvider}: ${Uri.decodeComponent(uri.toString())}\n$content",
         ),
       );
     }
@@ -256,9 +259,12 @@ class BoardProviderManager {
     }
     if (result.data!.item2.contains("/auth/login")) {
       //sspanel
+      String content = result.data!.item2.length > 512
+          ? result.data!.item2.substring(0, 512)
+          : result.data!.item2;
       return ReturnResult(
         error: ReturnResultError(
-          "${t.loginScreen.unsupportedProvider}: ${uri.toString()}",
+          "${t.loginScreen.unsupportedProvider}: ${Uri.decodeComponent(uri.toString())}\n$content",
         ),
       );
     }

@@ -245,11 +245,11 @@ class Translations$loginScreen$en {
 	/// en: 'Provider'
 	String get provider => 'Provider';
 
-	/// en: 'Provider Code/Alias'
-	String get providerName => '${_root.loginScreen.provider} Code/Alias';
+	/// en: 'Provider Code/Alias/URL'
+	String get providerName => '${_root.loginScreen.provider} Code/Alias/URL';
 
-	/// en: 'Please enter the Provider code/alias'
-	String get providerNameRequired => 'Please enter the ${_root.loginScreen.provider} code/alias';
+	/// en: 'Please enter the Provider code/alias/URL'
+	String get providerNameRequired => 'Please enter the ${_root.loginScreen.provider} code/alias/URL';
 
 	/// en: 'Account'
 	String get account => 'Account';
@@ -1241,8 +1241,8 @@ extension on Translations {
 			'loginScreen.register' => 'Register Account',
 			'loginScreen.forgotPassword' => 'Forgot Password',
 			'loginScreen.provider' => 'Provider',
-			'loginScreen.providerName' => '${_root.loginScreen.provider} Code/Alias',
-			'loginScreen.providerNameRequired' => 'Please enter the ${_root.loginScreen.provider} code/alias',
+			'loginScreen.providerName' => '${_root.loginScreen.provider} Code/Alias/URL',
+			'loginScreen.providerNameRequired' => 'Please enter the ${_root.loginScreen.provider} code/alias/URL',
 			'loginScreen.account' => 'Account',
 			'loginScreen.accountRequired' => 'Please enter account',
 			'loginScreen.email' => 'Email',

@@ -164,8 +164,8 @@ class _Translations$loginScreen$es implements Translations$loginScreen$en {
 	@override String get register => 'Registrar cuenta';
 	@override String get forgotPassword => 'Olvidé mi contraseña';
 	@override String get provider => 'Proveedor';
-	@override String get providerName => 'Código o alias del ${_root.loginScreen.provider}';
-	@override String get providerNameRequired => 'Por favor, introduzca el código o alias del ${_root.loginScreen.provider}';
+	@override String get providerName => 'Código, alias o URL del ${_root.loginScreen.provider}';
+	@override String get providerNameRequired => 'Por favor, introduzca el código, alias o URL del ${_root.loginScreen.provider}';
 	@override String get account => 'Cuenta';
 	@override String get accountRequired => 'Por favor, introduzca la cuenta';
 	@override String get email => 'Correo electrónico';
@@ -581,8 +581,8 @@ extension on TranslationsEs {
 			'loginScreen.register' => 'Registrar cuenta',
 			'loginScreen.forgotPassword' => 'Olvidé mi contraseña',
 			'loginScreen.provider' => 'Proveedor',
-			'loginScreen.providerName' => 'Código o alias del ${_root.loginScreen.provider}',
-			'loginScreen.providerNameRequired' => 'Por favor, introduzca el código o alias del ${_root.loginScreen.provider}',
+			'loginScreen.providerName' => 'Código, alias o URL del ${_root.loginScreen.provider}',
+			'loginScreen.providerNameRequired' => 'Por favor, introduzca el código, alias o URL del ${_root.loginScreen.provider}',
 			'loginScreen.account' => 'Cuenta',
 			'loginScreen.accountRequired' => 'Por favor, introduzca la cuenta',
 			'loginScreen.email' => 'Correo electrónico',

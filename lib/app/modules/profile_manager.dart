@@ -695,7 +695,7 @@ class ProfileManager {
               BoardProviderManager.unknownProviderIdPrefix,
             ) &&
             result.data!.isNotEmpty) {
-          remark = "$remark (${result.data!})";
+          remark = "${result.data!} ($remark)";
         } else {
           remark = result.data!;
         }

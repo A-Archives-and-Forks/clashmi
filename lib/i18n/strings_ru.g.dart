@@ -164,8 +164,8 @@ class _Translations$loginScreen$ru implements Translations$loginScreen$en {
 	@override String get register => 'Зарегистрировать аккаунт';
 	@override String get forgotPassword => 'Забыли пароль';
 	@override String get provider => 'Провайдер';
-	@override String get providerName => 'Код/алиас ${_root.loginScreen.provider}';
-	@override String get providerNameRequired => 'Пожалуйста, введите код/алиас ${_root.loginScreen.provider}';
+	@override String get providerName => 'Код/алиас/URL ${_root.loginScreen.provider}';
+	@override String get providerNameRequired => 'Пожалуйста, введите код/алиас/URL ${_root.loginScreen.provider}';
 	@override String get account => 'Аккаунт';
 	@override String get accountRequired => 'Пожалуйста, введите аккаунт';
 	@override String get email => 'Электронная почта';
@@ -581,8 +581,8 @@ extension on TranslationsRu {
 			'loginScreen.register' => 'Зарегистрировать аккаунт',
 			'loginScreen.forgotPassword' => 'Забыли пароль',
 			'loginScreen.provider' => 'Провайдер',
-			'loginScreen.providerName' => 'Код/алиас ${_root.loginScreen.provider}',
-			'loginScreen.providerNameRequired' => 'Пожалуйста, введите код/алиас ${_root.loginScreen.provider}',
+			'loginScreen.providerName' => 'Код/алиас/URL ${_root.loginScreen.provider}',
+			'loginScreen.providerNameRequired' => 'Пожалуйста, введите код/алиас/URL ${_root.loginScreen.provider}',
 			'loginScreen.account' => 'Аккаунт',
 			'loginScreen.accountRequired' => 'Пожалуйста, введите аккаунт',
 			'loginScreen.email' => 'Электронная почта',
