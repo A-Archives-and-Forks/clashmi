@@ -75,6 +75,7 @@ class V2boardLogin {
         patch: patch,
         userAgent: provider.userAgent,
         xhwid: provider.xhwid,
+        updateInterval: const Duration(hours: 24),
         boardProviderId: provider.id,
       );
       if (result.error != null) {
