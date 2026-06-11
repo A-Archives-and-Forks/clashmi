@@ -201,14 +201,18 @@ class BoardProviderManager {
     return _providers;
   }
 
-  static Future<BoardProviderType?> getProviderTypeById(Uri uri) async {
+  static Future<ReturnResult<BoardProviderType>> getProviderTypeById(
+    Uri uri,
+  ) async {
     if (uri.host.isEmpty) {
-      return null;
+      return ReturnResult(
+        error: ReturnResultError("getProviderTypeById: uri.host is empty"),
+      );
     }
 
     final type = _providerTypeCache[uri.host];
     if (type != null) {
-      return type;
+      return ReturnResult(data: type);
     }
     final urlSSpanel = "https://${uri.host}/auth/login";
     final urlV2OrXboard = "https://${uri.host}/#/login";
@@ -226,9 +230,13 @@ class BoardProviderManager {
       if (result.data!.item1 == 200 &&
           result.data!.item2.contains("SSPanel-UIM")) {
         _providerTypeCache[uri.host] = BoardProviderType.sspanel;
-        return BoardProviderType.sspanel;
+        return ReturnResult(data: BoardProviderType.sspanel);
       }
-      return null;
+      return ReturnResult(
+        error: ReturnResultError(
+          "${t.loginScreen.unsupportedProvider}: ${uri.toString()}",
+        ),
+      );
     }
     result = await HttpUtils.httpGetRequest(
       urlV2OrXboard,
@@ -240,18 +248,22 @@ class BoardProviderManager {
       checkStatuscode: false,
     );
     if (result.error != null || result.data!.item1 != 200) {
-      return null;
+      return ReturnResult(error: result.error);
     }
     if (result.data!.item2.contains("/Xboard/")) {
       _providerTypeCache[uri.host] = BoardProviderType.xboard;
-      return BoardProviderType.xboard;
+      return ReturnResult(data: BoardProviderType.xboard);
     }
     if (result.data!.item2.contains("/auth/login")) {
       //sspanel
-      return null;
+      return ReturnResult(
+        error: ReturnResultError(
+          "${t.loginScreen.unsupportedProvider}: ${uri.toString()}",
+        ),
+      );
     }
     _providerTypeCache[uri.host] = BoardProviderType.v2board;
-    return BoardProviderType.v2board;
+    return ReturnResult(data: BoardProviderType.v2board);
   }
 
   static BoardProviderConfig? getProviderById(String id) {
@@ -270,13 +282,11 @@ class BoardProviderManager {
   static Future<ReturnResult<BoardProviderConfig>> getProviderByUri(
     Uri uri,
   ) async {
-    BoardProviderType? providerType =
-        await BoardProviderManager.getProviderTypeById(uri);
-    if (providerType == null) {
-      return ReturnResult(
-        error: ReturnResultError("getProviderByUri: providerType is null"),
-      );
+    final result = await BoardProviderManager.getProviderTypeById(uri);
+    if (result.error != null) {
+      return ReturnResult(error: result.error);
     }
+    final providerType = result.data;
     final name = "${uri.scheme}://${Uri.decodeComponent(uri.host)}";
     for (final provider in _providers) {
       if (provider.type == providerType && provider.name == name) {
@@ -295,7 +305,7 @@ class BoardProviderManager {
       }
     }
     final provider = BoardProviderConfig(
-      type: providerType,
+      type: providerType!,
       id: id,
       name: name,
       domain: uri.host,
