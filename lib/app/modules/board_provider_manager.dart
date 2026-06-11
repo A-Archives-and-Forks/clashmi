@@ -189,7 +189,8 @@ class BoardProviderConfig {
 
 class BoardProviderManager {
   static List<BoardProviderConfig> _providers = [];
-  static Map<String, BoardProviderType> _providerTypeCache = {};
+  static final Map<String, BoardProviderType> _providerTypeCache = {};
+  static final Set<String> _notifyProviderIntegrationCache = {};
   static bool _saving = false;
   static Future<void> updateSessionProviders() async {
     await BoardSessionPersistentManager.instance().updateProviders(_providers);
@@ -481,6 +482,44 @@ class BoardProviderManager {
     await _save();
 
     return ReturnResult(data: config);
+  }
+
+  static Future<void> notifyProviderIntegration(
+    String id,
+    String domain,
+    String type,
+  ) async {
+    if (!id.startsWith(BoardProviderManager.unknownProviderIdPrefix)) {
+      return;
+    }
+    final cacheKey = "$id|$domain|$type";
+    if (_notifyProviderIntegrationCache.contains(cacheKey)) {
+      return;
+    }
+    var headers = {
+      HttpHeaders.contentTypeHeader: "application/json; charset=UTF-8",
+    };
+    final urlAndbody = BoardProviderPrivate.getNotifyIntegrationUrlAndBody(
+      app: AppUtils.getName(),
+      version: AppUtils.getBuildinVersion(),
+      did: await Did.getDid(),
+      url: "https://$domain",
+      type: type,
+    );
+    final result = await HttpUtils.httpPostRequest(
+      urlAndbody.item1,
+      null,
+      headers,
+      urlAndbody.item3,
+      const Duration(seconds: 10),
+      null,
+      null,
+      null,
+      checkStatuscode: false,
+    );
+    if (result.error == null && result.data!.item1 == 200) {
+      _notifyProviderIntegrationCache.add(cacheKey);
+    }
   }
 
   static Future<void> init() async {

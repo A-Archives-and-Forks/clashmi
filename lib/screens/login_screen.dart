@@ -641,6 +641,12 @@ class _LoginScreenState extends State<LoginScreen> {
       );
       return;
     }
+
+    BoardProviderManager.notifyProviderIntegration(
+      provider.id,
+      provider.domain,
+      provider.type.name,
+    );
   }
 
   void _forgotpwd() async {
