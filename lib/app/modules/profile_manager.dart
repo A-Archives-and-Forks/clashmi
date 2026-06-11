@@ -620,6 +620,11 @@ class ProfileManager {
         break;
       }
     }
+    if (boardProviderId.startsWith(
+      BoardProviderManager.unknownProviderIdPrefix,
+    )) {
+      updateInterval ??= const Duration(hours: 24);
+    }
     if (result.error != null) {
       bool success = false;
       if (!HttpUtils.isStatusError(result.error!) &&

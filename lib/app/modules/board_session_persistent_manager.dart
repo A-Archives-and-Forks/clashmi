@@ -366,6 +366,11 @@ class BoardSessionPersistentManager implements BoardSessionPersistent {
   Set<String> getAllNames() {
     Set<String> names = {};
     for (var session in _config.sessions) {
+      if (session.provider.id.startsWith(
+        BoardProviderManager.unknownProviderIdPrefix,
+      )) {
+        continue;
+      }
       names.add(session.provider.name);
     }
     return names;
@@ -376,6 +381,11 @@ class BoardSessionPersistentManager implements BoardSessionPersistent {
       return null;
     }
     for (var session in _config.sessions) {
+      if (session.provider.id.startsWith(
+        BoardProviderManager.unknownProviderIdPrefix,
+      )) {
+        continue;
+      }
       if (session.subscribeUrl == url) {
         return session;
       }
@@ -386,6 +396,11 @@ class BoardSessionPersistentManager implements BoardSessionPersistent {
   Future<void> updateProviders(List<BoardProviderConfig> providers) async {
     Map<String, BoardProviderConfig> updatedProviderIds = {};
     for (var provider in providers) {
+      if (provider.id.startsWith(
+        BoardProviderManager.unknownProviderIdPrefix,
+      )) {
+        continue;
+      }
       updatedProviderIds[provider.id] = provider;
     }
     _config.sessions.removeWhere(

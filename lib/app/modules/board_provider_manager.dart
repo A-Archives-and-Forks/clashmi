@@ -115,7 +115,7 @@ class BoardProviderConfig {
     this.homeUrl = '',
     this.appIconUrl = '',
     this.benefits = const [],
-    this.botCookie = 'cf_clearance',
+    this.botCookie = '', //'cf_clearance',
     this.lastUpdated,
   });
 
@@ -180,7 +180,7 @@ class BoardProviderConfig {
     homeUrl = map["home_url"] ?? "";
     appIconUrl = map["app_icon_url"] ?? "";
     benefits = List<String>.from(map["benefits"] ?? []);
-    botCookie = map["bot_cookie"] ?? "cf_clearance";
+    botCookie = map["bot_cookie"] ?? ""; //"cf_clearance";
     // lastUpdated = map["last_updated"] != null
     //     ? DateTime.fromMicrosecondsSinceEpoch(map["last_updated"])
     //    : null;
