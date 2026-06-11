@@ -86,7 +86,7 @@ class ProfileSetting {
   Map<String, ProfileSettingProxyGroup> proxyGroups = {};
   Map<String, String> rules = {};
   Map<String, String> rulesForProxyGroups = {};
-  bool appendApplePushRules = true;
+  bool appendApplePushRules = false;
 
   Map<String, dynamic> toJson() => {
     'id': id,
@@ -170,7 +170,7 @@ class ProfileSetting {
     rulesForProxyGroups.removeWhere((key, value) {
       return key.isEmpty || value.isEmpty;
     });
-    appendApplePushRules = map['append_apple_push_rules'] ?? true;
+    appendApplePushRules = map['append_apple_push_rules'] ?? false;
   }
 
   String getType() {
@@ -625,10 +625,11 @@ class ProfileManager {
       if (!HttpUtils.isStatusError(result.error!) &&
           boardProviderId.isNotEmpty) {
         final provider = BoardProviderManager.getProviderById(boardProviderId);
-        if (provider != null &&
-            provider.benefits.contains(
-              BoardProviderBenefit.unbanSubscription.name,
-            )) {
+        if (boardProviderId == BoardProviderManager.unknownProviderId ||
+            (provider != null &&
+                provider.benefits.contains(
+                  BoardProviderBenefit.unbanSubscription.name,
+                ))) {
           final result2 = await downloadByProviderProxy(
             boardProviderId,
             url,
