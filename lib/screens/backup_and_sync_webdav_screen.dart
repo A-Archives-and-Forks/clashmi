@@ -297,7 +297,7 @@ class _BackupAndSyncWebdavScreenState
     _webdavClient = null;
     _fileList.clear();
     setState(() {});
-    List<int?> ports = await VPNService.getPortsByPrefer(false);
+    List<int?> ports = [null]; // await VPNService.getPortsByPrefer(false);
     late ReturnResult<WebdavClient> result;
     for (var port in ports) {
       result = await WebdavUtils.connect(
@@ -310,6 +310,9 @@ class _BackupAndSyncWebdavScreenState
         return;
       }
       if (result.error == null) {
+        break;
+      }
+      if (WebdavUtils.IsInnerError(result.error!.message)) {
         break;
       }
     }
@@ -452,7 +455,7 @@ class _BackupAndSyncWebdavScreenState
           textFormFieldOptions: GroupItemTextFieldOptions(
             name: tcontext.BackupAndSyncWebdavScreen.webdavServerUrl,
             keyboardType: TextInputType.url,
-            hint: "https://xxxx/webdav[${tcontext.meta.required}]",
+            hint: "${tcontext.meta.required}[https://xxxx/webdav]",
             textWidthPercent: 0.6,
             controller: _urlController,
             autoFocus: true,

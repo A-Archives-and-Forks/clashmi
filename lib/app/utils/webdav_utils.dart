@@ -4,6 +4,25 @@ import 'package:webdav_client_plus/webdav_client_plus.dart';
 
 class WebdavUtils {
   static const String _prefix = "clashmi/";
+  static bool IsInnerError(String message) {
+    int? statusCode = message.contains("Status:") == true
+        ? int.tryParse(message.split("Status:")[1].split(" ")[1])
+        : null;
+    if (statusCode == 207 ||
+        statusCode == 422 ||
+        statusCode == 423 ||
+        statusCode == 424 ||
+        statusCode == 507 ||
+        statusCode == 401 ||
+        statusCode == 403 ||
+        statusCode == 404 ||
+        statusCode == 409 ||
+        statusCode == 412) {
+      return true;
+    }
+    return false;
+  }
+
   static Future<ReturnResult<WebdavClient>> connect(
     int? proxyPort,
     String url,
