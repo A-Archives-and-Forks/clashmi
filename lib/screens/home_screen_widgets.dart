@@ -853,6 +853,9 @@ class _HomeScreenWidgetPart1 extends State<HomeScreenWidgetPart1> {
   }
 
   Future<void> _updateConnections() async {
+    if (AppLifecycleStateNofity.isPaused()) {
+      return;
+    }
     String connections = await FlutterVpnService.clashiApiConnections(false);
     String tranffic = await FlutterVpnService.clashiApiTraffic();
 
