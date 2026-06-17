@@ -853,9 +853,6 @@ class _HomeScreenWidgetPart1 extends State<HomeScreenWidgetPart1> {
   }
 
   Future<void> _updateConnections() async {
-    if (AppLifecycleStateNofity.isPaused()) {
-      return;
-    }
     String connections = await FlutterVpnService.clashiApiConnections(false);
     String tranffic = await FlutterVpnService.clashiApiTraffic();
 
@@ -896,6 +893,9 @@ class _HomeScreenWidgetPart1 extends State<HomeScreenWidgetPart1> {
     await _updateConnections();
     const Duration duration = Duration(seconds: 1);
     _timerConnectToCore ??= Timer.periodic(duration, (timer) async {
+      if (AppLifecycleStateNofity.isPaused()) {
+        return;
+      }
       await _updateConnections();
       if (_proxyNow.value.isEmpty) {
         Future.delayed(Duration(seconds: 1), () async {
