@@ -852,6 +852,36 @@ class _HomeScreenWidgetPart1 extends State<HomeScreenWidgetPart1> {
     }
   }
 
+  Future<void> _updateConnections() async {
+    String connections = await FlutterVpnService.clashiApiConnections(false);
+    String tranffic = await FlutterVpnService.clashiApiTraffic();
+
+    String trafficTotalNew = "";
+    String trafficSpeedNew = "";
+    try {
+      var obj = jsonDecode(connections);
+      ClashConnections body = ClashConnections();
+      body.fromJson(obj, false);
+      //_memory.value =
+      //    ClashHttpApi.convertTrafficToStringDouble(body.memory);
+      trafficTotalNew =
+          "↑ ${ClashHttpApi.convertTrafficToStringDouble(body.uploadTotal)}  ↓ ${ClashHttpApi.convertTrafficToStringDouble(body.downloadTotal)} ";
+    } catch (err) {}
+    try {
+      var obj = jsonDecode(tranffic);
+      ClashTraffic traffic = ClashTraffic();
+      traffic.fromJson(obj);
+      trafficSpeedNew =
+          "↑ ${ClashHttpApi.convertTrafficToStringDouble(traffic.upload)}/s  ↓ ${ClashHttpApi.convertTrafficToStringDouble(traffic.download)}/s";
+    } catch (err) {}
+    Biz.trafficChanged(trafficTotalNew, trafficSpeedNew);
+    if (AppLifecycleStateNofity.isPaused()) {
+      return;
+    }
+    _trafficTotal.value = trafficTotalNew;
+    _trafficSpeed.value = trafficSpeedNew;
+  }
+
   Future<void> _connectToCore() async {
     bool started = await VPNService.getStarted();
     if (!started) {
@@ -860,35 +890,10 @@ class _HomeScreenWidgetPart1 extends State<HomeScreenWidgetPart1> {
     if (AppLifecycleStateNofity.isPaused()) {
       return;
     }
+    await _updateConnections();
     const Duration duration = Duration(seconds: 1);
     _timerConnectToCore ??= Timer.periodic(duration, (timer) async {
-      String connections = await FlutterVpnService.clashiApiConnections(false);
-      String tranffic = await FlutterVpnService.clashiApiTraffic();
-
-      String trafficTotalNew = "";
-      String trafficSpeedNew = "";
-      try {
-        var obj = jsonDecode(connections);
-        ClashConnections body = ClashConnections();
-        body.fromJson(obj, false);
-        //_memory.value =
-        //    ClashHttpApi.convertTrafficToStringDouble(body.memory);
-        trafficTotalNew =
-            "↑ ${ClashHttpApi.convertTrafficToStringDouble(body.uploadTotal)}  ↓ ${ClashHttpApi.convertTrafficToStringDouble(body.downloadTotal)} ";
-      } catch (err) {}
-      try {
-        var obj = jsonDecode(tranffic);
-        ClashTraffic traffic = ClashTraffic();
-        traffic.fromJson(obj);
-        trafficSpeedNew =
-            "↑ ${ClashHttpApi.convertTrafficToStringDouble(traffic.upload)}/s  ↓ ${ClashHttpApi.convertTrafficToStringDouble(traffic.download)}/s";
-      } catch (err) {}
-      Biz.trafficChanged(trafficTotalNew, trafficSpeedNew);
-      if (AppLifecycleStateNofity.isPaused()) {
-        return;
-      }
-      _trafficTotal.value = trafficTotalNew;
-      _trafficSpeed.value = trafficSpeedNew;
+      await _updateConnections();
       if (_proxyNow.value.isEmpty) {
         Future.delayed(Duration(seconds: 1), () async {
           _updateProxyNow();
