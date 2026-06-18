@@ -682,10 +682,10 @@ packages:
     dependency: transitive
     description:
       name: http_parser
-      sha256: "2aa08ce0341cc9b354a498388e30986515406668dbcc4f7c950c3e715496693b"
+      sha256: "178d74305e7866013777bab2c3d8726205dc5a4dd935297175b19a23a2e66571"
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "4.0.2"
+    version: "4.1.2"
   icloud_storage:
     dependency: "direct main"
     description:
@@ -1138,10 +1138,10 @@ packages:
     dependency: transitive
     description:
       name: petitparser
-      sha256: c15605cd28af66339f8eb6fbe0e541bfe2d1b72d5825efc6598f3e0a31b9ad27
+      sha256: "91bd59303e9f769f108f8df05e371341b15d59e995e6806aefab827b58336675"
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "6.0.2"
+    version: "7.0.2"
   platform:
     dependency: transitive
     description:
@@ -1675,14 +1675,14 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "3.0.3"
-  webdav_client_plus:
+  webdav_plus:
     dependency: "direct main"
     description:
-      name: webdav_client_plus
-      sha256: "0f992fe05a46674a800d9fd8fdc5c54952ff739da155c558776a62ca0c2bed3a"
+      name: webdav_plus
+      sha256: "9ba5382b6498eac8927864ccc11c9e45a92fa2e3e5f3f3fc0f6d38cb433ab188"
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.0.2"
+    version: "1.2.2"
   win32:
     dependency: transitive
     description:
@@ -1728,10 +1728,10 @@ packages:
     dependency: transitive
     description:
       name: xml
-      sha256: b015a8ad1c488f66851d762d3090a21c600e479dc75e68328c52774040cf9226
+      sha256: "971043b3a0d3da28727e40ed3e0b5d18b742fa5a68665cca88e74b7876d5e025"
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "6.5.0"
+    version: "6.6.1"
   yaml:
     dependency: "direct main"
     description:

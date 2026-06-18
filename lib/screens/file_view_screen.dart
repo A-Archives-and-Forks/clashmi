@@ -1,6 +1,5 @@
 import 'package:clashmi/i18n/strings.g.dart';
 import 'package:clashmi/screens/theme_config.dart';
-import 'package:clashmi/screens/widgets/sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:re_editor/re_editor.dart';

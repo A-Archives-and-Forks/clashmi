@@ -1,79 +1,89 @@
 // ignore_for_file: unused_catch_stack
+import 'dart:io';
+import 'package:http/io_client.dart';
 import 'package:clashmi/app/runtime/return_result.dart';
-import 'package:webdav_client_plus/webdav_client_plus.dart';
+import 'package:webdav_plus/webdav_plus.dart';
+// ignore: implementation_imports
+import 'package:webdav_plus/src/impl/http_webdav_client.dart';
 
 class WebdavUtils {
   static const String _prefix = "clashmi/";
-  static bool IsInnerError(String message) {
-    int? statusCode = message.contains("Status:") == true
-        ? int.tryParse(message.split("Status:")[1].split(" ")[1])
-        : null;
-    if (statusCode == 207 ||
-        statusCode == 422 ||
-        statusCode == 423 ||
-        statusCode == 424 ||
-        statusCode == 507 ||
-        statusCode == 401 ||
-        statusCode == 403 ||
-        statusCode == 404 ||
-        statusCode == 409 ||
-        statusCode == 412) {
-      return true;
+  static bool isInnerError(WebDAVException exception) {
+    return exception.isHttpError ||
+        exception.isClientError ||
+        exception.isServerError ||
+        exception.isNotFoundError;
+  }
+
+  static String convertInnerError(WebDAVException exception) {
+    if (exception.statusCode == 401) {
+      return "Authentication failed: ${exception.toString()}";
     }
-    return false;
+    if (exception.statusCode == 403) {
+      return "Access forbidden: ${exception.toString()}";
+    }
+    if (exception.statusCode == 404) {
+      return "Resource not found: ${exception.toString()}";
+    }
+    if (exception.statusCode == 409) {
+      return "Conflict (e.g., locked resource): ${exception.toString()}";
+    }
+    return exception.toString();
+  }
+
+  static String getNotContinue() {
+    return "!continue:";
   }
 
   static Future<ReturnResult<WebdavClient>> connect(
     int? proxyPort,
     String url,
-    String user,
+    String username,
     String password,
   ) async {
-    var client = WebdavClient(
-      url: url.trim(),
-      auth: BasicAuth(user: user.trim(), pwd: password.trim()),
+    HttpClient httpClient = HttpClient();
+    if (proxyPort != null && proxyPort != 0) {
+      httpClient.findProxy = (uri) {
+        return "PROXY 127.0.0.1:$proxyPort";
+      };
+    }
+    httpClient.connectionTimeout = Duration(seconds: 8);
+    httpClient.badCertificateCallback =
+        (X509Certificate cert, String host, int port) => true;
+
+    final http = IOClient(httpClient);
+    var webdavClient = HttpWebdavClient.withClient(http);
+    webdavClient.setCredentials(
+      username.trim(),
+      password.trim(),
+      isPreemptive: true,
     );
-    /*if (proxyPort != null && proxyPort != 0) {
-      client.c.httpClientAdapter = IOHttpClientAdapter(
-        createHttpClient: () {
-          final client = HttpClient()..idleTimeout = const Duration(seconds: 3);
-          client.findProxy = (Uri uri) => "PROXY 127.0.0.1:$proxyPort";
-          return client;
-        },
-      );
-    }*/
-
-    client.setHeaders({'accept-charset': 'utf-8'});
-
-    // Set the connection server timeout time in milliseconds.
-    client.setConnectTimeout(8000);
-
-    // Set send data timeout time in milliseconds.
-    /* _client!.setSendTimeout(8000);
-
-    // Set transfer data time in milliseconds.
-    _client!.setReceiveTimeout(8000);*/
-
-    // Test whether the service can connect
+    webdavClient.setBaseUrl(url.trim());
     try {
-      await client.ping();
+      if (!await webdavClient.exists(_prefix)) {
+        await webdavClient.createDirectory(_prefix);
+      }
+    } on WebDAVException catch (err, stacktrace) {
+      if (isInnerError(err)) {
+        return ReturnResult(
+          error: ReturnResultError(getNotContinue() + convertInnerError(err)),
+        );
+      }
+      return ReturnResult(error: ReturnResultError(err.toString()));
     } catch (err, stacktrace) {
       return ReturnResult(error: ReturnResultError(err.toString()));
     }
-    try {
-      await client.mkdir(_prefix);
-    } catch (err, stacktrace) {
-      return ReturnResult(error: ReturnResultError(err.toString()));
-    }
-    return ReturnResult(data: client);
+    return ReturnResult(data: webdavClient);
   }
 
   static Future<ReturnResult<List<String>>> list(WebdavClient client) async {
     try {
-      final list = await client.readDir(_prefix);
+      final list = await client.list(_prefix);
       final names = <String>[];
       for (final item in list) {
-        if (item.isDir) continue;
+        if (item.isDirectory) {
+          continue;
+        }
         names.add(item.name);
       }
       return ReturnResult(data: names);
@@ -88,7 +98,14 @@ class WebdavUtils {
     required String localPath,
   }) async {
     try {
-      await client.writeFile(localPath, _prefix + relativePath);
+      final file = File(localPath);
+      await client.putFileStream(
+        _prefix + relativePath,
+        file,
+        onProgress: (sent, total) {
+          // print('Upload progress: ${(sent / total * 100).toStringAsFixed(1)}%');
+        },
+      );
     } catch (err, stacktrace) {
       return ReturnResultError(err.toString());
     }
@@ -100,7 +117,7 @@ class WebdavUtils {
     String relativePath,
   ) async {
     try {
-      await client.remove(_prefix + relativePath);
+      await client.delete(_prefix + relativePath);
     } catch (err, stacktrace) {
       return ReturnResultError(err.toString());
     }
@@ -113,7 +130,7 @@ class WebdavUtils {
     required String localPath,
   }) async {
     try {
-      await client.readFile(_prefix + relativePath, localPath);
+      await client.downloadToFile(_prefix + relativePath, localPath);
     } catch (err, stacktrace) {
       return ReturnResultError(err.toString());
     }

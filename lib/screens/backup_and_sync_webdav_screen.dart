@@ -21,7 +21,7 @@ import 'package:clashmi/screens/theme_define.dart';
 import 'package:clashmi/screens/widgets/framework.dart';
 import 'package:flutter/material.dart';
 import 'package:path/path.dart' as path;
-import 'package:webdav_client_plus/webdav_client_plus.dart';
+import 'package:webdav_plus/webdav_plus.dart';
 
 class BackupAndSyncWebdavScreen extends LasyRenderingStatefulWidget {
   static RouteSettings routSettings() {
@@ -297,7 +297,7 @@ class _BackupAndSyncWebdavScreenState
     _webdavClient = null;
     _fileList.clear();
     setState(() {});
-    List<int?> ports = [null]; // await VPNService.getPortsByPrefer(false);
+    List<int?> ports = await VPNService.getPortsByPrefer(false);
     late ReturnResult<WebdavClient> result;
     for (var port in ports) {
       result = await WebdavUtils.connect(
@@ -312,7 +312,11 @@ class _BackupAndSyncWebdavScreenState
       if (result.error == null) {
         break;
       }
-      if (WebdavUtils.IsInnerError(result.error!.message)) {
+      if (result.error!.message.startsWith(WebdavUtils.getNotContinue())) {
+        result.error!.message = result.error!.message.replaceFirst(
+          WebdavUtils.getNotContinue(),
+          "",
+        );
         break;
       }
     }
