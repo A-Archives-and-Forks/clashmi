@@ -1770,7 +1770,7 @@ class GroupHelper {
         GroupItemOptions(
           switchOptions: GroupItemSwitchOptions(
             name: tcontext.dns.useHosts,
-            tips: "use-hosts->hosts",
+            tips: "use-hosts",
             switchValue: dns.UseHosts,
             onSwitch: dns.OverWrite != true || dns.Enable != true
                 ? null
