@@ -1250,15 +1250,6 @@ class GroupHelper {
             },
           ),
         ),
-        GroupItemOptions(
-          pushOptions: GroupItemPushOptions(
-            name: "Hosts",
-            tips: "hosts",
-            onPush: () async {
-              showClashSettingsHosts(context);
-            },
-          ),
-        ),
 
         GroupItemOptions(
           pushOptions: GroupItemPushOptions(
@@ -1763,18 +1754,7 @@ class GroupHelper {
                   },
           ),
         ),
-        GroupItemOptions(
-          switchOptions: GroupItemSwitchOptions(
-            name: tcontext.dns.useHosts,
-            tips: "use-hosts",
-            switchValue: dns.UseHosts,
-            onSwitch: dns.OverWrite != true || dns.Enable != true
-                ? null
-                : (bool value) async {
-                    dns.UseHosts = value;
-                  },
-          ),
-        ),
+
         GroupItemOptions(
           switchOptions: GroupItemSwitchOptions(
             name: tcontext.dns.useSystemHosts,
@@ -1784,6 +1764,18 @@ class GroupHelper {
                 ? null
                 : (bool value) async {
                     dns.UseSystemHosts = value;
+                  },
+          ),
+        ),
+        GroupItemOptions(
+          switchOptions: GroupItemSwitchOptions(
+            name: tcontext.dns.useHosts,
+            tips: "use-hosts->hosts",
+            switchValue: dns.UseHosts,
+            onSwitch: dns.OverWrite != true || dns.Enable != true
+                ? null
+                : (bool value) async {
+                    dns.UseHosts = value;
                   },
           ),
         ),
@@ -1815,25 +1807,7 @@ class GroupHelper {
             onPush: dns.OverWrite != true || dns.Enable != true
                 ? null
                 : () async {
-                    setting.Hosts ??= {};
-                    List<Tuple2<String, String>> hs = [];
-                    setting.Hosts!.forEach((key, value) {
-                      hs.add(Tuple2(key, value));
-                    });
-                    await Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        settings: MapStringAndStringAddScreen.routSettings(),
-                        builder: (context) => MapStringAndStringAddScreen(
-                          title: "hosts",
-                          data: hs,
-                        ),
-                      ),
-                    );
-                    setting.Hosts!.clear();
-                    for (var h in hs) {
-                      setting.Hosts![h.item1] = h.item2;
-                    }
+                    showClashSettingsHosts(context);
                   },
           ),
         ),

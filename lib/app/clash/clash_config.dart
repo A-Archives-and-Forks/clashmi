@@ -560,6 +560,8 @@ class RawDNS {
   List<String>? DefaultNameserver;
   @JsonKey(name: 'cache-algorithm')
   String? CacheAlgorithm;
+  @JsonKey(name: 'overwrite-nameserver-policy')
+  bool? OverwriteNameServerPolicy;
   @JsonKey(name: 'nameserver-policy')
   Map<String, dynamic>? NameServerPolicy;
   @JsonKey(name: 'proxy-server-nameserver')
@@ -1260,6 +1262,8 @@ class RawConfig {
   //map[string]map[string]any ProxyProvider  `yaml:"proxy-providers" json:"proxy-providers"`
   //[]map[string]any Proxy                   `yaml:"proxies" json:"proxies"`
   //[]map[string]any ProxyGroup              `yaml:"proxy-groups" json:"proxy-groups"`
+  @JsonKey(name: 'overwrite-listeners')
+  bool? OverwriteListeners;
   @JsonKey(name: 'listeners')
   Map<String, dynamic>? Listeners;
   @JsonKey(name: 'overwrite-hosts')
