@@ -2091,9 +2091,9 @@ class GroupHelper {
     await Navigator.push(
       context,
       MaterialPageRoute(
-        settings: GroupScreen.routSettings("dns"),
+        settings: GroupScreen.routSettings("hosts"),
         builder: (context) =>
-            GroupScreen(title: tcontext.meta.dns, getOptions: getOptions),
+            GroupScreen(title: "hosts", getOptions: getOptions),
       ),
     );
   }
