@@ -172,7 +172,7 @@ class ClashSettingManager {
   }
 
   static RawDNS defaultDNS() {
-    const nameServer = [
+    const List<String> nameServer = [
       "223.5.5.5",
       "119.29.29.29",
       "8.8.8.8",
@@ -189,7 +189,28 @@ class ClashSettingManager {
       "quic://dns.adguard.com:784",
       "system",
     ];
-    const defaultNameserver = [
+    const List<String> defaultNameserver = [
+      "223.5.5.5",
+      "119.29.29.29",
+      "8.8.8.8",
+      "8.8.4.4",
+      "1.0.0.1",
+      "1.1.1.1",
+      "system",
+    ];
+    const List<String> proxyServerNameserver = [
+      "223.5.5.5",
+      "119.29.29.29",
+      "8.8.8.8",
+      "8.8.4.4",
+      "1.0.0.1",
+      "1.1.1.1",
+      "tls://8.8.4.4",
+      "tls://1.1.1.1",
+      "tls://223.5.5.5:853",
+      "https://dns.alidns.com/dns-query#h3=true",
+    ];
+    const List<String> directNameServer = [
       "223.5.5.5",
       "119.29.29.29",
       "8.8.8.8",
@@ -205,13 +226,7 @@ class ClashSettingManager {
         "https://1.12.12.12/dns-query",
         "https://120.53.53.53/dns-query"*/
     ];
-    const List<String> proxyServerNameserver = [
-      /*"tls://8.8.4.4",
-        "tls://1.1.1.1",
-        "tls://223.5.5.5:853",
-        "https://dns.alidns.com/dns-query#h3=true",*/
-    ];
-    const fakeIPFilter = [
+    const List<String> fakeIPFilter = [
       "*.lan",
       "*.local",
       "time.*.com",
@@ -277,11 +292,11 @@ class ClashSettingManager {
       FakeIPRange: "${iNet4Address.split('/')[0]}/16",
       FakeIPFilter: fakeIPFilter,
       FakeIPFilterMode: ClashFakeIPFilterMode.blacklist.name,
-      DefaultNameserver: defaultNameserver,
       CacheAlgorithm: ClashDnsCacheAlgorithm.arc.name,
+      DefaultNameserver: defaultNameserver,
       NameServerPolicy: {},
       ProxyServerNameserver: proxyServerNameserver,
-      DirectNameServer: [],
+      DirectNameServer: directNameServer,
       DirectNameServerFollowPolicy: false,
     );
   }

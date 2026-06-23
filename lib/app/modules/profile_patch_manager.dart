@@ -836,7 +836,10 @@ class ProfilePatchManager {
         return corePath;
       }
 
-      final fileCoreContentArg = json.encode(doc);
+      var fileCoreContentArg = json.encode(doc);
+      if (result.item2) {
+        fileCoreContentArg = EmojiUtils.emojify(fileCoreContentArg);
+      }
       final res = await flutterJs.evaluateAsync('''
       $fileScriptContent
       main($fileCoreContentArg)
@@ -862,9 +865,6 @@ class ProfilePatchManager {
           "evaluate ${patch.remark} rawResult type unsupport: ${res.rawResult.runtimeType}",
         );
         return corePath;
-      }
-      if (result.item2) {
-        value = EmojiUtils.emojify(value);
       }
 
       String newCorePath = await PathUtils.serviceCorePatchPath();
