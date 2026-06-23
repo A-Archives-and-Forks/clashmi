@@ -985,7 +985,7 @@ class _HomeScreenWidgetPart1 extends State<HomeScreenWidgetPart1> {
         url,
         "onlineboard",
         title: tcontext.meta.board,
-        inappWebViewOpenExternal: false,
+        inappWebViewOpenExternal: true,
       );
       return;
     }
