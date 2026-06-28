@@ -7,7 +7,7 @@ import 'package:webdav_plus/webdav_plus.dart';
 import 'package:webdav_plus/src/impl/http_webdav_client.dart';
 
 class WebdavUtils {
-  static const String _prefix = "clashmi/";
+  static const String _prefix = "/clashmi/";
   static bool isInnerError(WebDAVException exception) {
     return exception.isHttpError ||
         exception.isClientError ||
@@ -64,6 +64,9 @@ class WebdavUtils {
         await webdavClient.createDirectory(_prefix);
       }
     } on WebDAVException catch (err, stacktrace) {
+      if (err.isClientError) {
+        return ReturnResult(data: webdavClient);
+      }
       if (isInnerError(err)) {
         return ReturnResult(
           error: ReturnResultError(getNotContinue() + convertInnerError(err)),
