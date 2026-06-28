@@ -1242,10 +1242,10 @@ packages:
     dependency: transitive
     description:
       name: quick_actions_android
-      sha256: e64862358d647dbde94deedd4f8e99a1a4762b3f836f48141c1c457529b83613
+      sha256: "1c28eb0809a7f72b3aa9666a13a28189063d96a7cc499f68783c32a5f261ef9e"
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.0.25"
+    version: "1.0.26"
   quick_actions_ios:
     dependency: transitive
     description:
