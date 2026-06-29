@@ -1488,7 +1488,7 @@ class GroupHelper {
                 : (bool value) async {
                     tun.DNSHijack = value
                         ? [ClashSettingManager.dnsHijack]
-                        : null;
+                        : [];
                   },
           ),
         ),
