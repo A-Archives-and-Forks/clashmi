@@ -1109,7 +1109,7 @@ class HomeScreenWidgetPart2 extends StatelessWidget {
           }
           final item = await FileUtils.readAsStringReverse(
             filePath,
-            20 * 1024,
+            50 * 1024,
             false,
           );
           if (item != null) {
