@@ -1,19 +1,15 @@
 // ignore_for_file: unused_catch_stack
 import 'dart:io';
+
 import 'package:http/io_client.dart';
 import 'package:clashmi/app/runtime/return_result.dart';
 import 'package:webdav_plus/webdav_plus.dart';
+import 'package:clashmi/app/utils/log.dart';
 // ignore: implementation_imports
 import 'package:webdav_plus/src/impl/http_webdav_client.dart';
 
 class WebdavUtils {
   static const String _prefix = "/clashmi/";
-  static bool isInnerError(WebDAVException exception) {
-    return exception.isHttpError ||
-        exception.isClientError ||
-        exception.isServerError ||
-        exception.isNotFoundError;
-  }
 
   static String convertInnerError(WebDAVException exception) {
     if (exception.statusCode == 401) {
@@ -31,10 +27,6 @@ class WebdavUtils {
     return exception.toString();
   }
 
-  static String getNotContinue() {
-    return "!continue:";
-  }
-
   static Future<ReturnResult<WebdavClient>> connect(
     int? proxyPort,
     String url,
@@ -48,6 +40,9 @@ class WebdavUtils {
       };
     }
     httpClient.connectionTimeout = Duration(seconds: 8);
+    // Some WebDAV servers return malformed compressed payloads.
+    // Disable transparent decompression to avoid "Filter error, bad data".
+    httpClient.autoUncompress = false;
     httpClient.badCertificateCallback =
         (X509Certificate cert, String host, int port) => true;
 
@@ -59,21 +54,18 @@ class WebdavUtils {
       isPreemptive: true,
     );
     webdavClient.setBaseUrl(url.trim());
+
     try {
-      if (!await webdavClient.exists(_prefix)) {
-        await webdavClient.createDirectory(_prefix);
-      }
-    } on WebDAVException catch (err, stacktrace) {
-      if (err.isClientError) {
-        return ReturnResult(data: webdavClient);
-      }
-      if (isInnerError(err)) {
-        return ReturnResult(
-          error: ReturnResultError(getNotContinue() + convertInnerError(err)),
-        );
-      }
+      await webdavClient.createDirectory(_prefix);
+    } on WebDAVNetworkException catch (err, stacktrace) {
       return ReturnResult(error: ReturnResultError(err.toString()));
+    } on WebDAVTimeoutException catch (err, stacktrace) {
+      return ReturnResult(error: ReturnResultError(err.toString()));
+    } on WebDAVException catch (err, stacktrace) {
+      Log.w("Webdav.createDirectory WebDAVException: ${err.toString()}");
+      return ReturnResult(data: webdavClient);
     } catch (err, stacktrace) {
+      Log.w("Webdav.createDirectory Exception: ${err.toString()}");
       return ReturnResult(error: ReturnResultError(err.toString()));
     }
     return ReturnResult(data: webdavClient);
@@ -91,7 +83,7 @@ class WebdavUtils {
       }
       return ReturnResult(data: names);
     } catch (err, stacktrace) {
-      return ReturnResult(error: ReturnResultError(err.toString()));
+      return ReturnResult(error: ReturnResultError("list: ${err.toString()}"));
     }
   }
 
@@ -110,7 +102,7 @@ class WebdavUtils {
         },
       );
     } catch (err, stacktrace) {
-      return ReturnResultError(err.toString());
+      return ReturnResultError("upload: ${err.toString()}");
     }
     return null;
   }
@@ -122,7 +114,7 @@ class WebdavUtils {
     try {
       await client.delete(_prefix + relativePath);
     } catch (err, stacktrace) {
-      return ReturnResultError(err.toString());
+      return ReturnResultError("delete: ${err.toString()}");
     }
     return null;
   }
@@ -135,7 +127,7 @@ class WebdavUtils {
     try {
       await client.downloadToFile(_prefix + relativePath, localPath);
     } catch (err, stacktrace) {
-      return ReturnResultError(err.toString());
+      return ReturnResultError("download: ${err.toString()}");
     }
     return null;
   }

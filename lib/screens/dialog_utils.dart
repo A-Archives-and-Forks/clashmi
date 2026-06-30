@@ -126,8 +126,9 @@ class DialogUtils {
 
   static Future<bool?> showConfirmDialog(
     BuildContext context,
-    String text,
-  ) async {
+    String text, {
+    bool showCopy = false,
+  }) async {
     if (!context.mounted) {
       return null;
     }
@@ -174,6 +175,20 @@ class DialogUtils {
                 ),
               ],
             ),
+            const SizedBox(height: 20),
+            if (showCopy) ...[
+              Padding(
+                padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+                child: ElevatedButton(
+                  child: Text(tcontext.meta.copy),
+                  onPressed: () async {
+                    try {
+                      await Clipboard.setData(ClipboardData(text: text));
+                    } catch (e) {}
+                  },
+                ),
+              ),
+            ],
           ],
         );
       },

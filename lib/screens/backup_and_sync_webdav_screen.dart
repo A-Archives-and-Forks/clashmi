@@ -312,13 +312,6 @@ class _BackupAndSyncWebdavScreenState
       if (result.error == null) {
         break;
       }
-      if (result.error!.message.startsWith(WebdavUtils.getNotContinue())) {
-        result.error!.message = result.error!.message.replaceFirst(
-          WebdavUtils.getNotContinue(),
-          "",
-        );
-        break;
-      }
     }
     if (!mounted) {
       return;
