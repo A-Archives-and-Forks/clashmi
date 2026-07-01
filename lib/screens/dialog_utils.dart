@@ -36,7 +36,7 @@ class DialogUtils {
     }
     if (withVersion) {
       text =
-          "${AppUtils.getBuildinVersion()} ${Platform.operatingSystem}\n$text";
+          "${AppUtils.getBuildinVersion()} ${Platform.operatingSystem}\n\n$text";
     }
 
     const int kMaxLength = 1024;
@@ -128,9 +128,14 @@ class DialogUtils {
     BuildContext context,
     String text, {
     bool showCopy = false,
+    bool withVersion = false,
   }) async {
     if (!context.mounted) {
       return null;
+    }
+    if (withVersion) {
+      text =
+          "${AppUtils.getBuildinVersion()} ${Platform.operatingSystem}\n\n$text";
     }
     final tcontext = Translations.of(context);
     return await showDialog<bool>(
