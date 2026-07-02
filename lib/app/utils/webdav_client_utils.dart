@@ -6,7 +6,7 @@ import 'package:clashmi/app/runtime/return_result.dart';
 import 'package:webdav_client_plus/webdav_client_plus.dart';
 
 class WebdavClientUtils {
-  static const String _prefix = "/karing/";
+  static const String _prefix = "clashmi/";
   static bool isInnerError(String message) {
     int? statusCode = message.contains("Status:") == true
         ? int.tryParse(message.split("Status:")[1].split(" ")[1])
