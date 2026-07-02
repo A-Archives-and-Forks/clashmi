@@ -659,9 +659,7 @@ abstract final class HttpUtils {
     Duration duration,
   ) async {
     await Future.delayed(duration);
-    try {
-      request.abort();
-    } catch (_) {}
+    //request.abort();
     return null;
   }
 
