@@ -2,7 +2,7 @@ name: clashmi
 description: clashmi
 
 publish_to: none 
-version: 1.0.26+1202
+version: 1.0.26+1203
 environment:
   sdk: ">=3.9.0 <4.0.0"
   flutter: ">=3.35.0"
@@ -30,7 +30,7 @@ dependencies:
   flutter_secure_storage: 10.3.1
   protocol_handler: 0.1.6 #0.2.0 cause windows jam when exit
   json_annotation: 4.12.0
-  re_editor: 0.9.0
+  re_editor: 0.10.0
   re_highlight: 0.0.3
   launch_at_startup: 0.2.2 #0.2.2 - 0.3.1 StartupApproved cause reg exceptions
   provider: 6.1.5+1
