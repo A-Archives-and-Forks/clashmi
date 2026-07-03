@@ -32,8 +32,17 @@ class WebdavClientUtils {
     String user,
     String password,
   ) async {
+    Uri? uri = Uri.tryParse(url.trim());
+    try {
+      uri = uri?.punyEncoded;
+    } catch (err) {}
+    if (uri == null) {
+      return ReturnResult(
+        error: ReturnResultError("Invalid URL:${url.trim()}"),
+      );
+    }
     var client = WebdavClient(
-      url: url.trim(),
+      url: uri.toString(),
       auth: BasicAuth(user: user.trim(), pwd: password.trim()),
     );
     if (proxyPort != null && proxyPort != 0) {
