@@ -21,6 +21,7 @@ import 'package:clashmi/app/utils/backup_and_sync_utils.dart';
 import 'package:clashmi/app/utils/device_utils.dart';
 import 'package:clashmi/app/utils/did.dart';
 import 'package:clashmi/app/utils/file_utils.dart';
+import 'package:clashmi/app/utils/log.dart';
 import 'package:clashmi/app/utils/network_utils.dart';
 import 'package:clashmi/app/utils/path_utils.dart';
 import 'package:clashmi/app/utils/platform_utils.dart';
@@ -525,6 +526,7 @@ class GroupHelper {
     ) async {
       final tcontext = Translations.of(context);
       var setting = SettingManager.getConfig();
+      final logLevels = ["trace", "debug", "info", "warning", "error"];
       bool disableOrientation = await DeviceUtils.disableOrientation();
       List<GroupItemOptions> options0 = [
         GroupItemOptions(
@@ -648,6 +650,23 @@ class GroupHelper {
             ),
           ),
         ],
+      ];
+      List<GroupItemOptions> options01 = [
+        GroupItemOptions(
+          stringPickerOptions: GroupItemStringPickerOptions(
+            name: tcontext.meta.logLevel,
+            selected: logLevels.contains(setting.logLevel)
+                ? setting.logLevel
+                : logLevels.last,
+            strings: logLevels,
+            onPicker: (String? selected) async {
+              setting.logLevel = selected ?? logLevels.last;
+              Log.setLevel(setting.logLevel);
+              Log.i('itest:${setting.logLevel}');
+              Log.w('wtest:${setting.logLevel}');
+            },
+          ),
+        ),
       ];
       List<GroupItemOptions> options1 = [
         GroupItemOptions(
@@ -901,6 +920,7 @@ class GroupHelper {
       List<GroupItem> gitems = [
         GroupItem(options: options0),
         GroupItem(options: options),
+        GroupItem(options: options01),
         GroupItem(options: options1),
         GroupItem(options: options2),
         GroupItem(options: options3),

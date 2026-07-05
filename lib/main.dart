@@ -53,6 +53,7 @@ void main(List<String> args) async {
   await VPNService.initABI();
   await RemoteConfigManager.init();
   await SettingManager.init();
+  Log.setLevel(SettingManager.getConfig().logLevel);
   await BoardSessionPersistentManager.init();
   await BoardProviderManager.init();
 

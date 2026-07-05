@@ -2,6 +2,7 @@ import 'package:clashmi/app/modules/board_provider_manager.dart';
 import 'package:clashmi/app/modules/board_session_persistent_manager.dart';
 import 'package:clashmi/app/modules/profile_manager.dart';
 import 'package:clashmi/app/modules/profile_patch_manager.dart';
+import 'package:clashmi/app/utils/log.dart';
 
 class SSPanelLogin {
   static final Map<int, Function()> onEventLogin = {};
@@ -22,7 +23,12 @@ class SSPanelLogin {
       );
     }
     //session.ssPanel!.proxyUrl = "127.0.0.1:8888";
+    Log.i('sspanel: login, provider: ${provider.name}, email: $email');
+    session.ssPanel!.timeout = const Duration(seconds: 10);
     final loginResponse = await session.ssPanel!.login(email, password);
+    Log.i(
+      'sspanel: login response, provider: ${provider.name}, email: $email, statusCode: ${loginResponse.statusCode}',
+    );
     if (loginResponse.statusCode != 200 || loginResponse.ret != true) {
       return BoardSessionLoginError(
         session: session,
@@ -50,8 +56,13 @@ class SSPanelLogin {
     if (session.ssPanel == null) {
       return null;
     }
+    Log.i('sspanel: getSubscribe, provider: ${provider.name}');
+    session.ssPanel!.timeout = const Duration(seconds: 30);
     final userProfileUrlResponse = await session.ssPanel!
         .getUserProfileUrlAndToken();
+    Log.i(
+      'sspanel: getSubscribe response, provider: ${provider.name}, statusCode: ${userProfileUrlResponse.statusCode}',
+    );
     if (userProfileUrlResponse.statusCode != 200 ||
         userProfileUrlResponse.ret != true) {
       return userProfileUrlResponse.getFullMessage();
@@ -63,6 +74,7 @@ class SSPanelLogin {
         userSubscribeResponse.ret != true) {
       return userSubscribeResponse.getFullMessage();
     }*/
+    Log.i('sspanel: add profile, provider: ${provider.name}');
     final patch = provider.overwrite
         ? kProfilePatchBuildinOverwrite
         : kProfilePatchBuildinNoOverwrite;

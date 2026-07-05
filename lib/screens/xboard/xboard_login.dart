@@ -3,6 +3,7 @@ import 'package:clashmi/app/modules/board_provider_manager.dart';
 import 'package:clashmi/app/modules/board_session_persistent_manager.dart';
 import 'package:clashmi/app/modules/profile_manager.dart';
 import 'package:clashmi/app/modules/profile_patch_manager.dart';
+import 'package:clashmi/app/utils/log.dart';
 
 class XboardLogin {
   static final Map<int, Function()> onEventLogin = {};
@@ -22,9 +23,14 @@ class XboardLogin {
         message: "create session failed, check provider or account",
       );
     }
+    Log.i('xboard: login, provider: ${provider.name}, email: $email');
     //session.xboard!.proxyUrl = "127.0.0.1:8888";
     final loginRequest = LoginRequest(email: email, password: password);
+    session.xboard!.timeout = const Duration(seconds: 10);
     final loginResponse = await session.xboard!.login(loginRequest);
+    Log.i(
+      'xboard: login response, provider: ${provider.name}, email: $email, statusCode: ${loginResponse.statusCode}',
+    );
     if (loginResponse.statusCode != 200) {
       return BoardSessionLoginError(
         session: session,
@@ -61,7 +67,11 @@ class XboardLogin {
     if (session.xboard == null) {
       return null;
     }
+    Log.i('xboard: getSubscribe, provider: ${provider.name}');
     final subscribeResponse = await session.xboard!.getSubscribe();
+    Log.i(
+      'xboard: getSubscribe response, provider: ${provider.name}, statusCode: ${subscribeResponse.statusCode}',
+    );
     if (subscribeResponse.statusCode != 200) {
       return subscribeResponse.getFullMessage();
     }
@@ -69,6 +79,7 @@ class XboardLogin {
       final patch = provider.overwrite
           ? kProfilePatchBuildinOverwrite
           : kProfilePatchBuildinNoOverwrite;
+      Log.i('xboard: add profile, provider: ${provider.name}');
       final result = await ProfileManager.addRemote(
         subscribeResponse.data!.subscribeUrl,
         remark: provider.name,

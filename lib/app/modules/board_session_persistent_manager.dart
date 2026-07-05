@@ -292,22 +292,38 @@ class BoardSessionPersistentManager implements BoardSessionPersistent {
     if (provider.id.isEmpty || account.isEmpty) {
       return null;
     }
+    final connected = await VPNService.getStarted();
+    String? proxyUrl = connected
+        ? "127.0.0.1:${ClashSettingManager.getMixedPort()}"
+        : null;
+
     for (int i = 0; i < _config.sessions.length; i++) {
       if (_config.sessions[i].provider.id == provider.id &&
           _config.sessions[i].account == account) {
         _config.sessions[i].provider = provider;
         if (i != 0) {
           _config.sessions.insert(0, _config.sessions.removeAt(i));
+          _save();
         }
-        _save();
+
+        if (_config.sessions[0].provider.type == BoardProviderType.v2board) {
+          if (_config.sessions[0]._v2board != null) {
+            _config.sessions[0]._v2board!.proxyUrl = proxyUrl;
+          }
+        } else if (_config.sessions[0].provider.type ==
+            BoardProviderType.xboard) {
+          if (_config.sessions[0]._xboard != null) {
+            _config.sessions[0]._xboard!.proxyUrl = proxyUrl;
+          }
+        } else if (_config.sessions[0].provider.type ==
+            BoardProviderType.sspanel) {
+          if (_config.sessions[0]._ssPanel != null) {
+            _config.sessions[0]._ssPanel!.proxyUrl = proxyUrl;
+          }
+        }
         return _config.sessions[0];
       }
     }
-
-    final connected = await VPNService.getStarted();
-    final proxyUrl = connected
-        ? "127.0.0.1:${ClashSettingManager.getMixedPort()}"
-        : "";
 
     final newSession = BoardSession(
       provider: provider,
@@ -420,7 +436,8 @@ class BoardSessionPersistentManager implements BoardSessionPersistent {
     final connected = await VPNService.getStarted();
     final proxyUrl = connected
         ? "127.0.0.1:${ClashSettingManager.getMixedPort()}"
-        : "";
+        : null;
+
     final useagent = provider.userAgent.isNotEmpty
         ? provider.userAgent
         : SettingManager.getConfig().userAgent();
@@ -536,7 +553,7 @@ class BoardSessionPersistentManager implements BoardSessionPersistent {
       }
       final proxyUrl = state == FlutterVpnServiceState.connected
           ? "127.0.0.1:${ClashSettingManager.getMixedPort()}"
-          : "";
+          : null;
       for (int i = 0; i < _instance._config.sessions.length; i++) {
         if (_instance._config.sessions[i]._v2board != null) {
           _instance._config.sessions[i]._v2board!.proxyUrl = proxyUrl;

@@ -122,7 +122,11 @@ class SettingConfig {
   String languageTag = "";
   SettingConfigItemUI ui = SettingConfigItemUI();
   SettingConfigItemWebDev webdav = SettingConfigItemWebDev();
+  bool devMode = false;
   bool alwayOn = false;
+  String logLevel = bool.fromEnvironment("dart.vm.product")
+      ? "warning"
+      : "info"; //trace, debug, info, warning, error
   String autoUpdateChannel = "stable"; //stable, beta
   bool autoDownloadUpdatePkg = true;
   bool autoConnectAfterLaunch = false;
@@ -146,6 +150,7 @@ class SettingConfig {
     'ui': ui,
     'webdav': webdav,
     'alway_on': alwayOn,
+    'log_level': logLevel,
     'auto_update_channel': autoUpdateChannel,
     'auto_download_udpate_pkg': autoDownloadUpdatePkg,
     'auto_connect_after_launch': autoConnectAfterLaunch,
@@ -173,6 +178,9 @@ class SettingConfig {
     ui = SettingConfigItemUI.fromJsonStatic(map["ui"]);
     webdav = SettingConfigItemWebDev.fromJsonStatic(map["webdav"]);
     alwayOn = map["alway_on"] ?? false;
+    logLevel =
+        map["log_level"] ??
+        (bool.fromEnvironment("dart.vm.product") ? "warning" : "info");
     autoUpdateChannel = map["auto_update_channel"] ?? "stable";
     if (autoUpdateChannel.isEmpty) {
       autoUpdateChannel = Random().nextInt(10) < 5 ? "beta" : "stable";

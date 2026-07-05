@@ -3,6 +3,7 @@
 import 'dart:io';
 
 import 'package:clashmi/app/modules/remote_config_manager.dart';
+import 'package:clashmi/app/modules/setting_manager.dart';
 import 'package:clashmi/app/utils/app_utils.dart';
 import 'package:clashmi/app/utils/file_utils.dart';
 import 'package:clashmi/app/utils/path_utils.dart';
@@ -170,9 +171,16 @@ class AboutScreenState extends LasyRenderingState<AboutScreen> {
       List<GroupItemOptions> options2 = [
         GroupItemOptions(
           pushOptions: GroupItemPushOptions(
-            name: tcontext.meta.devOptions,
+            name: SettingManager.getConfig().devMode
+                ? "${tcontext.meta.devOptions} (Dev Mode)"
+                : tcontext.meta.devOptions,
             onPush: () async {
               onTapDevOptions();
+            },
+            onLongPress: () async {
+              SettingManager.getConfig().devMode =
+                  !SettingManager.getConfig().devMode;
+              setState(() {});
             },
           ),
         ),

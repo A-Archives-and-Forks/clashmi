@@ -44,6 +44,7 @@ dependencies:
   slang_flutter: 4.15.0
   watcher: 1.2.1
   punycode_converter: 0.2.1
+  #detect_proxy_setting: 0.0.10
   scrollview_observer: 1.26.3
   after_layout: 1.2.0
   flutter_install_referrer: 2.1.1
