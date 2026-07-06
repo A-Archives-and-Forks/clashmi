@@ -45,9 +45,12 @@ import 'package:windows_single_instance/windows_single_instance.dart';
 List<String> processArgs = [];
 StartFailedReason? startFailedReason;
 String? startFailedReasonDesc;
+bool linuxRotate180Fix = false;
 
 void main(List<String> args) async {
   processArgs = args;
+  linuxRotate180Fix =
+      Platform.isLinux && Platform.environment["CLASHMI_ROTATE_180"] == "1";
   WidgetsFlutterBinding.ensureInitialized();
   await LocaleSettings.useDeviceLocale();
   await VPNService.initABI();
@@ -333,7 +336,7 @@ class MyAppState extends State<MyApp>
           Provider.of<Themes>(
             context,
           ).setTheme(SettingManager.getConfig().ui.theme, false);
-          return Shortcuts(
+          Widget app = Shortcuts(
             shortcuts: const {
               SingleActivator(LogicalKeyboardKey.select): ActivateIntent(),
             },
@@ -373,6 +376,13 @@ class MyAppState extends State<MyApp>
               darkTheme: ThemeDataDark.theme(context),
             ),
           );
+
+          if (linuxRotate180Fix) {
+            // Workaround for some Linux devices where Flutter content is upside down.
+            app = RotatedBox(quarterTurns: 2, child: app);
+          }
+
+          return app;
         },
       ),
     );
