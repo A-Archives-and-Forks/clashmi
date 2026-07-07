@@ -680,6 +680,22 @@ class ProfileManager {
           updateIntervalByProfile = Duration(hours: pui);
         }
       }
+      if (remark.isEmpty) {
+        final profileTitle = result.data!.value("profile-title");
+        if (profileTitle != null && profileTitle.isNotEmpty) {
+          if (profileTitle.startsWith("base64:")) {
+            final base64Str = profileTitle.substring("base64:".length);
+            try {
+              String de = base64.normalize(base64Str);
+              remark = utf8.decode(base64.decode(de));
+            } catch (e) {
+              Log.w("Failed to decode base64 profile-title: $e");
+            }
+          } else {
+            remark = profileTitle;
+          }
+        }
+      }
     }
     final err = await validFileContentFormat(savePath);
     if (err != null) {
@@ -920,14 +936,6 @@ class ProfileManager {
       }
 
       await FileUtils.append(savePath, "\n$urlComment${profile.url}\n");
-      if (profile.remark.isEmpty) {
-        final result = await HttpUtils.httpGetTitle(profile.url, userAgent);
-        if (result.data == null || result.data!.length > 32) {
-          profile.remark = uri.host;
-        } else {
-          profile.remark = result.data!;
-        }
-      }
       profile.updateSubscriptionTraffic(result.data);
     }
     await save();
