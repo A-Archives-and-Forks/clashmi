@@ -356,10 +356,6 @@ class BoardProviderManager {
         if (provider.lastUpdated != null &&
             DateTime.now().difference(provider.lastUpdated!) <=
                 const Duration(hours: 1)) {
-          if (provider.name != name) {
-            provider.name = name;
-            await _save();
-          }
           return ReturnResult(data: provider);
         }
         break;
@@ -402,10 +398,6 @@ class BoardProviderManager {
     if (result.error != null) {
       for (final provider in _providers) {
         if (provider.names.contains(name)) {
-          if (provider.name != name) {
-            provider.name = name;
-            await _save();
-          }
           return ReturnResult(data: provider);
         }
       }
@@ -457,9 +449,6 @@ class BoardProviderManager {
     }
     if (!config.names.contains(name)) {
       config.names.add(name);
-    }
-    if (config.name != name) {
-      config.name = name;
     }
 
     var updated = _providers
