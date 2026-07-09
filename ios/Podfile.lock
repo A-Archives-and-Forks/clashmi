@@ -179,7 +179,7 @@ SPEC CHECKSUMS:
   open_file_ios: 46184d802ee7959203f6392abcfa0dd49fdb5be0
   OrderedSet: e539b66b644ff081c73a262d24ad552a69be3a94
   package_info_plus: af8e2ca6888548050f16fa2f1938db7b5a5df499
-  path_provider_foundation: 080d55be775b7414fd5a5ef3ac137b97b097e564
+  path_provider_foundation: 608fcb11be570ce83519b076ab6a1fffe2474f05
   protocol_handler: 1da40ea1d5e307f725c72fbec4781d234ef46f66
   qr_code_scanner_plus: 1fb59fd4576edb53ec7560c3746f454dee54300c
   quick_actions_ios: 500fcc11711d9f646739093395c4ae8eec25f779
