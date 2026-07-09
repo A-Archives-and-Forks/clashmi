@@ -322,7 +322,9 @@ class MyAppState extends State<MyApp>
   @override
   Widget build(BuildContext context) {
     String schemeArg = processArgs.firstWhere((element) {
-      return element.trim().startsWith(SystemSchemeUtils.getClashSchemeWith());
+      final arg = element.trim();
+      return arg.startsWith(SystemSchemeUtils.getClashSchemeWith()) ||
+          arg.startsWith(SystemSchemeUtils.getClashMiSchemeWith());
     }, orElse: () => '');
 
     List<NavigatorObserver> observers = [];

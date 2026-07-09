@@ -180,11 +180,13 @@ class _HomeScreenState extends LasyRenderingState<HomeScreen>
     VPNService.onEventStateChanged.add(_onStateChanged);
 
     if (Platform.isWindows) {
-      bool reg = SystemSchemeUtils.isRegistered(
-        SystemSchemeUtils.getClashScheme(),
-      );
-      if (!reg) {
+      if (!SystemSchemeUtils.isRegistered(SystemSchemeUtils.getClashScheme())) {
         SystemSchemeUtils.register(SystemSchemeUtils.getClashScheme());
+      }
+      if (!SystemSchemeUtils.isRegistered(
+        SystemSchemeUtils.getClashMiScheme(),
+      )) {
+        SystemSchemeUtils.register(SystemSchemeUtils.getClashMiScheme());
       }
     }
 
