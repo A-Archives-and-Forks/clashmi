@@ -57,6 +57,13 @@ class _HomeScreenState extends LasyRenderingState<HomeScreen>
 
     WidgetsBinding.instance.addObserver(this);
     protocolHandler.addListener(this);
+    Biz.onEventSingletonInstance = (String url) {
+      Log.w("onEventSingletonInstance: $url");
+      if (!mounted) {
+        return;
+      }
+      SchemeHandler.handle(context, url);
+    };
     _initUrl = widget.launchUrl;
     _init();
   }
@@ -179,14 +186,24 @@ class _HomeScreenState extends LasyRenderingState<HomeScreen>
     };
     VPNService.onEventStateChanged.add(_onStateChanged);
 
-    if (Platform.isWindows) {
+    if (Platform.isWindows || Platform.isLinux) {
       if (!SystemSchemeUtils.isRegistered(SystemSchemeUtils.getClashScheme())) {
-        SystemSchemeUtils.register(SystemSchemeUtils.getClashScheme());
+        final clashRegisterErr = await SystemSchemeUtils.register(
+          SystemSchemeUtils.getClashScheme(),
+        );
+        if (clashRegisterErr != null) {
+          Log.w("register clash scheme failed: $clashRegisterErr");
+        }
       }
       if (!SystemSchemeUtils.isRegistered(
         SystemSchemeUtils.getClashMiScheme(),
       )) {
-        SystemSchemeUtils.register(SystemSchemeUtils.getClashMiScheme());
+        final clashMiRegisterErr = await SystemSchemeUtils.register(
+          SystemSchemeUtils.getClashMiScheme(),
+        );
+        if (clashMiRegisterErr != null) {
+          Log.w("register clashmi scheme failed: $clashMiRegisterErr");
+        }
       }
     }
 

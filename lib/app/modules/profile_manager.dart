@@ -672,12 +672,12 @@ class ProfileManager {
         "profile-update-interval",
       );
       if (profileUpdateInterval != null) {
-        var pui = int.tryParse(profileUpdateInterval);
-        if (pui != null) {
-          if (pui < 1) {
-            pui = 1;
+        var hours = int.tryParse(profileUpdateInterval);
+        if (hours != null) {
+          if (hours < 1) {
+            hours = 1;
           }
-          updateIntervalByProfile = Duration(hours: pui);
+          updateIntervalByProfile = Duration(hours: hours);
         }
       }
       if (remark.isEmpty) {
@@ -875,12 +875,12 @@ class ProfileManager {
         "profile-update-interval",
       );
       if (profileUpdateInterval != null) {
-        var pui = int.tryParse(profileUpdateInterval);
-        if (pui != null) {
-          if (pui < 1) {
-            pui = 1;
+        var hours = int.tryParse(profileUpdateInterval);
+        if (hours != null) {
+          if (hours < 1) {
+            hours = 1;
           }
-          profile.updateIntervalByProfile = Duration(hours: pui);
+          profile.updateIntervalByProfile = Duration(hours: hours);
         }
       }
       final err1 = await decryptProfile(

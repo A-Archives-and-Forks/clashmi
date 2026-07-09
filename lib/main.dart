@@ -40,7 +40,7 @@ import 'package:provider/provider.dart';
 import 'package:tray_manager/tray_manager.dart';
 import 'package:libclash_vpn_service/vpn_service.dart';
 import 'package:window_manager/window_manager.dart';
-import 'package:windows_single_instance/windows_single_instance.dart';
+import 'package:flutter_single_instance/flutter_single_instance.dart';
 
 List<String> processArgs = [];
 StartFailedReason? startFailedReason;
@@ -157,17 +157,8 @@ Future<void> run(List<String> args) async {
       await windowManager.center();
     }
 
-    if (Platform.isWindows) {
-      await WindowsSingleInstance.ensureSingleInstance(
-        args,
-        "clashmi_single_identifier",
-        onSecondWindow: (args) async {
-          if (await windowManager.isMinimized()) {
-            await windowManager.restore();
-          }
-          await windowManager.focus();
-        },
-      );
+    if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
+      await _ensureSingleInstanceOrExit();
     }
 
     await AutoUpdateManager.init();
@@ -205,6 +196,43 @@ Future<void> run(List<String> args) async {
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
   }
   runApp(TranslationProvider(child: const MyApp()));
+}
+
+Future<void> _ensureSingleInstanceOrExit() async {
+  FlutterSingleInstance.debugMode = false;
+  // Use a stable lock file key. On Linux, process names can vary by launch
+  // path (e.g. xdg-open/AppImage), which breaks single-instance detection.
+  FlutterSingleInstance.processName = AppUtils.getId();
+  FlutterSingleInstance.onFocus = (metadata) {
+    var args = metadata["args"] as List<dynamic>?;
+    if (args != null && args.isNotEmpty) {
+      String schemeArg = args.firstWhere((element) {
+        final arg = element.toString().trim();
+        return arg.startsWith(SystemSchemeUtils.getClashSchemeWith()) ||
+            arg.startsWith(SystemSchemeUtils.getClashMiSchemeWith());
+      }, orElse: () => '');
+      if (schemeArg.isNotEmpty) {
+        Biz.onEventSingletonInstance?.call(schemeArg);
+      }
+    }
+  };
+
+  final singleInstance = FlutterSingleInstance();
+  final isFirst = await singleInstance.isFirstInstance(
+    maxRetries: Platform.isLinux ? 5 : 1,
+    retryInterval: const Duration(milliseconds: 250),
+  );
+
+  if (!isFirst) {
+    try {
+      await singleInstance.focus({"args": processArgs});
+    } catch (err) {
+      Log.w("single instance focus exception: ${err.toString()}");
+    }
+
+    // Never continue launching a second process.
+    exit(0);
+  }
 }
 
 class MyApp extends StatefulWidget {
