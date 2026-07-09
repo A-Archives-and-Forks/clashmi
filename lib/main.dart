@@ -59,6 +59,9 @@ void main(List<String> args) async {
   Log.setLevel(SettingManager.getConfig().logLevel);
   await BoardSessionPersistentManager.init();
   await BoardProviderManager.init();
+  if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
+    await _ensureSingleInstanceOrExit();
+  }
 
   await run(args);
 }
@@ -155,10 +158,6 @@ Future<void> run(List<String> args) async {
       }
 
       await windowManager.center();
-    }
-
-    if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
-      await _ensureSingleInstanceOrExit();
     }
 
     await AutoUpdateManager.init();
