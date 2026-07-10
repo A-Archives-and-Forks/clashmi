@@ -187,23 +187,18 @@ class _HomeScreenState extends LasyRenderingState<HomeScreen>
     VPNService.onEventStateChanged.add(_onStateChanged);
 
     if (Platform.isWindows || Platform.isLinux) {
-      if (!SystemSchemeUtils.isRegistered(SystemSchemeUtils.getClashScheme())) {
-        final clashRegisterErr = await SystemSchemeUtils.register(
-          SystemSchemeUtils.getClashScheme(),
-        );
-        if (clashRegisterErr != null) {
-          Log.w("register clash scheme failed: $clashRegisterErr");
-        }
+      final clashRegisterErr = await SystemSchemeUtils.register(
+        SystemSchemeUtils.getClashScheme(),
+      );
+      if (clashRegisterErr != null) {
+        Log.w("register clash scheme failed: $clashRegisterErr");
       }
-      if (!SystemSchemeUtils.isRegistered(
+
+      final clashMiRegisterErr = await SystemSchemeUtils.register(
         SystemSchemeUtils.getClashMiScheme(),
-      )) {
-        final clashMiRegisterErr = await SystemSchemeUtils.register(
-          SystemSchemeUtils.getClashMiScheme(),
-        );
-        if (clashMiRegisterErr != null) {
-          Log.w("register clashmi scheme failed: $clashMiRegisterErr");
-        }
+      );
+      if (clashMiRegisterErr != null) {
+        Log.w("register clashmi scheme failed: $clashMiRegisterErr");
       }
     }
 
