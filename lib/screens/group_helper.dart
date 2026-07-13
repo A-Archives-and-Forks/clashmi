@@ -1610,22 +1610,18 @@ class GroupHelper {
             ),
           ),
         ],
-        if (PlatformUtils.isPC()) ...[
-          GroupItemOptions(
-            switchOptions: GroupItemSwitchOptions(
-              name: tcontext.tun.icmpForward,
-              tips: "disable-icmp-forwarding",
-              switchValue:
-                  tun.DisableICMPForwarding == false ||
-                  tun.DisableICMPForwarding == null,
-              onSwitch: tun.OverWrite != true || tun.Enable != true
-                  ? null
-                  : (bool value) async {
-                      tun.DisableICMPForwarding = !value;
-                    },
-            ),
+        GroupItemOptions(
+          switchOptions: GroupItemSwitchOptions(
+            name: tcontext.tun.icmpForward,
+            tips: "disable-icmp-forwarding",
+            switchValue: tun.DisableICMPForwarding != true,
+            onSwitch: tun.OverWrite != true || tun.Enable != true
+                ? null
+                : (bool value) async {
+                    tun.DisableICMPForwarding = !value;
+                  },
           ),
-        ],
+        ),
       ];
       List<GroupItemOptions> options1 = [];
       if (Platform.isAndroid) {

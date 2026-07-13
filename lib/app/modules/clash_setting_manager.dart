@@ -168,6 +168,7 @@ class ClashSettingManager {
       Inet6Address: [iNet6Address],
       //RouteAddress: routeAddress,
       DNSHijack: [dnsHijack],
+      DisableICMPForwarding: true,
     );
   }
 
