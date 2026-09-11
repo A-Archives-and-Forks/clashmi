@@ -73,12 +73,12 @@ class WebdavClientUtils {
     try {
       await client.ping();
     } catch (err, stacktrace) {
-      return ReturnResult(error: ReturnResultError(err.toString()));
+      return ReturnResult(error: ReturnResultError("ping:${err.toString()}"));
     }
     try {
       await client.mkdir(_prefix);
     } catch (err, stacktrace) {
-      return ReturnResult(error: ReturnResultError(err.toString()));
+      return ReturnResult(error: ReturnResultError("mkdir:${err.toString()}"));
     }
     return ReturnResult(data: client);
   }
@@ -88,12 +88,14 @@ class WebdavClientUtils {
       final list = await client.readDir(_prefix);
       final names = <String>[];
       for (final item in list) {
-        if (item.isDir) continue;
+        if (item.isDir) {
+          continue;
+        }
         names.add(item.name);
       }
       return ReturnResult(data: names);
     } catch (err, stacktrace) {
-      return ReturnResult(error: ReturnResultError(err.toString()));
+      return ReturnResult(error: ReturnResultError("list:${err.toString()}"));
     }
   }
 
@@ -105,7 +107,7 @@ class WebdavClientUtils {
     try {
       await client.writeFile(localPath, _prefix + relativePath);
     } catch (err, stacktrace) {
-      return ReturnResultError(err.toString());
+      return ReturnResultError("upload:${err.toString()}");
     }
     return null;
   }
@@ -117,7 +119,7 @@ class WebdavClientUtils {
     try {
       await client.remove(_prefix + relativePath);
     } catch (err, stacktrace) {
-      return ReturnResultError(err.toString());
+      return ReturnResultError("delete:${err.toString()}");
     }
     return null;
   }
@@ -130,7 +132,7 @@ class WebdavClientUtils {
     try {
       await client.readFile(_prefix + relativePath, localPath);
     } catch (err, stacktrace) {
-      return ReturnResultError(err.toString());
+      return ReturnResultError("download:${err.toString()}");
     }
     return null;
   }
